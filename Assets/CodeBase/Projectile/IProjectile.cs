@@ -12,6 +12,10 @@ namespace CodeBase.Projectile
         public Vector3 Velocity { get; set; }
         
         public float Radius { get; set; }
+        
+        public Vector3 LastPosition { get; set; }
+        
+        public Vector2Int LastCellPosition { get; set; }
 
         public Vector3 GetPosition();
         

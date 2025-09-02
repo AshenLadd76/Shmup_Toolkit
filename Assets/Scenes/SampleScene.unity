@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &10226839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &353215898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,7 +976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1343229066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1081,7 +1081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1405375279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1274,15 +1274,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437075473}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b364043935e94d4aaf557dbfc6f7c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableCollisionDetection: 1
-  showGrid: 1
+  disableCollisionDetection: 0
+  showGrid: 0
   cellSize: 1
-  collisionObjects: []
+  collisionObjects:
+  - {fileID: 1405375278}
+  - {fileID: 2122422825}
+  - {fileID: 1343229065}
+  - {fileID: 10226838}
+  - {fileID: 1539361829}
+  - {fileID: 353215897}
 --- !u!1 &1493100811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1539361830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,7 +1564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2122422826
 MonoBehaviour:
   m_ObjectHideFlags: 0

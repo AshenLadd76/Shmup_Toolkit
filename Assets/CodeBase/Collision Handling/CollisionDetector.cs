@@ -1,9 +1,8 @@
 using System.Collections.Generic;
+using CodeBase.Projectile;
 using Sirenix.OdinInspector;
 using ToolBox.Extensions;
-using ToolBox.Messenger;
 using UnityEngine;
-using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Collision_Handling
 {
@@ -16,14 +15,14 @@ namespace CodeBase.Collision_Handling
         [SerializeField] private float cellSize = 1f;
         
         private Vector2Int _gridSize;
-
+        
         private Vector2 _gridOrigin;
 
         [SerializeField] private List<GameObject> collisionObjects;
-
-        private HashSet<Projectile.Projectile> _tempProjectiles = new();
         
-        [ShowInInspector] private Dictionary<Vector2Int, HashSet<Projectile.Projectile>> _collisionGridDictionary;
+        [ShowInInspector] private Dictionary<Vector2Int, HashSet<IProjectile>> _spatialPartitioningDictionary;
+        
+        private ISpatialPartitioningSystem _spatialPartitioningSystem;
         
         private Camera _mainCamera;
         
@@ -34,19 +33,10 @@ namespace CodeBase.Collision_Handling
             _gridOrigin = new Vector2(-2.5f, -5f);
 
             _gridSize = GridUtility.GetCellCountWorldUnits(_mainCamera,  cellSize);
-            
-            InitDictionary(_gridSize);
+
+            _spatialPartitioningSystem = new SpatialPartitioningSystem(_gridSize);
         }
 
-
-        private void InitDictionary(Vector2Int gridSize)
-        {
-            _collisionGridDictionary = new Dictionary<Vector2Int, HashSet<Projectile.Projectile>>(gridSize.x * gridSize.y);
-            
-            for(int x = 0; x < gridSize.x; x++)
-                for(int y = 0; y < gridSize.y; y++)
-                    _collisionGridDictionary.Add(new Vector2Int(x, y), new HashSet<Projectile.Projectile>());
-        }
 
         public void UpdateCheck(Projectile.Projectile[] projectiles)
         {
@@ -60,60 +50,57 @@ namespace CodeBase.Collision_Handling
                 
                 if(!projectile)  continue;
 
-                if (!projectile.IsActive)
-                {
-                    Vector2Int cellPos = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _gridOrigin, cellSize);
-                    //projectile.LastCellPosition = cellPos;
-                    RemoveFromCollisionCheck(projectile, cellPos);
-                    continue;
-                }
+                if(!RemoveInActiveProjectiles(projectile)) continue;
                 
                 Vector2Int newCellPosition = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _gridOrigin, cellSize);
                 
                 if( newCellPosition == projectile.LastCellPosition ) continue;
                 
-                RemoveFromCollisionCheck(projectile, projectile.LastCellPosition);
-                
-                AddToCollisionCheckGridCell(projectile, newCellPosition);
-                
-                projectile.LastCellPosition = newCellPosition;
+                UpdateActiveObjectsPosition( projectile, newCellPosition );
             }
             
             CollisionCheck();
         }
+
+        private void UpdateActiveObjectsPosition(ISpatialObject projectile, Vector2Int newCellPosition)
+        {
+            _spatialPartitioningSystem?.RemoveFromSpatialPartitionGrid(projectile, projectile.LastCellPosition);
+                
+            projectile.LastCellPosition = newCellPosition;
+                
+            _spatialPartitioningSystem?.AddToSpatialPartitionGrid(projectile);
+        }
+
+        private bool RemoveInActiveProjectiles(ISpatialObject projectile)
+        {
+            if (!projectile.IsActive)
+            {
+                Vector2Int cellPos = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _gridOrigin, cellSize);
+       
+                _spatialPartitioningSystem?.RemoveFromSpatialPartitionGrid(projectile, cellPos);
+
+                return false;
+            }
+
+            return true;
+        }
         
-        public void AddToCollisionCheckGridCell(Projectile.Projectile projectile)
+        public void AddToCollisionCheckGridCell(ISpatialObject projectile)
         {
             if(disableCollisionDetection ) return;
             
             var cellPosition = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _gridOrigin, cellSize);
-
-            AddToCollisionCheckGridCell(projectile, cellPosition);
-        }
-
-        private void AddToCollisionCheckGridCell(Projectile.Projectile projectile, Vector2Int cellPosition)
-        {
-            
-            if(disableCollisionDetection ) return;
-            
-            if (!projectile) return;
             
             projectile.LastCellPosition = cellPosition;
 
-            if (_collisionGridDictionary.TryGetValue(cellPosition, out var cellSet))
-            {
-                cellSet.Add(projectile); // HashSet automatically ignores duplicates
-            }
+            _spatialPartitioningSystem?.AddToSpatialPartitionGrid(projectile);
         }
         
-        public void RemoveFromCollisionCheck(Projectile.Projectile projectile, Vector2Int cellPosition)
+        public void RemoveFromCollisionCheck(ISpatialObject projectile, Vector2Int cellPosition)
         {
             if(disableCollisionDetection ) return;
             
-            if (_collisionGridDictionary.TryGetValue(cellPosition, out var cellSet))
-            {
-                cellSet.Remove(projectile); // O(1)
-            }
+            _spatialPartitioningSystem?.RemoveFromSpatialPartitionGrid(projectile, cellPosition);
         }
 
 
@@ -151,19 +138,21 @@ namespace CodeBase.Collision_Handling
             {
                 int x = minCell.x + (i % width);
                 int y  = minCell.y + (i / width);
+
+                Vector2Int key = new Vector2Int( x,y );
+
+                var cellSet = _spatialPartitioningSystem.GetCellSet(key);
                 
-                _key.x = x;
-                _key.y = y;
-                
-                if (!_collisionGridDictionary.TryGetValue(_key, out var cellSet)) continue;
+                if(cellSet == null) continue;
                 
                 CheckForProjectileCollisions(cellSet , collisionObjectPosition);
             }
         }
-        
-        private void CheckForProjectileCollisions(HashSet<Projectile.Projectile> cellSet, Vector3 objectPosition)
+
+
+        private HashSet<ISpatialObject> _deadProjectiles = new HashSet<ISpatialObject>();
+        private void CheckForProjectileCollisions(HashSet<ISpatialObject> cellSet, Vector3 objectPosition)
         {
-            var deadProjectiles = new HashSet<Projectile.Projectile>();
             
             foreach (var projectile in cellSet)
             {
@@ -173,16 +162,16 @@ namespace CodeBase.Collision_Handling
                 if (CollisionAlgorithms.CircleVsCircle(objectPosition, 0.25f, projectile.GetPosition(), .1f))
                 {
                     projectile.LifeSpan = 0;
-                    deadProjectiles.Add(projectile);
+                    _deadProjectiles.Add(projectile);
                 }
                 
                 projectile.LastPosition = projectile.GetPosition();
             }
             
-            DeleteDeadProjectiles(deadProjectiles);
+            DeleteDeadProjectiles(_deadProjectiles);
         }
         
-        private void DeleteDeadProjectiles(HashSet<Projectile.Projectile> deadProjectiles)
+        private void DeleteDeadProjectiles(HashSet<ISpatialObject> deadProjectiles)
         {
             foreach (var projectile in deadProjectiles)
             {

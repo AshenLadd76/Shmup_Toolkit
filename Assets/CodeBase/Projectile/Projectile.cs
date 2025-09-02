@@ -1,3 +1,4 @@
+using CodeBase.Collision_Handling;
 using Sirenix.OdinInspector;
 using ToolBox.Utils.Pooling;
 using UnityEngine;
@@ -6,7 +7,7 @@ using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Projectile
 {
-    public class Projectile : MonoBehaviour, IProjectile, IPoolable<Projectile>
+    public class Projectile : MonoBehaviour, IProjectile, IPoolable<Projectile>, ISpatialObject
     {
         private Transform _transform;
         
