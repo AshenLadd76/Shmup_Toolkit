@@ -81,8 +81,7 @@ namespace CodeBase.Collision_Handling
                 if (!spatialObject.IsActive) continue;
 
                 var spatialPosition = spatialObject.GetPosition();
-
-                //if(CollisionAlgorithms.LineIntersectsCircle(projectile.LastPosition, projectile.GetPosition(), objectPosition, 0.2f))
+                
                 if (_collisionAlgorithm.CheckCollision(objectPosition, 0.25f, spatialPosition, .1f))
                 {
                     spatialObject.LifeSpan = 0;
