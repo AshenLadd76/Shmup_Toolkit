@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using CodeBase.Projectile;
-using Sirenix.OdinInspector;
 using ToolBox.Extensions;
 using UnityEngine;
 
@@ -20,9 +18,9 @@ namespace CodeBase.Collision_Handling
 
         [SerializeField] private List<GameObject> collisionObjects;
         
-        [ShowInInspector] private Dictionary<Vector2Int, HashSet<IProjectile>> _spatialPartitioningDictionary;
-        
         private ISpatialPartitioningSystem _spatialPartitioningSystem;
+        
+        private ICollisionDetectionSystem _collisionDetectionSystem;
         
         private Camera _mainCamera;
         
@@ -35,6 +33,8 @@ namespace CodeBase.Collision_Handling
             _gridSize = GridUtility.GetCellCountWorldUnits(_mainCamera,  cellSize);
 
             _spatialPartitioningSystem = new SpatialPartitioningSystem(_gridSize);
+            
+            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, collisionObjects, _gridOrigin, cellSize, new CircleCollisionAlgorithm() );
         }
 
 
@@ -48,7 +48,7 @@ namespace CodeBase.Collision_Handling
             {
                 var projectile = projectiles[i];
                 
-                if(!projectile)  continue;
+                if(!projectile) continue;
 
                 if(!RemoveInActiveProjectiles(projectile)) continue;
                 
@@ -59,7 +59,7 @@ namespace CodeBase.Collision_Handling
                 UpdateActiveObjectsPosition( projectile, newCellPosition );
             }
             
-            CollisionCheck();
+            _collisionDetectionSystem?.CollisionCheck();
         }
 
         private void UpdateActiveObjectsPosition(ISpatialObject projectile, Vector2Int newCellPosition)
@@ -104,90 +104,6 @@ namespace CodeBase.Collision_Handling
         }
 
 
-        private ( Vector2 min, Vector2 max ) _bounds;
-        private void CollisionCheck()
-        {
-            if (collisionObjects.IsNullOrEmpty()) return;
-            
-            for (int x = 0; x < collisionObjects.Count; x++)
-            {
-                //Fix this....
-                var collisionObjectPosition = collisionObjects[x].transform.position;
-                
-                //Get the bounds of the current object
-                var bounds = GetWorldBounds( collisionObjectPosition,  Vector2.one * 0.25f );
-                
-                _bounds = bounds;
-                
-                CheckForMultiCellCollisions(bounds, collisionObjectPosition);
-            }
-        }
-
-        private Vector2Int _key;
-        private void CheckForMultiCellCollisions((Vector2 min, Vector2 max) bounds, Vector3 collisionObjectPosition)
-        {
-            Vector2Int minCell = GridUtility.GetCellFromWorldPosition(bounds.min, _gridOrigin, cellSize);
-            Vector2Int maxCell = GridUtility.GetCellFromWorldPosition(bounds.max, _gridOrigin, cellSize);
-            
-            int width = maxCell.x - minCell.x + 1;
-            int height = maxCell.y - minCell.y + 1;
-            int total  = width * height;
-            
-            //Loop through all overlapped cells
-            for (var i = 0; i < total; i++)
-            {
-                int x = minCell.x + (i % width);
-                int y  = minCell.y + (i / width);
-
-                Vector2Int key = new Vector2Int( x,y );
-
-                var cellSet = _spatialPartitioningSystem.GetCellSet(key);
-                
-                if(cellSet == null) continue;
-                
-                CheckForProjectileCollisions(cellSet , collisionObjectPosition);
-            }
-        }
-
-
-        private HashSet<ISpatialObject> _deadProjectiles = new HashSet<ISpatialObject>();
-        private void CheckForProjectileCollisions(HashSet<ISpatialObject> cellSet, Vector3 objectPosition)
-        {
-            
-            foreach (var projectile in cellSet)
-            {
-                if (!projectile.IsActive) continue;
-
-               //if(CollisionAlgorithms.LineIntersectsCircle(projectile.LastPosition, projectile.GetPosition(), objectPosition, 0.2f))
-                if (CollisionAlgorithms.CircleVsCircle(objectPosition, 0.25f, projectile.GetPosition(), .1f))
-                {
-                    projectile.LifeSpan = 0;
-                    _deadProjectiles.Add(projectile);
-                }
-                
-                projectile.LastPosition = projectile.GetPosition();
-            }
-            
-            DeleteDeadProjectiles(_deadProjectiles);
-        }
-        
-        private void DeleteDeadProjectiles(HashSet<ISpatialObject> deadProjectiles)
-        {
-            foreach (var projectile in deadProjectiles)
-            {
-                projectile.LifeSpan = 0;
-                projectile.LastCellPosition = new Vector2Int(int.MinValue, int.MinValue);
-            }
-            
-            deadProjectiles.Clear();
-        }
-        
-        private (Vector2 min, Vector2 max) GetWorldBounds(Vector2 position, Vector2 halfSize)
-        {
-            Vector2 min = position - halfSize;
-            Vector2 max = position + halfSize;
-            return (min, max);
-        }
         
         private void OnDrawGizmos()
         {
@@ -202,12 +118,6 @@ namespace CodeBase.Collision_Handling
                     Gizmos.DrawWireCube(pos + Vector2.one * cellSize * 0.5f, Vector3.one * cellSize);
                 }
             }
-            
-            Vector2 center = (_bounds.min + _bounds.max) * 0.5f;
-            Vector2 size = _bounds.max - _bounds.min;
-
-            Gizmos.color = Color.red; // or any color you want
-            Gizmos.DrawWireCube(center, size);
         }
     }
 }

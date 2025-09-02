@@ -39,15 +39,13 @@ namespace CodeBase.Projectile
             ScreenBoundaryChecker.Initialize();
         }
 
-        private void Start() =>InitializeProjectileArray();
+        private void Start() => InitializeProjectileArray();
 
         private void Update()
         {
-            
             BatchMoveActiveProjectiles(Time.deltaTime);
             
             collisionDetector?.UpdateCheck(activeProjectileArr);
-
             
             if (_frameCount <= 60)
             {
@@ -57,8 +55,6 @@ namespace CodeBase.Projectile
             
             activeProjectileCountText.SetText(_activeProjectileCount.ToString());
             _frameCount = 0;
-            
-          
         }
 
         private void LateUpdate() => ScreenBoundaryChecker.CalculateBounds();

@@ -27,5 +27,13 @@ namespace CodeBase.Collision_Handling
             int cellY = Mathf.FloorToInt((worldPos.y - gridOrigin.y) / cellSize);
             return new Vector2Int(cellX, cellY);
         }
+        
+        public static (Vector2 min, Vector2 max) GetWorldBounds(Vector2 position, Vector2 halfSize)
+        {
+            Vector2 min = position - halfSize;
+            Vector2 max = position + halfSize;
+            return (min, max);
+        }
+
     }
 }
