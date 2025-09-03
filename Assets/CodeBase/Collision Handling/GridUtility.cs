@@ -34,6 +34,5 @@ namespace CodeBase.Collision_Handling
             Vector2 max = position + halfSize;
             return (min, max);
         }
-
     }
 }

@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
-using CodeBase.Projectile;
 using UnityEngine;
 
 namespace CodeBase.Collision_Handling
 {
     public interface ISpatialPartitioningSystem
     {
+        public void UpdateCheck(ISpatialObject[] projectiles, Vector3 gridOrigin, float cellSize);
         void RemoveFromSpatialPartitionGrid(ISpatialObject projectile, Vector2Int cellPosition);
         void AddToSpatialPartitionGrid(ISpatialObject projectile);
-        HashSet<ISpatialObject> GetCellSet(Vector2Int key);
+
+        public bool TryGetValidCell(Vector2Int cell, out HashSet<ISpatialObject> cellSet);
     }
 
     public interface ISpatialObject

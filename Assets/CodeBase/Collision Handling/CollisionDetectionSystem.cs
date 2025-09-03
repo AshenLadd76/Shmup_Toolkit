@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ToolBox.Extensions;
 using UnityEngine;
 
@@ -17,12 +18,16 @@ namespace CodeBase.Collision_Handling
         private readonly List<GameObject> _collisionObjects;
         
         private ICollisionAlgorithm _collisionAlgorithm;
+
+        private float _boundsPadding;
         
         public CollisionDetectionSystem(ISpatialPartitioningSystem spatialPartitioningSystem, List<GameObject> collisionObjects, Vector2 gridOrigin, float cellSize, ICollisionAlgorithm collisionAlgorithm)
         {
             _spatialPartitioningSystem = spatialPartitioningSystem ?? throw new System.ArgumentNullException(nameof(spatialPartitioningSystem), "Spatial partitioning system cannot be null.");
             _collisionObjects = collisionObjects ?? throw new System.ArgumentNullException(nameof(collisionObjects), "Collision objects list cannot be null.");
             _collisionAlgorithm = collisionAlgorithm ?? throw new System.ArgumentNullException(nameof(collisionAlgorithm));
+            
+            if (cellSize <= 0) throw new ArgumentOutOfRangeException(nameof(cellSize), "Cell size must be positive.");
             
             _gridOrigin = gridOrigin;
             _cellSize = cellSize;
@@ -37,8 +42,12 @@ namespace CodeBase.Collision_Handling
 
             for (int x = 0; x < _collisionObjects.Count; x++)
             {
+                var collisionObject = _collisionObjects[x];
+
+                if (!collisionObject) continue;
+                
                 //Fix this....
-                var collisionObjectPosition = _collisionObjects[x].transform.position;
+                var collisionObjectPosition = collisionObject.transform.position;
                 
                 //Get the bounds of the current object
                 var bounds = GridUtility.GetWorldBounds( collisionObjectPosition,  Vector2.one * 0.25f );
@@ -61,9 +70,8 @@ namespace CodeBase.Collision_Handling
                     currentCellKey.x = x;
                     currentCellKey.y = y;
                     
-                    var cellSet = _spatialPartitioningSystem.GetCellSet(currentCellKey);
-
-                    if (cellSet == null) continue; 
+                    //var cellSet = _spatialPartitioningSystem.GetCellSet(currentCellKey);
+                    if (!_spatialPartitioningSystem.TryGetValidCell(currentCellKey, out var cellSet)) continue;
                     
                     CheckForCollisions(cellSet, collisionObjectPosition);
                 }

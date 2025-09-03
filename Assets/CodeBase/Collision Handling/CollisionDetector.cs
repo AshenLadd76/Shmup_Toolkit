@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using ToolBox.Extensions;
 using UnityEngine;
 
 namespace CodeBase.Collision_Handling
@@ -38,52 +37,13 @@ namespace CodeBase.Collision_Handling
         }
 
 
-        public void UpdateCheck(Projectile.Projectile[] projectiles)
+        public void UpdateCheck(ISpatialObject[] spatialObjects)
         {
-            if (disableCollisionDetection) return;
-            
-            if (projectiles.IsNullOrEmpty() ) return;
-            
-            for (var i = 0; i < projectiles.Length; i++)
-            {
-                var projectile = projectiles[i];
-                
-                if(!projectile) continue;
-
-                if(!RemoveInActiveProjectiles(projectile)) continue;
-                
-                Vector2Int newCellPosition = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _gridOrigin, cellSize);
-                
-                if( newCellPosition == projectile.LastCellPosition ) continue;
-                
-                UpdateActiveObjectsPosition( projectile, newCellPosition );
-            }
+            _spatialPartitioningSystem.UpdateCheck(spatialObjects, _gridOrigin, cellSize);
             
             _collisionDetectionSystem?.CollisionCheck();
         }
 
-        private void UpdateActiveObjectsPosition(ISpatialObject projectile, Vector2Int newCellPosition)
-        {
-            _spatialPartitioningSystem?.RemoveFromSpatialPartitionGrid(projectile, projectile.LastCellPosition);
-                
-            projectile.LastCellPosition = newCellPosition;
-                
-            _spatialPartitioningSystem?.AddToSpatialPartitionGrid(projectile);
-        }
-
-        private bool RemoveInActiveProjectiles(ISpatialObject projectile)
-        {
-            if (!projectile.IsActive)
-            {
-                Vector2Int cellPos = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _gridOrigin, cellSize);
-       
-                _spatialPartitioningSystem?.RemoveFromSpatialPartitionGrid(projectile, cellPos);
-
-                return false;
-            }
-
-            return true;
-        }
         
         public void AddToCollisionCheckGridCell(ISpatialObject projectile)
         {

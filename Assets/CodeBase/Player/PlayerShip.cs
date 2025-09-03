@@ -1,58 +1,62 @@
-using System.Collections.Generic;
-using CodeBase.Collision_Handling;
+using ToolBox.Extensions;
 using UnityEngine;
 
 namespace CodeBase.Player
 {
-    public class PlayerShip : MonoBehaviour, ICollider
+    public class PlayerShip : MonoBehaviour
     {
-        [SerializeField] private bool showDebug;
+        private Transform _transform;
+
+        [SerializeField] private Vector2 direction;
         
-        [SerializeField] private Vector3 pointA;
-        [SerializeField] private Vector3 pointB;
-        [SerializeField] private float duration = 1f;
-
-        [SerializeField] private Vector2 localOffset;
-        public Vector2 Position { get; set; }
-        public float Radius { get; set; }
-        public List<Vector2Int> OccupiedCells { get; set; }
-
+        [SerializeField] private float moveSpeed = 20f;
+        
+        [SerializeField] private float shipBoundsPadding = 0.25f;
+        
+        private (Vector3 min, Vector3 max) _bounds;
+        
+        private Camera _camera;
+        
         private void Awake()
         {
-            Position = transform.position;
-            localOffset = Vector2.one * 0.25f;
-        }
+            _transform = transform;
+            
+            _camera = Camera.main;
 
-      //  private void Start() => Move();
+            _bounds = _camera.GetBounds(shipBoundsPadding);
+        }
 
         private void Update()
         {
-            if(showDebug)
-                GetWorldBounds();
+           GetDirection();
+           
+           Move();
         }
         
-        private void Move() => LeanTween.move(gameObject, pointB, duration).setEase(LeanTweenType.linear).setLoopPingPong();
-        
-        public (Vector2 min, Vector2 max) GetWorldBounds()
+        private void GetDirection()
         {
-            Vector2 min = Position - localOffset;
-            Vector2 max = Position + localOffset;
+            var vertical = Input.GetAxisRaw("Vertical");
+            var horizontal = Input.GetAxisRaw("Horizontal");
             
-            return (min, max);
+            direction = new Vector2(horizontal, vertical);
         }
-        
-        private void OnDrawGizmos()
-        {
-            if (!showDebug) return;
-            
-            Vector2 pos = (Vector2)transform.position;
-            var min = pos - localOffset;
-            var max = pos + localOffset;
 
-            Vector3 center = (Vector3)(min + max) * 0.5f;
-            Vector3 size = (Vector3)(max - min);
-            Gizmos.color = Color.green;
-            Gizmos.DrawCube(center, size);
+
+        private void Move()
+        {
+            var delta = Vector3.ClampMagnitude(direction, 1f) * (moveSpeed * Time.deltaTime);
+            
+            var positionToClamp = _transform.position + delta;
+            
+            _transform.position = ClampPositionToScreenBounds(positionToClamp);
+        }
+
+        private Vector3 ClampPositionToScreenBounds(Vector3 position)
+        {
+            position.x = Mathf.Clamp(position.x, _bounds.min.x, _bounds.max.x);
+            position.y = Mathf.Clamp(position.y, _bounds.min.y, _bounds.max.y);
+            
+            return position; 
         }
     }
 }

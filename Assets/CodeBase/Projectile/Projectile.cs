@@ -109,7 +109,7 @@ namespace CodeBase.Projectile
 
             IsActive = active;
             
-            LastCellPosition = new Vector2Int(int.MinValue, int.MinValue);
+            //LastCellPosition = new Vector2Int(int.MinValue, int.MinValue);
         }
         
         
