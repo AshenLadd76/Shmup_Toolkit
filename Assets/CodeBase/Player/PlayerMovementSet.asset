@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa47efe206a9c6e4ea355bd509ebc980, type: 3}
+  m_Name: PlayerMovementSet
+  m_EditorClassIdentifier: 
+  directionAnimations:
+  - direction: {x: 0, y: 1}
+    animationName: FlyStraight
+  - direction: {x: 1, y: 1}
+    animationName: PartialTiltRight
+  - direction: {x: 1, y: 0}
+    animationName: PartialTiltRight
+  - direction: {x: 1, y: -1}
+    animationName: PartialTiltBackDiagonalRight
+  - direction: {x: 0, y: -1}
+    animationName: FlyBack
+  - direction: {x: -1, y: -1}
+    animationName: PartialTiltBackDiagonalLeft
+  - direction: {x: -1, y: 0}
+    animationName: PartialTiltLeft
+  - direction: {x: -1, y: 1}
+    animationName: PartialTiltLeft
+  - direction: {x: 0, y: 0}
+    animationName: FlyStraight

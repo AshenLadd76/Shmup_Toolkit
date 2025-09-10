@@ -1,10 +1,15 @@
 using ToolBox.Extensions;
 using UnityEngine;
+using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Player
 {
     public class PlayerShip : MonoBehaviour
     {
+
+
+        private int _currentAnimationHash;
+        
         private  readonly int _directionX = Animator.StringToHash("DirectionX");
         private readonly int _tiltTimeField = Animator.StringToHash("TiltTime");
         private readonly int _directionY = Animator.StringToHash("DirectionY");
@@ -13,6 +18,8 @@ namespace CodeBase.Player
         private Transform _transform;
 
         private Animator _animator;
+        
+        [SerializeField] private PlayerMovementData playerMovementData;
 
         [SerializeField] private Vector3 direction;
         
@@ -23,6 +30,9 @@ namespace CodeBase.Player
         private int _currentDirectionX;
         private int _currentDirectionY;
         private int _lastDirectionX;
+
+        private Vector2Int _lastDirection;
+        private Vector2Int _newDirection;
         
         private float _tiltTime;
         
@@ -61,10 +71,9 @@ namespace CodeBase.Player
 
         private void LateUpdate()
         {
+            _animator.SetFloat(_tiltTimeField, _tiltTime);
             
-            _animator.SetInteger( _directionX, _currentDirectionX );
-            _animator.SetInteger( _directionY, _currentDirectionY);
-            _animator.SetFloat( _tiltTimeField , _tiltTime );
+            HandleAnimation();
         }
 
 
@@ -75,6 +84,19 @@ namespace CodeBase.Player
             var positionToClamp = _transform.position + delta;
             
             _transform.position = ClampPositionToScreenBounds(positionToClamp);
+        }
+
+        private void HandleAnimation()
+        {
+            _newDirection = Vector2Int.RoundToInt( direction );
+
+            if (_lastDirection == _newDirection) return;
+            
+            _lastDirection = _newDirection;
+                
+            _currentAnimationHash = playerMovementData.GetAnimationHash( _newDirection );
+            
+            _animator.CrossFade( _currentAnimationHash, 0.1f);
         }
 
         private Vector3 ClampPositionToScreenBounds(Vector3 position)

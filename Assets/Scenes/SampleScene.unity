@@ -10458,6 +10458,7 @@ GameObject:
   - component: {fileID: 1405375284}
   - component: {fileID: 1405375283}
   - component: {fileID: 1405375282}
+  - component: {fileID: 1405375285}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -10548,6 +10549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6deecb114312f41bbd3a30874ff96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovementData: {fileID: 11400000, guid: ebf4bd52e6d9988438e7ff69c8c79baf, type: 2}
   direction: {x: 0, y: 0, z: 0}
   moveSpeed: 10
   vertical: 0
@@ -10604,6 +10606,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Library: []
   m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 88d2d98a6f3f2fd43af2932caac3b499, type: 3}
+--- !u!114 &1405375285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405375278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c8b7376af6c214781db08c65702760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1437075473
 GameObject:
   m_ObjectHideFlags: 0
@@ -11016,7 +11030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1576253309
 Transform:
   m_ObjectHideFlags: 0
