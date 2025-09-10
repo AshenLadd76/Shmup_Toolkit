@@ -1,18 +1,13 @@
 using ToolBox.Extensions;
 using UnityEngine;
-using Logger = ToolBox.Utils.Logger;
+
 
 namespace CodeBase.Player
 {
     public class PlayerShip : MonoBehaviour
     {
-
-
         private int _currentAnimationHash;
         
-        private  readonly int _directionX = Animator.StringToHash("DirectionX");
-        private readonly int _tiltTimeField = Animator.StringToHash("TiltTime");
-        private readonly int _directionY = Animator.StringToHash("DirectionY");
         private readonly int _superBombTrigger = Animator.StringToHash("SuperBomb");
         
         private Transform _transform;
@@ -40,6 +35,8 @@ namespace CodeBase.Player
         
         private Camera _camera;
         
+        private ShmupShipAnimator _shmupAnimator;
+        
         private void Awake()
         {
             _transform = transform;
@@ -49,6 +46,8 @@ namespace CodeBase.Player
             _bounds = _camera.GetBounds(0.2f);
             
             _animator = GetComponent<Animator>();
+
+            _shmupAnimator = new ShmupShipAnimator(_animator, playerMovementData);
         }
 
         private void Update()
@@ -63,17 +62,12 @@ namespace CodeBase.Player
            _currentDirectionX = Mathf.RoundToInt( direction.x );
            _currentDirectionY = Mathf.RoundToInt( direction.y );
            
-           TiltCheck();
-           
            Move();
-           
         }
 
         private void LateUpdate()
         {
-            _animator.SetFloat(_tiltTimeField, _tiltTime);
-            
-            HandleAnimation();
+            _shmupAnimator.UpdateAnimator(direction);
         }
 
 
@@ -86,32 +80,13 @@ namespace CodeBase.Player
             _transform.position = ClampPositionToScreenBounds(positionToClamp);
         }
 
-        private void HandleAnimation()
-        {
-            _newDirection = Vector2Int.RoundToInt( direction );
-
-            if (_lastDirection == _newDirection) return;
-            
-            _lastDirection = _newDirection;
-                
-            _currentAnimationHash = playerMovementData.GetAnimationHash( _newDirection );
-            
-            _animator.CrossFade( _currentAnimationHash, 0.1f);
-        }
-
+        
         private Vector3 ClampPositionToScreenBounds(Vector3 position)
         {
             position.x = Mathf.Clamp(position.x, _bounds.min.x, _bounds.max.x);
             position.y = Mathf.Clamp(position.y, _bounds.min.y, _bounds.max.y);
             
             return position; 
-        }
-
-        private void TiltCheck()
-        {
-            _tiltTime = (_currentDirectionX == 0 || _currentDirectionX != _lastDirectionX) ? 0f : _tiltTime + Time.deltaTime;
-
-            _lastDirectionX = _currentDirectionX;
         }
     }
 }
