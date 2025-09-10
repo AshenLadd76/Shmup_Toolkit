@@ -1,0 +1,529 @@
+fileFormatVersion: 2
+guid: 42a9f1ce474d8d84798417cf725b0167
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2185420696440283309
+    second: mega_bomb_0
+  - first:
+      213: -3081997275815756417
+    second: mega_bomb_1
+  - first:
+      213: 5821384546933501936
+    second: mega_bomb_2
+  - first:
+      213: -2857588229373352857
+    second: mega_bomb_3
+  - first:
+      213: 6206815182273341615
+    second: mega_bomb_4
+  - first:
+      213: -228612181796524186
+    second: mega_bomb_5
+  - first:
+      213: -5538190460341009519
+    second: mega_bomb_6
+  - first:
+      213: -3516351708674954089
+    second: mega_bomb_7
+  - first:
+      213: -5831320190981450571
+    second: mega_bomb_8
+  - first:
+      213: 7378269066237938394
+    second: mega_bomb_9
+  - first:
+      213: 2021974850285549545
+    second: mega_bomb_10
+  - first:
+      213: -7707316656668902186
+    second: mega_bomb_11
+  - first:
+      213: 3034496422028859152
+    second: mega_bomb_12
+  - first:
+      213: 8116926032128793745
+    second: mega_bomb_13
+  - first:
+      213: -2307059843895133936
+    second: mega_bomb_14
+  - first:
+      213: -7027504420511380407
+    second: mega_bomb_15
+  - first:
+      213: 2451065102054577623
+    second: mega_bomb_16
+  - first:
+      213: -696414851000619998
+    second: mega_bomb_17
+  - first:
+      213: 4013229790054156235
+    second: mega_bomb_18
+  - first:
+      213: 5955090415920813581
+    second: mega_bomb_19
+  - first:
+      213: 7952723277237100358
+    second: mega_bomb_20
+  - first:
+      213: -5550005335168005739
+    second: mega_bomb_21
+  - first:
+      213: 604491925408896738
+    second: mega_bomb_22
+  - first:
+      213: -7111222636739432013
+    second: mega_bomb_23
+  - first:
+      213: 7080515886582566139
+    second: mega_bomb_24
+  - first:
+      213: 5025394723196064731
+    second: mega_bomb_25
+  - first:
+      213: -370359403408654748
+    second: mega_bomb_26
+  - first:
+      213: -1929304825760470559
+    second: mega_bomb_27
+  - first:
+      213: -8346244522792743634
+    second: mega_bomb_28
+  - first:
+      213: 1123489277424600527
+    second: mega_bomb_29
+  - first:
+      213: -5836019645021870672
+    second: mega_bomb_30
+  - first:
+      213: -858880407920594421
+    second: mega_bomb_31
+  - first:
+      213: 9061186374742407663
+    second: mega_bomb_32
+  - first:
+      213: -5065992942074874165
+    second: mega_bomb_33
+  - first:
+      213: -5075955449490090420
+    second: mega_bomb_34
+  - first:
+      213: -8979595262759290014
+    second: mega_bomb_35
+  - first:
+      213: -1370393759137518518
+    second: mega_bomb_36
+  - first:
+      213: -7592989546350235534
+    second: mega_bomb_37
+  - first:
+      213: -3778133277871825751
+    second: mega_bomb_38
+  - first:
+      213: -2000919375028614707
+    second: mega_bomb_39
+  - first:
+      213: -264875016767224512
+    second: mega_bomb_40
+  - first:
+      213: 7001875921080640105
+    second: mega_bomb_41
+  - first:
+      213: -4694878475593493399
+    second: mega_bomb_42
+  - first:
+      213: 4097285322173887402
+    second: mega_bomb_43
+  - first:
+      213: -4820316918509037419
+    second: mega_bomb_44
+  - first:
+      213: -8107871228705579963
+    second: mega_bomb_45
+  - first:
+      213: -3066714019169403486
+    second: mega_bomb_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mega_bomb_0
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 55
+        width: 175
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da02c186b8c245e10800000000000000
+      internalID: 2185420696440283309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mega_bomb_1
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 41
+        width: 188
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7db7488ecb8a35d0800000000000000
+      internalID: -3081997275815756417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mega_bomb_2
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 29
+        width: 206
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff6be40766b9c050800000000000000
+      internalID: 5821384546933501936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mega_bomb_3
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 30
+        width: 192
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7642dd145aec758d0800000000000000
+      internalID: -2857588229373352857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mega_bomb_4
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 36
+        width: 185
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa867ede589032650800000000000000
+      internalID: 6206815182273341615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mega_bomb_6
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 34
+        width: 190
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 193cae07e156423b0800000000000000
+      internalID: -5538190460341009519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mega_bomb_7
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 24
+        width: 199
+        height: 207
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c671b50c8633fc0800000000000000
+      internalID: -3516351708674954089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mega_bomb_13
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 77
+        width: 115
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c582d883d15a070800000000000000
+      internalID: 8116926032128793745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mega_bomb_5
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 152
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0e92326743d77409a8c31f63c7b633
+      internalID: -228612181796524186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ad396e46a6d08e7498f58382bf967eb8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mega_bomb_0: 2185420696440283309
+      mega_bomb_1: -3081997275815756417
+      mega_bomb_10: 2021974850285549545
+      mega_bomb_11: -7707316656668902186
+      mega_bomb_12: 3034496422028859152
+      mega_bomb_13: 8116926032128793745
+      mega_bomb_14: -2307059843895133936
+      mega_bomb_15: -7027504420511380407
+      mega_bomb_16: 2451065102054577623
+      mega_bomb_17: -696414851000619998
+      mega_bomb_18: 4013229790054156235
+      mega_bomb_19: 5955090415920813581
+      mega_bomb_2: 5821384546933501936
+      mega_bomb_20: 7952723277237100358
+      mega_bomb_21: -5550005335168005739
+      mega_bomb_22: 604491925408896738
+      mega_bomb_23: -7111222636739432013
+      mega_bomb_24: 7080515886582566139
+      mega_bomb_25: 5025394723196064731
+      mega_bomb_26: -370359403408654748
+      mega_bomb_27: -1929304825760470559
+      mega_bomb_28: -8346244522792743634
+      mega_bomb_29: 1123489277424600527
+      mega_bomb_3: -2857588229373352857
+      mega_bomb_30: -5836019645021870672
+      mega_bomb_31: -858880407920594421
+      mega_bomb_32: 9061186374742407663
+      mega_bomb_33: -5065992942074874165
+      mega_bomb_34: -5075955449490090420
+      mega_bomb_35: -8979595262759290014
+      mega_bomb_36: -1370393759137518518
+      mega_bomb_37: -7592989546350235534
+      mega_bomb_38: -3778133277871825751
+      mega_bomb_39: -2000919375028614707
+      mega_bomb_4: 6206815182273341615
+      mega_bomb_40: -264875016767224512
+      mega_bomb_41: 7001875921080640105
+      mega_bomb_42: -4694878475593493399
+      mega_bomb_43: 4097285322173887402
+      mega_bomb_44: -4820316918509037419
+      mega_bomb_45: -8107871228705579963
+      mega_bomb_46: -3066714019169403486
+      mega_bomb_5: -228612181796524186
+      mega_bomb_6: -5538190460341009519
+      mega_bomb_7: -3516351708674954089
+      mega_bomb_8: -5831320190981450571
+      mega_bomb_9: 7378269066237938394
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

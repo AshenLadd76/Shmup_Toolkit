@@ -1,4 +1,3 @@
-using System.Collections;
 using ToolBox.Extensions;
 using UnityEngine;
 
@@ -9,6 +8,7 @@ namespace CodeBase.Player
         private  readonly int _directionX = Animator.StringToHash("DirectionX");
         private readonly int _tiltTimeField = Animator.StringToHash("TiltTime");
         private readonly int _directionY = Animator.StringToHash("DirectionY");
+        private readonly int _superBombTrigger = Animator.StringToHash("SuperBomb");
         
         private Transform _transform;
 
@@ -43,6 +43,8 @@ namespace CodeBase.Player
 
         private void Update()
         {
+            if( Input.GetKeyDown( KeyCode.Space) ) _animator.SetTrigger( _superBombTrigger ); 
+            
            vertical = Input.GetAxisRaw("Vertical");
            horizontal = Input.GetAxisRaw("Horizontal");
            
@@ -59,6 +61,7 @@ namespace CodeBase.Player
 
         private void LateUpdate()
         {
+            
             _animator.SetInteger( _directionX, _currentDirectionX );
             _animator.SetInteger( _directionY, _currentDirectionY);
             _animator.SetFloat( _tiltTimeField , _tiltTime );
