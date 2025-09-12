@@ -21,6 +21,7 @@ namespace CodeBase.Player
         [SerializeField] private float moveSpeed = 20f;
         [SerializeField] private float vertical;
         [SerializeField] private float horizontal;
+        
  
         private int _currentDirectionX;
         private int _currentDirectionY;
