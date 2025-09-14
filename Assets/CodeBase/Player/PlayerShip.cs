@@ -1,5 +1,6 @@
 using ToolBox.Extensions;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace CodeBase.Player
@@ -21,6 +22,8 @@ namespace CodeBase.Player
         [SerializeField] private float moveSpeed = 20f;
         [SerializeField] private float vertical;
         [SerializeField] private float horizontal;
+
+        [SerializeField] private UnityEvent<float> OnSpecialAttack;
         
  
         private int _currentDirectionX;
@@ -53,7 +56,7 @@ namespace CodeBase.Player
 
         private void Update()
         {
-            if( Input.GetKeyDown( KeyCode.Space) ) _animator.SetTrigger( _superBombTrigger ); 
+            if( Input.GetKeyDown( KeyCode.Space) ) OnSpecialAttack?.Invoke( _transform.position.x );
             
            vertical = Input.GetAxisRaw("Vertical");
            horizontal = Input.GetAxisRaw("Horizontal");
