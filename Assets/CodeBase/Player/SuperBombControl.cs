@@ -10,10 +10,9 @@ namespace CodeBase.Player
     {
         [SerializeField] private int bombCount;
         [SerializeField] private float shieldBuffer = 1f;
-        
-        [Validate] private Animator _animator;
         [Validate, SerializeField] private GameObject bombShield;
         
+        [Validate] private Animator _animator;
         [Validate] private Transform _transform;
         [Validate] private AnimatorClipHelper _animatorClipHelper;
         

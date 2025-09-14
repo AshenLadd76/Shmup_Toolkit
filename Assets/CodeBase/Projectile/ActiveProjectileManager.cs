@@ -148,7 +148,6 @@ namespace CodeBase.Projectile
             _positionBuffer[index] = _positionBuffer[_activeProjectileCount - 1];
             
             
-            
             // Shrink the active count
             _activeProjectileCount--;
         }
