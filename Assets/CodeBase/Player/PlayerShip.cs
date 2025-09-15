@@ -1,15 +1,16 @@
+using CodeBase.Weapons;
 using ToolBox.Extensions;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 
 namespace CodeBase.Player
 {
+    [RequireComponent(typeof(IWeapon))]
     public class PlayerShip : MonoBehaviour
     {
         private int _currentAnimationHash;
-        
-        private readonly int _superBombTrigger = Animator.StringToHash("SuperBomb");
         
         private Transform _transform;
 
@@ -23,11 +24,8 @@ namespace CodeBase.Player
         [SerializeField] private float vertical;
         [SerializeField] private float horizontal;
 
-        [SerializeField] private UnityEvent<float> OnSpecialAttack;
+        [SerializeField] private UnityEvent<float> onSpecialAttack;
         
- 
-        private int _currentDirectionX;
-        private int _currentDirectionY;
         private int _lastDirectionX;
 
         private Vector2Int _lastDirection;
@@ -40,6 +38,8 @@ namespace CodeBase.Player
         private Camera _camera;
         
         private ShmupShipAnimator _shmupAnimator;
+
+        private IWeapon _weaponSystem;
         
         private void Awake()
         {
@@ -52,19 +52,22 @@ namespace CodeBase.Player
             _animator = GetComponent<Animator>();
 
             _shmupAnimator = new ShmupShipAnimator(_animator, playerMovementData);
+
+            _weaponSystem = GetComponent<IWeapon>();
         }
 
         private void Update()
         {
-            if( Input.GetKeyDown( KeyCode.Space) ) OnSpecialAttack?.Invoke( _transform.position.x );
+            if( Input.GetKeyDown( KeyCode.Space) ) onSpecialAttack?.Invoke( _transform.position.x );
+            
+            if( Input.GetKey( KeyCode.LeftControl ) ) _weaponSystem.Fire();
+            
+            if( Input.GetKeyUp( KeyCode.LeftControl) ) _weaponSystem.StopFire();
             
            vertical = Input.GetAxisRaw("Vertical");
            horizontal = Input.GetAxisRaw("Horizontal");
            
            direction = new Vector2(horizontal, vertical);
-           
-           _currentDirectionX = Mathf.RoundToInt( direction.x );
-           _currentDirectionY = Mathf.RoundToInt( direction.y );
            
            Move();
         }

@@ -63,7 +63,8 @@ namespace CodeBase.Projectile
         {
             if (transform.childCount <= 0) return;
 
-            int activeArrayLength = GetComponentsInChildren<Projectile>(true).Length;
+            int activeArrayLength = GetComponentsInChildren<IProjectile>(true).Length;
+            
             activeProjectileArr = new Projectile[activeArrayLength];
         }
 
