@@ -136,7 +136,11 @@ namespace ToolBox.TileManagement.Editor
             
             ITileExtractor tileExtractor = new TileExtractor( _loadedTexture, _tileWidth, _tileHeight );
             
-            tileExtractor.ExtractTiles();
+            var uniqueTilesDictionary = tileExtractor.ExtractTiles();
+            
+            //Build the tile sheet from the extracted tiles
+
+            var tileSet = new TileSetBuilder(uniqueTilesDictionary).SetColumnCount(5).SetRowCount(5).Build();
         }
     }
 }

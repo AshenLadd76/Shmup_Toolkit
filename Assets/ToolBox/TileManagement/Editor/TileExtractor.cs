@@ -5,7 +5,7 @@ namespace ToolBox.TileManagement.Editor
 {
     public interface ITileExtractor
     {
-        void ExtractTiles();
+        Dictionary<byte[], Color32[]> ExtractTiles();
     }
 
     public class TileExtractor : ITileExtractor
@@ -27,7 +27,7 @@ namespace ToolBox.TileManagement.Editor
             _uniqueTileDictionary = new Dictionary<byte[], Color32[]>(new ByteArrayComparer());
         }
 
-        public void ExtractTiles()
+        public Dictionary<byte[], Color32[]> ExtractTiles()
         {
             Debug.Log( $"Extracting Tiles from { _textureToTile.name }" );
             
@@ -46,6 +46,8 @@ namespace ToolBox.TileManagement.Editor
                     CheckAndAddUniqueTile(tile);
                 }
             }
+            
+            return _uniqueTileDictionary;
         }
 
         private Color32[] GetTile(Color32[] texturePixels, int outerIndexX , int outerIndexY)
