@@ -134,7 +134,7 @@ namespace ToolBox.TileManagement.Editor
                 return;
             }
             
-            ITileExtractor tileExtractor = new TileExtractor( _loadedTexture, _tileWidth, _tileHeight, _tolerance );
+            ITileExtractor tileExtractor = new TileExtractor( _loadedTexture, _tileWidth, _tileHeight );
             
             tileExtractor.ExtractTiles();
         }
