@@ -1,5 +1,6 @@
 using CodeBase.Collision_Handling;
 using Sirenix.OdinInspector;
+using ToolBox.Extensions;
 using ToolBox.Utils.Pooling;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -128,5 +129,17 @@ namespace CodeBase.Projectile
         public void SetColour(Color color) => _spriteRenderer.color = color;
 
         public Transform GetTransform() => _transform;
+
+
+        private int _animationIndex = 0;
+        [SerializeField] private Sprite[] animationSprites;
+        public void Animate()
+        {
+            if (animationSprites.IsNullOrEmpty()) return;
+            
+            _spriteRenderer.sprite = animationSprites[_animationIndex];
+           
+            _animationIndex = (_animationIndex + 1) % animationSprites.Length;
+        }
     }
 }

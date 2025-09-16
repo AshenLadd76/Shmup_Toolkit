@@ -26,5 +26,7 @@ namespace CodeBase.Projectile
         public void SetRotation(Quaternion rotation);
 
         public void SetColour(Color color);
+
+        public void Animate();
     }
 }

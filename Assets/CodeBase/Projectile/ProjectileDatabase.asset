@@ -15,8 +15,8 @@ MonoBehaviour:
   projectileDataList:
   - id: RegularProjectile
     projectile: {fileID: 3419519407173501740, guid: 299227571482b1145a48c0680a29334b, type: 3}
-    minPoolSize: 5
-    maxPoolSize: 10
+    minPoolSize: 10000
+    maxPoolSize: 10000
   - id: TypeAProjectile
     projectile: {fileID: 3224117345835620847, guid: 437ca98ee8a803543a298c3e3db72425, type: 3}
     minPoolSize: 100

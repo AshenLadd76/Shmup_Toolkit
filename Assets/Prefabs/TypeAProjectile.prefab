@@ -100,3 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adaffc19b26bfe846983e5edf9db4879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSprites:
+  - {fileID: 8848993070067138329, guid: 75c03337a3a61d8438567589b86942b7, type: 3}
+  - {fileID: 1115682805434658061, guid: 75c03337a3a61d8438567589b86942b7, type: 3}

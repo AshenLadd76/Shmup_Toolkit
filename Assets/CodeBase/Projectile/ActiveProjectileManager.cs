@@ -123,6 +123,7 @@ namespace CodeBase.Projectile
                 else
                 {
                     activeProjectileArr[i].SetPosition(_positionBuffer[i].Position);
+                    activeProjectileArr[i].Animate();
                 }
             }
         }
