@@ -5,7 +5,7 @@ namespace ToolBox.TileManagement.Editor
 {
     public interface ITileExtractor
     {
-        Dictionary<byte[], Color32[]> ExtractTiles();
+        List<Color32[]> ExtractTiles();
     }
 
     public class TileExtractor : ITileExtractor
@@ -15,7 +15,7 @@ namespace ToolBox.TileManagement.Editor
         private int _tileHeight;
         
         
-        private Dictionary<byte[], Color32[]> _uniqueTileDictionary;
+        private List<Color32[]> _uniqueTiles;
         
         public TileExtractor(Texture2D textureToTile, int tileWidth, int tileHeight)
         {
@@ -24,16 +24,25 @@ namespace ToolBox.TileManagement.Editor
             _tileWidth = tileWidth;
             _tileHeight = tileHeight;
             
-            _uniqueTileDictionary = new Dictionary<byte[], Color32[]>(new ByteArrayComparer());
+           _uniqueTiles = new List<Color32[]>();
         }
 
-        public Dictionary<byte[], Color32[]> ExtractTiles()
+        public List<Color32[]> ExtractTiles()
         {
             Debug.Log( $"Extracting Tiles from { _textureToTile.name }" );
             
+            var textureWidth = _textureToTile.width;
+            var textureHeight = _textureToTile.height;
+
+            if (textureWidth % _tileWidth != 0 || textureHeight % _tileHeight != 0)
+            {
+                Debug.LogError($"Invalid Texture Size { _textureToTile.name } { _tileWidth } { _tileHeight } ");
+                return null;
+            }
+            
             var numHorizontalTiles = _textureToTile.width / _tileWidth;
             var numVerticalTiles = _textureToTile.height / _tileHeight;
-
+            
             Color32[] texturePixels = _textureToTile.GetPixels32();
             
             //Outer Loop
@@ -47,7 +56,11 @@ namespace ToolBox.TileManagement.Editor
                 }
             }
             
-            return _uniqueTileDictionary;
+            Debug.Log( $"Extracted { _count } unique Tiles from { _textureToTile.name }" );
+
+            _count = 0;
+
+            return _uniqueTiles;
         }
 
         private Color32[] GetTile(Color32[] texturePixels, int outerIndexX , int outerIndexY)
@@ -70,34 +83,50 @@ namespace ToolBox.TileManagement.Editor
             return tile;
         }
 
+
+        private int _count;
         private void CheckAndAddUniqueTile(Color32[] tile )
         {
-            var tileKey = TileToKey(tile);
-
-            if (_uniqueTileDictionary.TryGetValue(tileKey, out var existingTile))
-            {
-                Debug.Log( $"tile { tileKey } already exists { existingTile }" );
-                return;
-            }
-
-            Debug.Log( $"Adding new tile { tileKey }" );
-
-            _uniqueTileDictionary.Add(tileKey, tile);
+           // var tileKey = TileToKey(tile);
+            
+           foreach (var existingTile in _uniqueTiles)
+           {
+               if (IsTileEquivalent(existingTile, tile, 0))
+               {
+                   // Already exists
+                   return;
+               }
+           }
+           
+           _count++;
+           
+           _uniqueTiles.Add(tile);
         }
 
         
-        private byte[] TileToKey(Color32[] tile)
+        bool IsTileEquivalent(Color32[] newTile, Color32[] existingTile, byte tolerance = 0)
         {
-            byte[] key = new byte[tile.Length * 4];
-            int i = 0;
-            foreach (var color in tile)
+            return TilesAreEqual(newTile, existingTile, tolerance)
+                   || TilesAreEqual(TileFlipper.FlipHorizontal(newTile, _tileWidth, _tileHeight), existingTile, tolerance)
+                   || TilesAreEqual(TileFlipper.FlipVertical(newTile, _tileWidth, _tileHeight), existingTile, tolerance) 
+                   || TilesAreEqual(TileFlipper.FlipBoth(newTile, _tileWidth, _tileHeight),existingTile, tolerance);
+        }
+        
+        private bool TilesAreEqual(Color32[] tileA, Color32[] tileB, byte tolerance)
+        {
+            for (int i = 0; i < tileA.Length; i++)
             {
-                key[i++] = color.r;
-                key[i++] = color.g;
-                key[i++] = color.b;
-                key[i++] = color.a;
+                // Ignore fully transparent pixels
+                if (tileA[i].a == 0 && tileB[i].a == 0)
+                    continue;
+
+                if (Mathf.Abs(tileA[i].r - tileB[i].r) > tolerance ||
+                    Mathf.Abs(tileA[i].g - tileB[i].g) > tolerance ||
+                    Mathf.Abs(tileA[i].b - tileB[i].b) > tolerance ||
+                    Mathf.Abs(tileA[i].a - tileB[i].a) > tolerance)
+                    return false;
             }
-            return key;
+            return true;
         }
     }
 }

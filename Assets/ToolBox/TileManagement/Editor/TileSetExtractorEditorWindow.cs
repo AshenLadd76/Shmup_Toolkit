@@ -1,4 +1,5 @@
 using System;
+using ToolBox.Extensions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -25,6 +26,12 @@ namespace ToolBox.TileManagement.Editor
         
         private Texture2D _loadedTexture;
         private Image _texturePreview;
+        
+        private Toggle includeFlipped;
+        private Toggle useTolerance;
+        private Toggle autoSlice;
+        private Toggle generateJSON;
+        private Toggle generateTileMapAsset;
         
 
         [MenuItem("Tools/Tile Set Extractor")]
@@ -55,6 +62,10 @@ namespace ToolBox.TileManagement.Editor
            
            root.Add(spacer);
            
+           AddOptions(root);
+           
+           root.Add(spacer);
+           
            root.Add( CreateButton( "Select Image", SelectImageAction) );
            root.Add(CreateButton( "Extract Tiles", ExtractUniqueTiles) );
         }
@@ -71,6 +82,7 @@ namespace ToolBox.TileManagement.Editor
                     width = PreviewWidth,
                     height = PreviewHeight,
                     marginTop = PreviewMarginTop,
+                    marginBottom = PreviewMarginTop,
                 }
             };
             
@@ -136,12 +148,69 @@ namespace ToolBox.TileManagement.Editor
             
             ITileExtractor tileExtractor = new TileExtractor( _loadedTexture, _tileWidth, _tileHeight );
             
-            var uniqueTilesDictionary = tileExtractor.ExtractTiles();
-            
-            //Build the tile sheet from the extracted tiles
+            var uniqueTilesList = tileExtractor.ExtractTiles();
 
-            var tileSet = new TileSetBuilder(uniqueTilesDictionary).SetColumnCount(5).SetRowCount(5).Build();
+            if (uniqueTilesList.IsNullOrEmpty())
+            {
+                Debug.LogError($"No unique tiles found! Aborting extraction.");
+                return;
+            }
+
+            //Build the tile sheet from the extracted tiles
+            
+            Debug.Log( $"{_loadedTexture.width} {_loadedTexture.height}" );
+            
+            foreach (var tile in uniqueTilesList)
+                Debug.Log( $"{tile} {IsTileEmpty(tile)}" );
+      
+            int columns = Mathf.CeilToInt(Mathf.Sqrt(uniqueTilesList.Count)); // square-ish
+            int rows = Mathf.CeilToInt((float)uniqueTilesList.Count / columns);
+
+            var tileSet = new TileSetBuilder(uniqueTilesList, _tileWidth, _tileHeight).SetColumnCount(columns).SetRowCount(rows).Build();
+            
+            _texturePreview.image = tileSet;
+            
+            SaveAsPng(tileSet);
         }
+
+        private void SaveAsPng(Texture2D texture)
+        {
+            byte[] pngData = texture.EncodeToPNG();
+            System.IO.File.WriteAllBytes("Assets/Sprites/TestTileAtlas.png", pngData);
+            
+            AssetDatabase.Refresh();
+        }
+
+        private void AddOptions(VisualElement root)
+        {
+            // Add checkboxes
+            includeFlipped = new Toggle("Include Flipped Tiles") { value = false };
+            useTolerance = new Toggle("Use Tolerance") { value = false };
+            autoSlice = new Toggle("Auto Slice After Save") { value = false };
+            generateJSON = new Toggle("Generate JSON Map") { value = false };
+            generateTileMapAsset = new Toggle("Generate Tile Map Asset") { value = false };
+           
+            root.Add(includeFlipped);
+            root.Add(useTolerance);
+            root.Add(autoSlice);
+            root.Add(generateJSON);
+            root.Add(generateTileMapAsset);
+        }
+        
+        private bool IsTileEmpty(Color32[] tile, byte alphaThreshold = 10)
+        {
+            foreach (var c in tile)
+            {
+                Debug.Log( $"{c.a}" );
+                if (c.a > alphaThreshold) return false; // consider pixel “visible” only if alpha above threshold
+                return true;
+            }
+
+            return false;
+        }
+
+
+        
     }
 }
 
