@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using ToolBox.Extensions;
 using UnityEditor;
 using UnityEngine;
@@ -62,12 +63,36 @@ namespace ToolBox.TileManagement.Editor
            
            root.Add(spacer);
            
-           AddOptions(root);
-           
-           root.Add(spacer);
-           
-           root.Add( CreateButton( "Select Image", SelectImageAction) );
-           root.Add(CreateButton( "Extract Tiles", ExtractUniqueTiles) );
+          // AddOptions(root);
+          
+          CreateOutPutTextField(root);
+          
+          root.Add(spacer);
+          
+          HandleButtonPositioning(root);
+          
+        }
+
+
+        private TextField _savePathTextField;
+
+        private void CreateOutPutTextField(VisualElement root)
+        {
+            _savePathTextField = new TextField("Save Path")
+            {
+                value = "Assets/Sprites/TileMaps",
+                isReadOnly = false, // prevents editing, still selectable
+                style =
+                {
+                    flexGrow = 1, // optional: makes it expand to fill row
+                    minWidth = 800,  // pixels
+                    minHeight = 1,
+                    height = 5,
+                }
+            };
+
+            rootVisualElement.Add(_savePathTextField);
+
         }
 
         
@@ -105,6 +130,26 @@ namespace ToolBox.TileManagement.Editor
             {
                 _tolerance = Mathf.Clamp(value, MinToleranceSize, MaxToleranceSize);
             }));
+        }
+
+
+        private void HandleButtonPositioning(VisualElement root)
+        {
+            var row = new VisualElement
+            {
+                style =
+                {
+                    flexDirection = FlexDirection.Row, // horizontal layout
+                    flexWrap = Wrap.Wrap, // allow wrapping when space runs out
+                    justifyContent = Justify.FlexStart
+                }
+            };
+
+            row.Add( CreateButton( "Select Image", SelectImageAction) );
+            row.Add(CreateButton( "Extract Tiles", ExtractUniqueTiles) );
+            row.Add( CreateButton( "Set OutPut Path" , SetOutPutPath ) );
+           
+            root.Add(row);
         }
 
         private Button CreateButton( string buttonText, Action clickEvent )
@@ -152,7 +197,7 @@ namespace ToolBox.TileManagement.Editor
 
             if (uniqueTilesList.IsNullOrEmpty())
             {
-                Debug.LogError($"No unique tiles found! Aborting extraction.");
+                Debug.LogError($"No unique tiles found! probably due to the image size.... Aborting extraction.");
                 return;
             }
 
@@ -160,9 +205,6 @@ namespace ToolBox.TileManagement.Editor
             
             Debug.Log( $"{_loadedTexture.width} {_loadedTexture.height}" );
             
-            foreach (var tile in uniqueTilesList)
-                Debug.Log( $"{tile} {IsTileEmpty(tile)}" );
-      
             int columns = Mathf.CeilToInt(Mathf.Sqrt(uniqueTilesList.Count)); // square-ish
             int rows = Mathf.CeilToInt((float)uniqueTilesList.Count / columns);
 
@@ -171,14 +213,33 @@ namespace ToolBox.TileManagement.Editor
             _texturePreview.image = tileSet;
             
             SaveAsPng(tileSet);
+            
+            SpriteAssetSlicer.Slice( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/TestTileAtlas.png", 16,16);
+            
+            TileMapBuilder.BuildTileMap($"{EditorPrefs.GetString("TileExtractor_SavePath")}/jsonTileMap.json", $"{EditorPrefs.GetString("TileExtractor_SavePath")}/TestTileAtlas.png");
         }
 
         private void SaveAsPng(Texture2D texture)
         {
             byte[] pngData = texture.EncodeToPNG();
-            System.IO.File.WriteAllBytes("Assets/Sprites/TestTileAtlas.png", pngData);
+            File.WriteAllBytes( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/TestTileAtlas.png", pngData);
             
             AssetDatabase.Refresh();
+        }
+
+        private void SaveJsonMapFile(string jsonMap)
+        {
+            
+            File.WriteAllText($"{EditorPrefs.GetString("TileExtractor_SavePath")}/jsonMap.json", jsonMap);
+            
+            AssetDatabase.Refresh();
+        }
+
+        private void SetOutPutPath()
+        {
+            var fileDialogHelper = new FileDialogHelper(_savePathTextField);
+            
+            fileDialogHelper.SetSavePathInProject();
         }
 
         private void AddOptions(VisualElement root)
@@ -208,9 +269,6 @@ namespace ToolBox.TileManagement.Editor
 
             return false;
         }
-
-
-        
     }
 }
 

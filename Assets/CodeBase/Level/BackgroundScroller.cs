@@ -11,6 +11,8 @@ namespace CodeBase.Level
         [SerializeField] private Vector3 scrollDirection = Vector2.zero;
 
         [SerializeField] private Transform[] layerArray;
+        
+        int pixelsPerUnit = 16;
 
         private void Awake()
         {
@@ -25,11 +27,10 @@ namespace CodeBase.Level
 
         private void Move()
         {
-           
-            layerArray[0].position += scrollDirection * (scrollSpeed * Time.deltaTime);
-            layerArray[1].position += scrollDirection * (scrollSpeed * 0.98f * Time.deltaTime);
             
-                
+           layerArray[0].position += scrollDirection * (scrollSpeed * Time.deltaTime);
+          // layerArray[1].position += scrollDirection * (scrollSpeed * 0.98f * Time.deltaTime);
+           
         }
     }
 }

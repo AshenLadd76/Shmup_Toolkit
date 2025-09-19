@@ -43,7 +43,7 @@ namespace ToolBox.TileManagement.Editor
         
         public static Color32[] FlipBoth(Color32[] tile, int tileWidth, int tileHeight)
         {
-            return FlipVertical(FlipHorizontal(tile, tileWidth, tileHeight), tileWidth, tileHeight);
+            return FlipHorizontal(FlipVertical(tile, tileWidth, tileHeight), tileWidth, tileHeight);
         }
     }
 }
