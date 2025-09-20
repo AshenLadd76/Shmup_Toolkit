@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 namespace ToolBox.TileManagement.Editor
 {
-    public interface ITileExtractor
-    {
-        List<Color32[]> ExtractTiles();
-        
-        public List<Color32[]> GetAllImageTiles();
-        
-    }
-
     public class TileExtractor : ITileExtractor
     {
         private readonly Texture2D _textureToTile;
@@ -21,16 +14,18 @@ namespace ToolBox.TileManagement.Editor
         private readonly int _tileHeight;
         
         private readonly List<Color32[]> _uniqueTiles;
-
         private readonly List<Color32[]> _allImageTiles;
+        
+        private readonly Dictionary<int, int> _tileHashLookup = new(); // hash -> index in _uniqueTiles
 
+        private int _count;
+        
         private readonly List<TileMapCell> _tileMapCellList;
         
-        private TileImageMap _tileImageMap;
+        private readonly TileImageMap _tileImageMap;
         
         public TileExtractor(Texture2D textureToTile, int tileWidth, int tileHeight)
         {
-            Debug.Log( $"Extracting Tiles from { textureToTile.name } { tileWidth } { tileHeight } " );
             _textureToTile = textureToTile;
             _tileWidth = tileWidth;
             _tileHeight = tileHeight;
@@ -44,7 +39,10 @@ namespace ToolBox.TileManagement.Editor
 
         public List<Color32[]> ExtractTiles()
         {
-            Debug.Log( $"Extracting Tiles from { _textureToTile.name }" );
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            
+            _uniqueTiles.Clear();
+            _tileHashLookup.Clear();
             
             var textureWidth = _textureToTile.width;
             var textureHeight = _textureToTile.height;
@@ -61,35 +59,26 @@ namespace ToolBox.TileManagement.Editor
             Color32[] texturePixels = _textureToTile.GetPixels32();
             
             
-            
             //Outer Loop
             for (int numVertical = 0; numVertical < numVerticalTiles; numVertical++)
             {
                 for (int numHorizontal = 0; numHorizontal < numHorizontalTiles; numHorizontal++)
                 {
-                    var tile = GetTile(texturePixels, numHorizontal, numVertical);
+                    var tile = GetTileFromTexture(texturePixels, numHorizontal, numVertical);
                     _allImageTiles.Add(tile);
                     CheckAndAddUniqueTile(tile);
                 }
             }
-
+            
+            stopwatch.Stop();
+             
+            Debug.Log( $"Extracted { _count } unique Tiles in { stopwatch.ElapsedMilliseconds } ms" );
+            
             _tileImageMap.Columns = numHorizontalTiles;
             _tileImageMap.Rows = numVerticalTiles;
             _tileImageMap.Cells = _tileMapCellList;
-
-            
-             Debug.Log( $"Extracted { _count } unique Tiles from { _textureToTile.name }" );
-            //
-            // var jsonImageMap = new ImageMapBuilder()
-            //     .SetUniqueTiles( _uniqueTiles )
-            //     .SetAllImageTiles( _allImageTiles )
-            //     .SetTileWidth(_tileWidth)
-            //     .SetTileHeight(_tileHeight )
-            //     .SetRows(numVerticalTiles)
-            //     .SetColumns(numHorizontalTiles)
-            //     .Build();
-            //
-             var jsonText =  JsonConvert.SerializeObject(_tileImageMap);
+           
+            var jsonText =  JsonConvert.SerializeObject(_tileImageMap);
              Debug.Log(jsonText);
             
             JsonSaver.SaveJson(jsonText, $"{EditorPrefs.GetString("TileExtractor_SavePath")}/jsonTileMap.json");
@@ -99,7 +88,9 @@ namespace ToolBox.TileManagement.Editor
             return _uniqueTiles;
         }
 
-        private Color32[] GetTile(Color32[] texturePixels, int outerIndexX , int outerIndexY)
+        
+        //Extract
+        private Color32[] GetTileFromTexture(Color32[] texturePixels, int outerIndexX , int outerIndexY)
         {
             Color32[] tile = new Color32[_tileWidth * _tileHeight];
             
@@ -119,113 +110,59 @@ namespace ToolBox.TileManagement.Editor
             return tile;
         }
         
-        private int _count;
+   
         private void CheckAndAddUniqueTile(Color32[] tile )
         {
-           // var tileKey = TileToKey(tile);
+            int hashOriginal = TileUtilities.ComputeTileHash(tile);
+            int hashH = TileUtilities.ComputeTileHashFlipped(tile, FlipType.Horizontal, _tileWidth, _tileHeight);
+            int hashV = TileUtilities.ComputeTileHashFlipped(tile, FlipType.Vertical, _tileWidth, _tileHeight);
+            int hashB = TileUtilities.ComputeTileHashFlipped(tile, FlipType.Both, _tileWidth, _tileHeight);
             
-           for( int i = 0; i < _uniqueTiles.Count; i++ )
-           {
-               var equivalentResult = IsTileEquivalent( _uniqueTiles[i], tile, 0 );
-               
-               if (equivalentResult.isEquivalent)
-               {
-                   var tileMapCell = new TileMapCell()
-                   {
-                       uniqueIndex = i,
-                       flipType = equivalentResult.flipType,
-                   };
-                   
-                   _tileMapCellList.Add( tileMapCell );
+            
+            if (_tileHashLookup.TryGetValue(hashOriginal, out int existingIndex) ||
+                _tileHashLookup.TryGetValue(hashH, out existingIndex) ||
+                _tileHashLookup.TryGetValue(hashV, out existingIndex) ||
+                _tileHashLookup.TryGetValue(hashB, out existingIndex))
+            {
+                var equivalentResult =  TileUtilities.IsTileEquivalent( _uniqueTiles[existingIndex], tile, 0, _tileWidth, _tileHeight );
 
-                   return;
-               }
-           }
-           
-           _count++;
-           
-           _uniqueTiles.Add(tile);
-           
+                if (equivalentResult.isEquivalent)
+                {
+                  
+                    var tileMapCell = new TileMapCell()
+                    {
+                            uniqueIndex = existingIndex,
+                            flipType = equivalentResult.flipType,
+                    };
+                        
+                    _tileMapCellList.Add( tileMapCell );
+                    
+                    return;
+                }
+            }
+            
+            _uniqueTiles.Add(tile);
+            
+            int newIndex = _uniqueTiles.Count - 1;
+            
+            _tileHashLookup[hashOriginal] = newIndex;
+            _tileHashLookup[hashH] = newIndex;
+            _tileHashLookup[hashV] = newIndex;
+            _tileHashLookup[hashB] = newIndex;
+            
+            
            var newTileMapCell = new TileMapCell()
            {
-               uniqueIndex = _uniqueTiles.Count - 1, // Index of newly added tile
+               uniqueIndex = newIndex, // Index of newly added tile
                flipType = FlipType.None,             // No flip for new tile
            };
           
            _tileMapCellList.Add(newTileMapCell);
+           
+           _count++;
         }
 
-        public List<Color32[]> GetAllImageTiles()
-        {
-            return _allImageTiles;
-        }
+        public List<Color32[]> GetAllImageTiles() => _allImageTiles;
         
-        
-        //Tile utility
-        (bool isEquivalent, FlipType flipType) IsTileEquivalent(Color32[] newTile, Color32[] existingTile, byte tolerance = 0)
-        {
-            if (TilesAreEqual(newTile, existingTile, tolerance))
-                return (true, FlipType.None);
-
-            if (TilesAreEqual(TileFlipper.FlipHorizontal(newTile, _tileWidth, _tileHeight), existingTile, tolerance))
-                return (true, FlipType.Horizontal);
-
-            if (TilesAreEqual(TileFlipper.FlipVertical(newTile, _tileWidth, _tileHeight), existingTile, tolerance))
-                return (true, FlipType.Vertical);
-
-            if (TilesAreEqual(TileFlipper.FlipBoth(newTile, _tileWidth, _tileHeight), existingTile, tolerance))
-                return (true, FlipType.Both);
-
-            return (false, FlipType.None);
-        }
-        
-        
-        // bool IsTileEquivalent(Color32[] newTile, Color32[] existingTile, byte tolerance = 0)
-        // {
-        //     return TilesAreEqual(newTile, existingTile, tolerance)
-        //     || TilesAreEqual(TileFlipper.FlipHorizontal(newTile, _tileWidth, _tileHeight), existingTile, tolerance) 
-        //     || TilesAreEqual(TileFlipper.FlipVertical(newTile, _tileWidth, _tileHeight), existingTile, tolerance) 
-        //     || TilesAreEqual(TileFlipper.FlipBoth(newTile, _tileWidth, _tileHeight),existingTile, tolerance);
-        // }
-        
-        //Tile Utility
-        private bool TilesAreEqual(Color32[] tileA, Color32[] tileB, byte tolerance)
-        {
-            for (int i = 0; i < tileA.Length; i++)
-            {
-                // Ignore fully transparent pixels
-                if (tileA[i].a == 0 && tileB[i].a == 0)
-                   continue;
-
-                if (Mathf.Abs(tileA[i].r - tileB[i].r) > tolerance ||
-                    Mathf.Abs(tileA[i].g - tileB[i].g) > tolerance ||
-                    Mathf.Abs(tileA[i].b - tileB[i].b) > tolerance ||
-                    Mathf.Abs(tileA[i].a - tileB[i].a) > tolerance)
-                    return false;
-            }
-            return true;
-        }
-    }
-    
-    [Serializable]
-    public class TileMapCell
-    {
-        public int uniqueIndex;
-        public FlipType flipType;
-    }
-
-    public class TileImageMap
-    {
-        public int Columns;
-        public int Rows;
-        public List<TileMapCell> Cells;
-    }
-    
-    public enum FlipType
-    {
-        None,
-        Horizontal,
-        Vertical,
-        Both
     }
 }
