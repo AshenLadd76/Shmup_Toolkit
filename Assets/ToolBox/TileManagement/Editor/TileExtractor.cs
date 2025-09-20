@@ -89,21 +89,37 @@ namespace ToolBox.TileManagement.Editor
         }
 
         
-        //Extract
+        
+        // Top row
+        // [ 56 57 58 59 60 61 62 63 ]  ← outerY = 7
+        // [ 48 49 50 51 52 53 54 55 ]
+        // [ 40 41 42 43 44 45 46 47 ]
+        // [ 32 33 34 35 36 37 38 39 ]
+        // [ 24 25 26 27 28 29 30 31 ]
+        // [ 16 17 18 19 20 21 22 23 ]
+        // [  8  9 10 11 12 13 14 15 ]
+        // Bottom row
+        // [  0  1  2  3  4  5  6  7 ]  ← outerY = 0
+        
         private Color32[] GetTileFromTexture(Color32[] texturePixels, int outerIndexX , int outerIndexY)
         {
             Color32[] tile = new Color32[_tileWidth * _tileHeight];
             
-            for (int x = 0; x < _tileWidth; x++)
+            int startX = outerIndexX * _tileWidth;
+            int startY = (_textureToTile.height - (outerIndexY + 1) * _tileHeight);
+            int textureWidth = _textureToTile.width;
+            
+            for (int y = 0; y < _tileHeight; y++)
             {
-                for (int y = 0; y < _tileHeight; y++)
+                int outerY = startY + y;
+                int rowStart = outerY * textureWidth + startX; 
+                int tileRowStart = y * _tileWidth;
+                
+                for (int x = 0; x < _tileWidth; x++)
                 {
-                    int outerX = (outerIndexX * _tileWidth) + x;
-                    int outerY = (_textureToTile.height - (outerIndexY + 1) * _tileHeight) + y;
+                    int outerX = startX + x;
                     
-                    int pixelIndex = outerY * _textureToTile.width + outerX;
-                    
-                    tile[y * _tileWidth + x] = texturePixels[pixelIndex];
+                    tile[tileRowStart + x] = texturePixels[ rowStart + x ];
                 }
             }
             

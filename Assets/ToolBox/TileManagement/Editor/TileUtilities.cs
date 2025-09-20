@@ -55,27 +55,32 @@ namespace ToolBox.TileManagement.Editor
                 if (tileA[i].a == 0 && tileB[i].a == 0)
                     continue;
 
-                if (Mathf.Abs(tileA[i].r - tileB[i].r) > tolerance ||
-                    Mathf.Abs(tileA[i].g - tileB[i].g) > tolerance ||
-                    Mathf.Abs(tileA[i].b - tileB[i].b) > tolerance ||
-                    Mathf.Abs(tileA[i].a - tileB[i].a) > tolerance)
-                    return false;
+                if ((tileA[i].r - tileB[i].r) > tolerance || (tileB[i].r - tileA[i].r) > tolerance) return false;
+                
             }
             return true;
         }
         
         public static (bool isEquivalent, FlipType flipType)  IsTileEquivalent(Color32[] newTile, Color32[] existingTile, byte tolerance = 0, int tileWidth = 0, int tileHeight = 0)
         {
+         
+            
+            
+            var hFlip = TileFlipper.FlipHorizontal(newTile, tileWidth, tileHeight);
+            var vFlip = TileFlipper.FlipVertical(newTile, tileWidth, tileHeight);
+            var bFlip = TileFlipper.FlipBoth(newTile, tileWidth, tileHeight);
+            
+            
             if (TilesAreEqual(newTile, existingTile, tolerance))
                 return (true, FlipType.None);
 
-            if (TilesAreEqual(TileFlipper.FlipHorizontal(newTile, tileWidth, tileHeight), existingTile, tolerance))
+            if (TilesAreEqual(hFlip, existingTile, tolerance))
                 return (true, FlipType.Horizontal);
 
-            if (TilesAreEqual(TileFlipper.FlipVertical(newTile, tileWidth, tileHeight), existingTile, tolerance))
+            if (TilesAreEqual(vFlip, existingTile, tolerance))
                 return (true, FlipType.Vertical);
 
-            if (TilesAreEqual(TileFlipper.FlipBoth(newTile, tileWidth, tileHeight), existingTile, tolerance))
+            if (TilesAreEqual(bFlip, existingTile, tolerance))
                 return (true, FlipType.Both);
 
             return (false, FlipType.None);
