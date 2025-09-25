@@ -65,8 +65,6 @@ namespace ToolBox.Utils
             
             if(camPos == _lastCameraPosition) return;
             
-            Logger.Log( $"Calculating bounds for camera at {camPos} {_lastCameraPosition}" );
-            
             _minBounds = new Vector3(camPos.x - _screenWidth / 2f, camPos.y - _screenHeight / 2f, camPos.z);
             _maxBounds = new Vector3(camPos.x + _screenWidth / 2f, camPos.y + _screenHeight / 2f, camPos.z);
             

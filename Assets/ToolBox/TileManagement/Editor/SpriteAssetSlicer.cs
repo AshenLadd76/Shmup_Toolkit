@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ToolBox.TileManagement.Editor
 {
-    public class SpriteAssetSlicer
+    public static class SpriteAssetSlicer
     {
         public static void Slice(string atlasPath, int tileWidth, int tileHeight)
         {

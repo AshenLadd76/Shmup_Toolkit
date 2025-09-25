@@ -23,8 +23,10 @@ namespace ToolBox.TileManagement.Editor
         private readonly List<TileMapCell> _tileMapCellList;
         
         private readonly TileImageMap _tileImageMap;
+
+        private string _tileMapName; 
         
-        public TileExtractor(Texture2D textureToTile, int tileWidth, int tileHeight)
+        public TileExtractor(Texture2D textureToTile, int tileWidth, int tileHeight, string tileMapName)
         {
             _textureToTile = textureToTile;
             _tileWidth = tileWidth;
@@ -35,6 +37,8 @@ namespace ToolBox.TileManagement.Editor
            
            _tileMapCellList = new List<TileMapCell>();
            _tileImageMap = new TileImageMap();
+           
+           _tileMapName = tileMapName;
         }
 
         public List<Color32[]> ExtractTiles()
@@ -81,7 +85,7 @@ namespace ToolBox.TileManagement.Editor
             var jsonText =  JsonConvert.SerializeObject(_tileImageMap);
              Debug.Log(jsonText);
             
-            JsonSaver.SaveJson(jsonText, $"{EditorPrefs.GetString("TileExtractor_SavePath")}/jsonTileMap.json");
+            JsonSaver.SaveJson(jsonText, $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{_tileMapName}.json");
             
             _count = 0;
 

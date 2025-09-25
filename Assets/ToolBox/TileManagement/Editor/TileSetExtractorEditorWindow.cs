@@ -4,6 +4,7 @@ using ToolBox.Extensions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Logger = ToolBox.Utils.Logger;
 
 namespace ToolBox.TileManagement.Editor
 {
@@ -33,6 +34,8 @@ namespace ToolBox.TileManagement.Editor
         private Toggle autoSlice;
         private Toggle generateJSON;
         private Toggle generateTileMapAsset;
+
+        private string _currentTileMapName;
         
 
         [MenuItem("Tools/Tile Set Extractor")]
@@ -56,21 +59,19 @@ namespace ToolBox.TileManagement.Editor
             
             CreatePreviewTexture(root); 
             
-           root.Add(_texturePreview);
+            CreateDragDropOverlay(root);
+
+            var spacer = new VisualElement();
            
-           var spacer = new VisualElement();
-           spacer.style.flexGrow = 1;  // takes all remaining vertical space
-           
-           root.Add(spacer);
-           
-          // AddOptions(root);
-          
-          CreateOutPutTextField(root);
-          
-          root.Add(spacer);
-          
-          HandleButtonPositioning(root);
-          
+            spacer.style.flexGrow = 1;  // takes all remaining vertical space
+            
+            root.Add(spacer);
+            
+            CreateOutPutTextField(root);
+            
+            root.Add(spacer);
+            
+            HandleButtonPositioning(root);
         }
 
 
@@ -92,7 +93,6 @@ namespace ToolBox.TileManagement.Editor
             };
 
             rootVisualElement.Add(_savePathTextField);
-
         }
 
         
@@ -102,6 +102,7 @@ namespace ToolBox.TileManagement.Editor
             {
                 image = TextureLoader.CreateTexture( PreviewWidth, PreviewHeight, _tileWidth, _tileHeight ),
                 scaleMode = ScaleMode.ScaleToFit,
+                
                 style =
                 {
                     width = PreviewWidth,
@@ -110,6 +111,8 @@ namespace ToolBox.TileManagement.Editor
                     marginBottom = PreviewMarginTop,
                 }
             };
+            
+            CreateDragDropOverlay(_texturePreview);
             
             root.Add(_texturePreview);
         }
@@ -171,16 +174,28 @@ namespace ToolBox.TileManagement.Editor
             
             return integerField;
         }
-
-       
+        
+        private void DragAndDropImageAction(string path)
+        {
+            Logger.Log( $"Path: { path }");
+            LoadTexture(path);
+        }
+        
         private void SelectImageAction(  )
         {
             var path = EditorUtility.OpenFilePanel("Choose a png image ", "", "png");
 
             if (string.IsNullOrEmpty(path)) return;
                 
+            LoadTexture( path );
+        }
+
+        private void LoadTexture(string path)
+        {
             _loadedTexture = TextureLoader.LoadTextureFromFile(path);
             _texturePreview.image = _loadedTexture;
+            
+            _currentTileMapName = Path.GetFileNameWithoutExtension(path);
         }
         
         private void ExtractUniqueTiles()
@@ -191,7 +206,9 @@ namespace ToolBox.TileManagement.Editor
                 return;
             }
             
-            ITileExtractor tileExtractor = new TileExtractor( _loadedTexture, _tileWidth, _tileHeight );
+            var filename = $"{_currentTileMapName}_{ DateTime.Now.ToString("yyyyMMdd_HHmmss")}";
+            
+            ITileExtractor tileExtractor = new TileExtractor( _loadedTexture, _tileWidth, _tileHeight, filename );
             
             var uniqueTilesList = tileExtractor.ExtractTiles();
 
@@ -212,24 +229,23 @@ namespace ToolBox.TileManagement.Editor
             
             _texturePreview.image = tileSet;
             
-            SaveAsPng(tileSet);
+            SaveAsPng(tileSet, filename);
             
-            SpriteAssetSlicer.Slice( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/TestTileAtlas.png", 16,16);
+            SpriteAssetSlicer.Slice( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png", 16,16);
             
-            TileMapBuilder.BuildTileMap($"{EditorPrefs.GetString("TileExtractor_SavePath")}/jsonTileMap.json", $"{EditorPrefs.GetString("TileExtractor_SavePath")}/TestTileAtlas.png");
+            TileMapBuilder.BuildTileMap($"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.json", $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png", filename);
         }
 
-        private void SaveAsPng(Texture2D texture)
+        private void SaveAsPng(Texture2D texture, string filename)
         {
             byte[] pngData = texture.EncodeToPNG();
-            File.WriteAllBytes( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/TestTileAtlas.png", pngData);
+            File.WriteAllBytes( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png", pngData);
             
             AssetDatabase.Refresh();
         }
 
         private void SaveJsonMapFile(string jsonMap)
         {
-            
             File.WriteAllText($"{EditorPrefs.GetString("TileExtractor_SavePath")}/jsonMap.json", jsonMap);
             
             AssetDatabase.Refresh();
@@ -268,6 +284,34 @@ namespace ToolBox.TileManagement.Editor
             }
 
             return false;
+        }
+
+        private void CreateDragDropOverlay(VisualElement visualElement)
+        {
+            var overlay = new VisualElement
+            {
+                pickingMode = PickingMode.Position,
+                style =
+                {
+                    width = visualElement.style.width,
+                    height = visualElement.style.height,
+                    position = visualElement.style.position,
+                    backgroundColor = new Color(0, 0, 0, 0f)
+                    
+                }
+            };
+
+            DragDropHandler.RegisterDropArea(overlay, obj => { Logger.Log($"Dropped {obj.Length}");
+
+                if (obj.IsNullOrEmpty())
+                {
+                    Logger.Log($"No objects found!");
+                    return;
+                }
+
+                DragAndDropImageAction( AssetDatabase.GetAssetPath( obj[0] ) );
+            }, DragAndDropImageAction);
+            visualElement.Add(overlay);
         }
     }
 }

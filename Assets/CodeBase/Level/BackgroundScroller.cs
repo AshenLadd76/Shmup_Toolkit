@@ -29,7 +29,7 @@ namespace CodeBase.Level
         {
             
            layerArray[0].position += scrollDirection * (scrollSpeed * Time.deltaTime);
-          // layerArray[1].position += scrollDirection * (scrollSpeed * 0.98f * Time.deltaTime);
+           //layerArray[1].position += scrollDirection * (scrollSpeed * 0.8f * Time.deltaTime);
            
         }
     }
