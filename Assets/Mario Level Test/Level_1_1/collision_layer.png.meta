@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: fef7f1b3b496e3541a148635e4d9cc82
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2909661253618400561
+    second: collision_layer_0
+  - first:
+      213: -997724509003717410
+    second: collision_layer_1
+  - first:
+      213: -4541081736205301377
+    second: collision_layer_2
+  - first:
+      213: 1805138038427758846
+    second: collision_layer_3
+  - first:
+      213: 2834115178960837851
+    second: collision_layer_4
+  - first:
+      213: -5123347123735927086
+    second: collision_layer_5
+  - first:
+      213: 8233371610983520128
+    second: collision_layer_6
+  - first:
+      213: 1045403471203426606
+    second: collision_layer_7
+  - first:
+      213: 8936629042705519696
+    second: collision_layer_8
+  - first:
+      213: -8096328184040239850
+    second: collision_layer_9
+  - first:
+      213: -5558440543765172977
+    second: collision_layer_10
+  - first:
+      213: -4330684051868592288
+    second: collision_layer_11
+  - first:
+      213: -1002986325091413853
+    second: collision_layer_12
+  - first:
+      213: -8616706635663737196
+    second: collision_layer_13
+  - first:
+      213: 4002031851855012163
+    second: collision_layer_14
+  - first:
+      213: 7025689041163544794
+    second: collision_layer_15
+  - first:
+      213: -8205329536320497959
+    second: collision_layer_16
+  - first:
+      213: -6487750669520649806
+    second: collision_layer_17
+  - first:
+      213: 3420992383044707046
+    second: collision_layer_18
+  - first:
+      213: -1010308537845550613
+    second: collision_layer_19
+  - first:
+      213: 2250475729648177717
+    second: collision_layer_20
+  - first:
+      213: -2162216760967394906
+    second: collision_layer_21
+  - first:
+      213: 76806543071352780
+    second: collision_layer_22
+  - first:
+      213: 210530223676342929
+    second: collision_layer_23
+  - first:
+      213: -5740756206430833590
+    second: collision_layer_24
+  - first:
+      213: -8791770884860573247
+    second: collision_layer_25
+  - first:
+      213: 8286045625585696208
+    second: collision_layer_26
+  - first:
+      213: 2229413702153723253
+    second: collision_layer_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: collision_layer_0
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 407
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc28b51818ece97d0800000000000000
+      internalID: -2909661253618400561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_1
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 423
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4e12168de5722f0800000000000000
+      internalID: -997724509003717410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_2
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 407
+        width: 66
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7908797836daf0c0800000000000000
+      internalID: -4541081736205301377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_3
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 423
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef0380f5b732d0910800000000000000
+      internalID: 1805138038427758846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_4
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 407
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdcd08e4dbcc45720800000000000000
+      internalID: 2834115178960837851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_5
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 423
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d663b48fe636e8b0800000000000000
+      internalID: -5123347123735927086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_6
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 407
+        width: 66
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0875570abdfc24270800000000000000
+      internalID: 8233371610983520128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_7
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 423
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e216a041be4028e00800000000000000
+      internalID: 1045403471203426606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_8
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 407
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 054d6eb14c8450c70800000000000000
+      internalID: 8936629042705519696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_9
+      rect:
+        serializedVersion: 2
+        x: 1847
+        y: 423
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d4c4da96014af80800000000000000
+      internalID: -8096328184040239850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_10
+      rect:
+        serializedVersion: 2
+        x: 1975
+        y: 407
+        width: 66
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d6fbb76c37cd2b0800000000000000
+      internalID: -5558440543765172977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_11
+      rect:
+        serializedVersion: 2
+        x: 2119
+        y: 423
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0675cedbcc156e3c0800000000000000
+      internalID: -4330684051868592288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_12
+      rect:
+        serializedVersion: 2
+        x: 2439
+        y: 407
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a01a5a504da412f0800000000000000
+      internalID: -1002986325091413853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_13
+      rect:
+        serializedVersion: 2
+        x: 2479
+        y: 239
+        width: 1105
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ef287d7fe4b6880800000000000000
+      internalID: -8616706635663737196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_14
+      rect:
+        serializedVersion: 2
+        x: 2615
+        y: 423
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341ed9df3c21a8730800000000000000
+      internalID: 4002031851855012163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_15
+      rect:
+        serializedVersion: 2
+        x: 2887
+        y: 423
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad868e095f2408160800000000000000
+      internalID: 7025689041163544794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_16
+      rect:
+        serializedVersion: 2
+        x: 3383
+        y: 423
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d6989aa240d02e80800000000000000
+      internalID: -8205329536320497959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_17
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 383
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b14befb321e6f5a0800000000000000
+      internalID: -6487750669520649806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_18
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 383
+        width: 130
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e262ba727ec97f20800000000000000
+      internalID: 3420992383044707046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_19
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 383
+        width: 66
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be1fb28dcb9aaf1f0800000000000000
+      internalID: -1010308537845550613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_20
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 383
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5325159a0cb4b3f10800000000000000
+      internalID: 2250475729648177717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_21
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 383
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a98423df434ef1e0800000000000000
+      internalID: -2162216760967394906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_22
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 383
+        width: 66
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7913cd42fd01100800000000000000
+      internalID: 76806543071352780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 239
+        width: 1105
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19246bc7f14fbe200800000000000000
+      internalID: 210530223676342929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_24
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 335
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44329565acb450b0800000000000000
+      internalID: -5740756206430833590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_25
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 319
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c9834506fa5df580800000000000000
+      internalID: -8791770884860573247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_26
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 239
+        width: 1026
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ddf6b95892fdf270800000000000000
+      internalID: 8286045625585696208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: collision_layer_27
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 239
+        width: 242
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57dd24e33f770fe10800000000000000
+      internalID: 2229413702153723253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      collision_layer_0: -2909661253618400561
+      collision_layer_1: -997724509003717410
+      collision_layer_10: -5558440543765172977
+      collision_layer_11: -4330684051868592288
+      collision_layer_12: -1002986325091413853
+      collision_layer_13: -8616706635663737196
+      collision_layer_14: 4002031851855012163
+      collision_layer_15: 7025689041163544794
+      collision_layer_16: -8205329536320497959
+      collision_layer_17: -6487750669520649806
+      collision_layer_18: 3420992383044707046
+      collision_layer_19: -1010308537845550613
+      collision_layer_2: -4541081736205301377
+      collision_layer_20: 2250475729648177717
+      collision_layer_21: -2162216760967394906
+      collision_layer_22: 76806543071352780
+      collision_layer_23: 210530223676342929
+      collision_layer_24: -5740756206430833590
+      collision_layer_25: -8791770884860573247
+      collision_layer_26: 8286045625585696208
+      collision_layer_27: 2229413702153723253
+      collision_layer_3: 1805138038427758846
+      collision_layer_4: 2834115178960837851
+      collision_layer_5: -5123347123735927086
+      collision_layer_6: 8233371610983520128
+      collision_layer_7: 1045403471203426606
+      collision_layer_8: 8936629042705519696
+      collision_layer_9: -8096328184040239850
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

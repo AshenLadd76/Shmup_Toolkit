@@ -10,6 +10,8 @@ namespace ToolBox.TileManagement.Editor
         {
             Debug.Log(atlasPath);
             
+            Debug.Log($"{tileWidth} {tileHeight}");
+            
             TextureImporter textureImporter = AssetImporter.GetAtPath(atlasPath) as TextureImporter;
 
             if (textureImporter == null)
@@ -64,6 +66,7 @@ namespace ToolBox.TileManagement.Editor
             }
             
             textureImporter.spritesheet = metaData.ToArray();
+            textureImporter.spritePixelsPerUnit = tileWidth;
             EditorUtility.SetDirty(textureImporter);
             textureImporter.SaveAndReimport();
         }

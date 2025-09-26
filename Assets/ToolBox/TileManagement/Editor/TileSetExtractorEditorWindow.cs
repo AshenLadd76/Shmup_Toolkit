@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using ToolBox.Extensions;
+using ToolBox.TileManagement.TileExtraction;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -19,52 +21,57 @@ namespace ToolBox.TileManagement.Editor
         private const int PreviewMarginTop = 20;
         private const int MinTileSize = 8;
         private const int MaxTileSize = 1024;
-        private const int MinToleranceSize = 0;
-        private const int MaxToleranceSize = 255;
+     
         
         private int _tileWidth = 16;
         private int _tileHeight = 16;
-        private int _tolerance = 0;
+        private int _tolerance;
         
         private Texture2D _loadedTexture;
         private Image _texturePreview;
         
-        private Toggle includeFlipped;
-        private Toggle useTolerance;
-        private Toggle autoSlice;
-        private Toggle generateJSON;
-        private Toggle generateTileMapAsset;
-
         private string _currentTileMapName;
+        
+        private const string DefaultSavePath = "Assets/Sprites/TileMaps";
+
+        private const int DefaultTextFieldWidth = 800;
+        private const int DefaultTextFieldHeight = 20;
+        
+        private TextField _savePathTextField;
         
 
         [MenuItem("Tools/Tile Set Extractor")]
-        public static void ShowWindow()
+        public static void ShowWindow() => GetWindow<TileSetExtractor>( "TileSet Extractor" );
+        
+        
+        private void SetupRootStyle(VisualElement root)
         {
-            GetWindow<TileSetExtractor>( "TileSet Extractor" );
-        }
-
-        public void CreateGUI()
-        {
-            var root = rootVisualElement;
-            
             // Make root a flex column and center everything
             root.style.flexDirection = FlexDirection.Column;
             root.style.justifyContent = Justify.FlexStart;   // vertical centering
             root.style.alignItems = Align.Center;         // horizontal centering
             root.style.paddingTop = 10;
             root.style.paddingBottom = 10;
+        }
+
+        public void CreateGUI()
+        {
+            var root = rootVisualElement;
+            
+            SetupRootStyle(root);
             
             AddEditorFields(root);
             
             CreatePreviewTexture(root); 
             
-            CreateDragDropOverlay(root);
+            var spacer = new VisualElement
+            {
+                style =
+                {
+                    flexGrow = 1 // takes all remaining vertical space
+                }
+            };
 
-            var spacer = new VisualElement();
-           
-            spacer.style.flexGrow = 1;  // takes all remaining vertical space
-            
             root.Add(spacer);
             
             CreateOutPutTextField(root);
@@ -73,28 +80,24 @@ namespace ToolBox.TileManagement.Editor
             
             HandleButtonPositioning(root);
         }
-
-
-        private TextField _savePathTextField;
-
+        
         private void CreateOutPutTextField(VisualElement root)
         {
             _savePathTextField = new TextField("Save Path")
             {
-                value = "Assets/Sprites/TileMaps",
+                value = DefaultSavePath,
                 isReadOnly = false, // prevents editing, still selectable
                 style =
                 {
                     flexGrow = 1, // optional: makes it expand to fill row
-                    minWidth = 800,  // pixels
-                    minHeight = 1,
+                    minWidth = DefaultTextFieldWidth,  // pixels
+                    minHeight = DefaultTextFieldHeight,
                     height = 5,
                 }
             };
 
-            rootVisualElement.Add(_savePathTextField);
+            root.Add(_savePathTextField);
         }
-
         
         private void CreatePreviewTexture(VisualElement root)
         {
@@ -119,20 +122,9 @@ namespace ToolBox.TileManagement.Editor
         
         private void AddEditorFields(VisualElement root)
         {
-            root.Add( CreateIntegerField( "Tile Width" , _tileWidth, value =>
-            {
-                _tileWidth = Mathf.Clamp(value, MinTileSize, MaxTileSize);
-            }));
-            
-            root.Add( CreateIntegerField( "Tile Height" , _tileHeight, value =>
-            {
-                _tileHeight = Mathf.Clamp(value, MinTileSize, MaxTileSize);
-            }));
-            
-            root.Add( CreateIntegerField( "Tolerance" , _tolerance, value =>
-            {
-                _tolerance = Mathf.Clamp(value, MinToleranceSize, MaxToleranceSize);
-            }));
+            root.Add( CreateIntegerField( "Tile Width" , _tileWidth, MinTileSize, MaxTileSize,  value => { _tileWidth = value; }));
+            root.Add( CreateIntegerField( "Tile Height" , _tileHeight, MinTileSize, MaxTileSize, value => { _tileHeight = value; }));
+            root.Add( CreateIntegerField( "Tolerance" , _tolerance, MinTileSize, MaxTileSize, value => { _tolerance = value; }));
         }
 
 
@@ -149,7 +141,7 @@ namespace ToolBox.TileManagement.Editor
             };
 
             row.Add( CreateButton( "Select Image", SelectImageAction) );
-            row.Add(CreateButton( "Extract Tiles", ExtractUniqueTiles) );
+            row.Add(CreateButton( "Extract Tiles", RunTileExtractionPipeline) );
             row.Add( CreateButton( "Set OutPut Path" , SetOutPutPath ) );
            
             root.Add(row);
@@ -161,23 +153,19 @@ namespace ToolBox.TileManagement.Editor
                 .Width(ButtonWidth).Height(ButtonHeight).FontSize(ButtonFontSize).MarginBottom(ButtonMarginBottom).Build();
         }
         
-        private IntegerField CreateIntegerField(string label, int initialValue, Action<int> onChanged)
+        private IntegerField CreateIntegerField(string label, int initialValue, int min, int max, Action<int> onChanged)
         {
             if (string.IsNullOrEmpty(label)) return null;
             
             var integerField = new IntegerField(label) { value = initialValue };
             
-            integerField.RegisterValueChangedCallback(evt =>
-            {
-                onChanged(evt.newValue);
-            });
+            integerField.RegisterValueChangedCallback(evt => { onChanged(Mathf.Clamp(evt.newValue, min, max)); });
             
             return integerField;
         }
         
         private void DragAndDropImageAction(string path)
         {
-            Logger.Log( $"Path: { path }");
             LoadTexture(path);
         }
         
@@ -198,7 +186,7 @@ namespace ToolBox.TileManagement.Editor
             _currentTileMapName = Path.GetFileNameWithoutExtension(path);
         }
         
-        private void ExtractUniqueTiles()
+        private void RunTileExtractionPipeline()
         {
             if (_loadedTexture == null)
             {
@@ -208,35 +196,59 @@ namespace ToolBox.TileManagement.Editor
             
             var filename = $"{_currentTileMapName}_{ DateTime.Now.ToString("yyyyMMdd_HHmmss")}";
             
-            ITileExtractor tileExtractor = new TileExtractor( _loadedTexture, _tileWidth, _tileHeight, filename );
+            var uniqueTilesList = GetUniqueTilesList(filename);
             
-            var uniqueTilesList = tileExtractor.ExtractTiles();
-
-            if (uniqueTilesList.IsNullOrEmpty())
-            {
-                Debug.LogError($"No unique tiles found! probably due to the image size.... Aborting extraction.");
-                return;
-            }
-
             //Build the tile sheet from the extracted tiles
+            var tileSet = BuildTileSet(uniqueTilesList);
             
-            Debug.Log( $"{_loadedTexture.width} {_loadedTexture.height}" );
+            _texturePreview.image = tileSet;
             
+            SaveTileSet(tileSet, filename);
+
+            SliceTileSet(filename, _tileWidth, _tileHeight);
+            
+            BuildTileMap(filename);
+        }
+
+        private void BuildTileMap(string filename)
+        {
+            var jsonPath = $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.json";
+            var atlasPath = $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png";
+
+            ITileMapBuilder tileMapBuilder = new TileMapBuilder(jsonPath, atlasPath, filename,true, CompositeCollider2D.GeometryType.Outlines);
+            
+            tileMapBuilder.Build();
+            
+         }
+
+        private void SliceTileSet(string filename, int tileWidth, int tileHeight)
+        {
+            SpriteAssetSlicer.Slice( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png", tileWidth,tileHeight);
+        }
+
+        private Texture2D BuildTileSet(List<Color32[]> uniqueTilesList)
+        {
             int columns = Mathf.CeilToInt(Mathf.Sqrt(uniqueTilesList.Count)); // square-ish
             int rows = Mathf.CeilToInt((float)uniqueTilesList.Count / columns);
 
             var tileSet = new TileSetBuilder(uniqueTilesList, _tileWidth, _tileHeight).SetColumnCount(columns).SetRowCount(rows).Build();
             
-            _texturePreview.image = tileSet;
-            
-            SaveAsPng(tileSet, filename);
-            
-            SpriteAssetSlicer.Slice( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png", 16,16);
-            
-            TileMapBuilder.BuildTileMap($"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.json", $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png", filename);
+            return tileSet;
         }
 
-        private void SaveAsPng(Texture2D texture, string filename)
+        private List<Color32[]> GetUniqueTilesList(string filename)
+        {
+            ITileExtractor tileExtractor = new TileExtractor( _loadedTexture, _tileWidth, _tileHeight, filename );
+            
+            var tiles = tileExtractor.ExtractTiles();
+
+            if (tiles.IsNullOrEmpty())
+                Debug.LogError("No unique tiles found! Probably due to the image size. Aborting extraction.");
+    
+            return tiles ?? new List<Color32[]>();
+        }
+
+        private void SaveTileSet(Texture2D texture, string filename)
         {
             byte[] pngData = texture.EncodeToPNG();
             File.WriteAllBytes( $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png", pngData);
@@ -244,48 +256,14 @@ namespace ToolBox.TileManagement.Editor
             AssetDatabase.Refresh();
         }
 
-        private void SaveJsonMapFile(string jsonMap)
-        {
-            File.WriteAllText($"{EditorPrefs.GetString("TileExtractor_SavePath")}/jsonMap.json", jsonMap);
-            
-            AssetDatabase.Refresh();
-        }
-
+        
         private void SetOutPutPath()
         {
             var fileDialogHelper = new FileDialogHelper(_savePathTextField);
             
             fileDialogHelper.SetSavePathInProject();
         }
-
-        private void AddOptions(VisualElement root)
-        {
-            // Add checkboxes
-            includeFlipped = new Toggle("Include Flipped Tiles") { value = false };
-            useTolerance = new Toggle("Use Tolerance") { value = false };
-            autoSlice = new Toggle("Auto Slice After Save") { value = false };
-            generateJSON = new Toggle("Generate JSON Map") { value = false };
-            generateTileMapAsset = new Toggle("Generate Tile Map Asset") { value = false };
-           
-            root.Add(includeFlipped);
-            root.Add(useTolerance);
-            root.Add(autoSlice);
-            root.Add(generateJSON);
-            root.Add(generateTileMapAsset);
-        }
         
-        private bool IsTileEmpty(Color32[] tile, byte alphaThreshold = 10)
-        {
-            foreach (var c in tile)
-            {
-                Debug.Log( $"{c.a}" );
-                if (c.a > alphaThreshold) return false; // consider pixel “visible” only if alpha above threshold
-                return true;
-            }
-
-            return false;
-        }
-
         private void CreateDragDropOverlay(VisualElement visualElement)
         {
             var overlay = new VisualElement

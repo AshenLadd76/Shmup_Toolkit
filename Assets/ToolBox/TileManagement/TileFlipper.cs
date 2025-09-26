@@ -1,7 +1,7 @@
 using ToolBox.Extensions;
 using UnityEngine;
 
-namespace ToolBox.TileManagement.Editor
+namespace ToolBox.TileManagement
 {
     public static class TileFlipper 
     {
