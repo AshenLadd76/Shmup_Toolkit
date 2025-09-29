@@ -25,9 +25,15 @@ namespace ToolBox.TileManagement.TileExtraction
         private readonly Texture2D _textureToTile;
         private readonly int _tileWidth;
         private readonly int _tileHeight;
+        private readonly int _textureWidth;
+        private readonly int _textureHeight;
         
         private readonly List<Color32[]> _uniqueTiles;
         private readonly List<Color32[]> _allImageTiles;
+        
+        private readonly Color32[] _texturePixelsArr;
+        
+        
         
         private readonly Dictionary<int, int> _tileHashLookup = new(); // hash -> index in _uniqueTiles
 
@@ -52,6 +58,11 @@ namespace ToolBox.TileManagement.TileExtraction
            _tileImageMap = new TileImageMap();
            
            _tileMapName = tileMapName;
+           
+           _textureWidth = textureToTile.width;
+           _textureHeight = textureToTile.height;
+
+           _texturePixelsArr = textureToTile.GetPixels32();
         }
 
         public List<Color32[]> ExtractTiles()
@@ -61,8 +72,6 @@ namespace ToolBox.TileManagement.TileExtraction
             _uniqueTiles.Clear();
             _tileHashLookup.Clear();
             
-            var textureWidth = _textureToTile.width;
-            var textureHeight = _textureToTile.height;
 
             // if (textureWidth % _tileWidth != 0 || textureHeight % _tileHeight != 0)
             // {
@@ -70,18 +79,15 @@ namespace ToolBox.TileManagement.TileExtraction
             //     return null;
             // }
             
-            var numHorizontalTiles = _textureToTile.width / _tileWidth;
-            var numVerticalTiles = _textureToTile.height / _tileHeight;
-            
-            Color32[] texturePixels = _textureToTile.GetPixels32();
-            
+            var numHorizontalTiles = _textureWidth / _tileWidth;
+            var numVerticalTiles = _textureHeight / _tileHeight;
             
             //Outer Loop
             for (int numVertical = 0; numVertical < numVerticalTiles; numVertical++)
             {
                 for (int numHorizontal = 0; numHorizontal < numHorizontalTiles; numHorizontal++)
                 {
-                    var tile = GetTileFromTexture(texturePixels, numHorizontal, numVertical);
+                    var tile = GetTileFromTexture(_texturePixelsArr, numHorizontal, numVertical);
                     _allImageTiles.Add(tile);
                     CheckAndAddUniqueTile(tile);
                 }
@@ -94,6 +100,8 @@ namespace ToolBox.TileManagement.TileExtraction
             _tileImageMap.Columns = numHorizontalTiles;
             _tileImageMap.Rows = numVerticalTiles;
             _tileImageMap.Cells = _tileMapCellList;
+            _tileImageMap.ImageWidth = _textureWidth;
+            _tileImageMap.ImageHeight = _textureHeight;
            
             var jsonText =  JsonConvert.SerializeObject(_tileImageMap);
              Debug.Log(jsonText);

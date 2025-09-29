@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using ToolBox.Editor;
 using ToolBox.Extensions;
 using ToolBox.TileManagement.TileExtraction;
 using UnityEditor;
@@ -21,7 +22,9 @@ namespace ToolBox.TileManagement.Editor
         private const int PreviewMarginTop = 20;
         private const int MinTileSize = 8;
         private const int MaxTileSize = 1024;
-     
+
+        private int _tileMapChunkSizeX = 128;
+        private int _tileMapChunkSizeY = 128;
         
         private int _tileWidth = 16;
         private int _tileHeight = 16;
@@ -39,7 +42,8 @@ namespace ToolBox.TileManagement.Editor
         
         private TextField _savePathTextField;
         
-
+        private bool _addCollidersToTileMap = false;
+        
         [MenuItem("Tools/Tile Set Extractor")]
         public static void ShowWindow() => GetWindow<TileSetExtractor>( "TileSet Extractor" );
         
@@ -62,7 +66,14 @@ namespace ToolBox.TileManagement.Editor
             
             AddEditorFields(root);
             
+            AddProgressBar(root);
+            
             CreatePreviewTexture(root); 
+            
+            AddChunkDropdown(root, val => { _tileMapChunkSizeX = val;  });
+            AddChunkDropdown( root, val => { _tileMapChunkSizeY = val;  } );
+            
+            CreateAddCollidersCheckbox(root);
             
             var spacer = new VisualElement
             {
@@ -79,6 +90,8 @@ namespace ToolBox.TileManagement.Editor
             root.Add(spacer);
             
             HandleButtonPositioning(root);
+            
+            
         }
         
         private void CreateOutPutTextField(VisualElement root)
@@ -127,6 +140,24 @@ namespace ToolBox.TileManagement.Editor
             root.Add( CreateIntegerField( "Tolerance" , _tolerance, MinTileSize, MaxTileSize, value => { _tolerance = value; }));
         }
 
+        private void AddChunkDropdown(VisualElement root, Action<int> action)
+        {
+            var options = new List<int> { 128, 256, 512, 1024 };
+            int defaultOption = 128;
+
+            var popup = new PopUpBuilder<int>()
+                .Label("Select Tile Map Chunk Size")
+                .Choices(options)
+                .DefaultValue(defaultOption)
+                .Size(400,20)
+                .OnValueChanged( action )
+                .Build();
+            
+                root.Add(popup);
+        }
+
+       
+
 
         private void HandleButtonPositioning(VisualElement root)
         {
@@ -145,6 +176,21 @@ namespace ToolBox.TileManagement.Editor
             row.Add( CreateButton( "Set OutPut Path" , SetOutPutPath ) );
            
             root.Add(row);
+        }
+
+        private void CreateAddCollidersCheckbox(VisualElement root)
+        {
+            var collisionToggle = new CheckBoxBuilder( "Add Colliders", false )
+                .OnValueChanged( SetTileMapCollisions )
+                .Build();
+            
+            root.Add( collisionToggle );
+        }
+
+        private void SetTileMapCollisions(bool b)
+        {
+            Logger.Log( $"SetTileMapCollisions {b}" );
+            _addCollidersToTileMap = b;
         }
 
         private Button CreateButton( string buttonText, Action clickEvent )
@@ -168,6 +214,24 @@ namespace ToolBox.TileManagement.Editor
         {
             LoadTexture(path);
         }
+
+        
+        private void AddProgressBar(VisualElement root)
+        {
+            var progressBarBuilder = new ProgressBarBuilder("Building...")
+                .Width(300)
+                .Height(20)
+                .Range(0, 1)
+                .ProgressColor(Color.green);
+                
+
+            
+            var progressBar = progressBarBuilder.Build();
+            
+            root.Add( progressBar );
+        }
+        
+        
         
         private void SelectImageAction(  )
         {
@@ -214,11 +278,12 @@ namespace ToolBox.TileManagement.Editor
         {
             var jsonPath = $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.json";
             var atlasPath = $"{EditorPrefs.GetString("TileExtractor_SavePath")}/{filename}.png";
+            
+            Vector2Int chunkSize = new Vector2Int(_tileMapChunkSizeX, _tileMapChunkSizeY);
 
-            ITileMapBuilder tileMapBuilder = new TileMapBuilder(jsonPath, atlasPath, filename,true, CompositeCollider2D.GeometryType.Outlines);
+            ITileMapBuilder tileMapBuilder = new TileMapBuilder(jsonPath, atlasPath, filename, chunkSize, _addCollidersToTileMap, CompositeCollider2D.GeometryType.Outlines);
             
             tileMapBuilder.Build();
-            
          }
 
         private void SliceTileSet(string filename, int tileWidth, int tileHeight)

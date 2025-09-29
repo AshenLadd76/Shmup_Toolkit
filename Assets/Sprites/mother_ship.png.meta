@@ -78,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -135,8 +135,8 @@ TextureImporter:
       name: mother_ship_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 117
+        x: 12
+        y: 119
         width: 224
         height: 238
       alignment: 0
@@ -158,9 +158,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 44
-        y: 3
-        width: 40
-        height: 105
+        y: 94
+        width: 29
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,12 +179,12 @@ TextureImporter:
       name: mother_ship_2
       rect:
         serializedVersion: 2
-        x: 156
-        y: 3
-        width: 40
+        x: 263
+        y: 253
+        width: 152
         height: 105
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -201,12 +201,12 @@ TextureImporter:
       name: mother_ship_3
       rect:
         serializedVersion: 2
-        x: 7
-        y: 45
-        width: 29
-        height: 12
+        x: 11
+        y: 47
+        width: 16
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: mother_ship_4
       rect:
         serializedVersion: 2
-        x: 7
-        y: 94
+        x: 11
+        y: 96
         width: 16
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -245,8 +245,30 @@ TextureImporter:
       name: mother_ship_5
       rect:
         serializedVersion: 2
-        x: 7
+        x: 11
         y: 71
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dee39ab4b91c684a8b44d10626d60d2
+      internalID: 1340450030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mother_ship_6
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 83
         width: 16
         height: 9
       alignment: 0
@@ -257,8 +279,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dee39ab4b91c684a8b44d10626d60d2
-      internalID: 1340450030
+      spriteID: eee97b1783d401c4db37bcecf63e6126
+      internalID: 1628884224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mother_ship_7
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 59
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f85ad2887c67df45a0b1ee4bfe83a07
+      internalID: -761607602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mother_ship_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 36
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6976690353d6e95449e22ce17ef9f500
+      internalID: -1159257832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mother_ship_9
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 141
+        width: 156
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc2e17b21de24534ea12ea07da08d3d6
+      internalID: 901390710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mother_ship_10
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 29
+        width: 154
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c027bed419ce8e44bb804e9d68b27233
+      internalID: -1334716948
       vertices: []
       indices: 
       edges: []
@@ -279,10 +389,15 @@ TextureImporter:
     nameFileIdTable:
       mother_ship_0: 8763967935907786652
       mother_ship_1: 7006200767967008565
+      mother_ship_10: -1334716948
       mother_ship_2: -6400435520407666942
       mother_ship_3: -615990763
       mother_ship_4: -734352416
       mother_ship_5: 1340450030
+      mother_ship_6: 1628884224
+      mother_ship_7: -761607602
+      mother_ship_8: -1159257832
+      mother_ship_9: 901390710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

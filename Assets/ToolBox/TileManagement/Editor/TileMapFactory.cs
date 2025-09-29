@@ -7,9 +7,9 @@ namespace ToolBox.TileManagement.Editor
 {
     public class TileMapFactory : ITileMapFactory
     {
-        private readonly Matrix4x4 HorizontalFlip = Matrix4x4.Scale(new Vector3(-1, 1, 1));
-        private readonly Matrix4x4 VerticalFlip = Matrix4x4.Scale(new Vector3(1, -1, 1));
-        private readonly Matrix4x4 BothFlip = Matrix4x4.Scale(new Vector3(-1, -1, 1));
+        private readonly Matrix4x4 _horizontalFlip = Matrix4x4.Scale(new Vector3(-1, 1, 1));
+        private readonly Matrix4x4 _verticalFlip = Matrix4x4.Scale(new Vector3(1, -1, 1));
+        private readonly Matrix4x4 _bothFlip = Matrix4x4.Scale(new Vector3(-1, -1, 1));
         
         private readonly Vector3 _defaultCellSize;
         private readonly bool _useCompositeColliders;
@@ -21,8 +21,26 @@ namespace ToolBox.TileManagement.Editor
             _colliderGeometryType = colliderGeometryType;
         }
         
-        public Tilemap CreateTileMap(string tileMapName, TileImageMap tileImageMap, Tile[] uniqueTiles, bool isCollsionMap)
+        public Tilemap BuildTileMap(string tileMapName, TileImageMap tileImageMap, Tile[] uniqueTiles, bool isCollsionMap, Vector2Int chunkSize = default)
         {
+            
+            Logger.Log($"Building tilemap {tileMapName} { tileImageMap.ImageWidth } { tileImageMap.ImageHeight }  with chunk size {chunkSize}");
+
+            if (chunkSize != default)
+            {
+
+                var chunkx = tileImageMap.ImageWidth / chunkSize.x;
+                var chunky = tileImageMap.ImageHeight / chunkSize.y;
+
+                if (chunkSize.x > tileImageMap.ImageWidth) chunkx = 1;
+                if (chunkSize.y > tileImageMap.ImageHeight) chunky = 1;
+
+                var numchunks = chunkx * chunky;
+
+                Logger.Log($"Splitting original image into {numchunks} tilemap chunks");
+            }
+
+
             var parentGo = CreateGrid(tileMapName);
             
             var parent = parentGo.transform;
@@ -36,6 +54,9 @@ namespace ToolBox.TileManagement.Editor
             Tilemap tilemap = tilemapGo.AddComponent<Tilemap>();
             
             TilemapRenderer tilemapRenderer = tilemapGo.AddComponent<TilemapRenderer>();
+            
+            
+            Logger.Log($"Created tilemap is collider {isCollsionMap}");
             
             if(isCollsionMap)
                 SetupColliders( tilemapGo );
@@ -81,21 +102,21 @@ namespace ToolBox.TileManagement.Editor
             var cells = tileImageMap.Cells;
             int cellCount = cells.Count;
             
-            for (int y = 0; y < tileImageMap.Rows; y++)
+            for (int y = 0; y < rows; y++)
             {
                 int yPos = rows - 1 - y;
                 
-                for (int x = 0; x < tileImageMap.Columns; x++)
+                for (int x = 0; x < columns; x++)
                 {
-                    int index = y * tileImageMap.Columns + x; // converts 2D coordinates to 1D
+                    int index = y * columns + x; // converts 2D coordinates to 1D
                     
-                    if (index >= tileImageMap.Cells.Count)
+                    if (index >= cells.Count)
                     {
                         Logger.LogWarning($"Cell index {index} out of range for tilemap {tilemap.name}");
                         continue;
                     }
                     
-                    TileMapCell cell = tileImageMap.Cells[index];
+                    TileMapCell cell = cells[index];
 
                     int tileIndex = cell.uniqueIndex;
                         
@@ -118,12 +139,29 @@ namespace ToolBox.TileManagement.Editor
         private void CheckForFlip(Tilemap tilemap, TileMapCell cell, Vector3Int position)
         {
             if (cell.flipType == FlipType.None) return;
+            
+            // Matrix4x4 matrix = Matrix4x4.identity;
+            //
+            // switch (cell.flipType)
+            // {
+            //     case FlipType.Horizontal:
+            //         matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(-1, 1, 1));
+            //         break;
+            //     case FlipType.Vertical:
+            //         matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(1, -1, 1));
+            //         break;
+            //     case FlipType.Both:
+            //         matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(-1, -1, 1));
+            //         break;
+            // }
+
+
 
             Matrix4x4 matrix = cell.flipType switch
             {
-                FlipType.Horizontal => HorizontalFlip,
-                FlipType.Vertical => VerticalFlip,
-                FlipType.Both => BothFlip,
+                FlipType.Horizontal => _horizontalFlip,
+                FlipType.Vertical => _verticalFlip,
+                FlipType.Both => _bothFlip,
                 _ => Matrix4x4.identity
             };
             tilemap.SetTransformMatrix(position, matrix);

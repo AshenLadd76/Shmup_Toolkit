@@ -21,9 +21,11 @@ namespace ToolBox.TileManagement.Editor
         private Transform _parent = null;
         private Vector3 _cellSize = Vector3.one;
         private CompositeCollider2D.GeometryType _geometryType;
+        private Vector2Int _chunkSize;
 
         
-        public TileMapBuilder(string jsonFilePath, string atlasFilePath, string tileMapName, bool isCollisionMap = false, CompositeCollider2D.GeometryType geometryType = CompositeCollider2D.GeometryType.Outlines,  Transform parent = null)
+        public TileMapBuilder(string jsonFilePath, string atlasFilePath, string tileMapName, Vector2Int chunkSize, 
+            bool isCollisionMap = false, CompositeCollider2D.GeometryType geometryType = CompositeCollider2D.GeometryType.Outlines,  Transform parent = null )
         {
             _jsonFilePath = jsonFilePath;
             _atlasFilePath = atlasFilePath;
@@ -31,6 +33,9 @@ namespace ToolBox.TileManagement.Editor
             _isCollisionMap = isCollisionMap;
             _parent = parent;
             _geometryType = geometryType;
+            _chunkSize = chunkSize;
+            
+            Logger.Log( $"Add collision map: {isCollisionMap}" );
            
         }
         
@@ -69,7 +74,7 @@ namespace ToolBox.TileManagement.Editor
 
             ITileMapFactory tilemapFactory = new TileMapFactory( new Vector3(1,1,1),_geometryType);
             
-            tilemapFactory.CreateTileMap(_tileMapName, tileImageMap, uniqueTiles, _isCollisionMap);
+            tilemapFactory.BuildTileMap(_tileMapName, tileImageMap, uniqueTiles, _isCollisionMap, _chunkSize);
         }
         
         private  Tile[] CreateUniqueTiles(Sprite[] sprites)

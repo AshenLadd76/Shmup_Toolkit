@@ -8,5 +8,7 @@ namespace ToolBox.TileManagement
         public int Columns;
         public int Rows;
         public List<TileMapCell> Cells;
+        public int ImageWidth;
+        public int ImageHeight;
     }
 }

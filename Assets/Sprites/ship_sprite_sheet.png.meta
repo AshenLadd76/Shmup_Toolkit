@@ -813,6 +813,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ship_sprite_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 293
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab05d5e0bf218e046b617706869c3b42
+      internalID: 700133135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_sprite_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 293
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a476b7f6e1c42d24c88eb2db96d6e4c5
+      internalID: 1753184073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -852,6 +896,8 @@ TextureImporter:
       ship_sprite_sheet_29: -1805195111
       ship_sprite_sheet_3: -821678807
       ship_sprite_sheet_30: 1833908574
+      ship_sprite_sheet_31: 700133135
+      ship_sprite_sheet_32: 1753184073
       ship_sprite_sheet_4: -249747139
       ship_sprite_sheet_5: -546401810
       ship_sprite_sheet_6: -698521637
