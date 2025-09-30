@@ -22,6 +22,9 @@ namespace CodeBase.Collision_Handling
         public float LifeSpan { get; set; }
         
         public bool IsActive { get; set; }
-        
+
+        public void OnCollision();
+
+
     }
 }

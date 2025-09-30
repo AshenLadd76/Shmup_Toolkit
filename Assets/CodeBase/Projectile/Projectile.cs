@@ -141,5 +141,10 @@ namespace CodeBase.Projectile
            
             _animationIndex = (_animationIndex + 1) % animationSprites.Length;
         }
+
+        public void OnCollision()
+        {
+            Logger.Log($"I {name} collided with something");
+        }
     }
 }

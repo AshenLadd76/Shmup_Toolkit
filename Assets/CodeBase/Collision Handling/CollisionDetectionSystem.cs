@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace CodeBase.Collision_Handling
 {
+    [ExecuteAlways]
     public class CollisionDetectionSystem : ICollisionDetectionSystem
     {
         private readonly float _cellSize;
@@ -15,13 +16,13 @@ namespace CodeBase.Collision_Handling
         
         private readonly HashSet<ISpatialObject> _deadSpatialObjects = new HashSet<ISpatialObject>();
         
-        private readonly List<GameObject> _collisionObjects;
+        private readonly List<ICollisionObject> _collisionObjects;
         
         private ICollisionAlgorithm _collisionAlgorithm;
 
         private float _boundsPadding;
         
-        public CollisionDetectionSystem(ISpatialPartitioningSystem spatialPartitioningSystem, List<GameObject> collisionObjects, Vector2 gridOrigin, float cellSize, ICollisionAlgorithm collisionAlgorithm)
+        public CollisionDetectionSystem(ISpatialPartitioningSystem spatialPartitioningSystem, List<ICollisionObject> collisionObjects, Vector2 gridOrigin, float cellSize, ICollisionAlgorithm collisionAlgorithm)
         {
             _spatialPartitioningSystem = spatialPartitioningSystem ?? throw new System.ArgumentNullException(nameof(spatialPartitioningSystem), "Spatial partitioning system cannot be null.");
             _collisionObjects = collisionObjects ?? throw new System.ArgumentNullException(nameof(collisionObjects), "Collision objects list cannot be null.");
@@ -44,20 +45,25 @@ namespace CodeBase.Collision_Handling
             {
                 var collisionObject = _collisionObjects[x];
 
-                if (!collisionObject) continue;
+                if ( collisionObject == null ) continue;
                 
-                //Fix this....
-                var collisionObjectPosition = collisionObject.transform.position;
+                var position = collisionObject.Position;
+                var size = collisionObject.Size;
                 
-                //Get the bounds of the current object
-                var bounds = GridUtility.GetWorldBounds( collisionObjectPosition,  Vector2.one * 0.25f );
+                //Get the bounds of the current object...Fix this bounds should be supplied by the collision object
+                var bounds = GridUtility.GetWorldBounds( position,  size);
                 
-                CheckForMultiCellCollisions(bounds, collisionObjectPosition);
+                CheckForMultiCellCollisions(collisionObject, bounds);
             }
         }
         
-        private void CheckForMultiCellCollisions((Vector2 min, Vector2 max) bounds, Vector3 collisionObjectPosition)
+        private void CheckForMultiCellCollisions(ICollisionObject collisionObject,  (Vector2 min, Vector2 max) bounds)
         {
+            var collisionObjectPosition = collisionObject.Position;
+            var collisionObjectSize = collisionObject.Size;
+            
+            float radiusX = collisionObjectSize.x * 0.5f;
+            
             Vector2Int currentCellKey = new Vector2Int();
             
             Vector2Int minCell = GridUtility.GetCellFromWorldPosition(bounds.min, _gridOrigin, _cellSize);
@@ -73,13 +79,15 @@ namespace CodeBase.Collision_Handling
                     //var cellSet = _spatialPartitioningSystem.GetCellSet(currentCellKey);
                     if (!_spatialPartitioningSystem.TryGetValidCell(currentCellKey, out var cellSet)) continue;
                     
-                    CheckForCollisions(cellSet, collisionObjectPosition);
+                    CheckForCollisions(cellSet, collisionObjectPosition,  radiusX, collisionObject);
                 }
             }
         }
         
-        private void CheckForCollisions(HashSet<ISpatialObject> cellSet, Vector3 objectPosition)
+        private void CheckForCollisions(HashSet<ISpatialObject> cellSet, Vector3 objectPosition, float objectRadius, ICollisionObject collisionObject)
         {
+            float bulletRadius = 0.1f;
+            
             if (cellSet.IsNullOrEmpty()) return;
             
             foreach (var spatialObject in cellSet)
@@ -90,9 +98,13 @@ namespace CodeBase.Collision_Handling
 
                 var spatialPosition = spatialObject.GetPosition();
                 
-                if (_collisionAlgorithm.CheckCollision(objectPosition, 0.25f, spatialPosition, .1f))
+                if (_collisionAlgorithm.CheckCollision(objectPosition, objectRadius, spatialPosition, bulletRadius))
                 {
+                    collisionObject.OnCollision();
+                    
+                    spatialObject.OnCollision();
                     spatialObject.LifeSpan = 0;
+                    
                     _deadSpatialObjects.Add(spatialObject);
                 }
                 

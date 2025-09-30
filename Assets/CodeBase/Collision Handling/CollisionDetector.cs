@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace CodeBase.Collision_Handling
@@ -10,12 +11,14 @@ namespace CodeBase.Collision_Handling
         [SerializeField] private bool showGrid;
         
         [SerializeField] private float cellSize = 1f;
-        
-        private Vector2Int _gridSize;
-        
-        private Vector2 _gridOrigin;
 
-        [SerializeField] private List<GameObject> collisionObjects;
+        [SerializeField] private Vector2 gridOffset;
+        
+        [SerializeField] private Vector2 _gridOrigin;
+
+        [SerializeField] private List<MonoBehaviour> collisionObjects;
+        
+       [ShowInInspector] private List<ICollisionObject> _iCollisionObjectsList;
         
         private ISpatialPartitioningSystem _spatialPartitioningSystem;
         
@@ -23,17 +26,24 @@ namespace CodeBase.Collision_Handling
         
         private Camera _mainCamera;
         
+        private Vector2Int _gridSize;
+
+        private void Awake()
+        {
+            LoadICollisionObjectsList();
+        }
+        
         private void Start()
         {
             _mainCamera = Camera.main;
 
-            _gridOrigin = new Vector2(-2.5f, -5f);
+            _gridOrigin = new Vector2(0, 0) + gridOffset;
 
             _gridSize = GridUtility.GetCellCountWorldUnits(_mainCamera,  cellSize);
 
             _spatialPartitioningSystem = new SpatialPartitioningSystem(_gridSize);
             
-            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, collisionObjects, _gridOrigin, cellSize, new CircleCollisionAlgorithm() );
+            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, _iCollisionObjectsList, _gridOrigin, cellSize, new CircleCollisionAlgorithm() );
         }
 
 
@@ -56,14 +66,27 @@ namespace CodeBase.Collision_Handling
             _spatialPartitioningSystem?.AddToSpatialPartitionGrid(projectile);
         }
         
+        
         public void RemoveFromCollisionCheck(ISpatialObject projectile, Vector2Int cellPosition)
         {
             if(disableCollisionDetection ) return;
             
             _spatialPartitioningSystem?.RemoveFromSpatialPartitionGrid(projectile, cellPosition);
         }
+        
+        private void LoadICollisionObjectsList()
+        {
+            _iCollisionObjectsList = new List<ICollisionObject>();
 
+            foreach (var collisionObject in collisionObjects   )
+            {
+                ICollisionObject iCollisionObject  = collisionObject as ICollisionObject;
 
+                if (iCollisionObject == null) continue;
+                
+                _iCollisionObjectsList.Add(iCollisionObject);
+            }
+        }
         
         private void OnDrawGizmos()
         {
