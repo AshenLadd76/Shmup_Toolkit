@@ -6,6 +6,7 @@ namespace CodeBase.Collision_Handling
 {
     public class CollisionDetector : MonoBehaviour
     {
+        
         [SerializeField] private bool disableCollisionDetection = true;
         
         [SerializeField] private bool showGrid;
@@ -17,6 +18,8 @@ namespace CodeBase.Collision_Handling
         [SerializeField] private Vector2 _gridOrigin;
 
         [SerializeField] private List<MonoBehaviour> collisionObjects;
+        
+        [SerializeField] private BaseCollisionAlgorithmSo collisionAlgorithmSo;
         
        [ShowInInspector] private List<ICollisionObject> _iCollisionObjectsList;
         
@@ -43,7 +46,7 @@ namespace CodeBase.Collision_Handling
 
             _spatialPartitioningSystem = new SpatialPartitioningSystem(_gridSize);
             
-            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, _iCollisionObjectsList, _gridOrigin, cellSize, new CircleCollisionAlgorithm() );
+            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, _iCollisionObjectsList, _gridOrigin, cellSize, collisionAlgorithmSo );
         }
 
 
@@ -52,6 +55,7 @@ namespace CodeBase.Collision_Handling
             _spatialPartitioningSystem.UpdateCheck(spatialObjects, _gridOrigin, cellSize);
             
             _collisionDetectionSystem?.CollisionCheck();
+            
         }
 
         

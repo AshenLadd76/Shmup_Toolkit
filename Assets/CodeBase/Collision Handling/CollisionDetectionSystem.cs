@@ -39,14 +39,13 @@ namespace CodeBase.Collision_Handling
             if (_collisionObjects.IsNullOrEmpty())
                 return;
             
+            _collisionObjects.RemoveAll(o => o == null);
+            
             DeleteDeadSpatialObjects();
 
             for (int x = 0; x < _collisionObjects.Count; x++)
             {
                 var collisionObject = _collisionObjects[x];
-
-                if ( collisionObject == null ) continue;
-                
                 var position = collisionObject.Position;
                 var size = collisionObject.Size;
                 
@@ -60,14 +59,24 @@ namespace CodeBase.Collision_Handling
         private void CheckForMultiCellCollisions(ICollisionObject collisionObject,  (Vector2 min, Vector2 max) bounds)
         {
             var collisionObjectPosition = collisionObject.Position;
-            var collisionObjectSize = collisionObject.Size;
             
-            float radiusX = collisionObjectSize.x * 0.5f;
+            var halfWidth = collisionObject.RadiusX;
+            var halfHeight = collisionObject.RadiusY;
             
             Vector2Int currentCellKey = new Vector2Int();
             
             Vector2Int minCell = GridUtility.GetCellFromWorldPosition(bounds.min, _gridOrigin, _cellSize);
             Vector2Int maxCell = GridUtility.GetCellFromWorldPosition(bounds.max, _gridOrigin, _cellSize);
+
+            if (minCell == maxCell)
+            {
+                currentCellKey = minCell;
+                if (_spatialPartitioningSystem.TryGetValidCell(currentCellKey, out var cellSet))
+                    CheckForCollisions(cellSet, collisionObject);
+
+                return;
+
+            }
             
             for (int x = minCell.x; x <= maxCell.x; x++)
             {
@@ -79,12 +88,12 @@ namespace CodeBase.Collision_Handling
                     //var cellSet = _spatialPartitioningSystem.GetCellSet(currentCellKey);
                     if (!_spatialPartitioningSystem.TryGetValidCell(currentCellKey, out var cellSet)) continue;
                     
-                    CheckForCollisions(cellSet, collisionObjectPosition,  radiusX, collisionObject);
+                    CheckForCollisions(cellSet, collisionObject);
                 }
             }
         }
         
-        private void CheckForCollisions(HashSet<ISpatialObject> cellSet, Vector3 objectPosition, float objectRadius, ICollisionObject collisionObject)
+        private void CheckForCollisions(HashSet<ISpatialObject> cellSet, ICollisionObject collisionObject)
         {
             float bulletRadius = 0.1f;
             
@@ -98,7 +107,8 @@ namespace CodeBase.Collision_Handling
 
                 var spatialPosition = spatialObject.GetPosition();
                 
-                if (_collisionAlgorithm.CheckCollision(objectPosition, objectRadius, spatialPosition, bulletRadius))
+                if (_collisionAlgorithm.CheckCollision(collisionObject, spatialObject) 
+                    || _collisionAlgorithm.CheckCollision(collisionObject, spatialObject) )
                 {
                     collisionObject.OnCollision();
                     

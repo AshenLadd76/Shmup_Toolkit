@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+
+
+using System.Collections.Generic;
 using System.Diagnostics;
 using Newtonsoft.Json;
 using ToolBox.Data;
@@ -207,3 +210,5 @@ namespace ToolBox.TileManagement.TileExtraction
         
     }
 }
+
+#endif

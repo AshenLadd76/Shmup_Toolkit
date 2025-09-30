@@ -47,6 +47,10 @@ namespace CodeBase.Projectile
             _spriteRenderer = GetComponent<SpriteRenderer>();
 
             _transform = transform;
+
+            Size = new Vector2(Radius, Radius);
+            RadiusX = .2f;
+            RadiusY = .2f;
         }
         
         public void SetActiveProjectileManager(ActiveProjectileManager activeProjectileManager)
@@ -118,6 +122,7 @@ namespace CodeBase.Projectile
         {
             _transform.position = position;
             _cachedPosition = position;
+            Position = position;
         }
         
         public Vector3 GetPosition() => _cachedPosition;
@@ -141,6 +146,11 @@ namespace CodeBase.Projectile
            
             _animationIndex = (_animationIndex + 1) % animationSprites.Length;
         }
+
+        public Vector3 Position { get; set; }
+        public Vector3 Size { get; set; }
+        public float RadiusX { get; set; }
+        public float RadiusY { get; set; }
 
         public void OnCollision()
         {

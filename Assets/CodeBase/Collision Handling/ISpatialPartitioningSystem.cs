@@ -22,9 +22,13 @@ namespace CodeBase.Collision_Handling
         public float LifeSpan { get; set; }
         
         public bool IsActive { get; set; }
-
+        
+        
+        public Vector3 Position { get; set; }
+        public Vector3 Size { get; set; }
+        public float RadiusX { get; set; }
+        public float RadiusY { get; set; }
+        
         public void OnCollision();
-
-
     }
 }

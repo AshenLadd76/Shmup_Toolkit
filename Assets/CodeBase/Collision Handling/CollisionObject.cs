@@ -8,20 +8,39 @@ namespace CodeBase.Collision_Handling
     {
         [SerializeField] private bool showDebug;
         
+        private SpriteFlash _spriteFlash;
+        
+        private Transform _transform;
         
         public Vector3 Position { get; set; }
         public Vector3 Size { get; set; }
         
-        
-        
+        public float RadiusX { get; set; }
+        public float RadiusY { get; set; }
+
+        private const float Half = 0.5f; 
+
         private void Awake()
         {
-            Position = transform.position;
-            Size = transform.localScale;
+            _transform = transform;
+            
+            _spriteFlash = GetComponent<SpriteFlash>();
+            
+            Position = _transform.position;
+            Size = _transform.localScale;
+
+            RadiusX = transform.localScale.x * Half;  
+            RadiusY = transform.localScale.y * Half;
         }
         public void OnCollision()
         {
-            Logger.Log("OnCollision Aaahh ! I was hit !!!");
+            Logger.Log($" OnCollision Aaahh ! I {name} was hit !!! { RadiusX } { RadiusY }");
+            _spriteFlash.FlashColor();
+        }
+
+        private  void Update()
+        {
+            Position = _transform.position;
         }
         
         private void OnDrawGizmos()
