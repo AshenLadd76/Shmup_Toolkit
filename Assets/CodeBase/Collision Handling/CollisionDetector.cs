@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using ToolBox.Messenger;
 using UnityEngine;
 
 namespace CodeBase.Collision_Handling
 {
     public class CollisionDetector : MonoBehaviour
     {
-
         [SerializeField] private Transform parentTransform;
         
         [SerializeField] private bool disableCollisionDetection = true;
@@ -14,7 +14,6 @@ namespace CodeBase.Collision_Handling
         [SerializeField] private bool showGrid;
         
         [SerializeField] private float cellSize = 1f;
-
         
         [SerializeField] private Vector2 gridOffset;
         
@@ -25,7 +24,7 @@ namespace CodeBase.Collision_Handling
         
         [SerializeField] private BaseCollisionAlgorithmSo collisionAlgorithmSo;
         
-       [ShowInInspector] private List<ICollisionObject> _iCollisionObjectsList;
+        [ShowInInspector] private List<ICollisionObject> _iCollisionObjectsList;
         
         private ISpatialPartitioningSystem _spatialPartitioningSystem;
         
@@ -34,10 +33,27 @@ namespace CodeBase.Collision_Handling
         private Camera _mainCamera;
         
         private Vector2Int _gridSize;
+        
+        private MessageBus _messageBus;
+        
+        private void OnEnable()
+        {
+            _messageBus.AddListener<MonoBehaviour>( CollisionDetectorMessages.AddToCollisionObject.ToString(), AddToCollisionObjectsList );
+            _messageBus.AddListener<MonoBehaviour>( CollisionDetectorMessages.RemoveCollisionObject.ToString(), RemoveFromCollisionObjectsList );
+        }
 
+
+        private void OnDisable()
+        {
+            _messageBus.RemoveListener<MonoBehaviour>(CollisionDetectorMessages.AddToCollisionObject.ToString(), AddToCollisionObjectsList );
+            _messageBus.RemoveListener<MonoBehaviour>(CollisionDetectorMessages.RemoveCollisionObject.ToString(), RemoveFromCollisionObjectsList );
+        } 
+        
         private void Awake()
         {
             LoadICollisionObjectsList();
+            
+            _messageBus = MessageBus.Instance;
         }
         
         private void Start()
@@ -54,7 +70,7 @@ namespace CodeBase.Collision_Handling
         }
 
 
-        public void UpdateCheck(ISpatialObject[] spatialObjects)
+        public void UpdateCheck(ICollisionObject[] spatialObjects)
         {
             _currentGridOrigin = _initialGridOrigin + (Vector2)parentTransform.position;
             
@@ -64,7 +80,7 @@ namespace CodeBase.Collision_Handling
         }
 
         
-        public void AddToCollisionCheckGridCell(ISpatialObject projectile)
+        public void AddToCollisionCheckGridCell(ICollisionObject projectile)
         {
             if(disableCollisionDetection ) return;
             
@@ -76,7 +92,7 @@ namespace CodeBase.Collision_Handling
         }
         
         
-        public void RemoveFromCollisionCheck(ISpatialObject projectile, Vector2Int cellPosition)
+        public void RemoveFromCollisionCheck(ICollisionObject projectile, Vector2Int cellPosition)
         {
             if(disableCollisionDetection ) return;
             
@@ -111,5 +127,31 @@ namespace CodeBase.Collision_Handling
                 }
             }
         }
+
+        private void AddToCollisionObjectsList(MonoBehaviour collisionObject)
+        {
+            if (collisionObject == null) return;
+            
+            collisionObjects.Add(collisionObject);
+
+            if (collisionObject is ICollisionObject iobject)
+                _iCollisionObjectsList.Add(iobject);
+        }
+
+        private void RemoveFromCollisionObjectsList(MonoBehaviour collisionObject)
+        {
+            if (collisionObject == null) return;
+            
+            collisionObjects.Remove( collisionObject );
+
+            if (collisionObject is ICollisionObject iCollisionObject)
+                _iCollisionObjectsList.Remove(iCollisionObject);
+        }
+    }
+
+    public enum CollisionDetectorMessages
+    {
+        AddToCollisionObject,
+        RemoveCollisionObject,
     }
 }

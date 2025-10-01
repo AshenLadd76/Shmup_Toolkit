@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class BaseCollisionAlgorithmSo : ScriptableObject, ICollisionAlgorithm
 {
-    public abstract bool CheckCollision(ICollisionObject objectA, ISpatialObject objectB);
+    public abstract bool CheckCollision(ICollisionObject objectA, ICollisionObject objectB);
     
     // Draw debug visualization at a position with optional size/radius
     public abstract void DrawDebug(Vector3 position, float radiusX, float radiusY);

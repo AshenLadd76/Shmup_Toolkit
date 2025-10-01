@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodeBase.Collision_Handling
 {
-    public interface ICollisionObject
+    public interface ICollisionObjectOld
     {
         Vector3 Position { get; }
         

@@ -10,7 +10,7 @@ namespace CodeBase.Collision_Handling
         [SerializeField] private bool useRadiusFromObject  = true;
         [SerializeField] private float fixedRadius = 0.5f;
         
-        public override bool CheckCollision(ICollisionObject collisionObjectA, ISpatialObject collisionObjectB)
+        public override bool CheckCollision(ICollisionObject collisionObjectA, ICollisionObject collisionObjectB)
         {
             float radiusA = useRadiusFromObject ? collisionObjectA.RadiusX : fixedRadius;
             float radiusB = useRadiusFromObject ? collisionObjectB.RadiusX : fixedRadius;

@@ -1,3 +1,5 @@
+using CodeBase.Tests;
+using ToolBox.Messenger;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
 
@@ -8,10 +10,19 @@ namespace CodeBase.Collision_Handling
     {
         [SerializeField] private bool showDebug;
         
-        private SpriteFlash _spriteFlash;
+        private HealthTest _healthTest;
         
         private Transform _transform;
-        
+
+        public Vector3 GetPosition()
+        {
+            return Position;
+        }
+
+        public Vector3 LastPosition { get; set; }
+        public Vector2Int LastCellPosition { get; set; }
+        public float LifeSpan { get; set; }
+        public bool IsActive { get; set; }
         public Vector3 Position { get; set; }
         public Vector3 Size { get; set; }
         
@@ -24,7 +35,7 @@ namespace CodeBase.Collision_Handling
         {
             _transform = transform;
             
-            _spriteFlash = GetComponent<SpriteFlash>();
+            _healthTest = GetComponent<HealthTest>();
             
             Position = _transform.position;
             Size = _transform.localScale;
@@ -35,7 +46,7 @@ namespace CodeBase.Collision_Handling
 
         public void OnCollision()
         {
-            
+            _healthTest.OnHit();
         }
         
 
@@ -53,6 +64,13 @@ namespace CodeBase.Collision_Handling
 
             // Draw a wireframe cube at the Position with the Size
             Gizmos.DrawWireCube(Position, Size);
+        }
+
+        public void Death()
+        {
+            MessageBus.Instance.Broadcast( nameof(CollisionDetectorMessages.RemoveCollisionObject), this );
+            
+            gameObject.SetActive( false );
         }
         
     }

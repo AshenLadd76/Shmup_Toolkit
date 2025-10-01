@@ -5,7 +5,7 @@ namespace CodeBase.Collision_Handling
 {
     public interface ICollisionAlgorithm
     {
-        bool CheckCollision(ICollisionObject objectA, ISpatialObject objectB);
+        bool CheckCollision(ICollisionObject objectA, ICollisionObject objectB);
     }
 
 

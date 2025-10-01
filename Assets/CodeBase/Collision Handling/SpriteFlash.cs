@@ -1,51 +1,69 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 [RequireComponent(typeof(SpriteRenderer))]
+
+
 public class SpriteFlash : MonoBehaviour
 {
-    private SpriteRenderer _spriteRenderer;
-    
-    [SerializeField] private float duration = 0.5f;
-    
-     [SerializeField] private Color originalColor;
 
-    private LTDescr _ltDescr;
-    
+    [SerializeField] private Color flashColour;
+    [SerializeField] private float flashDuration;
+
+    private Material _material;
+
+    private IEnumerator _flashCoRoutine;
+    private static readonly int FlashAmount = Shader.PropertyToID("_FlashAmount");
+    private static readonly int FlashColor = Shader.PropertyToID("_FlashColor");
+
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = _spriteRenderer.color; // cache the original color
+        _material = GetComponent<SpriteRenderer>().material;
     }
 
-    /// <summary>
-    /// Temporarily changes the sprite color and fades back.
-    /// </summary>
-    /// <param name="flashColor">Color to flash to</param>
-    /// <param name="duration">Time it takes to fade back to original color</param>
-    public void FlashColor()
+    private void Start()
     {
-        if (_ltDescr != null)
+        _material.SetColor( FlashColor, flashColour );
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            Flash();
+    }
+
+    public void Flash()
+    {
+        if( _flashCoRoutine != null  )
+            StopCoroutine( _flashCoRoutine );
+
+        _flashCoRoutine = FlashCo();
+            
+        StartCoroutine( _flashCoRoutine );
+
+    }
+
+    private IEnumerator FlashCo()
+    {
+        float lerpTime = 0;
+
+        while (lerpTime < flashDuration)
         {
-            LeanTween.cancel(_ltDescr.id);
-            _spriteRenderer.color = originalColor;
+            lerpTime += Time.deltaTime;
+
+            float perc = lerpTime / flashDuration;
+
+            SetFlashAmount( 1f - perc );
+                
+            yield return null;
         }
+    }
 
-        if (!_spriteRenderer) return;
-        
-        
-        // Generate a random color
-        Color flashColor = new Color(Random.value, Random.value, Random.value);
-
-        // Immediately set to flash color
-        _spriteRenderer.color = flashColor;
-
-        // Tween back to original color
-        _ltDescr = LeanTween.value(gameObject, 0f, 1f, duration)
-            .setOnUpdate((float t) =>
-            {
-                _spriteRenderer.color = Color.Lerp(flashColor, originalColor, t);
-            });
+    private void SetFlashAmount(float flashAmount)
+    {
+        if( _material )
+            _material.SetFloat( FlashAmount, flashAmount );
     }
 }
 

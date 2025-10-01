@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AABBCollision", menuName = "Collision/Algorithms/AABBCollision")]
 public class AABBCollisionAlgorithmSo : BaseCollisionAlgorithmSo
 {
-    public override bool CheckCollision(ICollisionObject objectA, ISpatialObject objectB)
+    public override bool CheckCollision(ICollisionObject objectA, ICollisionObject objectB)
     {
         return Mathf.Abs(objectA.Position.x - objectB.Position.x) <= objectA.RadiusX + objectB.RadiusX &&
                Mathf.Abs(objectA.Position.y - objectB.Position.y) <= objectA.RadiusY + objectB.RadiusY;

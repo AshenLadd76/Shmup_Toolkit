@@ -5,14 +5,14 @@ namespace CodeBase.Collision_Handling
 {
     public interface ISpatialPartitioningSystem
     {
-        public void UpdateCheck(ISpatialObject[] projectiles, Vector3 gridOrigin, float cellSize);
-        void RemoveFromSpatialPartitionGrid(ISpatialObject projectile, Vector2Int cellPosition);
-        void AddToSpatialPartitionGrid(ISpatialObject projectile);
+        public void UpdateCheck(ICollisionObject[] projectiles, Vector3 gridOrigin, float cellSize);
+        void RemoveFromSpatialPartitionGrid(ICollisionObject projectile, Vector2Int cellPosition);
+        void AddToSpatialPartitionGrid(ICollisionObject projectile);
 
-        public bool TryGetValidCell(Vector2Int cell, out HashSet<ISpatialObject> cellSet);
+        public bool TryGetValidCell(Vector2Int cell, out HashSet<ICollisionObject> cellSet);
     }
 
-    public interface ISpatialObject
+    public interface ICollisionObject
     {
         public Vector3 GetPosition();
         

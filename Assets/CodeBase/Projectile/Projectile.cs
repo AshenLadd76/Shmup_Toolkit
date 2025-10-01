@@ -8,7 +8,7 @@ using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Projectile
 {
-    public class Projectile : MonoBehaviour, IProjectile, IPoolable<Projectile>, ISpatialObject
+    public class Projectile : MonoBehaviour, IProjectile, IPoolable<Projectile>, ICollisionObject
     {
         private Transform _transform;
         

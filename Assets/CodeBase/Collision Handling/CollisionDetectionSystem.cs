@@ -14,7 +14,7 @@ namespace CodeBase.Collision_Handling
         
         private readonly ISpatialPartitioningSystem _spatialPartitioningSystem;
         
-        private readonly HashSet<ISpatialObject> _deadSpatialObjects = new HashSet<ISpatialObject>();
+        private readonly HashSet<ICollisionObject> _deadSpatialObjects = new HashSet<ICollisionObject>();
         
         private readonly List<ICollisionObject> _collisionObjects;
         
@@ -95,7 +95,7 @@ namespace CodeBase.Collision_Handling
             }
         }
         
-        private void CheckForCollisions(HashSet<ISpatialObject> cellSet, ICollisionObject collisionObject)
+        private void CheckForCollisions(HashSet<ICollisionObject> cellSet, ICollisionObject collisionObject)
         {
             float bulletRadius = 0.1f;
             
