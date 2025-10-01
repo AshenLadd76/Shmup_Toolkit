@@ -2,8 +2,6 @@ using CodeBase.Weapons;
 using ToolBox.Extensions;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
-
 
 namespace CodeBase.Player
 {
@@ -13,11 +11,15 @@ namespace CodeBase.Player
         private int _currentAnimationHash;
         
         private Transform _transform;
+        
+        private Transform _parentTransform;
 
         private Animator _animator;
         
+        private IScreenClamper _screenClamper;
+        
         [SerializeField] private PlayerMovementData playerMovementData;
-
+        
         [SerializeField] private Vector3 direction;
         
         [SerializeField] private float moveSpeed = 20f;
@@ -25,6 +27,8 @@ namespace CodeBase.Player
         [SerializeField] private float horizontal;
 
         [SerializeField] private UnityEvent<float> onSpecialAttack;
+
+        private const float CameraBoundsPadding = 0.2f;
         
         private int _lastDirectionX;
 
@@ -45,15 +49,19 @@ namespace CodeBase.Player
         {
             _transform = transform;
             
+            _parentTransform = transform.parent;
+            
             _camera = Camera.main;
 
-            _bounds = _camera.GetBounds(0.2f);
+            _bounds = _camera.GetBounds(CameraBoundsPadding);
             
             _animator = GetComponent<Animator>();
 
             _shmupAnimator = new ShmupShipAnimator(_animator, playerMovementData);
 
             _weaponSystem = GetComponent<IWeapon>();
+
+            _screenClamper = new ScreenClamper(_parentTransform, _transform);
         }
 
         private void Update()
@@ -74,26 +82,20 @@ namespace CodeBase.Player
 
         private void LateUpdate()
         {
+            _bounds = _camera.GetBounds(CameraBoundsPadding);
+            
             _shmupAnimator.UpdateAnimator(direction);
         }
-
-
+        
         private void Move()
         {
             var delta = Vector3.ClampMagnitude(direction, 1) * (moveSpeed * Time.deltaTime);
-            
-            var positionToClamp = _transform.position + delta;
-            
-            _transform.position = ClampPositionToScreenBounds(positionToClamp);
-        }
 
-        
-        private Vector3 ClampPositionToScreenBounds(Vector3 position)
-        {
-            position.x = Mathf.Clamp(position.x, _bounds.min.x, _bounds.max.x);
-            position.y = Mathf.Clamp(position.y, _bounds.min.y, _bounds.max.y);
+            var worldPosition = _screenClamper.CalculateWorldPosition(delta);
             
-            return position; 
+            worldPosition = _screenClamper.ClampPositionToScreenBounds(worldPosition, _bounds);
+
+            _transform.localPosition = _screenClamper.CalculateLocalPosition(worldPosition);
         }
     }
 }

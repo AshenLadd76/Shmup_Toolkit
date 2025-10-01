@@ -25,7 +25,6 @@ namespace ToolBox.Utils.Pooling
 
         private void InitializePool(T prefab, int preload, int maxSize,  Transform parent)
         {
-            Logger.Log( $"Initialising pool for Prefab: { prefab.name } Preload count: { preload } Max Size : { maxSize }" );
             
             _pool = new ObjectPool<T>(
                 createFunc: () =>

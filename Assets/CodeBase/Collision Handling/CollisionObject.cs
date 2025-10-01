@@ -32,11 +32,12 @@ namespace CodeBase.Collision_Handling
             RadiusX = transform.localScale.x * Half;  
             RadiusY = transform.localScale.y * Half;
         }
+
         public void OnCollision()
         {
-            Logger.Log($" OnCollision Aaahh ! I {name} was hit !!! { RadiusX } { RadiusY }");
-            _spriteFlash.FlashColor();
+            
         }
+        
 
         private  void Update()
         {

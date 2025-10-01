@@ -10,7 +10,7 @@ namespace CodeBase.Collision_Handling
     {
         private readonly float _cellSize;
         
-        private readonly Vector2 _gridOrigin;
+        private  Vector2 _gridOrigin;
         
         private readonly ISpatialPartitioningSystem _spatialPartitioningSystem;
         
@@ -34,8 +34,10 @@ namespace CodeBase.Collision_Handling
             _cellSize = cellSize;
         }
         
-        public void CollisionCheck()
+        public void CollisionCheck(Vector2 gridOrigin)
         {
+            _gridOrigin = gridOrigin;
+            
             if (_collisionObjects.IsNullOrEmpty())
                 return;
             
@@ -129,5 +131,7 @@ namespace CodeBase.Collision_Handling
             
             _deadSpatialObjects.Clear();
         }
+
+        
     }
 }

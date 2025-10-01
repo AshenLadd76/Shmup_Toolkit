@@ -154,7 +154,7 @@ namespace CodeBase.Projectile
 
         public void OnCollision()
         {
-            Logger.Log($"I {name} collided with something");
+            
         }
     }
 }

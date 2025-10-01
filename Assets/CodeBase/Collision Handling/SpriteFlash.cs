@@ -31,7 +31,7 @@ public class SpriteFlash : MonoBehaviour
             _spriteRenderer.color = originalColor;
         }
 
-        if (_spriteRenderer == null) return;
+        if (!_spriteRenderer) return;
         
         
         // Generate a random color

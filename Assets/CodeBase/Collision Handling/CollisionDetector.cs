@@ -6,6 +6,8 @@ namespace CodeBase.Collision_Handling
 {
     public class CollisionDetector : MonoBehaviour
     {
+
+        [SerializeField] private Transform parentTransform;
         
         [SerializeField] private bool disableCollisionDetection = true;
         
@@ -13,9 +15,11 @@ namespace CodeBase.Collision_Handling
         
         [SerializeField] private float cellSize = 1f;
 
+        
         [SerializeField] private Vector2 gridOffset;
         
-        [SerializeField] private Vector2 _gridOrigin;
+        [SerializeField] private Vector2 _initialGridOrigin;
+        [SerializeField] private Vector2 _currentGridOrigin;
 
         [SerializeField] private List<MonoBehaviour> collisionObjects;
         
@@ -40,22 +44,23 @@ namespace CodeBase.Collision_Handling
         {
             _mainCamera = Camera.main;
 
-            _gridOrigin = new Vector2(0, 0) + gridOffset;
+            _initialGridOrigin = new Vector2(0, 0) + gridOffset;
 
             _gridSize = GridUtility.GetCellCountWorldUnits(_mainCamera,  cellSize);
 
             _spatialPartitioningSystem = new SpatialPartitioningSystem(_gridSize);
             
-            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, _iCollisionObjectsList, _gridOrigin, cellSize, collisionAlgorithmSo );
+            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, _iCollisionObjectsList, _initialGridOrigin, cellSize, collisionAlgorithmSo );
         }
 
 
         public void UpdateCheck(ISpatialObject[] spatialObjects)
         {
-            _spatialPartitioningSystem.UpdateCheck(spatialObjects, _gridOrigin, cellSize);
+            _currentGridOrigin = _initialGridOrigin + (Vector2)parentTransform.position;
             
-            _collisionDetectionSystem?.CollisionCheck();
+            _spatialPartitioningSystem.UpdateCheck(spatialObjects, _currentGridOrigin, cellSize);
             
+            _collisionDetectionSystem?.CollisionCheck(_currentGridOrigin);
         }
 
         
@@ -63,7 +68,7 @@ namespace CodeBase.Collision_Handling
         {
             if(disableCollisionDetection ) return;
             
-            var cellPosition = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _gridOrigin, cellSize);
+            var cellPosition = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _currentGridOrigin, cellSize);
             
             projectile.LastCellPosition = cellPosition;
 
@@ -100,7 +105,7 @@ namespace CodeBase.Collision_Handling
             {
                 for (int y = 0; y < _gridSize.y; y++)
                 {
-                    Vector2 pos = _gridOrigin + new Vector2(x * cellSize, y * cellSize);
+                    Vector2 pos = _currentGridOrigin + new Vector2(x * cellSize, y * cellSize);
                     Gizmos.color = Color.green;
                     Gizmos.DrawWireCube(pos + Vector2.one * cellSize * 0.5f, Vector3.one * cellSize);
                 }

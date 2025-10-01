@@ -27,8 +27,9 @@ namespace CodeBase.Level
 
         private void Move()
         {
+           _transform.position += scrollDirection * (Time.deltaTime * scrollSpeed); 
             
-           layerArray[0].position += scrollDirection * (scrollSpeed * Time.deltaTime);
+           //layerArray[0].position += scrollDirection * (scrollSpeed * Time.deltaTime);
            //layerArray[1].position += scrollDirection * (scrollSpeed * 0.8f * Time.deltaTime);
            
         }
