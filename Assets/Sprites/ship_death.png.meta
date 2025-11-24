@@ -1,0 +1,1259 @@
+fileFormatVersion: 2
+guid: 43fa315b14235d24f90748c5d3eb672c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2250405466302861080
+    second: ship_death_0
+  - first:
+      213: -2253643415267877426
+    second: ship_death_1
+  - first:
+      213: 6127440619436027511
+    second: ship_death_2
+  - first:
+      213: 938606216974072508
+    second: ship_death_3
+  - first:
+      213: 2697955382474999621
+    second: ship_death_4
+  - first:
+      213: 6323762155949069541
+    second: ship_death_5
+  - first:
+      213: 3997576346816944693
+    second: ship_death_6
+  - first:
+      213: 1240385878579508645
+    second: ship_death_7
+  - first:
+      213: -3292377164984909861
+    second: ship_death_8
+  - first:
+      213: -7737468703781689841
+    second: ship_death_9
+  - first:
+      213: 8745173779505902849
+    second: ship_death_10
+  - first:
+      213: 6621438012670747200
+    second: ship_death_11
+  - first:
+      213: -8837890370444002688
+    second: ship_death_12
+  - first:
+      213: -2689769301638111874
+    second: ship_death_13
+  - first:
+      213: 4595765664895269363
+    second: ship_death_14
+  - first:
+      213: 1933141257197378104
+    second: ship_death_15
+  - first:
+      213: -4768977587177839033
+    second: ship_death_16
+  - first:
+      213: -6623055265077567775
+    second: ship_death_17
+  - first:
+      213: 5339798355392119118
+    second: ship_death_18
+  - first:
+      213: 8856508467464538517
+    second: ship_death_19
+  - first:
+      213: 7809505330161229063
+    second: ship_death_20
+  - first:
+      213: 572084768208455981
+    second: ship_death_21
+  - first:
+      213: -2379049375436706721
+    second: ship_death_22
+  - first:
+      213: -1786773493577996667
+    second: ship_death_23
+  - first:
+      213: 3113229502566730760
+    second: ship_death_24
+  - first:
+      213: -6366134940972652697
+    second: ship_death_25
+  - first:
+      213: 9127896255067946808
+    second: ship_death_26
+  - first:
+      213: -3386868076988906826
+    second: ship_death_27
+  - first:
+      213: 478151643487348407
+    second: ship_death_28
+  - first:
+      213: -7823260398434235465
+    second: ship_death_29
+  - first:
+      213: 3928182381994681187
+    second: ship_death_30
+  - first:
+      213: 2523375194617228645
+    second: ship_death_31
+  - first:
+      213: -243172153892226402
+    second: ship_death_32
+  - first:
+      213: 6175772632003610421
+    second: ship_death_33
+  - first:
+      213: -6527477432342574805
+    second: ship_death_34
+  - first:
+      213: 1724311304594112885
+    second: ship_death_35
+  - first:
+      213: -97852741877097430
+    second: ship_death_36
+  - first:
+      213: 6889840692284220511
+    second: ship_death_37
+  - first:
+      213: 8815025740240382578
+    second: ship_death_38
+  - first:
+      213: -2810279780268455491
+    second: ship_death_39
+  - first:
+      213: 1422275496898593299
+    second: ship_death_40
+  - first:
+      213: 4232592686961893674
+    second: ship_death_41
+  - first:
+      213: 5698150213385019764
+    second: ship_death_42
+  - first:
+      213: -6835138172684921297
+    second: ship_death_43
+  - first:
+      213: -2206029981302766017
+    second: ship_death_44
+  - first:
+      213: 8107331937455873699
+    second: ship_death_45
+  - first:
+      213: 387326269663885042
+    second: ship_death_46
+  - first:
+      213: 8950175720861822854
+    second: ship_death_47
+  - first:
+      213: 6582124613301315912
+    second: ship_death_48
+  - first:
+      213: 6875113111642130894
+    second: ship_death_49
+  - first:
+      213: -183348703239928388
+    second: ship_death_50
+  - first:
+      213: 4548939998403812354
+    second: ship_death_51
+  - first:
+      213: 7711080643742144172
+    second: ship_death_52
+  - first:
+      213: 9199492240670808857
+    second: ship_death_53
+  - first:
+      213: -8182530964243732034
+    second: ship_death_54
+  - first:
+      213: 207586448388983819
+    second: ship_death_55
+  - first:
+      213: 4947226912128486452
+    second: ship_death_56
+  - first:
+      213: 8060579912596995521
+    second: ship_death_57
+  - first:
+      213: -5840367699075945767
+    second: ship_death_58
+  - first:
+      213: -820529127351025874
+    second: ship_death_59
+  - first:
+      213: -6153676940560193637
+    second: ship_death_60
+  - first:
+      213: -7749016434534384296
+    second: ship_death_61
+  - first:
+      213: -1444641109776619216
+    second: ship_death_62
+  - first:
+      213: -1238701747373359995
+    second: ship_death_63
+  - first:
+      213: -5082971185341081325
+    second: ship_death_64
+  - first:
+      213: 1887533795541167014
+    second: ship_death_65
+  - first:
+      213: -7925039593294986222
+    second: ship_death_66
+  - first:
+      213: 627031141537661705
+    second: ship_death_67
+  - first:
+      213: -720348746877517575
+    second: ship_death_68
+  - first:
+      213: 5155312597173533198
+    second: ship_death_69
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ship_death_0
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1375
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0bb6cc624f4c0e0800000000000000
+      internalID: -2250405466302861080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1374
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd5f8e014379b0e0800000000000000
+      internalID: -2253643415267877426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_2
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1367
+        width: 49
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77ea8cf57ca090550800000000000000
+      internalID: 6127440619436027511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_3
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1358
+        width: 64
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba76b2a169960d00800000000000000
+      internalID: 938606216974072508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_4
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 466
+        width: 404
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54786404020117520800000000000000
+      internalID: 2697955382474999621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_5
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1349
+        width: 79
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e417651d2482c750800000000000000
+      internalID: 6323762155949069541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_6
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 270
+        width: 404
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a1782e18e3a7730800000000000000
+      internalID: 3997576346816944693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_7
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1341
+        width: 94
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a5742d726cb63110800000000000000
+      internalID: 1240385878579508645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_8
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 269
+        width: 404
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf777689602f42d0800000000000000
+      internalID: -3292377164984909861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_9
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 267
+        width: 404
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06e362753dfe9490800000000000000
+      internalID: -7737468703781689841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_10
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 301
+        width: 307
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1057282f7391d5970800000000000000
+      internalID: 8745173779505902849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_11
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 1332
+        width: 110
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04222876ac214eb50800000000000000
+      internalID: 6621438012670747200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_14
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1324
+        width: 124
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9f407d58077cf30800000000000000
+      internalID: 4595765664895269363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_18
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 1315
+        width: 139
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e41cc511056ca1a40800000000000000
+      internalID: 5339798355392119118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_20
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 1308
+        width: 154
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70d97c3a8bfe06c60800000000000000
+      internalID: 7809505330161229063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_23
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 1305
+        width: 169
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586233d69fa1437e0800000000000000
+      internalID: -1786773493577996667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_25
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1305
+        width: 184
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7676f1b1002f6a7a0800000000000000
+      internalID: -6366134940972652697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_27
+      rect:
+        serializedVersion: 2
+        x: 1757
+        y: 1307
+        width: 191
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b247f9ad6d6ff0d0800000000000000
+      internalID: -3386868076988906826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_38
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 1093
+        width: 207
+        height: 177
+      alignment: 9
+      pivot: {x: 0.5507246, y: 0.48022598}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ae3fce433455a70800000000000000
+      internalID: 8815025740240382578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_39
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 1121
+        width: 233
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db9c2a9ed61eff8d0800000000000000
+      internalID: -2810279780268455491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_42
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1093
+        width: 194
+        height: 166
+      alignment: 9
+      pivot: {x: 0.5515464, y: 0.48192772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47161a1dd65e31f40800000000000000
+      internalID: 5698150213385019764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_43
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1091
+        width: 210
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26176acb06b421a0800000000000000
+      internalID: -6835138172684921297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_45
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 1081
+        width: 266
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae9c305177038070800000000000000
+      internalID: 8107331937455873699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_48
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 1113
+        width: 237
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8492e235677685b50800000000000000
+      internalID: 6582124613301315912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_49
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 1101
+        width: 229
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec94f0af2fe496f50800000000000000
+      internalID: 6875113111642130894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_51
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 1115
+        width: 184
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20cdc65c3d4112f30800000000000000
+      internalID: 4548939998403812354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_55
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 835
+        width: 244
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0c096466ce71e200800000000000000
+      internalID: 207586448388983819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_57
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 827
+        width: 404
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd3ef549beecdf60800000000000000
+      internalID: 8060579912596995521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_59
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 823
+        width: 404
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f71642b15ec94f0800000000000000
+      internalID: -820529127351025874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_61
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 821
+        width: 404
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85df9ecdb96f57490800000000000000
+      internalID: -7749016434534384296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_62
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 823
+        width: 404
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 039a6df809a93fbe0800000000000000
+      internalID: -1444641109776619216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_63
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 601
+        width: 403
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58cb72dd25f3fcee0800000000000000
+      internalID: -1238701747373359995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_64
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 624
+        width: 404
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319d23e33a8a579b0800000000000000
+      internalID: -5082971185341081325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_65
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 621
+        width: 404
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aba6c88cfdd13a10800000000000000
+      internalID: 1887533795541167014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_66
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 618
+        width: 404
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2140fb28a7a940290800000000000000
+      internalID: -7925039593294986222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_67
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 443
+        width: 403
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 903c5764089a3b800800000000000000
+      internalID: 627031141537661705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_68
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 441
+        width: 404
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f0c7fb91aec006f0800000000000000
+      internalID: -720348746877517575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ship_death_69
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 461
+        width: 404
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0aff9c3e795b8740800000000000000
+      internalID: 5155312597173533198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a5e94fa0a75860b458ad8919a9e94589
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ship_death_0: -2250405466302861080
+      ship_death_1: -2253643415267877426
+      ship_death_10: 8745173779505902849
+      ship_death_11: 6621438012670747200
+      ship_death_12: -8837890370444002688
+      ship_death_13: -2689769301638111874
+      ship_death_14: 4595765664895269363
+      ship_death_15: 1933141257197378104
+      ship_death_16: -4768977587177839033
+      ship_death_17: -6623055265077567775
+      ship_death_18: 5339798355392119118
+      ship_death_19: 8856508467464538517
+      ship_death_2: 6127440619436027511
+      ship_death_20: 7809505330161229063
+      ship_death_21: 572084768208455981
+      ship_death_22: -2379049375436706721
+      ship_death_23: -1786773493577996667
+      ship_death_24: 3113229502566730760
+      ship_death_25: -6366134940972652697
+      ship_death_26: 9127896255067946808
+      ship_death_27: -3386868076988906826
+      ship_death_28: 478151643487348407
+      ship_death_29: -7823260398434235465
+      ship_death_3: 938606216974072508
+      ship_death_30: 3928182381994681187
+      ship_death_31: 2523375194617228645
+      ship_death_32: -243172153892226402
+      ship_death_33: 6175772632003610421
+      ship_death_34: -6527477432342574805
+      ship_death_35: 1724311304594112885
+      ship_death_36: -97852741877097430
+      ship_death_37: 6889840692284220511
+      ship_death_38: 8815025740240382578
+      ship_death_39: -2810279780268455491
+      ship_death_4: 2697955382474999621
+      ship_death_40: 1422275496898593299
+      ship_death_41: 4232592686961893674
+      ship_death_42: 5698150213385019764
+      ship_death_43: -6835138172684921297
+      ship_death_44: -2206029981302766017
+      ship_death_45: 8107331937455873699
+      ship_death_46: 387326269663885042
+      ship_death_47: 8950175720861822854
+      ship_death_48: 6582124613301315912
+      ship_death_49: 6875113111642130894
+      ship_death_5: 6323762155949069541
+      ship_death_50: -183348703239928388
+      ship_death_51: 4548939998403812354
+      ship_death_52: 7711080643742144172
+      ship_death_53: 9199492240670808857
+      ship_death_54: -8182530964243732034
+      ship_death_55: 207586448388983819
+      ship_death_56: 4947226912128486452
+      ship_death_57: 8060579912596995521
+      ship_death_58: -5840367699075945767
+      ship_death_59: -820529127351025874
+      ship_death_6: 3997576346816944693
+      ship_death_60: -6153676940560193637
+      ship_death_61: -7749016434534384296
+      ship_death_62: -1444641109776619216
+      ship_death_63: -1238701747373359995
+      ship_death_64: -5082971185341081325
+      ship_death_65: 1887533795541167014
+      ship_death_66: -7925039593294986222
+      ship_death_67: 627031141537661705
+      ship_death_68: -720348746877517575
+      ship_death_69: 5155312597173533198
+      ship_death_7: 1240385878579508645
+      ship_death_8: -3292377164984909861
+      ship_death_9: -7737468703781689841
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

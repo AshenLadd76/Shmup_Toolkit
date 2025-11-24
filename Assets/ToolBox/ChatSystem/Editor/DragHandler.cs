@@ -43,6 +43,5 @@ namespace ToolBox.ChatSystem.Editor
             // optionally unregister callbacks
         }
         
-        
     }
 }

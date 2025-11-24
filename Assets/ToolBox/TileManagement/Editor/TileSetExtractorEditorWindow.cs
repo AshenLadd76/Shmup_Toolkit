@@ -223,8 +223,6 @@ namespace ToolBox.TileManagement.Editor
                 .Height(20)
                 .Range(0, 1)
                 .ProgressColor(Color.green);
-                
-
             
             var progressBar = progressBarBuilder.Build();
             

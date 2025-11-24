@@ -1,0 +1,2468 @@
+fileFormatVersion: 2
+guid: 8151ead5e395e0445be60010fffb771f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 732281584280010473
+    second: Shatterhand_level_A_0
+  - first:
+      213: -3861218470340378684
+    second: Shatterhand_level_A_1
+  - first:
+      213: -2624504439725466825
+    second: Shatterhand_level_A_2
+  - first:
+      213: 5564777088504052730
+    second: Shatterhand_level_A_3
+  - first:
+      213: -5188259988021405574
+    second: Shatterhand_level_A_4
+  - first:
+      213: -3203737927983347987
+    second: Shatterhand_level_A_5
+  - first:
+      213: -6220319948178331285
+    second: Shatterhand_level_A_6
+  - first:
+      213: 6966066575336383352
+    second: Shatterhand_level_A_7
+  - first:
+      213: 4324634975450649378
+    second: Shatterhand_level_A_8
+  - first:
+      213: -2285157338732954880
+    second: Shatterhand_level_A_9
+  - first:
+      213: 839621571971273525
+    second: Shatterhand_level_A_10
+  - first:
+      213: 1034541980652629656
+    second: Shatterhand_level_A_11
+  - first:
+      213: 7834200556846043780
+    second: Shatterhand_level_A_12
+  - first:
+      213: 3982499557414569347
+    second: Shatterhand_level_A_13
+  - first:
+      213: -1016412624818397841
+    second: Shatterhand_level_A_14
+  - first:
+      213: 2652470298413306768
+    second: Shatterhand_level_A_15
+  - first:
+      213: 4632963495194689584
+    second: Shatterhand_level_A_16
+  - first:
+      213: -2221617295079208219
+    second: Shatterhand_level_A_17
+  - first:
+      213: -8736166104437146128
+    second: Shatterhand_level_A_18
+  - first:
+      213: 8636302756258725943
+    second: Shatterhand_level_A_19
+  - first:
+      213: 6397813591046094461
+    second: Shatterhand_level_A_20
+  - first:
+      213: 614321006519531728
+    second: Shatterhand_level_A_21
+  - first:
+      213: -3120321514207995922
+    second: Shatterhand_level_A_22
+  - first:
+      213: 9001127767705841444
+    second: Shatterhand_level_A_23
+  - first:
+      213: 3386452223756724782
+    second: Shatterhand_level_A_24
+  - first:
+      213: -2857834232448422314
+    second: Shatterhand_level_A_25
+  - first:
+      213: 3209621015865066301
+    second: Shatterhand_level_A_26
+  - first:
+      213: -3350548073571658735
+    second: Shatterhand_level_A_27
+  - first:
+      213: -1430467882345594841
+    second: Shatterhand_level_A_28
+  - first:
+      213: 2878238242292491723
+    second: Shatterhand_level_A_29
+  - first:
+      213: 7484177068278489431
+    second: Shatterhand_level_A_30
+  - first:
+      213: -459738074226361752
+    second: Shatterhand_level_A_31
+  - first:
+      213: 2799463749532590245
+    second: Shatterhand_level_A_32
+  - first:
+      213: -7307117618241642034
+    second: Shatterhand_level_A_33
+  - first:
+      213: 7653466007212464304
+    second: Shatterhand_level_A_34
+  - first:
+      213: 5946281511445685815
+    second: Shatterhand_level_A_35
+  - first:
+      213: 8070036027773045872
+    second: Shatterhand_level_A_36
+  - first:
+      213: -291356066594878713
+    second: Shatterhand_level_A_37
+  - first:
+      213: 6917640803559530653
+    second: Shatterhand_level_A_38
+  - first:
+      213: 8202058726472166743
+    second: Shatterhand_level_A_39
+  - first:
+      213: 6040246117506131201
+    second: Shatterhand_level_A_40
+  - first:
+      213: -539269855056382837
+    second: Shatterhand_level_A_41
+  - first:
+      213: -2938953898900586592
+    second: Shatterhand_level_A_42
+  - first:
+      213: 1051048511383664453
+    second: Shatterhand_level_A_43
+  - first:
+      213: 2463717144041279471
+    second: Shatterhand_level_A_44
+  - first:
+      213: 5990142370358352017
+    second: Shatterhand_level_A_45
+  - first:
+      213: 3119435096264983962
+    second: Shatterhand_level_A_46
+  - first:
+      213: 5652986094161748960
+    second: Shatterhand_level_A_47
+  - first:
+      213: 4927941944558186534
+    second: Shatterhand_level_A_48
+  - first:
+      213: 2588487897313644819
+    second: Shatterhand_level_A_49
+  - first:
+      213: 2689194653470881931
+    second: Shatterhand_level_A_50
+  - first:
+      213: 7967737484763805735
+    second: Shatterhand_level_A_51
+  - first:
+      213: 5652044980840737713
+    second: Shatterhand_level_A_52
+  - first:
+      213: 3186799799192691020
+    second: Shatterhand_level_A_53
+  - first:
+      213: 4519050882580409851
+    second: Shatterhand_level_A_54
+  - first:
+      213: 6750249090641547553
+    second: Shatterhand_level_A_55
+  - first:
+      213: 3579027550957582418
+    second: Shatterhand_level_A_56
+  - first:
+      213: 6161231026494403632
+    second: Shatterhand_level_A_57
+  - first:
+      213: 2807750463502107480
+    second: Shatterhand_level_A_58
+  - first:
+      213: 6251025336524342620
+    second: Shatterhand_level_A_59
+  - first:
+      213: -3101411512759458546
+    second: Shatterhand_level_A_60
+  - first:
+      213: -1932980521027904348
+    second: Shatterhand_level_A_61
+  - first:
+      213: -5052530322470433308
+    second: Shatterhand_level_A_62
+  - first:
+      213: -2940895687332482884
+    second: Shatterhand_level_A_63
+  - first:
+      213: 8457167548447419878
+    second: Shatterhand_level_A_64
+  - first:
+      213: 7528510735134959212
+    second: Shatterhand_level_A_65
+  - first:
+      213: 1191880376683861725
+    second: Shatterhand_level_A_66
+  - first:
+      213: 6758602450553973158
+    second: Shatterhand_level_A_67
+  - first:
+      213: -3170856461734965087
+    second: Shatterhand_level_A_68
+  - first:
+      213: -5250536589240309967
+    second: Shatterhand_level_A_69
+  - first:
+      213: -3100336254750802411
+    second: Shatterhand_level_A_70
+  - first:
+      213: 1401104844045448543
+    second: Shatterhand_level_A_71
+  - first:
+      213: 3089957289659883709
+    second: Shatterhand_level_A_72
+  - first:
+      213: -948649797832247607
+    second: Shatterhand_level_A_73
+  - first:
+      213: -4478767822430509798
+    second: Shatterhand_level_A_74
+  - first:
+      213: -7332041091418491352
+    second: Shatterhand_level_A_75
+  - first:
+      213: 7189520472036698760
+    second: Shatterhand_level_A_76
+  - first:
+      213: -2713628415946966751
+    second: Shatterhand_level_A_77
+  - first:
+      213: -5329410428414424892
+    second: Shatterhand_level_A_78
+  - first:
+      213: 9134822407965971914
+    second: Shatterhand_level_A_79
+  - first:
+      213: -5108158160683091894
+    second: Shatterhand_level_A_80
+  - first:
+      213: 1732221577213342708
+    second: Shatterhand_level_A_81
+  - first:
+      213: -7198020993273808003
+    second: Shatterhand_level_A_82
+  - first:
+      213: 4264948101321911787
+    second: Shatterhand_level_A_83
+  - first:
+      213: -3425469973855608003
+    second: Shatterhand_level_A_84
+  - first:
+      213: 5839802054010293723
+    second: Shatterhand_level_A_85
+  - first:
+      213: -4178426433903351193
+    second: Shatterhand_level_A_86
+  - first:
+      213: 2309310287635652691
+    second: Shatterhand_level_A_87
+  - first:
+      213: 6662479771913255892
+    second: Shatterhand_level_A_88
+  - first:
+      213: 888175497365481814
+    second: Shatterhand_level_A_89
+  - first:
+      213: 7997439026980361158
+    second: Shatterhand_level_A_90
+  - first:
+      213: 5431999468274788922
+    second: Shatterhand_level_A_91
+  - first:
+      213: -1501583421861527548
+    second: Shatterhand_level_A_92
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shatterhand_level_A_0
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 1759
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eef19a9836992a00800000000000000
+      internalID: 732281584280010473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_1
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1727
+        width: 34
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf3f2342423a6ac0800000000000000
+      internalID: -3861218470340378684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_2
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1764
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b5ab60e13e39bd0800000000000000
+      internalID: -2624504439725466825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_3
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1761
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb348e474f0a3d40800000000000000
+      internalID: 5564777088504052730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_4
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1759
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a789c9b87099ff7b0800000000000000
+      internalID: -5188259988021405574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_5
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 1727
+        width: 42
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de64b1124590a83d0800000000000000
+      internalID: -3203737927983347987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_6
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1764
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b69ed8bb6fbfca9a0800000000000000
+      internalID: -6220319948178331285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_7
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 1759
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873a5a874a07ca060800000000000000
+      internalID: 6966066575336383352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_8
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 1759
+        width: 42
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22357f6e890340c30800000000000000
+      internalID: 4324634975450649378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_9
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1764
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00bf1f8f18d7940e0800000000000000
+      internalID: -2285157338732954880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_10
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1759
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5335a170f5fe6ab00800000000000000
+      internalID: 839621571971273525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_11
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 1759
+        width: 74
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e670e337e6b5e00800000000000000
+      internalID: 1034541980652629656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_12
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 1764
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482d9f926eba8bc60800000000000000
+      internalID: 7834200556846043780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_13
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 1759
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38588dd4f3ea44730800000000000000
+      internalID: 3982499557414569347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_14
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 1727
+        width: 42
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d1a785a1af4e1f0800000000000000
+      internalID: -1016412624818397841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_15
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1764
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093133adea77fc420800000000000000
+      internalID: 2652470298413306768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_16
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 1759
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0308e6c90c79b4040800000000000000
+      internalID: 4632963495194689584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_17
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 1727
+        width: 42
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea80fb37da3b21e0800000000000000
+      internalID: -2221617295079208219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_18
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 1764
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd3736d637e2c680800000000000000
+      internalID: -8736166104437146128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_19
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 1759
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7304787899f4ad770800000000000000
+      internalID: 8636302756258725943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_20
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 1759
+        width: 38
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ef771609999c850800000000000000
+      internalID: 6397813591046094461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_21
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 1391
+        width: 614
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d838ab53b1868800800000000000000
+      internalID: 614321006519531728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1535
+        width: 929
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee79f907d1462b4d0800000000000000
+      internalID: -3120321514207995922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_23
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 1535
+        width: 34
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42fe204c30e6aec70800000000000000
+      internalID: 9001127767705841444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_24
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1279
+        width: 834
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ae9d5fa581ffe20800000000000000
+      internalID: 3386452223756724782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_25
+      rect:
+        serializedVersion: 2
+        x: 1855
+        y: 1471
+        width: 34
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ee5f338eee658d0800000000000000
+      internalID: -2857834232448422314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_26
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1524
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3304420f4dda8c20800000000000000
+      internalID: 3209621015865066301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_27
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 1471
+        width: 34
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11454ef67467081d0800000000000000
+      internalID: -3350548073571658735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_28
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 959
+        width: 230
+        height: 578
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7208f2a3a05f52ce0800000000000000
+      internalID: -1430467882345594841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_29
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1503
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc5e9ca8e6e81f720800000000000000
+      internalID: 2878238242292491723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_30
+      rect:
+        serializedVersion: 2
+        x: 1851
+        y: 1343
+        width: 42
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7512dd604632dd760800000000000000
+      internalID: 7484177068278489431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_31
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1396
+        width: 66
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86af30448aeae99f0800000000000000
+      internalID: -459738074226361752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_32
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 1391
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a02970b271b9d620800000000000000
+      internalID: 2799463749532590245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_33
+      rect:
+        serializedVersion: 2
+        x: 1915
+        y: 1393
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec165b0bd37e79a90800000000000000
+      internalID: -7307117618241642034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_34
+      rect:
+        serializedVersion: 2
+        x: 1925
+        y: 1391
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b81d64a8c2963a60800000000000000
+      internalID: 7653466007212464304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_35
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 1393
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7366138a78f658250800000000000000
+      internalID: 5946281511445685815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_36
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 767
+        width: 264
+        height: 626
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c4408a2078eff60800000000000000
+      internalID: 8070036027773045872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_37
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 1012
+        width: 66
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70b057b7335e4fbf0800000000000000
+      internalID: -291356066594878713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_38
+      rect:
+        serializedVersion: 2
+        x: 2181
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d90e9ebd8a5600060800000000000000
+      internalID: 6917640803559530653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_39
+      rect:
+        serializedVersion: 2
+        x: 2203
+        y: 1009
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75d244294f093d170800000000000000
+      internalID: 8202058726472166743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_40
+      rect:
+        serializedVersion: 2
+        x: 2213
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 105a2ed57d343d350800000000000000
+      internalID: 6040246117506131201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_41
+      rect:
+        serializedVersion: 2
+        x: 2235
+        y: 959
+        width: 42
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84b94b8ce02488f0800000000000000
+      internalID: -539269855056382837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_42
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 1012
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aff7cc000db637d0800000000000000
+      internalID: -2938953898900586592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_43
+      rect:
+        serializedVersion: 2
+        x: 2277
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547f9ba6d03169e00800000000000000
+      internalID: 1051048511383664453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_44
+      rect:
+        serializedVersion: 2
+        x: 2299
+        y: 959
+        width: 42
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fefce9d60b1e03220800000000000000
+      internalID: 2463717144041279471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_45
+      rect:
+        serializedVersion: 2
+        x: 2335
+        y: 1012
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 198d93bafb2412350800000000000000
+      internalID: 5990142370358352017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_46
+      rect:
+        serializedVersion: 2
+        x: 2341
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95c2cc41b57a4b20800000000000000
+      internalID: 3119435096264983962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_47
+      rect:
+        serializedVersion: 2
+        x: 2363
+        y: 927
+        width: 42
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e3ebbed6e0737e40800000000000000
+      internalID: 5652986094161748960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_48
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 1012
+        width: 98
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6207327d611936440800000000000000
+      internalID: 4927941944558186534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_49
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31117c837082ce320800000000000000
+      internalID: 2588487897313644819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_50
+      rect:
+        serializedVersion: 2
+        x: 2427
+        y: 1009
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88f2041a40f15520800000000000000
+      internalID: 2689194653470881931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_51
+      rect:
+        serializedVersion: 2
+        x: 2437
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72839ea0707139e60800000000000000
+      internalID: 7967737484763805735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_52
+      rect:
+        serializedVersion: 2
+        x: 2459
+        y: 1009
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbaa89d6f8107e40800000000000000
+      internalID: 5652044980840737713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_53
+      rect:
+        serializedVersion: 2
+        x: 2469
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41aa217889c93c20800000000000000
+      internalID: 3186799799192691020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_54
+      rect:
+        serializedVersion: 2
+        x: 2491
+        y: 959
+        width: 42
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfdee12b5d4e6be30800000000000000
+      internalID: 4519050882580409851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_55
+      rect:
+        serializedVersion: 2
+        x: 2527
+        y: 1012
+        width: 66
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 121d71998c3bdad50800000000000000
+      internalID: 6750249090641547553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_56
+      rect:
+        serializedVersion: 2
+        x: 2533
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258b92858924ba130800000000000000
+      internalID: 3579027550957582418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_57
+      rect:
+        serializedVersion: 2
+        x: 2555
+        y: 1009
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034705999f6118550800000000000000
+      internalID: 6161231026494403632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_58
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 1007
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8534bf2ab2227f620800000000000000
+      internalID: 2807750463502107480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_59
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 0
+        width: 487
+        height: 1025
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5500899c6a10c650800000000000000
+      internalID: 6251025336524342620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_60
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 980
+        width: 66
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e056aaf39a295f4d0800000000000000
+      internalID: -3101411512759458546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_61
+      rect:
+        serializedVersion: 2
+        x: 2181
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4acd16e157cac25e0800000000000000
+      internalID: -1932980521027904348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_62
+      rect:
+        serializedVersion: 2
+        x: 2203
+        y: 977
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed8240f07ec1e9b0800000000000000
+      internalID: -5052530322470433308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_63
+      rect:
+        serializedVersion: 2
+        x: 2213
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb0b11334f6df27d0800000000000000
+      internalID: -2940895687332482884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_64
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 980
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed6b2bc315ed5570800000000000000
+      internalID: 8457167548447419878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_65
+      rect:
+        serializedVersion: 2
+        x: 2277
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c662f6730a4aa7860800000000000000
+      internalID: 7528510735134959212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_66
+      rect:
+        serializedVersion: 2
+        x: 2335
+        y: 980
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd6100343e86a8010800000000000000
+      internalID: 1191880376683861725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_67
+      rect:
+        serializedVersion: 2
+        x: 2341
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9aa53ce116bcd50800000000000000
+      internalID: 6758602450553973158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_68
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 980
+        width: 98
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0198419dadef3d0800000000000000
+      internalID: -3170856461734965087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_69
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137e3266ac85227b0800000000000000
+      internalID: -5250536589240309967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_70
+      rect:
+        serializedVersion: 2
+        x: 2427
+        y: 977
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51e30534a9469f4d0800000000000000
+      internalID: -3100336254750802411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_71
+      rect:
+        serializedVersion: 2
+        x: 2437
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55786aae69b17310800000000000000
+      internalID: 1401104844045448543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_72
+      rect:
+        serializedVersion: 2
+        x: 2459
+        y: 977
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db06e4d98cbb1ea20800000000000000
+      internalID: 3089957289659883709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_73
+      rect:
+        serializedVersion: 2
+        x: 2469
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c676f7f808b5d2f0800000000000000
+      internalID: -948649797832247607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_74
+      rect:
+        serializedVersion: 2
+        x: 2527
+        y: 980
+        width: 66
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a156490256838d1c0800000000000000
+      internalID: -4478767822430509798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_75
+      rect:
+        serializedVersion: 2
+        x: 2533
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826fe63697b5f3a90800000000000000
+      internalID: -7332041091418491352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_76
+      rect:
+        serializedVersion: 2
+        x: 2555
+        y: 977
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a652117ce46c360800000000000000
+      internalID: 7189520472036698760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_77
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 975
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12933174551475ad0800000000000000
+      internalID: -2713628415946966751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_78
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 868
+        width: 98
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c88818a3712a06b0800000000000000
+      internalID: -5329410428414424892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_79
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 863
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac51719e49865ce70800000000000000
+      internalID: 9134822407965971914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_80
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 865
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a48b8ff873d2c19b0800000000000000
+      internalID: -5108158160683091894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_81
+      rect:
+        serializedVersion: 2
+        x: 2085
+        y: 863
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f37116c8561a0810800000000000000
+      internalID: 1732221577213342708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_82
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 865
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b3c1a1b0e7b1c90800000000000000
+      internalID: -7198020993273808003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_83
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 863
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bede4c493b3203b30800000000000000
+      internalID: 4264948101321911787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_84
+      rect:
+        serializedVersion: 2
+        x: 2139
+        y: 767
+        width: 490
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33e19b25394670d0800000000000000
+      internalID: -3425469973855608003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_85
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 820
+        width: 98
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdd41eb07052b0150800000000000000
+      internalID: 5839802054010293723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_86
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 815
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76aa61feb4f3306c0800000000000000
+      internalID: -4178426433903351193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_87
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 817
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350adaaa8715c0020800000000000000
+      internalID: 2309310287635652691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_88
+      rect:
+        serializedVersion: 2
+        x: 2085
+        y: 815
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db7d10ad02e57c50800000000000000
+      internalID: 6662479771913255892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_89
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 817
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 659ecaab8ee635c00800000000000000
+      internalID: 888175497365481814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_90
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 815
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3920c3c6c9cfe60800000000000000
+      internalID: 7997439026980361158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_91
+      rect:
+        serializedVersion: 2
+        x: 2495
+        y: 0
+        width: 290
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a21a68cb6526b40800000000000000
+      internalID: 5431999468274788922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shatterhand_level_A_92
+      rect:
+        serializedVersion: 2
+        x: 2911
+        y: 0
+        width: 130
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 400045365dd492be0800000000000000
+      internalID: -1501583421861527548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
