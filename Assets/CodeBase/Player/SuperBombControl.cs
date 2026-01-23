@@ -1,6 +1,6 @@
 using System.Collections;
 using ToolBox.Helpers;
-using ToolBox.Messenger;
+using ToolBox.Messaging;
 using ToolBox.Utils.Validation;
 using UnityEngine;
 
@@ -55,7 +55,7 @@ namespace CodeBase.Player
             
             _animator.SetTrigger( _superBombAnimationHash );
             
-            MessageBus.Instance.Broadcast( SuperBombAnimationName );
+            MessageBus.Broadcast( SuperBombAnimationName );
          
             bombShield.SetActive(true);
             

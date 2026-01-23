@@ -1,4 +1,4 @@
-using ToolBox.Messenger;
+using ToolBox.Messaging;
 using ToolBox.PauseSystem;
 using ToolBox.Utils.Tween;
 using UnityEngine;
@@ -25,16 +25,16 @@ namespace Toolbox.PauseSystem
 
         private void OnEnable()
         {
-            MessageBus.Instance.AddListener(  PauseSystemMessages.OnPause, OnPause );
-            MessageBus.Instance.AddListener(  PauseSystemMessages.OnResume, OnResume );
-            MessageBus.Instance.AddListener<float>(  PauseSystemMessages.OnSlow, SetSlowMotion );
+            MessageBus.AddListener(  PauseSystemMessages.OnPause, OnPause );
+            MessageBus.AddListener(  PauseSystemMessages.OnResume, OnResume );
+            MessageBus.AddListener<float>(  PauseSystemMessages.OnSlow, SetSlowMotion );
         }
 
         private void OnDisable()
         {
-            MessageBus.Instance.RemoveListener(  PauseSystemMessages.OnPause, OnPause );
-            MessageBus.Instance.RemoveListener(  PauseSystemMessages.OnResume, OnResume );
-            MessageBus.Instance.RemoveListener<float>(  PauseSystemMessages.OnSlow, SetSlowMotion );
+            MessageBus.RemoveListener(  PauseSystemMessages.OnPause, OnPause );
+            MessageBus.RemoveListener(  PauseSystemMessages.OnResume, OnResume );
+            MessageBus.RemoveListener<float>(  PauseSystemMessages.OnSlow, SetSlowMotion );
         }
 
         private void Awake()
@@ -116,9 +116,8 @@ namespace Toolbox.PauseSystem
 
             // Only apply if NOT paused; timeScale should remain 0 if paused
             if (!_isPaused)
-            {
                 ApplyTimeScale(_baseTimeScale * _slowMotionScale);
-            }
+            
         }
     }
 }

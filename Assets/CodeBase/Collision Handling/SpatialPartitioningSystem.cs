@@ -73,15 +73,18 @@ namespace CodeBase.Collision_Handling
         {
             if (projectile.IsActive) return true;
             
-            Vector2Int cellPos = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), gridOrigin, cellSize);
+           // Vector2Int cellPos = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), gridOrigin, cellSize);
        
-            RemoveFromSpatialPartitionGrid(projectile, cellPos);
+            RemoveFromSpatialPartitionGrid(projectile, projectile.LastCellPosition);
 
             return false;
         }
-        
-        private bool IsValidCell(Vector2Int cell) => _spatialPartitioningDictionary.ContainsKey(cell);
-        
+
+        private bool IsValidCell(Vector2Int cell)
+        {
+           return _spatialPartitioningDictionary.TryGetValue(cell, out _);
+        }
+
         public bool TryGetValidCell(Vector2Int cell, out HashSet<ICollisionObject> cellSet)
         {
             if (_spatialPartitioningDictionary.TryGetValue(cell, out cellSet))

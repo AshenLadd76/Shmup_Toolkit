@@ -1,4 +1,4 @@
-using ToolBox.Messenger;
+using ToolBox.Messaging;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
 
@@ -11,12 +11,12 @@ namespace ToolBox.Animation.Lerp
 
         private void OnEnable()
         {
-            MessageBus.Instance.AddListener<LerpDescriptor>( ExTweenStrings.AddLerpToActiveQueue, AddLerp );
+            MessageBus.AddListener<LerpDescriptor>( ExTweenStrings.AddLerpToActiveQueue, AddLerp );
         }
 
         private void OnDisable()
         {
-            MessageBus.Instance.RemoveListener<LerpDescriptor>( ExTweenStrings.AddLerpToActiveQueue, AddLerp);
+            MessageBus.RemoveListener<LerpDescriptor>( ExTweenStrings.AddLerpToActiveQueue, AddLerp);
         }
         
         private void Update()

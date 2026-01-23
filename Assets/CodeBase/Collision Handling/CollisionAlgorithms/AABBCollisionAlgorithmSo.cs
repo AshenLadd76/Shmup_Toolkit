@@ -12,6 +12,15 @@ public class AABBCollisionAlgorithmSo : BaseCollisionAlgorithmSo
         
     }
 
+
+    public bool CheckCollision(Vector2 centreA, Vector2 halfSizeA, Vector2 centreB, Vector2 halfSizeB)
+    {
+        return Mathf.Abs(centreA.x - centreB.x) <= halfSizeA.x + halfSizeB.x &&
+               Mathf.Abs(centreA.y - centreB.y) <= halfSizeA.y + halfSizeB.y;
+    }
+    
+    
+
     public override void DrawDebug(Vector3 position, float radiusX, float radiusY)
     {
         Gizmos.color = Color.green;

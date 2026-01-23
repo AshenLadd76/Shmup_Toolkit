@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using ToolBox.Messenger;
+using ToolBox.Messaging;
 using UnityEngine;
 
 namespace CodeBase.Collision_Handling
@@ -34,26 +34,22 @@ namespace CodeBase.Collision_Handling
         
         private Vector2Int _gridSize;
         
-        private MessageBus _messageBus;
-        
         private void OnEnable()
         {
-            _messageBus.AddListener<MonoBehaviour>( CollisionDetectorMessages.AddToCollisionObject.ToString(), AddToCollisionObjectsList );
-            _messageBus.AddListener<MonoBehaviour>( CollisionDetectorMessages.RemoveCollisionObject.ToString(), RemoveFromCollisionObjectsList );
+            MessageBus.AddListener<MonoBehaviour>( CollisionDetectorMessages.AddToCollisionObject.ToString(), AddToCollisionObjectsList );
+            MessageBus.AddListener<MonoBehaviour>( CollisionDetectorMessages.RemoveCollisionObject.ToString(), RemoveFromCollisionObjectsList );
         }
 
 
         private void OnDisable()
         {
-            _messageBus.RemoveListener<MonoBehaviour>(CollisionDetectorMessages.AddToCollisionObject.ToString(), AddToCollisionObjectsList );
-            _messageBus.RemoveListener<MonoBehaviour>(CollisionDetectorMessages.RemoveCollisionObject.ToString(), RemoveFromCollisionObjectsList );
+            MessageBus.RemoveListener<MonoBehaviour>(CollisionDetectorMessages.AddToCollisionObject.ToString(), AddToCollisionObjectsList );
+            MessageBus.RemoveListener<MonoBehaviour>(CollisionDetectorMessages.RemoveCollisionObject.ToString(), RemoveFromCollisionObjectsList );
         } 
         
         private void Awake()
         {
             LoadICollisionObjectsList();
-            
-            _messageBus = MessageBus.Instance;
         }
         
         private void Start()

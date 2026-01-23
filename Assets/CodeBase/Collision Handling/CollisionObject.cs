@@ -1,5 +1,5 @@
 using CodeBase.Tests;
-using ToolBox.Messenger;
+using ToolBox.Messaging;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
 
@@ -68,7 +68,7 @@ namespace CodeBase.Collision_Handling
 
         public void Death()
         {
-            MessageBus.Instance.Broadcast( nameof(CollisionDetectorMessages.RemoveCollisionObject), this );
+            MessageBus.Broadcast( nameof(CollisionDetectorMessages.RemoveCollisionObject), this );
             
             gameObject.SetActive( false );
         }

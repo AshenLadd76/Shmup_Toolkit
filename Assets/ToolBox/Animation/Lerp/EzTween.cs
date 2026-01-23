@@ -1,4 +1,4 @@
-using ToolBox.Messenger;
+using ToolBox.Messaging;
 using UnityEngine;
 
 namespace ToolBox.Animation.Lerp
@@ -22,7 +22,7 @@ namespace ToolBox.Animation.Lerp
 
         private static void AddLerpToActiveQueue(LerpDescriptor lerpDescriptor)
         {
-            MessageBus.Instance.Broadcast( ExTweenStrings.AddLerpToActiveQueue, lerpDescriptor );
+            MessageBus.Broadcast( ExTweenStrings.AddLerpToActiveQueue, lerpDescriptor );
         }
     }
 }

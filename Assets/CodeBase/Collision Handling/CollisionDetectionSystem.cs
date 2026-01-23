@@ -18,7 +18,7 @@ namespace CodeBase.Collision_Handling
         
         private readonly List<ICollisionObject> _collisionObjects;
         
-        private ICollisionAlgorithm _collisionAlgorithm;
+        private readonly ICollisionAlgorithm _collisionAlgorithm;
 
         private float _boundsPadding;
         
@@ -60,10 +60,10 @@ namespace CodeBase.Collision_Handling
         
         private void CheckForMultiCellCollisions(ICollisionObject collisionObject,  (Vector2 min, Vector2 max) bounds)
         {
-            var collisionObjectPosition = collisionObject.Position;
-            
-            var halfWidth = collisionObject.RadiusX;
-            var halfHeight = collisionObject.RadiusY;
+            // var collisionObjectPosition = collisionObject.Position;
+            //
+            // var halfWidth = collisionObject.RadiusX;
+            // var halfHeight = collisionObject.RadiusY;
             
             Vector2Int currentCellKey = new Vector2Int();
             
@@ -109,8 +109,7 @@ namespace CodeBase.Collision_Handling
 
                 var spatialPosition = spatialObject.GetPosition();
                 
-                if (_collisionAlgorithm.CheckCollision(collisionObject, spatialObject) 
-                    || _collisionAlgorithm.CheckCollision(collisionObject, spatialObject) )
+                if (_collisionAlgorithm.CheckCollision(collisionObject, spatialObject))
                 {
                     collisionObject.OnCollision();
                     
@@ -131,7 +130,5 @@ namespace CodeBase.Collision_Handling
             
             _deadSpatialObjects.Clear();
         }
-
-        
     }
 }

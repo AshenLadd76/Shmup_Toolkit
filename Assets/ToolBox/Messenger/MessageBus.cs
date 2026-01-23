@@ -1,116 +1,63 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Logger = ToolBox.Utils.Logger;
 
-namespace ToolBox.Messenger
+namespace ToolBox.Messaging
 {
+    
     /// <summary>
-    /// A centralized ScriptableObject-based message hub for broadcasting and subscribing to events
+    /// A centralized message hub for broadcasting and subscribing to events
     /// using strongly-typed delegates. Supports zero to three parameters per event.
     /// 
     /// Example usage:
     /// <code>
-    /// MessagBus.Instance.AddListener("OnPlayerDeath", OnPlayerDeath);
-    /// MessageBus.Instance.RemoveListener("OnPlayerDeath", OnPlayerDeath);
+    /// MessagBus.AddListener("OnPlayerDeath", OnPlayerDeath);
+    /// MessageBus.RemoveListener("OnPlayerDeath", OnPlayerDeath);
     /// 
-    /// MessageBus.Instance.Broadcast("OnPlayerDeath");
+    /// MessageBus.Broadcast("OnPlayerDeath");
     /// </code>
     /// </summary>
     /// <remarks>
     /// Ensures a single instance across the project. All event listeners are cleared when the asset is disabled.
     /// </remarks>
     
-    
-    [CreateAssetMenu(menuName = "Messaging/MessageHub")]
-    public class MessageBus : ScriptableObject
+    public static class MessageBus
     {
-        private static MessageBus _instance;
-
-        private const string MessageBusName = "MessageBus";
+        private static readonly Dictionary<string, Delegate> ListenersDictionary;
         
-        public static MessageBus Instance
+        public static bool EnableTracing = true;
+        
+        static MessageBus()
         {
-            get
-            {
-                if (_instance != null) return _instance;
-                
-                _instance = Resources.Load<MessageBus>(MessageBusName);
-                    
-                if (_instance == null)
-                    Logger.LogError("MessageBus asset missing in Resources folder!");
-
-                return _instance;
-            }
+            ListenersDictionary = new Dictionary<string, Delegate>();
+       
         }
-
-        private Dictionary<string, Delegate> _eventTable;
-        private Dictionary<string, Delegate> _funcTable;
-
-        private void OnEnable()
-        {
-            _eventTable = new Dictionary<string, Delegate>();
-            _funcTable = new Dictionary<string, Delegate>();
-            
-           CheckInstance();
-        }
-
-        private void OnDisable()
-        {
-            _eventTable?.Clear();
-        }
-
-        private void CheckInstance()
-        {
-            if (_instance == null)
-            {
-                _instance = this;
-            }
-            else if (_instance != this)
-            {
-                Debug.LogWarning($"[MessageHub] Duplicate instance detected: {name}. Destroying this instance.");
-                // Optionally destroy this instance to enforce uniqueness
-                #if UNITY_EDITOR
-                // DestroyImmediate only allowed in editor
-                    DestroyImmediate(this, true);
-                #else
-                    Destroy(this);
-                #endif
-            }
-        }
-
+        
         //Fire and forget
-        public void AddListener(string eventName, Action callBack) => AddInternal(eventName, callBack);
-        public void AddListener<T1>(string eventName, Action<T1> callBack) => AddInternal(eventName, callBack);
-        public void AddListener<T1,T2>(string eventName, Action<T1,T2> callBack) => AddInternal(eventName, callBack);
-        public void AddListener<T1,T2,T3>(string eventName, Action<T1,T2,T3> callBack) => AddInternal(eventName, callBack);
+        public static void AddListener(string eventName, Action callBack) => AddInternal(eventName, callBack);
+        public static void AddListener<T1>(string eventName, Action<T1> callBack) => AddInternal(eventName, callBack);
+        public static void AddListener<T1,T2>(string eventName, Action<T1,T2> callBack) => AddInternal(eventName, callBack);
+        public static void AddListener<T1,T2,T3>(string eventName, Action<T1,T2,T3> callBack) => AddInternal(eventName, callBack);
         
-        
-        //Callbacks using func
-        public void AddListener<TIn, TOut>(string eventName, Func<TIn, TOut> callback) => AddInternal(eventName, callback);
-
-
         //Fire and forget
-        public void RemoveListener(string eventName, Action callback) => RemoveInternal(eventName, callback);
-        public void RemoveListener<T1>(string eventName, Action<T1> callback) => RemoveInternal(eventName, callback);
-        public void RemoveListener<T1,T2>(string eventName, Action<T1,T2> callback) => RemoveInternal(eventName, callback);
-        public void RemoveListener<T1,T2,T3>(string eventName, Action<T1,T2,T3> callback) => RemoveInternal(eventName, callback);
-        
-        
-        //Callbacks using func
-        public void RemoveListener<TIn, TOut>(string eventName, Func<TIn, TOut> callback) => RemoveInternal(eventName, callback);
+        public static void RemoveListener(string eventName, Action callback) => RemoveInternal(eventName, callback);
+        public static void RemoveListener<T1>(string eventName, Action<T1> callback) => RemoveInternal(eventName, callback);
+        public static void RemoveListener<T1,T2>(string eventName, Action<T1,T2> callback) => RemoveInternal(eventName, callback);
+        public static void RemoveListener<T1,T2,T3>(string eventName, Action<T1,T2,T3> callback) => RemoveInternal(eventName, callback);
         
         
         //Use for fire and forget
-        private void AddInternal(string eventName, Delegate callback)
+        private static void AddInternal(string eventName, Delegate callback)
         {
+            if( EnableTracing ) Debug.Log( $"Adding event {eventName}" );
+            
             if (string.IsNullOrWhiteSpace(eventName) || callback == null)
             {
                 Debug.LogError("[MessageHub] Invalid event name or callback.");
                 return;
             }
 
-            if (_eventTable.TryGetValue(eventName, out var existingDelegate))
+            if (ListenersDictionary.TryGetValue(eventName, out var existingDelegate))
             {
                 if (existingDelegate.GetType() != callback.GetType())
                 {
@@ -128,23 +75,25 @@ namespace ToolBox.Messenger
                     }
                 }
                 
-                _eventTable[eventName] = Delegate.Combine(existingDelegate, callback);
+                ListenersDictionary[eventName] = Delegate.Combine(existingDelegate, callback);
             }
             else
             {
-                _eventTable[eventName] = callback;
+                ListenersDictionary[eventName] = callback;
             }
         }
-
-        private void RemoveInternal(string eventName, Delegate callback)
+        
+        private static void RemoveInternal(string eventName, Delegate callback)
         {
+            if( EnableTracing ) Debug.Log( $"Removing event {eventName}" );
+            
             if (string.IsNullOrWhiteSpace(eventName) || callback == null)
             {
                 Debug.LogError("[MessageHub] Invalid event name or callback.");
                 return;
             }
 
-            if (_eventTable.TryGetValue(eventName, out var existingDelegate))
+            if (ListenersDictionary.TryGetValue(eventName, out var existingDelegate))
             {
                 if (existingDelegate.GetType() != callback.GetType())
                 {
@@ -154,9 +103,9 @@ namespace ToolBox.Messenger
 
                 var newDelegate = Delegate.Remove(existingDelegate, callback);
                 if (newDelegate == null)
-                    _eventTable.Remove(eventName);
+                    ListenersDictionary.Remove(eventName);
                 else
-                    _eventTable[eventName] = newDelegate;
+                    ListenersDictionary[eventName] = newDelegate;
             }
             else
             {
@@ -164,11 +113,12 @@ namespace ToolBox.Messenger
             }
         }
         
-        
-        public void Broadcast(string eventName)
+        public static void Broadcast(string eventName, object sender = null)
         {
-            if (_eventTable.TryGetValue(eventName, out var del) && del is Action action)
+            if (ListenersDictionary.TryGetValue(eventName, out var del) && del is Action action)
             {
+                Trace( eventName, sender );
+                
                 action.Invoke();
             }
             else
@@ -178,11 +128,12 @@ namespace ToolBox.Messenger
         }
 
         
-        
-        public void Broadcast<T1>(string eventName, T1 param1)
+        public static void Broadcast<T1>(string eventName, T1 param1, object sender = null)
         {
-            if (_eventTable.TryGetValue(eventName, out var del) && del is Action<T1> action)
+            if (ListenersDictionary.TryGetValue(eventName, out var del) && del is Action<T1> action)
             {
+                Trace( eventName, sender, param1);
+                
                 action.Invoke(param1);
             }
             else
@@ -191,10 +142,12 @@ namespace ToolBox.Messenger
             }
         }
 
-        public void Broadcast<T1, T2>(string eventName, T1 param1, T2 param2)
+        public static void Broadcast<T1, T2>(string eventName, T1 param1, T2 param2, object sender = null)
         {
-            if (_eventTable.TryGetValue(eventName, out var del) && del is Action<T1, T2> action)
+            if (ListenersDictionary.TryGetValue(eventName, out var del) && del is Action<T1, T2> action)
             {
+                Trace( eventName, sender, param1, param2);
+                
                 action.Invoke(param1, param2);
             }
             else
@@ -203,10 +156,12 @@ namespace ToolBox.Messenger
             }
         }
 
-        public void Broadcast<T1, T2, T3>(string eventName, T1 param1, T2 param2, T3 param3)
+        public static void Broadcast<T1, T2, T3>(string eventName, T1 param1, T2 param2, T3 param3, object sender = null)
         {
-            if (_eventTable.TryGetValue(eventName, out var del) && del is Action<T1, T2, T3> action)
+            if (ListenersDictionary.TryGetValue(eventName, out var del) && del is Action<T1, T2, T3> action)
             {
+                Trace( eventName, sender, param1, param2, param3);
+                
                 action.Invoke(param1, param2, param3);
             }
             else
@@ -214,5 +169,20 @@ namespace ToolBox.Messenger
                 Debug.LogWarning($"[MessageHub] No matching three-parameter listener found for event '{eventName}'.");
             }
         }
+        
+        private static void Trace(string eventName, object sender = null, params object[] parameters)
+        {
+            if( !EnableTracing ) return;
+            
+            var paramStr = parameters is { Length: > 0 } 
+                ? string.Join(", ", parameters) 
+                : "No parameters";
+    
+            var senderStr = sender != null ? sender.ToString() : "Unknown sender";
+    
+            Debug.Log($"[MessageBus] Event '{eventName}' requested by {senderStr} with params: {paramStr}");
+        }
+        
+        public static void ClearListeners() => ListenersDictionary.Clear();
     }
 }

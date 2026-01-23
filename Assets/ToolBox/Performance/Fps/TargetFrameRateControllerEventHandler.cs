@@ -1,5 +1,6 @@
 ﻿using ToolBox.Interfaces;
-using ToolBox.Messenger;
+using ToolBox.Messaging;
+
 
 namespace ToolBox.Performance.Fps
 {
@@ -14,20 +15,20 @@ namespace ToolBox.Performance.Fps
 
         public void Subscribe()
         {
-            MessageBus.Instance.AddListener( TargetFrameRateControllerMessages.SetMaxFrameRate, _targetFrameRateController.SetMaxFrameRate );
-            MessageBus.Instance.AddListener( TargetFrameRateControllerMessages.SetMidFrameRate, _targetFrameRateController.SetMidFrameRate );
-            MessageBus.Instance.AddListener( TargetFrameRateControllerMessages.SetMinFrameRate, _targetFrameRateController.SetMinFrameRate );
-            MessageBus.Instance.AddListener<int>( TargetFrameRateControllerMessages.SetCustomFrameRate, _targetFrameRateController.SetCustomFrameRate );
-            MessageBus.Instance.AddListener<float>( TargetFrameRateControllerMessages.TriggerFpsBoost, _targetFrameRateController.TriggerTimedFpsBoost );
+            MessageBus.AddListener( TargetFrameRateControllerMessages.SetMaxFrameRate, _targetFrameRateController.SetMaxFrameRate );
+            MessageBus.AddListener( TargetFrameRateControllerMessages.SetMidFrameRate, _targetFrameRateController.SetMidFrameRate );
+            MessageBus.AddListener( TargetFrameRateControllerMessages.SetMinFrameRate, _targetFrameRateController.SetMinFrameRate );
+            MessageBus.AddListener<int>( TargetFrameRateControllerMessages.SetCustomFrameRate, _targetFrameRateController.SetCustomFrameRate );
+            MessageBus.AddListener<float>( TargetFrameRateControllerMessages.TriggerFpsBoost, _targetFrameRateController.TriggerTimedFpsBoost );
         }
 
         public void UnSubscribe()
         {
-            MessageBus.Instance.RemoveListener( TargetFrameRateControllerMessages.SetMaxFrameRate, _targetFrameRateController.SetMaxFrameRate );
-            MessageBus.Instance.RemoveListener( TargetFrameRateControllerMessages.SetMidFrameRate, _targetFrameRateController.SetMidFrameRate );
-            MessageBus.Instance.RemoveListener( TargetFrameRateControllerMessages.SetMinFrameRate, _targetFrameRateController.SetMinFrameRate );
-            MessageBus.Instance.RemoveListener<int>( TargetFrameRateControllerMessages.SetCustomFrameRate, _targetFrameRateController.SetCustomFrameRate );
-            MessageBus.Instance.RemoveListener<float>( TargetFrameRateControllerMessages.TriggerFpsBoost, _targetFrameRateController.TriggerTimedFpsBoost );
+            MessageBus.RemoveListener( TargetFrameRateControllerMessages.SetMaxFrameRate, _targetFrameRateController.SetMaxFrameRate );
+            MessageBus.RemoveListener( TargetFrameRateControllerMessages.SetMidFrameRate, _targetFrameRateController.SetMidFrameRate );
+            MessageBus.RemoveListener( TargetFrameRateControllerMessages.SetMinFrameRate, _targetFrameRateController.SetMinFrameRate );
+            MessageBus.RemoveListener<int>( TargetFrameRateControllerMessages.SetCustomFrameRate, _targetFrameRateController.SetCustomFrameRate );
+            MessageBus.RemoveListener<float>( TargetFrameRateControllerMessages.TriggerFpsBoost, _targetFrameRateController.TriggerTimedFpsBoost );
         }
     }
 }
