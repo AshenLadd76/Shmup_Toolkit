@@ -6,8 +6,6 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Jobs;
 
-
-
 namespace CodeBase.Projectile
 {
     [RequireComponent(typeof(CollisionDetector))]
@@ -27,8 +25,6 @@ namespace CodeBase.Projectile
         
         
         [SerializeField] private int _activeProjectileCount;
-        
-        private TransformAccessArray _transformAccessArray;
         
         [SerializeField] private TextMeshProUGUI activeProjectileCountText;
 
@@ -73,7 +69,6 @@ namespace CodeBase.Projectile
             // Step 1: Snapshot all positions in one tight loop
            CreatePositionBuffer();
            
-
             // Step 2: Do batch movement math directly on buffer
             BatchMovementCalculation(deltaTime);
             
@@ -148,7 +143,6 @@ namespace CodeBase.Projectile
             
             // Swap buffer position to keep things aligned
             _positionBuffer[index] = _positionBuffer[_activeProjectileCount - 1];
-            
             
             // Shrink the active count
             _activeProjectileCount--;

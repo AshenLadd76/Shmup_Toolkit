@@ -21,19 +21,9 @@ namespace CodeBase.Collision_Handling
                 _grid1D[x] = new HashSet<ICollisionObject>();
         }
         
-        private bool IsValidCell(Vector2Int cell) => cell.x >= 0 && cell.x < _cellsX && cell.y >= 0 && cell.y < _cellsY;
         
         private bool IsValidCell( int cellX, int cellY ) => cellX >= 0 && cellX < _cellsX && cellY >= 0 && cellY < _cellsY;
-
-        private HashSet<ICollisionObject> GetCell(Vector2Int cell)
-        {
-            if( !IsValidCell(cell) ) return null;
-            
-            int index = cell.x + cell.y * _cellsX;
-            
-            return _grid1D[index];
-        }
-
+        
         private HashSet<ICollisionObject> GetCell(int cellX, int cellY)
         {
             if( !IsValidCell(cellX, cellY) ) return null;
@@ -57,7 +47,7 @@ namespace CodeBase.Collision_Handling
                 
                 var newCellPosition = GridUtility.GetCellFromWorldPosition(spatialObject.GetPosition(), gridOrigin, cellSize);
 
-                if (!IsValidCell(newCellPosition)) continue;
+                if (!IsValidCell(newCellPosition.x ,newCellPosition.y)) continue;
                 
                 if( newCellPosition == spatialObject.LastCellPosition ) continue;
                 
@@ -68,14 +58,14 @@ namespace CodeBase.Collision_Handling
         
         public void AddToSpatialPartitionGrid(ICollisionObject spatialObject)
         {
-            var cellSet = GetCell(spatialObject.LastCellPosition);
+            var cellSet = GetCell(spatialObject.LastCellPosition.x, spatialObject.LastCellPosition.y);
             cellSet?.Add(spatialObject);
         }
         
         
         public void RemoveFromSpatialPartitionGrid(ICollisionObject spatialObject, Vector2Int cellPosition)
         {
-            var cellSet = GetCell(cellPosition);
+            var cellSet = GetCell(cellPosition.x, cellPosition.y);
             cellSet?.Remove(spatialObject);
         }
         
@@ -99,19 +89,6 @@ namespace CodeBase.Collision_Handling
             return false;
         }
         
-        
-        public bool TryGetValidCell(Vector2Int cell, out HashSet<ICollisionObject> cellSet)
-        {
-            if (!IsValidCell(cell))
-            {
-                cellSet = null;
-                return false;
-            }
-
-            cellSet = GetCell(cell);
-            
-            return true;
-        }
         
         public bool TryGetValidCell(int cellX, int cellY, out HashSet<ICollisionObject> cellSet)
         {

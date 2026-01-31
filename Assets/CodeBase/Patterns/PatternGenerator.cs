@@ -9,7 +9,7 @@ namespace CodeBase.Patterns
     public class PatternGenerator : MonoBehaviour
     {
         [Validate, SerializeField, Tooltip("Manager responsible for pooling and retrieving bullets.")]
-        private PoolManager poolManager;
+        private ProjectilePoolManager poolManager;
 
         [Validate, SerializeField] private PatternSo patternSo;
         [Validate, SerializeField] private RotationSo rotationSo;

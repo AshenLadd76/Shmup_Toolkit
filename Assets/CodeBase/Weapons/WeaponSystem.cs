@@ -9,7 +9,7 @@ namespace CodeBase.Weapons
     {
         [SerializeField] private Transform muzzleTransform;
         
-        [SerializeField] private PoolManager poolManager;
+        [SerializeField] private ProjectilePoolManager poolManager;
         [SerializeField] private float fireRate = 0.2f;
         [SerializeField] private float projectileSpeed = 10f;
         [SerializeField] private float projectileLifeSpan = 4f;
