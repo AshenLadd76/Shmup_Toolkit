@@ -6,26 +6,45 @@ namespace CodeBase.Collision_Handling
 {
     public class SpatialPartitioningSystem : ISpatialPartitioningSystem
     {
-        private Dictionary<Vector2Int, HashSet<ICollisionObject>> _spatialPartitioningDictionary;
+        private readonly HashSet<ICollisionObject>[] _grid1D;
+        private readonly int _cellsX, _cellsY;
+        
         
         public SpatialPartitioningSystem(Vector2Int gridSize)
         {
-            InitDictionary(gridSize);
-        }
-        
-        private void InitDictionary(Vector2Int gridSize)
-        {
-            _spatialPartitioningDictionary = new Dictionary<Vector2Int, HashSet<ICollisionObject>>(gridSize.x * gridSize.y);
+            _cellsX = gridSize.x;
+            _cellsY = gridSize.y;
             
-            for(int x = 0; x < gridSize.x; x++)
-                for(int y = 0; y < gridSize.y; y++)
-                    _spatialPartitioningDictionary.Add(new Vector2Int(x, y), new HashSet<ICollisionObject>());
+            _grid1D = new HashSet<ICollisionObject>[_cellsX * _cellsY];
+            
+            for( int x = 0; x < _grid1D.Length; x++ )
+                _grid1D[x] = new HashSet<ICollisionObject>();
         }
         
+        private bool IsValidCell(Vector2Int cell) => cell.x >= 0 && cell.x < _cellsX && cell.y >= 0 && cell.y < _cellsY;
+        
+        private bool IsValidCell( int cellX, int cellY ) => cellX >= 0 && cellX < _cellsX && cellY >= 0 && cellY < _cellsY;
+
+        private HashSet<ICollisionObject> GetCell(Vector2Int cell)
+        {
+            if( !IsValidCell(cell) ) return null;
+            
+            int index = cell.x + cell.y * _cellsX;
+            
+            return _grid1D[index];
+        }
+
+        private HashSet<ICollisionObject> GetCell(int cellX, int cellY)
+        {
+            if( !IsValidCell(cellX, cellY) ) return null;
+            
+            var index = cellX + cellY * _cellsX;
+            
+            return _grid1D[index];
+        }
+
         public void UpdateCheck(ICollisionObject[] spatialObjects, Vector3 gridOrigin , float cellSize)
         {
-            var newCellPosition = new Vector2Int();
-            
             if (spatialObjects.IsNullOrEmpty() ) return;
             
             for (var i = 0; i < spatialObjects.Length; i++)
@@ -36,7 +55,7 @@ namespace CodeBase.Collision_Handling
 
                 if(!RemoveInActiveSpatialObjects(spatialObject, gridOrigin, cellSize)) continue;
                 
-                newCellPosition = GridUtility.GetCellFromWorldPosition(spatialObject.GetPosition(), gridOrigin, cellSize);
+                var newCellPosition = GridUtility.GetCellFromWorldPosition(spatialObject.GetPosition(), gridOrigin, cellSize);
 
                 if (!IsValidCell(newCellPosition)) continue;
                 
@@ -45,20 +64,21 @@ namespace CodeBase.Collision_Handling
                 UpdateActiveObjectsPosition( spatialObject, newCellPosition );
             }
         }
-
-       
+        
         
         public void AddToSpatialPartitionGrid(ICollisionObject spatialObject)
         {
-            if(TryGetValidCell(spatialObject.LastCellPosition, out var cellSet))
-                cellSet.Add(spatialObject);
+            var cellSet = GetCell(spatialObject.LastCellPosition);
+            cellSet?.Add(spatialObject);
         }
+        
         
         public void RemoveFromSpatialPartitionGrid(ICollisionObject spatialObject, Vector2Int cellPosition)
         {
-            if(TryGetValidCell(cellPosition, out var cellSet))
-                cellSet.Remove(spatialObject); // O(1)
+            var cellSet = GetCell(cellPosition);
+            cellSet?.Remove(spatialObject);
         }
+        
         
         private void UpdateActiveObjectsPosition(ICollisionObject spatialObject, Vector2Int newCellPosition)
         {
@@ -69,29 +89,41 @@ namespace CodeBase.Collision_Handling
             AddToSpatialPartitionGrid(spatialObject);
         }
         
+        
         private bool RemoveInActiveSpatialObjects(ICollisionObject projectile, Vector3 gridOrigin, float cellSize)
         {
             if (projectile.IsActive) return true;
             
-           // Vector2Int cellPos = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), gridOrigin, cellSize);
-       
             RemoveFromSpatialPartitionGrid(projectile, projectile.LastCellPosition);
 
             return false;
         }
-
-        private bool IsValidCell(Vector2Int cell)
-        {
-           return _spatialPartitioningDictionary.TryGetValue(cell, out _);
-        }
-
+        
+        
         public bool TryGetValidCell(Vector2Int cell, out HashSet<ICollisionObject> cellSet)
         {
-            if (_spatialPartitioningDictionary.TryGetValue(cell, out cellSet))
-                return true;
+            if (!IsValidCell(cell))
+            {
+                cellSet = null;
+                return false;
+            }
 
-            //cellSet = null;
-            return false;
+            cellSet = GetCell(cell);
+            
+            return true;
+        }
+        
+        public bool TryGetValidCell(int cellX, int cellY, out HashSet<ICollisionObject> cellSet)
+        {
+            if (!IsValidCell(cellX, cellY))
+            {
+                cellSet = null;
+                return false;
+            }
+            
+            cellSet = GetCell( cellX, cellY );
+            
+            return true;
         }
     }
 }

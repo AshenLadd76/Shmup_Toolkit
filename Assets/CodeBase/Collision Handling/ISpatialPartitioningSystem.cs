@@ -10,6 +10,7 @@ namespace CodeBase.Collision_Handling
         void AddToSpatialPartitionGrid(ICollisionObject projectile);
 
         public bool TryGetValidCell(Vector2Int cell, out HashSet<ICollisionObject> cellSet);
+        public bool TryGetValidCell(int cellX, int cellY, out HashSet<ICollisionObject> cellSet);
     }
 
     public interface ICollisionObject

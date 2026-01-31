@@ -23,10 +23,20 @@ namespace CodeBase.Collision_Handling
         
         public static Vector2Int GetCellFromWorldPosition(Vector3 worldPos, Vector3 gridOrigin, float cellSize)
         {
-            int cellX = Mathf.FloorToInt((worldPos.x - gridOrigin.x) / cellSize);
-            int cellY = Mathf.FloorToInt((worldPos.y - gridOrigin.y) / cellSize);
+            var cellX = GetCellX(worldPos, gridOrigin, cellSize);
+            var cellY = GetCellY(worldPos, gridOrigin, cellSize);
+            
             return new Vector2Int(cellX, cellY);
         }
+        
+        public static int GetCellX(Vector3 worldPos, Vector3 gridOrigin, float cellSize) => Mathf.FloorToInt((worldPos.x - gridOrigin.x) / cellSize);
+        public static int GetCellY(Vector3 worldPos, Vector3 gridOrigin, float cellSize) => Mathf.FloorToInt((worldPos.y - gridOrigin.y) / cellSize);
+        
+        public static int GetCellIndex(float worldCoord, float gridOriginCoord, float cellSize)
+        {
+            return Mathf.FloorToInt((worldCoord - gridOriginCoord) / cellSize);
+        }
+
         
         public static (Vector2 min, Vector2 max) GetWorldBounds(Vector2 position, Vector2 halfSize)
         {

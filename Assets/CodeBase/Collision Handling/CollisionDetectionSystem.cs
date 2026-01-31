@@ -58,40 +58,36 @@ namespace CodeBase.Collision_Handling
             }
         }
         
+        
+        //Potential for optimisation
         private void CheckForMultiCellCollisions(ICollisionObject collisionObject,  (Vector2 min, Vector2 max) bounds)
         {
-            // var collisionObjectPosition = collisionObject.Position;
-            //
-            // var halfWidth = collisionObject.RadiusX;
-            // var halfHeight = collisionObject.RadiusY;
+            int minX = GridUtility.GetCellIndex(bounds.min.x, _gridOrigin.x, _cellSize);
+            int minY = GridUtility.GetCellIndex(bounds.min.y, _gridOrigin.y, _cellSize);
+            int maxX = GridUtility.GetCellIndex(bounds.max.x, _gridOrigin.x, _cellSize);
+            int maxY = GridUtility.GetCellIndex(bounds.max.y, _gridOrigin.y, _cellSize);
             
-            Vector2Int currentCellKey = new Vector2Int();
-            
-            Vector2Int minCell = GridUtility.GetCellFromWorldPosition(bounds.min, _gridOrigin, _cellSize);
-            Vector2Int maxCell = GridUtility.GetCellFromWorldPosition(bounds.max, _gridOrigin, _cellSize);
-
-            if (minCell == maxCell)
+            if (minX == maxX && minY == maxY)
             {
-                currentCellKey = minCell;
-                if (_spatialPartitioningSystem.TryGetValidCell(currentCellKey, out var cellSet))
+                if (_spatialPartitioningSystem.TryGetValidCell(minX, minY, out var cellSet))
                     CheckForCollisions(cellSet, collisionObject);
 
                 return;
-
             }
             
-            for (int x = minCell.x; x <= maxCell.x; x++)
+            int width = maxX - minX + 1;
+            int height = maxY - minY + 1;
+            
+            int totalCells = width * height;
+
+            for (int i = 0; i < totalCells; i++)
             {
-                for (int y = minCell.y; y <= maxCell.y; y++)
-                {
-                    currentCellKey.x = x;
-                    currentCellKey.y = y;
-                    
-                    //var cellSet = _spatialPartitioningSystem.GetCellSet(currentCellKey);
-                    if (!_spatialPartitioningSystem.TryGetValidCell(currentCellKey, out var cellSet)) continue;
-                    
-                    CheckForCollisions(cellSet, collisionObject);
-                }
+                int x = minX + (i % width);
+                int y = minY + (i / width);
+
+                if (!_spatialPartitioningSystem.TryGetValidCell(x, y, out var cellSet)) continue;
+                
+                CheckForCollisions(cellSet, collisionObject);
             }
         }
         

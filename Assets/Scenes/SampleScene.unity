@@ -3491,7 +3491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CategoryHash: 1.9923364e-22
-  m_labelHash: 0.0000057162783
+  m_labelHash: 1.7179946e-25
   m_SpriteKey: 0
   m_SpriteHash: 1026883828
 --- !u!114 &1405375284
@@ -4365,6 +4365,7 @@ GameObject:
   - component: {fileID: 2056106428}
   - component: {fileID: 2056106427}
   - component: {fileID: 2056106426}
+  - component: {fileID: 2056106429}
   m_Layer: 0
   m_Name: CollisionObject (4)
   m_TagString: Untagged
@@ -4471,6 +4472,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2056106429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056106423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6dd16bdcbe23084b99f77ee2c54479c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  originalColor: {r: 0, g: 1, b: 0, a: 1}
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  increment: 0.2
+  fadeSpeed: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2056106427}
+        m_TargetAssemblyTypeName: CodeBase.Collision_Handling.CollisionObject, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &7452682744823143932
 PrefabInstance:
   m_ObjectHideFlags: 0
