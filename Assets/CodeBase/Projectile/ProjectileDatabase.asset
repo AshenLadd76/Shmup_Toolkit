@@ -15,9 +15,13 @@ MonoBehaviour:
   projectileDataList:
   - id: RegularProjectile
     projectilePrefab: {fileID: 3849521012718998407, guid: 299227571482b1145a48c0680a29334b, type: 3}
-    minPoolSize: 10
+    animationsFrames: []
+    minPoolSize: 60000
     maxPoolSize: 90000
   - id: TypeAProjectile
     projectilePrefab: {fileID: 7347002519056737888, guid: 437ca98ee8a803543a298c3e3db72425, type: 3}
-    minPoolSize: 5
-    maxPoolSize: 5
+    animationsFrames:
+    - {fileID: 8848993070067138329, guid: 75c03337a3a61d8438567589b86942b7, type: 3}
+    - {fileID: 1115682805434658061, guid: 75c03337a3a61d8438567589b86942b7, type: 3}
+    minPoolSize: 100
+    maxPoolSize: 100

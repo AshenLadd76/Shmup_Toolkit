@@ -33,6 +33,8 @@ namespace CodeBase.Projectile
             collisionDetector = GetComponent<CollisionDetector>();
             
             ScreenBoundaryChecker.Initialize();
+            
+            Application.targetFrameRate = 60;
         }
 
         private void Start() => InitializeProjectileArray();

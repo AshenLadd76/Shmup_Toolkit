@@ -16,13 +16,8 @@ namespace CodeBase
             _activeProjectileManager = GetComponent<ActiveProjectileManager>();
             
             InitializePools();
-     
         }
 
-        private void Start()
-        {
-          
-        }
         
         protected override void InitializePools()
         {
@@ -35,13 +30,13 @@ namespace CodeBase
                     
                     var projectileInstance = Instantiate(go, transform, true);
 
-                    var neoProjectile = new NeoProjectile(projectileInstance.transform);
+                    var neoProjectile = new NeoProjectile(projectileInstance.transform, projectileData.AnimationsFrames);
 
                     return neoProjectile;
                 }
 
                 // Optional Actions
-                void OnGet(NeoProjectile p) => p.OnGetFromPool();
+                void OnGet(NeoProjectile p){};
                 void OnRelease(NeoProjectile p) => p.OnReturnedToPool();
                 void OnDestroy(NeoProjectile p) => Destroy(p.Transform.gameObject);
 
@@ -56,7 +51,6 @@ namespace CodeBase
             projectile?.SetActiveProjectileManager(_activeProjectileManager);
             projectile?.SetParentPool(Pools[key].Pool);
             projectile?.OnGetFromPool();
-            
             
             return projectile;
         }
