@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1762314347793351160}
   - component: {fileID: 2390448641830425596}
-  - component: {fileID: 3224117345835620847}
   m_Layer: 0
   m_Name: TypeAProjectile
   m_TagString: Untagged
@@ -56,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,18 +87,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3224117345835620847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7347002519056737888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adaffc19b26bfe846983e5edf9db4879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSprites:
-  - {fileID: 8848993070067138329, guid: 75c03337a3a61d8438567589b86942b7, type: 3}
-  - {fileID: 1115682805434658061, guid: 75c03337a3a61d8438567589b86942b7, type: 3}

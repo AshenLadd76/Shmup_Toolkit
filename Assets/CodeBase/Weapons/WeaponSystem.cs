@@ -2,6 +2,7 @@ using System.Collections;
 using CodeBase.Patterns;
 using CodeBase.Projectile;
 using UnityEngine;
+using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Weapons
 {
@@ -53,11 +54,17 @@ namespace CodeBase.Weapons
             _fireCoroutine = null;
         }
         
-        private Projectile.Projectile GetProjectileFromPool() => poolManager.Get(ShmupStrings.TypeAProjectile);
+        private Projectile.NeoProjectile GetProjectileFromPool() => poolManager.Get(ShmupStrings.TypeAProjectile);
         
         private void InitializeProjectile(Vector3 direction, Quaternion rotation,  Vector3 position, float speed, float lifeSpan)
         {
             IProjectile projectile = GetProjectileFromPool();
+
+            if (projectile == null)
+            {
+                Logger.LogError( $"Cannot find projectile for type {ShmupStrings.TypeAProjectile}" );
+                return;
+            }
             
             projectile.LifeSpan = lifeSpan;
             projectile.Radius = 0.1f;

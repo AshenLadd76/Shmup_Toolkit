@@ -1,14 +1,13 @@
 using CodeBase.Projectile;
 using CodeBase.Shmup;
-using ToolBox.Utils.Validation;
 using UnityEngine;
 
 namespace CodeBase
 {
     [RequireComponent(typeof(ActiveProjectileManager))]
-    public class ProjectilePoolManager : BasePoolManager<Projectile.Projectile>
+    public class ProjectilePoolManager : BasePoolManager<Projectile.NeoProjectile>
     {
-        [Validate, SerializeField] private ProjectileDataBaseSo projectileDatabaseSo;
+        [SerializeField] private ProjectileDataBaseSo projectileDatabaseSo;
         
         private ActiveProjectileManager _activeProjectileManager;
         
@@ -16,23 +15,48 @@ namespace CodeBase
         {
             _activeProjectileManager = GetComponent<ActiveProjectileManager>();
             
-            ObjectValidator.Validate(this, this, true);
-            
             InitializePools();
+     
+        }
+
+        private void Start()
+        {
+          
         }
         
         protected override void InitializePools()
         {
             foreach (var projectileData in projectileDatabaseSo.ProjectilesList)
-                AddPool( projectileData.id, projectileData.projectile, projectileData.minPoolSize, projectileData.maxPoolSize, transform );
+            {
+                //Func
+                NeoProjectile CreateProjectile()
+                {
+                    var go = projectileData.ProjectilePrefab;
+                    
+                    var projectileInstance = Instantiate(go, transform, true);
+
+                    var neoProjectile = new NeoProjectile(projectileInstance.transform);
+
+                    return neoProjectile;
+                }
+
+                // Optional Actions
+                void OnGet(NeoProjectile p) => p.OnGetFromPool();
+                void OnRelease(NeoProjectile p) => p.OnReturnedToPool();
+                void OnDestroy(NeoProjectile p) => Destroy(p.Transform.gameObject);
+
+                AddPool(projectileData.id, CreateProjectile, OnGet,OnRelease, OnDestroy,projectileData.minPoolSize, projectileData.maxPoolSize);
+            }
         }
         
-        
-        public override Projectile.Projectile Get(string key) 
+        public override NeoProjectile Get(string key) 
         {
             var projectile = base.Get(key);
 
             projectile?.SetActiveProjectileManager(_activeProjectileManager);
+            projectile?.SetParentPool(Pools[key].Pool);
+            projectile?.OnGetFromPool();
+            
             
             return projectile;
         }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CodeBase
+namespace CodeBase.Projectile
 {
     [System.Serializable]
     public class ProjectileData
@@ -9,7 +9,10 @@ namespace CodeBase
         public string id;
 
         [Tooltip("Prefab with Projectile component attached")]
-        public Projectile.Projectile projectile;
+        
+        
+        [SerializeField] private GameObject projectilePrefab;
+        public GameObject ProjectilePrefab => projectilePrefab;
 
         [Tooltip("Minimum number of instances to prewarm in the pool")]
         public int minPoolSize = 5;
@@ -19,8 +22,4 @@ namespace CodeBase
         
        
     }
-}
-
-namespace CodeBase.Projectile
-{
 }

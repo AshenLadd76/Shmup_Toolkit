@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,9 +13,13 @@ namespace ToolBox.Performance.Fps
         [Header("Events")]
         [SerializeField] private UnityEvent<float> onFpsUpdated;
         [SerializeField] private UnityEvent<string> onFpsStringUpdated;
+        
+        [SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
         private FpsCalculator _fpsCalculator;
         private float _timer = 0f;
+        
+        private float _lastFps = -1f;
         
         private void Awake()
         {
@@ -28,8 +33,15 @@ namespace ToolBox.Performance.Fps
             
             if (!(_timer >= broadcastInterval)) return;
             
-            onFpsUpdated?.Invoke(_fpsCalculator.SmoothedFps);
-            onFpsStringUpdated?.Invoke($"{_fpsCalculator.SmoothedFps:F1} FPS");
+          //  onFpsUpdated?.Invoke(_fpsCalculator.SmoothedFps);
+          //  onFpsStringUpdated?.Invoke($"{_fpsCalculator.SmoothedFps:F1} FPS");
+          
+          float fps = _fpsCalculator.SmoothedFps;
+          if (Mathf.Abs(fps - _lastFps) > 0.01f)  // only update if changed
+          {
+              textMeshProUGUI.text = fps.ToString("0.00");
+              _lastFps = fps;
+          }
             
             _timer = 0;
         }

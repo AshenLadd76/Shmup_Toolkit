@@ -25,7 +25,7 @@ namespace ToolBox.Messaging
     {
         private static readonly Dictionary<string, Delegate> ListenersDictionary;
         
-        public static bool EnableTracing = true;
+        public static bool EnableTracing = false;
         
         static MessageBus()
         {

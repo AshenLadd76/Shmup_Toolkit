@@ -1,54 +1,34 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Pool;
-using Object = UnityEngine.Object;
+
 
 namespace ToolBox.Utils.Pooling
 {
-    public class GenericPool<T> : IDisposable where T : Component, IPoolable<T>
+    public class GenericPool<T> : IDisposable where T : class
     {
         private bool _isDisposed;
 
         private int _count;
         
         private ObjectPool<T> _pool;
-        public GenericPool(T prefab, Transform parent, int preLoadCount = 10, int maxSize = 100 )
+
+        public ObjectPool<T> Pool => _pool;
+
+        public GenericPool(Func<T> createFunc, Action<T> onGet = null, Action<T> onRelease = null, Action<T> onDestroy = null, int preLoadCount = 10, int maxSize = 100)
         {
-            if (prefab == null)
-                throw new ArgumentNullException(nameof(prefab), "Prefab cannot be null.");
-            
-            InitializePool(prefab, preLoadCount, maxSize, parent);
+            InitializePool(createFunc,  onGet,onRelease, onDestroy,preLoadCount, maxSize);
             
             Preload(preLoadCount,  maxSize);
         }
 
-        private void InitializePool(T prefab, int preload, int maxSize,  Transform parent)
+        private void InitializePool(Func<T> createFunc, Action<T> onGet = null, Action<T> onRelease = null, Action<T> onDestroy = null, int preload = 10,  int maxSize = 100)
         {
-            
             _pool = new ObjectPool<T>(
-                createFunc: () =>
-                {
-                    var instance = Object.Instantiate(prefab, parent, true);
-
-                    // Set pool reference in IPoolable object
-                    if (instance is IPoolable<T> poolable)
-                    {
-                        poolable.SetParentPool(_pool);
-                    }
-                    
-                    return instance;
-                },
-                actionOnGet: obj =>
-                {
-                    obj.OnGetFromPool();
-                },
-                actionOnRelease: obj => obj.OnReturnedToPool(),
-                actionOnDestroy: obj =>
-                {
-                   
-                    Object.Destroy(obj.gameObject);
-                },
+                createFunc: createFunc,
+                actionOnGet: onGet,
+                actionOnRelease: onRelease,
+                actionOnDestroy: onDestroy,
                 collectionCheck: true,
                 defaultCapacity: preload,
                 maxSize: maxSize
@@ -68,8 +48,6 @@ namespace ToolBox.Utils.Pooling
             for (int i = 0; i < preloadCount; i++)
             {
                 var obj = _pool.Get();
-                
-                obj.name = $"{obj.name} {i + 1}";
                 
                 list.Add(obj);
             }
@@ -92,7 +70,7 @@ namespace ToolBox.Utils.Pooling
             if (_isDisposed) throw new ObjectDisposedException(nameof(GenericPool<T>));
             if (obj == null) throw new ArgumentNullException(nameof(obj), "Cannot release null object to pool.");
             
-            Logger.Log( $"Releasing object : { obj.name } back to pool");
+            Logger.Log( $"Releasing object : { obj } back to pool");
             _pool.Release(obj);
         }
 

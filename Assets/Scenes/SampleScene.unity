@@ -3611,19 +3611,8 @@ MonoBehaviour:
       m_Calls: []
   onFpsStringUpdated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1154340468}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: SetText
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  textMeshProUGUI: {fileID: 1154340468}
 --- !u!114 &1437075478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3638,7 +3627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 1847977109}
   disableCollisionDetection: 0
-  showGrid: 1
+  showGrid: 0
   cellSize: 2
   gridOffset: {x: -7.5, y: -10}
   _initialGridOrigin: {x: 0, y: 0}

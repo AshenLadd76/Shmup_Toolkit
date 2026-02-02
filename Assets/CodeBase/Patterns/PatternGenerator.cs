@@ -143,14 +143,14 @@ namespace CodeBase.Patterns
                 {
                     var wave = patternSo.GetWave();
                     
-                    _randomColour = Random.ColorHSV();
+                  //  _randomColour = Random.ColorHSV();
                     
                     for (int x = 0; x < wave.Length; x++)
                     {
                         var localDirection = wave[x].Direction;
                         var localRotation = wave[x].Rotation;
                         
-                        InitializeProjectile(localDirection, localRotation, _transform.position, _speed, _bulletLifeSpan, _randomColour);
+                        InitializeProjectile(localDirection, localRotation, _transform.position, _speed, _bulletLifeSpan);
                     }
                     
                     yield return _fireDelay;
@@ -163,10 +163,10 @@ namespace CodeBase.Patterns
             }
         }
 
-        private Projectile.Projectile GetProjectileFromPool() => poolManager.Get(ShmupStrings.RegularProjectile);
+        private Projectile.NeoProjectile GetProjectileFromPool() => poolManager.Get(ShmupStrings.RegularProjectile);
         
 
-        private void InitializeProjectile(Vector3 direction, Quaternion rotation,  Vector3 position, float speed, float lifeSpan, Color color)
+        private void InitializeProjectile(Vector3 direction, Quaternion rotation,  Vector3 position, float speed, float lifeSpan)
         {
             IProjectile projectile = GetProjectileFromPool();
             
@@ -176,7 +176,7 @@ namespace CodeBase.Patterns
             projectile.SetDirection(direction.normalized);
             projectile.SetPosition(position);
             projectile.SetRotation(rotation);
-            projectile.SetColour(color);
+         //   projectile.SetColour(color);
             projectile.IsActive = true;
         }
         

@@ -15,7 +15,7 @@ namespace CodeBase.Projectile
         [SerializeField] private CollisionDetector collisionDetector;
         
         [SerializeField] private BulletCollisionInfo _target;
-        [SerializeField] private Projectile[] activeProjectileArr;
+        [SerializeField] private NeoProjectile[] activeProjectileArr;
         // Scratch buffer, reused every frame
         [ShowInInspector] private ProjectileDataStruct[] _positionBuffer;
 
@@ -43,7 +43,7 @@ namespace CodeBase.Projectile
             
             collisionDetector?.UpdateCheck(activeProjectileArr);
             
-            if (_frameCount <= 60)
+            if (_frameCount <= 6)
             {
                 _frameCount++;
                 return;
@@ -59,9 +59,9 @@ namespace CodeBase.Projectile
         {
             if (transform.childCount <= 0) return;
 
-            int activeArrayLength = GetComponentsInChildren<IProjectile>(true).Length;
+            int activeArrayLength = 90000; //GetComponentsInChildren<IProjectile>(true).Length;
             
-            activeProjectileArr = new Projectile[activeArrayLength];
+            activeProjectileArr = new NeoProjectile[activeArrayLength];
         }
 
         private void BatchMoveActiveProjectiles(float deltaTime = 0)
@@ -123,7 +123,7 @@ namespace CodeBase.Projectile
             }
         }
 
-        public void AddActiveProjectile(Projectile projectile)
+        public void AddActiveProjectile(NeoProjectile projectile)
         {
             activeProjectileArr[_activeProjectileCount] = projectile;
             
@@ -132,7 +132,7 @@ namespace CodeBase.Projectile
             _activeProjectileCount++;
         }
 
-        private void RemoveExpiredProjectile(Projectile projectile, int index)
+        private void RemoveExpiredProjectile(NeoProjectile projectile, int index)
         {
             projectile.Release();
             

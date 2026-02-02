@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9a2260cc-2e38-44f5-93c9-72d194850ab3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/BasePoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/BasePoolManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/Patterns/PatternGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/Patterns/PatternGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/Pooling/ProjectileDatabaseSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/Pooling/ProjectileDatabaseSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/Projectile/ActiveProjectileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/Projectile/ActiveProjectileManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/Projectile/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/Projectile/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/Projectile/ProjectileData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/Projectile/ProjectileData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/Projectile/ProjectileDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/Projectile/ProjectileDatabase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/ProjectilePoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/ProjectilePoolManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CodeBase/Weapons/WeaponSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CodeBase/Weapons/WeaponSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TypeAProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TypeAProjectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToolBox/Messenger/MessageBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ToolBox/Messenger/MessageBus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToolBox/Utils/Pooling/GenericPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ToolBox/Utils/Pooling/GenericPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToolBox/Utils/Pooling/MegaPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToolBox/Utils/Pooling/MegaPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="396ztyYgwGkXYEQZOqkVmQspnRb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a2260cc-2e38-44f5-93c9-72d194850ab3" name="Changes" comment="" />
+      <created>1770031528892</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770031528892</updated>
+    </task>
+    <servers />
+  </component>
+</project>

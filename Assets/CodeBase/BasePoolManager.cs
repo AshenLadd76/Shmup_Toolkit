@@ -1,45 +1,46 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ToolBox.Utils.Pooling;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase
 {
-    public abstract class BasePoolManager<T> : MonoBehaviour where T : Component, IPoolable<T>
+    public abstract class BasePoolManager<T> : MonoBehaviour where T : class, IPoolable<T>
     {
-        protected readonly Dictionary<string, GenericPool<T>> Pools = new();
+        protected readonly Dictionary<string, ToolBox.Utils.Pooling.GenericPool<T>> Pools = new();
         
         protected virtual void Awake() => InitializePools();
         
         protected abstract void InitializePools(); // Implemented by the derived class
         
-        public bool AddPool(string id, T prefab, int preload = 10, int maxSize = 100, Transform parent = null)
+        protected virtual GenericPool<T> AddPool(string id, Func<T> createFunc, Action<T> onGet = null, Action<T> onRelease = null, Action<T> onDestroy = null,  int preload = 10, int maxSize = 100)
         {
-            if (string.IsNullOrEmpty(id) || prefab == null)
+            if (string.IsNullOrEmpty(id) || createFunc == null)
             {
                 Logger.LogError( $"Required id or prefab is null or empty" );
-                return false;
+                return null;
             }
 
             if (Pools.ContainsKey(id))
             {
                 Logger.LogWarning($"Pool with id {id} already exists.");
-                return false;
+                return null;
             }
 
-            var pool = new GenericPool<T>(prefab, parent, preload, maxSize);
+            var pool = new GenericPool<T>(createFunc,  onGet, onRelease, onDestroy,preload,maxSize);
+            
+            Logger.Log($"Pool with id {id} has been added.");
             
             Pools.Add(id, pool);
-            
-            return true;
+
+            return pool;
         }
         
         public virtual T Get(string id)
         {
             if (Pools.TryGetValue(id, out var pool))
                 return pool.Get();
-            
-            Debug.LogError($"Pool with key '{id}' not found.");
             
             return null;
         }

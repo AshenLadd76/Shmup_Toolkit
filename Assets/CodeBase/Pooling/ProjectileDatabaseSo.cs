@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CodeBase.Projectile;
 using UnityEngine;
 
 namespace CodeBase.Shmup
@@ -7,8 +8,7 @@ namespace CodeBase.Shmup
 
     public class ProjectileDataBaseSo : ScriptableObject
     {
-        [SerializeField]
-        private List<ProjectileData> projectileDataList = new List<ProjectileData>();
+        [SerializeField] private List<ProjectileData> projectileDataList = new List<ProjectileData>();
 
         public List<ProjectileData> ProjectilesList => projectileDataList;
     }
