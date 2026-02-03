@@ -6,7 +6,7 @@ using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase
 {
-    public abstract class BasePoolManager<T> : MonoBehaviour where T : class, IPoolable<T>
+    public abstract class BasePoolManager<T> : MonoBehaviour where T : class
     {
         protected readonly Dictionary<string, ToolBox.Utils.Pooling.GenericPool<T>> Pools = new();
         
