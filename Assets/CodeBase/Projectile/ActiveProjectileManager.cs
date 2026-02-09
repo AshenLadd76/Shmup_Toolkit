@@ -4,7 +4,6 @@ using TMPro;
 using ToolBox.Utils;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Jobs;
 
 namespace CodeBase.Projectile
 {

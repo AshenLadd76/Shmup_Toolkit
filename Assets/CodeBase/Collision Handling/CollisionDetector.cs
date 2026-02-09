@@ -13,7 +13,9 @@ namespace CodeBase.Collision_Handling
         
         [SerializeField] private bool showGrid;
         
-        [SerializeField] private float cellSize = 1f;
+        [SerializeField] private float cellSize = 2f;
+        
+        private float _inverseCellSize;
         
         [SerializeField] private Vector2 gridOffset;
         
@@ -39,8 +41,7 @@ namespace CodeBase.Collision_Handling
             MessageBus.AddListener<MonoBehaviour>( CollisionDetectorMessages.AddToCollisionObject.ToString(), AddToCollisionObjectsList );
             MessageBus.AddListener<MonoBehaviour>( CollisionDetectorMessages.RemoveCollisionObject.ToString(), RemoveFromCollisionObjectsList );
         }
-
-
+        
         private void OnDisable()
         {
             MessageBus.RemoveListener<MonoBehaviour>(CollisionDetectorMessages.AddToCollisionObject.ToString(), AddToCollisionObjectsList );
@@ -50,6 +51,8 @@ namespace CodeBase.Collision_Handling
         private void Awake()
         {
             LoadICollisionObjectsList();
+            
+            _inverseCellSize = 1f / cellSize;
         }
         
         private void Start()
@@ -62,7 +65,7 @@ namespace CodeBase.Collision_Handling
 
             _spatialPartitioningSystem = new SpatialPartitioningSystem(_gridSize);
             
-            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, _iCollisionObjectsList, _initialGridOrigin, cellSize, collisionAlgorithmSo );
+            _collisionDetectionSystem = new CollisionDetectionSystem(_spatialPartitioningSystem, _iCollisionObjectsList, _initialGridOrigin, _inverseCellSize, collisionAlgorithmSo );
         }
 
 
@@ -70,7 +73,7 @@ namespace CodeBase.Collision_Handling
         {
             _currentGridOrigin = _initialGridOrigin + (Vector2)parentTransform.position;
             
-            _spatialPartitioningSystem.UpdateCheck(spatialObjects, _currentGridOrigin, cellSize);
+            _spatialPartitioningSystem.UpdateCheck(spatialObjects, _currentGridOrigin, _inverseCellSize);
             
             _collisionDetectionSystem?.CollisionCheck(_currentGridOrigin);
         }
@@ -80,7 +83,7 @@ namespace CodeBase.Collision_Handling
         {
             if(disableCollisionDetection ) return;
             
-            var cellPosition = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _currentGridOrigin, cellSize);
+            var cellPosition = GridUtility.GetCellFromWorldPosition(projectile.GetPosition(), _currentGridOrigin, _inverseCellSize);
             
             projectile.LastCellPosition = cellPosition;
 

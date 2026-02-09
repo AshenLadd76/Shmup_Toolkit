@@ -2595,7 +2595,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.79, y: 6.9, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 8, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1847977109}
@@ -2607,7 +2607,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985877776}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e8da700bd7cf3f4a95144ac14eb9f53, type: 3}
   m_Name: 
@@ -2628,7 +2628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6dd16bdcbe23084b99f77ee2c54479c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 2000
   originalColor: {r: 0, g: 1, b: 0, a: 1}
   targetColor: {r: 1, g: 0, b: 0, a: 1}
   increment: 0.5
@@ -3627,7 +3627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentTransform: {fileID: 1847977109}
   disableCollisionDetection: 0
-  showGrid: 0
+  showGrid: 1
   cellSize: 2
   gridOffset: {x: -7.5, y: -10}
   _initialGridOrigin: {x: 0, y: 0}

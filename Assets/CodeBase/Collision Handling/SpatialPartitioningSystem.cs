@@ -26,14 +26,14 @@ namespace CodeBase.Collision_Handling
         
         private HashSet<ICollisionObject> GetCell(int cellX, int cellY)
         {
-            if( !IsValidCell(cellX, cellY) ) return null;
+            if (!IsValidCell(cellX, cellY)) return null;
             
             var index = cellX + cellY * _cellsX;
             
             return _grid1D[index];
         }
 
-        public void UpdateCheck(ICollisionObject[] spatialObjects, Vector3 gridOrigin , float cellSize)
+        public void UpdateCheck(ICollisionObject[] spatialObjects, Vector3 gridOrigin , float inverseCellSize)
         {
             if (spatialObjects.IsNullOrEmpty() ) return;
             
@@ -43,9 +43,9 @@ namespace CodeBase.Collision_Handling
                 
                 if(spatialObject == null) continue;
 
-                if(!RemoveInActiveSpatialObjects(spatialObject, gridOrigin, cellSize)) continue;
+                if(!RemoveInActiveSpatialObjects(spatialObject)) continue;
                 
-                var newCellPosition = GridUtility.GetCellFromWorldPosition(spatialObject.GetPosition(), gridOrigin, cellSize);
+                var newCellPosition = GridUtility.GetCellFromWorldPosition(spatialObject.GetPosition(), gridOrigin, inverseCellSize);
 
                 if (!IsValidCell(newCellPosition.x ,newCellPosition.y)) continue;
                 
@@ -80,7 +80,7 @@ namespace CodeBase.Collision_Handling
         }
         
         
-        private bool RemoveInActiveSpatialObjects(ICollisionObject projectile, Vector3 gridOrigin, float cellSize)
+        private bool RemoveInActiveSpatialObjects(ICollisionObject projectile)
         {
             if (projectile.IsActive) return true;
             

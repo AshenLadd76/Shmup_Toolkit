@@ -21,20 +21,20 @@ namespace CodeBase.Collision_Handling
             return new Vector2Int( cellsX, cellsY );
         }
         
-        public static Vector2Int GetCellFromWorldPosition(Vector3 worldPos, Vector3 gridOrigin, float cellSize)
+        public static Vector2Int GetCellFromWorldPosition(Vector3 worldPosition, Vector3 gridOrigin, float inverseCellSize)
         {
-            var cellX = GetCellX(worldPos, gridOrigin, cellSize);
-            var cellY = GetCellY(worldPos, gridOrigin, cellSize);
+            
+            Vector3 relativePosition = worldPosition - gridOrigin;
+            
+            int cellX = Mathf.FloorToInt(relativePosition.x * inverseCellSize);
+            int cellY = Mathf.FloorToInt(relativePosition.y * inverseCellSize);
             
             return new Vector2Int(cellX, cellY);
         }
         
-        public static int GetCellX(Vector3 worldPos, Vector3 gridOrigin, float cellSize) => Mathf.FloorToInt((worldPos.x - gridOrigin.x) / cellSize);
-        public static int GetCellY(Vector3 worldPos, Vector3 gridOrigin, float cellSize) => Mathf.FloorToInt((worldPos.y - gridOrigin.y) / cellSize);
-        
-        public static int GetCellIndex(float worldCoord, float gridOriginCoord, float cellSize)
+        public static int GetCellIndex(float worldCoord, float gridOriginCoord, float inverseCellSize)
         {
-            return Mathf.FloorToInt((worldCoord - gridOriginCoord) / cellSize);
+            return Mathf.FloorToInt((worldCoord - gridOriginCoord) * inverseCellSize);
         }
 
         

@@ -8,7 +8,7 @@ namespace CodeBase.Collision_Handling
     [ExecuteAlways]
     public class CollisionDetectionSystem : ICollisionDetectionSystem
     {
-        private readonly float _cellSize;
+        private readonly float _inverseCellSize;
         
         private  Vector2 _gridOrigin;
         
@@ -22,16 +22,16 @@ namespace CodeBase.Collision_Handling
 
         private float _boundsPadding;
         
-        public CollisionDetectionSystem(ISpatialPartitioningSystem spatialPartitioningSystem, List<ICollisionObject> collisionObjects, Vector2 gridOrigin, float cellSize, ICollisionAlgorithm collisionAlgorithm)
+        public CollisionDetectionSystem(ISpatialPartitioningSystem spatialPartitioningSystem, List<ICollisionObject> collisionObjects, Vector2 gridOrigin, float inverseCellSize, ICollisionAlgorithm collisionAlgorithm)
         {
             _spatialPartitioningSystem = spatialPartitioningSystem ?? throw new System.ArgumentNullException(nameof(spatialPartitioningSystem), "Spatial partitioning system cannot be null.");
             _collisionObjects = collisionObjects ?? throw new System.ArgumentNullException(nameof(collisionObjects), "Collision objects list cannot be null.");
             _collisionAlgorithm = collisionAlgorithm ?? throw new System.ArgumentNullException(nameof(collisionAlgorithm));
             
-            if (cellSize <= 0) throw new ArgumentOutOfRangeException(nameof(cellSize), "Cell size must be positive.");
+            if (inverseCellSize <= 0) throw new ArgumentOutOfRangeException(nameof(inverseCellSize), "Cell size must be positive.");
             
             _gridOrigin = gridOrigin;
-            _cellSize = cellSize;
+            _inverseCellSize = inverseCellSize;
         }
         
         public void CollisionCheck(Vector2 gridOrigin)
@@ -62,10 +62,10 @@ namespace CodeBase.Collision_Handling
         //Potential for optimisation
         private void CheckForMultiCellCollisions(ICollisionObject collisionObject,  (Vector2 min, Vector2 max) bounds)
         {
-            int minX = GridUtility.GetCellIndex(bounds.min.x, _gridOrigin.x, _cellSize);
-            int minY = GridUtility.GetCellIndex(bounds.min.y, _gridOrigin.y, _cellSize);
-            int maxX = GridUtility.GetCellIndex(bounds.max.x, _gridOrigin.x, _cellSize);
-            int maxY = GridUtility.GetCellIndex(bounds.max.y, _gridOrigin.y, _cellSize);
+            int minX = GridUtility.GetCellIndex(bounds.min.x, _gridOrigin.x, _inverseCellSize);
+            int minY = GridUtility.GetCellIndex(bounds.min.y, _gridOrigin.y, _inverseCellSize);
+            int maxX = GridUtility.GetCellIndex(bounds.max.x, _gridOrigin.x, _inverseCellSize);
+            int maxY = GridUtility.GetCellIndex(bounds.max.y, _gridOrigin.y, _inverseCellSize);
             
             if (minX == maxX && minY == maxY)
             {
