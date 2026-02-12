@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using CodeBase.Patterns.CirclePattern;
+using CodeBase.Patterns.Phase;
 using CodeBase.Projectile;
 using ToolBox.Utils.Validation;
 using UnityEngine;
+
 
 namespace CodeBase.Patterns
 {
@@ -11,11 +14,10 @@ namespace CodeBase.Patterns
         [Validate, SerializeField, Tooltip("Manager responsible for pooling and retrieving bullets.")]
         private ProjectilePoolManager poolManager;
 
-        [Validate, SerializeField] private PatternSo patternSo;
-        [Validate, SerializeField] private RotationSo rotationSo;
-
+        [Validate, SerializeField] private BaseModifierSo rotationModifierSo;
+        [Validate, SerializeField] private BasePatternSo patternSo;
         [Validate] private IReadOnlyList<ProjectileInfo> _precomputedPatternList;
-        // [Validate] private IReadOnlyList<Quaternion> _precomputedRotationList;
+  
         
         private WaitForSeconds _fireDelay;
         private Coroutine _generatorCoroutine;
@@ -29,16 +31,13 @@ namespace CodeBase.Patterns
         private Quaternion _muzzleRotation;
         
         [Validate, SerializeField] private Transform gunMuzzleTransform;
-
-
+        
         private PatternConfig _patternConfig;
         private int _rotationCount;
-    
-        
         private Color _randomColour;
-        
-
         private bool _isFiring;
+        
+    
 
         private void OnEnable() => StartGeneratorCoroutine();
         
@@ -50,26 +49,20 @@ namespace CodeBase.Patterns
             
             _transform = transform;
 
-            _fireDelay = new WaitForSeconds(patternSo.PatternConfig.FireRate);
+            _fireDelay = new WaitForSeconds(patternSo.FireRate);
 
-            _precomputedPatternList = patternSo.PrecomputedPatternPositions;
-            //_precomputedRotationList = rotationSo.PrecomputedPatternRotations;
-            
-           // _rotationCount = _precomputedRotationList.Count;
-            
-            _patternConfig = patternSo.PatternConfig;
-            
-            CacheProperties();
-            
-            Debug.Log( $"Speed {_speed}" );
         }
 
         private void Update()
         {
-            _isFiring = Input.GetKey(KeyCode.Space);
+            if (Input.GetKeyDown(KeyCode.Space))
+                StartGeneratorCoroutine();
+            
+
+            if (Input.GetKeyUp(KeyCode.Space))
+                StopGeneratorCoroutine();
         }
         
-       
         
         private void StartGeneratorCoroutine()
         {
@@ -87,85 +80,36 @@ namespace CodeBase.Patterns
             _generatorCoroutine = null;
         }
         
-        // private IEnumerator GeneratePatternCoroutine()
-        // {
-        //     float timer = 0f; // counts time between shots
-        //     float fireRate = _patternConfig.FireRate; // seconds per wave
-        //
-        //     while (true)
-        //     {
-        //         if (_isFiring)
-        //         {
-        //             timer += Time.deltaTime;
-        //
-        //             // Fire immediately if timer >= fireRate OR first frame of firing
-        //             if (timer >= fireRate || timer == 0f)
-        //             {
-        //                 var wave = patternSo.GetWave();
-        //                 _randomColour = Random.ColorHSV();
-        //
-        //                 for (int x = 0; x < wave.Length; x++)
-        //                 {
-        //                     var localDirection = wave[x].Direction;
-        //                     var localRotation = wave[x].Rotation;
-        //
-        //                     InitializeProjectile(
-        //                         localDirection,
-        //                         localRotation,
-        //                         _transform.position,
-        //                         _speed,
-        //                         _bulletLifeSpan,
-        //                         _randomColour
-        //                     );
-        //                 }
-        //
-        //                 timer = 0f; // reset timer after firing
-        //             }
-        //         }
-        //         else
-        //         {
-        //             timer = 0f; // reset timer when not firing
-        //         }
-        //
-        //         yield return null; // wait until next frame
-        //     }
-        // }
-
-
         private IEnumerator GeneratePatternCoroutine()
         {
-            int waveCount = _patternConfig.WaveCount;
-            int patternCount = _precomputedPatternList.Count;
             
+            PatternSample patternSample = new PatternSample
+            {
+                RuntimePhase = 0f,
+                SpawnPosition = _transform.position,
+                Direction = Vector3.zero,
+                Rotation = Quaternion.identity
+            };
+
             while (true)
             {
-                if (_isFiring)
-                {
-                    var wave = patternSo.GetWave();
-                    
-                  //  _randomColour = Random.ColorHSV();
-                    
-                    for (int x = 0; x < wave.Length; x++)
+                    for (int x = 0; x < patternSo.Count; x++)
                     {
-                        var localDirection = wave[x].Direction;
-                        var localRotation = wave[x].Rotation;
+                        rotationModifierSo?.Apply(ref patternSample, Time.deltaTime);
+                       
+                        patternSo.Execute(x, ref patternSample, Time.deltaTime);
                         
-                        InitializeProjectile(localDirection, localRotation, _transform.position, _speed, _bulletLifeSpan);
+                        InitializeProjectile(patternSample.Direction, patternSample.Rotation, patternSample.SpawnPosition, patternSo.Speed, patternSo.LifeSpan);
                     }
                     
                     yield return _fireDelay;
-                }
-                else
-                {
-                    yield return null;
-                }
-               
             }
         }
 
-        private Projectile.NeoProjectile GetProjectileFromPool() => poolManager.Get(ShmupStrings.RegularProjectile);
+       
+        private NeoProjectile GetProjectileFromPool() => poolManager.Get(ShmupStrings.RegularProjectile);
         
-
+        
         private void InitializeProjectile(Vector3 direction, Quaternion rotation,  Vector3 position, float speed, float lifeSpan)
         {
             IProjectile projectile = GetProjectileFromPool();
@@ -176,17 +120,7 @@ namespace CodeBase.Patterns
             projectile.SetDirection(direction.normalized);
             projectile.SetPosition(position);
             projectile.SetRotation(rotation);
-         //   projectile.SetColour(color);
             projectile.IsActive = true;
-        }
-        
-        private void CacheProperties()
-        {
-            _originPosition = _transform.position;               // Cache position once
-            _spawnRadius = _patternConfig.SpawnRadius;            // Cache spawn radius once
-            _muzzleRotation = gunMuzzleTransform.rotation;  // Cache rotation once
-            _bulletLifeSpan = _patternConfig.ProjectileLifeSpan;
-            _speed = _patternConfig.ProjectileSpeed;
         }
     }
 }
