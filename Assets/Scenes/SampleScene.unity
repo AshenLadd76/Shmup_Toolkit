@@ -2192,8 +2192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolManager: {fileID: 1437075474}
-  rotationModifierSo: {fileID: 11400000, guid: c747313740a06ee47b95e08210bc9485, type: 2}
   patternSo: {fileID: 11400000, guid: b1c5069e54e1af64cb2922307ce549f1, type: 2}
+  rotationMultiplier: 1
+  flowerPatternSo: {fileID: 0}
   gunMuzzleTransform: {fileID: 623495579}
 --- !u!4 &623495579
 Transform:
@@ -2361,54 +2362,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &729734771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 729734772}
-  - component: {fileID: 729734773}
-  m_Layer: 0
-  m_Name: PatternGenerator (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &729734772
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729734771}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1847977109}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &729734773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729734771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f7b86bfe8205204b821555b749e42e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolManager: {fileID: 1437075474}
-  rotationModifierSo: {fileID: 11400000, guid: c747313740a06ee47b95e08210bc9485, type: 2}
-  patternSo: {fileID: 11400000, guid: b1c5069e54e1af64cb2922307ce549f1, type: 2}
-  gunMuzzleTransform: {fileID: 729734772}
 --- !u!1 &851950838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4109,6 +4062,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1842783069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842783070}
+  - component: {fileID: 1842783071}
+  m_Layer: 0
+  m_Name: PatternGenerator (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1842783070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842783069}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1847977109}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1842783071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842783069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7b86bfe8205204b821555b749e42e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolManager: {fileID: 1437075474}
+  patternSo: {fileID: 11400000, guid: b1c5069e54e1af64cb2922307ce549f1, type: 2}
+  rotationMultiplier: 1
+  flowerPatternSo: {fileID: 0}
+  gunMuzzleTransform: {fileID: 1842783070}
 --- !u!1 &1847977108
 GameObject:
   m_ObjectHideFlags: 0
@@ -4140,7 +4142,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 623495579}
-  - {fileID: 729734772}
+  - {fileID: 2009026418}
+  - {fileID: 1842783070}
   - {fileID: 2056106424}
   - {fileID: 1297537973}
   - {fileID: 656578369}
@@ -4279,6 +4282,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2009026417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2009026418}
+  - component: {fileID: 2009026419}
+  m_Layer: 0
+  m_Name: PatternGenerator (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2009026418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009026417}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1847977109}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009026419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009026417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7b86bfe8205204b821555b749e42e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolManager: {fileID: 1437075474}
+  patternSo: {fileID: 11400000, guid: b1c5069e54e1af64cb2922307ce549f1, type: 2}
+  rotationMultiplier: -1
+  flowerPatternSo: {fileID: 0}
+  gunMuzzleTransform: {fileID: 2009026418}
 --- !u!1 &2029526811
 GameObject:
   m_ObjectHideFlags: 0

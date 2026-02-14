@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b088876922e344d92ce15b08a11490, type: 3}
   m_Name: RotationModifier
   m_EditorClassIdentifier: 
-  rotationSpeed: 2
+  isEnabled: 1
+  rotationSpeed: 4

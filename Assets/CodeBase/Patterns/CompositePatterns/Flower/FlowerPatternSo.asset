@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5f22482e36b2b4490237d5cf9032b8, type: 3}
+  m_Name: FlowerPatternSo
+  m_EditorClassIdentifier: 
+  patterns:
+  - {fileID: 11400000, guid: d3f45602a8a7bb649977f471877ea89a, type: 2}
+  - {fileID: 11400000, guid: 98379d898d67c8a4c92cdbe1d9ea9516, type: 2}
+  - {fileID: 11400000, guid: 60855b6e6262a464286e546ac1ed1aee, type: 2}

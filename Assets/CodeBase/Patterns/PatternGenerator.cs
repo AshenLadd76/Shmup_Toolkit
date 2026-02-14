@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using CodeBase.Modifiers;
 using CodeBase.Patterns.CirclePattern;
-using CodeBase.Patterns.Phase;
+using CodeBase.Patterns.CompositePatterns;
+using CodeBase.Patterns.CompositePatterns.Flower;
 using CodeBase.Projectile;
+
 using ToolBox.Utils.Validation;
 using UnityEngine;
 
@@ -14,10 +17,13 @@ namespace CodeBase.Patterns
         [Validate, SerializeField, Tooltip("Manager responsible for pooling and retrieving bullets.")]
         private ProjectilePoolManager poolManager;
 
-        [Validate, SerializeField] private BaseModifierSo rotationModifierSo;
+        //[Validate, SerializeField] private BaseModifierSo rotationModifierSo;
         [Validate, SerializeField] private BasePatternSo patternSo;
         [Validate] private IReadOnlyList<ProjectileInfo> _precomputedPatternList;
   
+        [SerializeField] private float rotationMultiplier = 1f;
+        
+        [SerializeField] private  FlowerPatternSo flowerPatternSo;
         
         private WaitForSeconds _fireDelay;
         private Coroutine _generatorCoroutine;
@@ -37,20 +43,15 @@ namespace CodeBase.Patterns
         private Color _randomColour;
         private bool _isFiring;
         
-    
-
-        private void OnEnable() => StartGeneratorCoroutine();
         
-        private void OnDisable() => StopGeneratorCoroutine();
         
         private void Awake()
         {
-            ObjectValidator.Validate(patternSo);
+            //ObjectValidator.Validate(patternSo);
             
             _transform = transform;
 
             _fireDelay = new WaitForSeconds(patternSo.FireRate);
-
         }
 
         private void Update()
@@ -82,44 +83,64 @@ namespace CodeBase.Patterns
         
         private IEnumerator GeneratePatternCoroutine()
         {
+            PatternSample[] patternSample = new PatternSample[1];
             
-            PatternSample patternSample = new PatternSample
-            {
-                RuntimePhase = 0f,
-                SpawnPosition = _transform.position,
-                Direction = Vector3.zero,
-                Rotation = Quaternion.identity
-            };
-
+            for (int x = 0; x < 1; x++)
+                patternSample[x] = CreatePatternSample();
+            
+            
             while (true)
             {
-                    for (int x = 0; x < patternSo.Count; x++)
-                    {
-                        rotationModifierSo?.Apply(ref patternSample, Time.deltaTime);
-                       
-                        patternSo.Execute(x, ref patternSample, Time.deltaTime);
-                        
-                        InitializeProjectile(patternSample.Direction, patternSample.Rotation, patternSample.SpawnPosition, patternSo.Speed, patternSo.LifeSpan);
-                    }
-                    
-                    yield return _fireDelay;
+                for (int x = 0; x < patternSo.ProjectileCount; x++)
+                    patternSo.Execute(x, ref patternSample[0], InitializeProjectile, Time.deltaTime);
+                
+                
+                yield return _fireDelay;
             }
         }
 
-       
+
+        private PatternSample CreatePatternSample()
+        {
+            return new PatternSample
+            {
+                RotationPhase = 0f,
+                Origin = _transform.position,
+                Direction = Vector3.zero,
+                Rotation = Quaternion.identity,
+                RotationMultiplier = rotationMultiplier,
+            };
+        }
+        
+        
         private NeoProjectile GetProjectileFromPool() => poolManager.Get(ShmupStrings.RegularProjectile);
         
         
-        private void InitializeProjectile(Vector3 direction, Quaternion rotation,  Vector3 position, float speed, float lifeSpan)
+        private void InitializeProjectile(PatternSample patternSample)
+        {
+            IProjectile projectile = GetProjectileFromPool();
+            
+            projectile.LifeSpan = patternSo.LifeSpan;
+            projectile.Radius = patternSample.Radius;
+            projectile.Speed = patternSample.MovementSpeed;
+            projectile.SetDirection(patternSample.Direction.normalized);
+            projectile.SetPosition(patternSample.SpawnPosition);
+            projectile.SetRotation(patternSample.Rotation);
+            projectile.SetColour(patternSample.ProjectileColor);
+            projectile.IsActive = true;
+        }
+        
+        private void InitializeProjectile(Vector3 direction, Quaternion rotation,  Vector3 position, float speed, float lifeSpan,Color color)
         {
             IProjectile projectile = GetProjectileFromPool();
             
             projectile.LifeSpan = lifeSpan;
-            projectile.Radius = 0.1f;
+            projectile.Radius = 0.25f;
             projectile.Speed = speed;
             projectile.SetDirection(direction.normalized);
             projectile.SetPosition(position);
             projectile.SetRotation(rotation);
+            projectile.SetColour(color);
             projectile.IsActive = true;
         }
     }
