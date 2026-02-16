@@ -12,14 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea58e8391f8fbd429aee60708ae7fba, type: 3}
   m_Name: CirclePatternTest
   m_EditorClassIdentifier: 
-  projectileCount: 24
+  projectileCount: 16
   radius: 0.5
   speed: 4
   lifeSpan: 2
-  fireRate: 0.25
+  fireRate: 1
   applyRotation: 1
-  modifiers:
-  - {fileID: 11400000, guid: bda96f1e3ded68e48a08d9423e362cbe, type: 2}
+  arcAngle: -90
+  rotationModifier: {fileID: 11400000, guid: c747313740a06ee47b95e08210bc9485, type: 2}
+  speedModifier: {fileID: 0}
+  scaleModifier: {fileID: 0}
+  colourModifier: {fileID: 11400000, guid: bda96f1e3ded68e48a08d9423e362cbe, type: 2}
+  patternCount: 0
+  arcSize: 360
   phase: 1
   rotationSpeed: 0.5
   precomputedOffsetArray:

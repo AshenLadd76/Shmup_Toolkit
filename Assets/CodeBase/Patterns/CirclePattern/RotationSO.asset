@@ -12,8 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea3229c90ed4475a43df63a807f713a, type: 3}
   m_Name: RotationSO
   m_EditorClassIdentifier: 
-  steps: 12
-  stepDegrees: 30
-  oscillationAmplitude: 0.5
-  oscillationFrequency: 1
-  precomputedPatternRotations: []
+  steps: 20
+  stepDegrees: 15
+  oscillationAmplitude: 0
+  oscillationFrequency: 0
+  precomputedPatternRotations:
+  - {x: 0, y: 0, z: 0, w: 1}
+  - {x: 0, y: 0, z: 0.1305262, w: 0.9914449}
+  - {x: 0, y: 0, z: 0.25881904, w: 0.9659258}
+  - {x: 0, y: 0, z: 0.38268346, w: 0.9238795}
+  - {x: 0, y: 0, z: 0.5, w: 0.8660254}
+  - {x: 0, y: 0, z: 0.6087614, w: 0.7933533}
+  - {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+  - {x: 0, y: 0, z: 0.7933533, w: 0.6087614}
+  - {x: 0, y: 0, z: 0.86602545, w: 0.49999997}
+  - {x: 0, y: 0, z: 0.9238795, w: 0.38268343}
+  - {x: 0, y: 0, z: 0.9659258, w: 0.25881907}
+  - {x: 0, y: 0, z: 0.9914448, w: 0.13052624}
+  - {x: 0, y: 0, z: 1, w: -0.00000004371139}
+  - {x: 0, y: 0, z: 0.9914449, w: -0.13052621}
+  - {x: 0, y: 0, z: 0.9659258, w: -0.25881904}
+  - {x: 0, y: 0, z: 0.92387956, w: -0.3826834}
+  - {x: 0, y: 0, z: 0.8660254, w: -0.50000006}
+  - {x: 0, y: 0, z: 0.7933533, w: -0.6087614}
+  - {x: 0, y: 0, z: 0.70710677, w: -0.70710677}
+  - {x: 0, y: 0, z: 0.6087614, w: -0.7933533}

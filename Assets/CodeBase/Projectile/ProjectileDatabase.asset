@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileDataList:
   - id: RegularProjectile
-    projectilePrefab: {fileID: 3849521012718998407, guid: 299227571482b1145a48c0680a29334b, type: 3}
+    projectilePrefab: {fileID: 864932514858802929, guid: ceb1cc8063962e547814962f1933478a, type: 3}
     animationsFrames: []
     minPoolSize: 60000
     maxPoolSize: 90000

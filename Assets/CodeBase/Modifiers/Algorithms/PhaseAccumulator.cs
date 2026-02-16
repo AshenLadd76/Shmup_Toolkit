@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeBase.Modifiers
+namespace CodeBase.Modifiers.Algorithms
 {
     /// <summary>
     /// A reusable phase accumulator that increments a phase value over time.
@@ -11,22 +11,17 @@ namespace CodeBase.Modifiers
     // Pure, reusable phase struct
     public readonly struct PhaseAccumulator
     {
-        private readonly float _accumulationSpeed;  // radians per second
-     
-   
-        public  PhaseAccumulator(float accumulationSpeed)
+        private const float TAU = Mathf.PI * 2f;
+        
+        public void Accumulate(ref float phase, float rotationSpeed, float rotationMultiplier,  float deltaTime)
         {
-            _accumulationSpeed = accumulationSpeed;
-        }
+            var accumulationSpeed = rotationSpeed * rotationMultiplier;
 
-      
-        public void Accumulate(ref float phase, float deltaTime)
-        {
-            phase += _accumulationSpeed * deltaTime;
+            phase += accumulationSpeed * deltaTime;
            
             phase %= Mathf.PI * 2f;
             
-            if (phase < 0f) phase += Mathf.PI * 2f;
+            if (phase < 0f) phase += TAU;
         }
     }
 }

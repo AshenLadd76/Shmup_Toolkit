@@ -2192,9 +2192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolManager: {fileID: 1437075474}
-  patternSo: {fileID: 11400000, guid: b1c5069e54e1af64cb2922307ce549f1, type: 2}
+  patternSo: {fileID: 11400000, guid: de6ed7015814b49449b22e3777544299, type: 2}
   rotationMultiplier: 1
-  flowerPatternSo: {fileID: 0}
   gunMuzzleTransform: {fileID: 623495579}
 --- !u!4 &623495579
 Transform:
@@ -4107,9 +4106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolManager: {fileID: 1437075474}
-  patternSo: {fileID: 11400000, guid: b1c5069e54e1af64cb2922307ce549f1, type: 2}
+  patternSo: {fileID: 0}
   rotationMultiplier: 1
-  flowerPatternSo: {fileID: 0}
   gunMuzzleTransform: {fileID: 1842783070}
 --- !u!1 &1847977108
 GameObject:
@@ -4236,15 +4234,15 @@ Canvas:
   m_GameObject: {fileID: 1863758782}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -4327,9 +4325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolManager: {fileID: 1437075474}
-  patternSo: {fileID: 11400000, guid: b1c5069e54e1af64cb2922307ce549f1, type: 2}
+  patternSo: {fileID: 0}
   rotationMultiplier: -1
-  flowerPatternSo: {fileID: 0}
   gunMuzzleTransform: {fileID: 2009026418}
 --- !u!1 &2029526811
 GameObject:

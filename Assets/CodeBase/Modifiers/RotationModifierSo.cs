@@ -1,3 +1,5 @@
+using System;
+using CodeBase.Modifiers.Algorithms;
 using CodeBase.Patterns.CirclePattern;
 using UnityEngine;
 
@@ -8,15 +10,23 @@ namespace CodeBase.Modifiers
     {
         [SerializeField] private float rotationSpeed = 3f; // radians per second
          // initial offset
+         
         
-       public override void Apply(ref PatternSample sample, float deltaTime = 0f)
+
+         private PhaseAccumulator _phaseAccumulator;
+
+         private void OnEnable()
+         {
+            _phaseAccumulator = new PhaseAccumulator();
+         }
+
+
+         public override void Apply(ref PatternSample sample, float deltaTime = 0f)
        {
            if (!isEnabled) return;
            
-           PhaseAccumulator phaseAccumulator = new PhaseAccumulator(rotationSpeed * sample.RotationMultiplier);
-           
            //use the struct in a state less fashion here; 
-           phaseAccumulator.Accumulate(ref sample.RotationPhase, deltaTime);
+           _phaseAccumulator.Accumulate(ref sample.RotationPhase,  rotationSpeed, sample.RotationMultiplier, deltaTime);
        }
     }
 }

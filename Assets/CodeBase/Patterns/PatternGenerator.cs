@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using CodeBase.Modifiers;
+
 using CodeBase.Patterns.CirclePattern;
-using CodeBase.Patterns.CompositePatterns;
 using CodeBase.Patterns.CompositePatterns.Flower;
 using CodeBase.Projectile;
 
@@ -17,13 +15,9 @@ namespace CodeBase.Patterns
         [Validate, SerializeField, Tooltip("Manager responsible for pooling and retrieving bullets.")]
         private ProjectilePoolManager poolManager;
 
-        //[Validate, SerializeField] private BaseModifierSo rotationModifierSo;
-        [Validate, SerializeField] private BasePatternSo patternSo;
-        [Validate] private IReadOnlyList<ProjectileInfo> _precomputedPatternList;
-  
-        [SerializeField] private float rotationMultiplier = 1f;
+        [Validate, SerializeField] private BaseCompositePatternSo patternSo;
         
-        [SerializeField] private  FlowerPatternSo flowerPatternSo;
+        [SerializeField] private float rotationMultiplier = 1f;
         
         private WaitForSeconds _fireDelay;
         private Coroutine _generatorCoroutine;
@@ -35,6 +29,8 @@ namespace CodeBase.Patterns
         private Vector3 _originPosition;
         private Color _colour;
         private Quaternion _muzzleRotation;
+        
+        private Color _defaultColor = Color.white; 
         
         [Validate, SerializeField] private Transform gunMuzzleTransform;
         
@@ -83,17 +79,16 @@ namespace CodeBase.Patterns
         
         private IEnumerator GeneratePatternCoroutine()
         {
-            PatternSample[] patternSample = new PatternSample[1];
+            PatternSample[] patternSample = new PatternSample[patternSo.PatternSampleCount];
+
+            var patternCount = patternSo.PatternSampleCount;
             
-            for (int x = 0; x < 1; x++)
+            for (int x = 0; x < patternCount; x++)
                 patternSample[x] = CreatePatternSample();
-            
             
             while (true)
             {
-                for (int x = 0; x < patternSo.ProjectileCount; x++)
-                    patternSo.Execute(x, ref patternSample[0], InitializeProjectile, Time.deltaTime);
-                
+                patternSo.Execute(ref patternSample, InitializeProjectile, Time.deltaTime);
                 
                 yield return _fireDelay;
             }
@@ -119,13 +114,18 @@ namespace CodeBase.Patterns
         private void InitializeProjectile(PatternSample patternSample)
         {
             IProjectile projectile = GetProjectileFromPool();
-            
-            projectile.LifeSpan = patternSo.LifeSpan;
+
+            projectile.IsActive = false;
+            projectile.LifeSpan = patternSo.ProjectileLifeTime;
             projectile.Radius = patternSample.Radius;
             projectile.Speed = patternSample.MovementSpeed;
             projectile.SetDirection(patternSample.Direction.normalized);
             projectile.SetPosition(patternSample.SpawnPosition);
             projectile.SetRotation(patternSample.Rotation);
+            
+            if( patternSample.ProjectileColor.a == 0f )
+                patternSample.ProjectileColor = _defaultColor;
+            
             projectile.SetColour(patternSample.ProjectileColor);
             projectile.IsActive = true;
         }

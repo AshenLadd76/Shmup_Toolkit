@@ -1,9 +1,7 @@
 ﻿using System;
 using CodeBase.Modifiers;
-using ToolBox.Extensions;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Logger = ToolBox.Utils.Logger;
+
 
 namespace CodeBase.Patterns.CirclePattern
 {
@@ -15,9 +13,29 @@ namespace CodeBase.Patterns.CirclePattern
         [SerializeField] protected float lifeSpan = 5f;
         [SerializeField] protected float fireRate = 0.1f;
         [SerializeField] protected bool applyRotation = true;
-        
-        [SerializeField] protected BaseModifierSo[] modifiers;
+        [SerializeField] protected float arcAngle = 0f;
 
+        public float ArcAngle
+        {
+            get => arcAngle;
+            set => arcAngle = value;
+        }
+
+        //[SerializeField] protected BaseModifierSo[] modifiers;
+
+        [SerializeField] protected BaseModifierSo rotationModifier;
+        [SerializeField] protected BaseModifierSo speedModifier;
+        [SerializeField] protected BaseModifierSo scaleModifier;
+        [SerializeField] protected BaseModifierSo colourModifier;
+        
+        [SerializeField] private int patternCount;
+        public int PatternCount
+        {
+            get => patternCount;
+            set => patternCount = value;
+        }
+
+        
         public int ProjectileCount => projectileCount;
         public float Radius => radius;
         public float Speed => speed;
@@ -27,19 +45,14 @@ namespace CodeBase.Patterns.CirclePattern
         
 
         // Core execute method — every pattern implements this
-        public abstract void Execute(int index, ref PatternSample patternSample, Action<PatternSample> callBack = null, float deltaTime = 0f);
+        public abstract void Execute(ref PatternSample patternSample, Action<PatternSample> callBack = null, float deltaTime = 0f, int index = 0);
         
-        protected virtual void AddModifiers(ref PatternSample patternSample)
+        protected virtual void AddModifiers(ref PatternSample patternSample, float deltaTime)
         {
-            if (modifiers.IsNullOrEmpty())
-            { 
-                Logger.LogError( $"No modifiers found for {name}" );
-                return;
-            }
-
-            for( int i = 0; i < modifiers.Length; i++ )
-                modifiers[i]?.Apply(ref patternSample, Time.deltaTime);
-            
+            rotationModifier?.Apply(ref patternSample, deltaTime);
+            speedModifier?.Apply(ref patternSample, deltaTime);
+            scaleModifier?.Apply(ref patternSample, deltaTime);
+            colourModifier?.Apply(ref patternSample, deltaTime);
         }
     }
 }

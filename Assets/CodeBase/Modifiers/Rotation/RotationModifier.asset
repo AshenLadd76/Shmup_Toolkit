@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RotationModifier
   m_EditorClassIdentifier: 
   isEnabled: 1
-  rotationSpeed: 4
+  rotationSpeed: 2
