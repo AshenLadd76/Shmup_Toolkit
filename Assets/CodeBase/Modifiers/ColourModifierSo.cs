@@ -7,6 +7,8 @@ namespace CodeBase.Modifiers
     [CreateAssetMenu(menuName = "Shmup/Modifiers/Colour Cycle Modifier")]
     public class ColourModifierSo : BaseModifierSo
     {
+        [SerializeField] private bool randomColours;
+        
         [SerializeField] private float colourCycleSpeed;
         [SerializeField] private Color[] colours;
         

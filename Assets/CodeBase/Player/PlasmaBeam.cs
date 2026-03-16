@@ -23,15 +23,23 @@ namespace CodeBase.Player
         
         private readonly ICollisionAlgorithm _collisionAlgorithm;
 
-        private float _growSpeed = 4;
+        [SerializeField] private float growSpeed = 8;
         
-        private float _shrinkSpeed = 40;
+        [SerializeField] private float shrinkSpeed = 40;
+        
+        [SerializeField] private float defaultBeamLength = 30;
         
         private bool _isBeamActive;
         
         private float _beamWidth;
 
-        private float _defaultBeamLength = 30;
+
+        
+        private ICollisionObject _lastHitObject;
+        private float _lastCollisionDistance;
+        private int _framesSinceLastHit = 0;
+        private const int MaxFramesNoHit = 3; // allow a few frames before retracting
+
         
         private void OnEnable()
         {
@@ -132,15 +140,16 @@ namespace CodeBase.Player
         
         private void CheckForCollision()
         {
-            float closestDistance = _defaultBeamLength;
-
-           // float closestDistance = targetBeamLength; // Reset at start of frame
-
-            Vector2 halfSize = new Vector2(_beamWidth * 0.5f, beamLength * 0.5f);
+            const float Half = 0.5f;
+            float closestDistance = defaultBeamLength;
             
-            Vector2 beamCenter = (Vector2)transform.position + new Vector2(0, beamLength / 2f);
+            ICollisionObject closestCollisionObject = null;
+            
+            Vector2 halfSize = new Vector2(_beamWidth * Half, beamLength * Half);
+            
+            Vector2 beamCenter = (Vector2)transform.position + new Vector2(0, beamLength * Half);
 
-            for (int i = 0; i < _iCollisionObjectsList.Count; i++)
+            for (var i = 0; i < _iCollisionObjectsList.Count; i++)
             {
                 var obj = _iCollisionObjectsList[i];
                 
@@ -157,15 +166,44 @@ namespace CodeBase.Player
 
                 // Keep track of the closest collision
                 if (collisionDistance < closestDistance)
+                {
                     closestDistance = collisionDistance;
+                    closestCollisionObject = obj;
+                }
             }
 
-            // Smoothly grow/shrink beam
-            beamLength = beamLength < closestDistance
-                ? Mathf.Lerp(beamLength, closestDistance, Time.deltaTime * _growSpeed)
-                : Mathf.Lerp(beamLength, closestDistance, Time.deltaTime * _shrinkSpeed);
-        }
 
+            if (closestCollisionObject != null)
+            {
+                //Hit something this frame
+                _lastHitObject = closestCollisionObject;
+                _lastCollisionDistance = closestDistance;
+                _framesSinceLastHit = 0;
+            }
+            else if (_lastHitObject != null)
+            {
+                //No collision detected, but we have a lst hit object
+                _framesSinceLastHit++;
+
+                if (_framesSinceLastHit <= MaxFramesNoHit)
+                {
+                    //Track last object's current position
+                    float predictedDistance = _lastHitObject.Position.y - transform.position.y + _lastHitObject.RadiusY;
+                    _lastCollisionDistance = predictedDistance; 
+                }
+                else
+                {
+                    _lastHitObject = null;
+                    _lastCollisionDistance = defaultBeamLength;
+                }
+            }
+            
+            // Smoothly grow/shrink the beam
+            float speed = beamLength < _lastCollisionDistance ? growSpeed : shrinkSpeed;
+            
+            beamLength = Mathf.Lerp(beamLength, _lastCollisionDistance, Time.deltaTime * speed);
+        }
+        
         
         private bool CheckCollision(Vector2 centreA, Vector2 halfSizeA, Vector2 centreB, Vector2 halfSizeB)
         {

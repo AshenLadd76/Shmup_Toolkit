@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SuperMarioBrosMap1-3_0: 3923769952792800638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -33,6 +33,7 @@ namespace CodeBase.Patterns
         private Color _defaultColor = Color.white; 
         
         [Validate, SerializeField] private Transform gunMuzzleTransform;
+        [Space(10)]
         
         private PatternConfig _patternConfig;
         private int _rotationCount;
@@ -61,14 +62,14 @@ namespace CodeBase.Patterns
         }
         
         
-        private void StartGeneratorCoroutine()
+        public void StartGeneratorCoroutine()
         {
             if (_generatorCoroutine != null) return;
 
             _generatorCoroutine = StartCoroutine(GeneratePatternCoroutine());
         }
 
-        private void StopGeneratorCoroutine()
+        public void StopGeneratorCoroutine()
         {
             if (_generatorCoroutine == null) return;
 
