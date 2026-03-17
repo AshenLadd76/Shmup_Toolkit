@@ -16,28 +16,26 @@ namespace CodeBase.Player
         [SerializeField] private float beamLength;
 
         [SerializeField] private List<MonoBehaviour> collisionObjects = new();
-
-        private List<ICollisionObject> _iCollisionObjectsList = new();
         
         [SerializeField] private BaseCollisionAlgorithmSo collisionAlgorithmSo;
         
-        private readonly ICollisionAlgorithm _collisionAlgorithm;
-
         [SerializeField] private float growSpeed = 8;
         
         [SerializeField] private float shrinkSpeed = 40;
         
         [SerializeField] private float defaultBeamLength = 30;
         
+        
+        private List<ICollisionObject> _iCollisionObjectsList = new();
+        
         private bool _isBeamActive;
         
-        private float _beamWidth;
-
-
-        
         private ICollisionObject _lastHitObject;
+        
+        private float _beamWidth;
         private float _lastCollisionDistance;
         private int _framesSinceLastHit = 0;
+        
         private const int MaxFramesNoHit = 3; // allow a few frames before retracting
 
         
@@ -85,20 +83,24 @@ namespace CodeBase.Player
         {
             if (collisionObject == null) return;
             
-            collisionObjects.Add(collisionObject);
+            if( collisionObjects.Contains( collisionObject ) ) return;
 
-            if (collisionObject is ICollisionObject iobject)
-                _iCollisionObjectsList.Add(iobject);
+            if (collisionObject is not ICollisionObject iobject) return;
+            
+            collisionObjects.Add(collisionObject);
+            _iCollisionObjectsList.Add(iobject);
         }
         
         private void RemoveFromCollisionObjectsList(MonoBehaviour collisionObject)
         {
             if (collisionObject == null) return;
             
+            if( !collisionObjects.Contains( collisionObject ) ) return;
+            
+            if (collisionObject is not ICollisionObject iCollisionObject) return;
+            
+            _iCollisionObjectsList.Remove(iCollisionObject);
             collisionObjects.Remove( collisionObject );
-
-            if (collisionObject is ICollisionObject iCollisionObject)
-                _iCollisionObjectsList.Remove(iCollisionObject);
         }
         
         private void SetBeamHeight(float height)
