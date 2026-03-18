@@ -8,7 +8,7 @@ The Shmup Toolkit is designed to help developers create Shmup and bullet-hell st
 
 ### ⚡ Optimized for Performance
 
-The Shmup Toolkit is designed from the ground up to handle high-performance bullet hell scenarios efficiently:
+ The Shmup Toolkit is designed from the ground up to handle high-performance bullet hell scenarios efficiently:
 
 - **Data-driven architecture:** Minimal GameObjects, no Unity physics or colliders, and batch-updated projectile positions.  
 - **High-performance collision:** Spatial partitioning system reduces O(n²) checks; collisions are calculated per grid cell only.  
