@@ -3,7 +3,6 @@
 The Shmup Toolkit is designed to help developers create Shmup and bullet-hell style games quickly and efficiently. It provides a modular and flexible foundation for building projectile patterns, gameplay systems, and levels, while remaining lightweight and easy to integrate. The toolkit features a **custom collision detection system** and a **centralized update loop for moving projectiles**, enabling high-performance handling of thousands of bullets without relying on Unity’s physics or colliders. The project is ongoing and actively evolving.
 
 <br>
-<br>
 
 
 ### ⚡ Optimized for Performance
@@ -18,7 +17,6 @@ The Shmup Toolkit is designed to help developers create Shmup and bullet-hell st
 - **Render-aware optimization:** Prepares for GPU instancing to minimize draw calls and transform overhead.  
 - **Forward-looking architecture:** Jobs + Burst support considered for future multi-threaded computation when scaling beyond 50k projectiles.  
 
-<br>
 <br>
 
 ### ✨ Features
