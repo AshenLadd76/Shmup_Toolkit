@@ -17,6 +17,8 @@ The Shmup Toolkit is designed from the ground up to handle high-performance bull
 - **Render-aware optimization:** Prepares for GPU instancing to minimize draw calls and transform overhead.  
 - **Forward-looking architecture:** Jobs + Burst support considered for future multi-threaded computation when scaling beyond 50k projectiles.  
 
+<br>
+<br>
 
 ### ✨ Features
 
