@@ -12,17 +12,9 @@ The Shmup Toolkit is designed to help developers create Shmup and bullet-hell st
 - ✅ Tilemap builder editor tool (work in progress)   
 - 🔄 Pattern generator tool (work in progress)
 - ⏳ GPU instancing (pending implementation)
-
-### Components
-
 <br>
-## ✨ Spatial Partitioning System
+<br>
 
-- Divides the game world into a grid of cells to efficiently organize collision objects.
-- Each cell tracks active objects using `HashSet<ICollisionObject>`, reducing unnecessary collision checks.
-- Supports **pluggable collision algorithms**, making it flexible for different projectile types.
-- Objects are updated only when they move between cells, minimizing overhead.
-- Completely independent of Unity’s physics and colliders — lightweight and optimized.
 
 
 
