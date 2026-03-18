@@ -9,3 +9,9 @@ This shmup toolkit is designed to help developers create Shmup and bullet-hell s
 - **Configurable Spatial Partitioning** – Optimizes collision checks by dividing the game space into customizable partitions, fully compatible with the collision system.  
 - **Centralized Data-Driven Updates** – Projectiles are fully data-driven, with position and rotation updated in batches through a single central update loop for performance and clarity.  
 - **Shmup-Focused Tilemap Editor** – Imports an image to generate unique tiles, creates a sliced sprite sheet, builds a JSON map of the image, and instantiates a fully placed Tilemap in the scene, streamlining level design.
+
+### In Progress
+- **Pattern Generator Tool** – Editor tool that lets developers compose bullet patterns modularly, like building with Lego blocks.  
+
+### Pending
+- **GPU Instancing** – Designed with GPU instancing in mind, making high-volume projectile rendering straightforward.
