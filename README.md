@@ -4,7 +4,6 @@ The Shmup Toolkit is designed to help developers create Shmup and bullet-hell st
 
 <br>
 
-
 ### ⚡ Optimized for Performance
 
    The Shmup Toolkit is designed from the ground up to handle high-performance bullet hell scenarios efficiently:
