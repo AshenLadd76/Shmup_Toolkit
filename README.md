@@ -18,14 +18,14 @@ The Shmup Toolkit is designed from the ground up to handle high-performance bull
 - **Forward-looking architecture:** Jobs + Burst support considered for future multi-threaded computation when scaling beyond 50k projectiles.  
 
 
-### Features
+### ✨ Features
 
 - ✅ Custom collision system with pluggable algorithms  
 - ✅ Configurable spatial partitioning system  
 - ✅ Central update loop with batch projectile movement
 - ✅ Tilemap builder editor tool (work in progress)   
 - 🔄 Pattern generator tool (work in progress)
-- 🔄 GPU instancing (pending implementation)   
+- ⏳ GPU instancing (pending implementation)   
 
 
 
