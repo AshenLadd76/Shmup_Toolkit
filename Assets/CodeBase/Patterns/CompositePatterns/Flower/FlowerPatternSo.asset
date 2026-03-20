@@ -22,3 +22,4 @@ MonoBehaviour:
   colourModifierSo:
   - {fileID: 11400000, guid: bda96f1e3ded68e48a08d9423e362cbe, type: 2}
   - {fileID: 11400000, guid: bda96f1e3ded68e48a08d9423e362cbe, type: 2}
+  rotationSpeed: 7.5

@@ -19,7 +19,7 @@ namespace CodeBase.Modifiers
         
         private void InitAlgorithm() => _positionOscillationModifier = new PositionOscillationModifier(amplitude, frequency, direction);
 
-        public override void Apply(ref PatternSample patternSample, float deltaTime = 0)
+        public override void Apply(ref PatternSample patternSample, ref float speed, float deltaTime = 0)
         {
            // patternSample. =  _positionOscillationModifier.Evaluate( ref patternSample.WavePhase, deltaTime );
         }

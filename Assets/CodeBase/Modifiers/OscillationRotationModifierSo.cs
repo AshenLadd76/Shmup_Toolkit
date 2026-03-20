@@ -19,7 +19,7 @@ namespace CodeBase.Modifiers
         private void InitAlgorithm() =>_oscillatingRotationModifier = new OscillatingRotationModifier(amplitude, frequency);
         
 
-        public override void Apply(ref PatternSample patternSample, float deltaTime = 0)
+        public override void Apply(ref PatternSample patternSample, ref float speed, float deltaTime = 0)
         {
             var oscillationOffset = _oscillatingRotationModifier.Evaluate(ref patternSample.OscillationPhase, deltaTime);
 

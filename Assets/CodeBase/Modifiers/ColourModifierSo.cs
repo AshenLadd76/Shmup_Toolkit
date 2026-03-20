@@ -19,7 +19,7 @@ namespace CodeBase.Modifiers
             _colourCycle = new ColourCycle(colours, colourCycleSpeed);
         }
         
-        public override void Apply(ref PatternSample patternSample, float deltaTime = 0)
+        public override void Apply(ref PatternSample patternSample, ref float speed, float deltaTime = 0)
         {
             if (!isEnabled) return;
             

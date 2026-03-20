@@ -49,10 +49,10 @@ namespace CodeBase.Patterns.CirclePattern
         
         protected virtual void AddModifiers(ref PatternSample patternSample, float deltaTime)
         {
-            rotationModifier?.Apply(ref patternSample, deltaTime);
-            speedModifier?.Apply(ref patternSample, deltaTime);
-            scaleModifier?.Apply(ref patternSample, deltaTime);
-            colourModifier?.Apply(ref patternSample, deltaTime);
+           // rotationModifier?.Apply(ref patternSample, deltaTime);
+           // speedModifier?.Apply(ref patternSample, deltaTime);
+           // scaleModifier?.Apply(ref patternSample, deltaTime);
+           // colourModifier?.Apply(ref patternSample, deltaTime);
         }
     }
 }

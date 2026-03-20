@@ -15,6 +15,8 @@ namespace CodeBase.Patterns.CompositePatterns.Flower
         [SerializeField] private RotationModifierSo rotationModifier;
         [SerializeField] private ColourModifierSo[] colourModifierSo;
 
+        [SerializeField, Range(-20f, 20f)]  private float rotationSpeed;
+        
         private void OnEnable()
         {
             patternSampleCount = patterns.Length;
@@ -40,8 +42,8 @@ namespace CodeBase.Patterns.CompositePatterns.Flower
 
         private void ApplyModifiers(int index, ref PatternSample patternSample, float deltaTime)
         {
-            rotationModifier?.Apply(ref patternSample, deltaTime);
-            colourModifierSo[index]?.Apply(ref patternSample, deltaTime);
+            rotationModifier?.Apply(ref patternSample, ref rotationSpeed, deltaTime);
+            colourModifierSo[0]?.Apply(ref patternSample, ref rotationSpeed, deltaTime);
         }
     }
 
@@ -67,8 +69,7 @@ namespace CodeBase.Patterns.CompositePatterns.Flower
            get => projectileLifeTime;
            set => projectileLifeTime = value;
        }
-
-
+       
        public abstract void Execute(ref PatternSample[] patternSample, Action<PatternSample> callBack, float deltaTime = 0);
     }
 }

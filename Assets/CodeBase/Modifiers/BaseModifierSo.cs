@@ -8,6 +8,6 @@ namespace CodeBase.Modifiers
 
         [SerializeField] public bool isEnabled;
         // Applies the modifier to the passed-in PatternSample
-        public abstract void Apply(ref PatternSample sample, float deltaTime = 0f);
+        public abstract void Apply(ref PatternSample sample, ref float speed, float deltaTime = 0f);
     }
 }

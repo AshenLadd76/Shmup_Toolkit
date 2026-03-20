@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using CodeBase.Collision_Handling;
 using ToolBox.Messaging;
 using UnityEngine;
+using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Player
 {
@@ -37,7 +38,7 @@ namespace CodeBase.Player
         private int _framesSinceLastHit = 0;
         
         private const int MaxFramesNoHit = 3; // allow a few frames before retracting
-
+        
         
         private void OnEnable()
         {
@@ -55,7 +56,7 @@ namespace CodeBase.Player
         {
             spriteRenderer.enabled = false;
             
-            _beamWidth = spriteRenderer.bounds.size.x;
+            _beamWidth = spriteRenderer.bounds.size.x - .2f;
             
             LoadICollisionObjectsList();
         }
@@ -76,6 +77,32 @@ namespace CodeBase.Player
             CheckForCollision();
             
             SetBeamHeight(beamLength);
+        }
+
+       
+        
+        private void OnDrawGizmos()
+        {
+            if (!_isBeamActive) return;
+            
+            if (spriteRenderer == null) return;
+
+            Bounds bounds = spriteRenderer.bounds;
+            Vector3 center = bounds.center;
+            Vector3 size = bounds.size;
+
+            Gizmos.color =Color.green;
+
+            // Draw rectangle in XY plane
+            Vector3 topLeft = new Vector3(center.x - size.x / 2, center.y + size.y / 2, 0);
+            Vector3 topRight = new Vector3(center.x + size.x / 2, center.y + size.y / 2, 0);
+            Vector3 bottomRight = new Vector3(center.x + size.x / 2, center.y - size.y / 2, 0);
+            Vector3 bottomLeft = new Vector3(center.x - size.x / 2, center.y - size.y / 2, 0);
+
+            Gizmos.DrawLine(topLeft, topRight);
+            Gizmos.DrawLine(topRight, bottomRight);
+            Gizmos.DrawLine(bottomRight, bottomLeft);
+            Gizmos.DrawLine(bottomLeft, topLeft);
         }
 
         
@@ -149,6 +176,8 @@ namespace CodeBase.Player
             
             Vector2 halfSize = new Vector2(_beamWidth * Half, beamLength * Half);
             
+            Logger.Log( $"Beam Width: {_beamWidth}, Beam Length: {beamLength}" );
+            
             Vector2 beamCenter = (Vector2)transform.position + new Vector2(0, beamLength * Half);
 
             for (var i = 0; i < _iCollisionObjectsList.Count; i++)
@@ -164,7 +193,7 @@ namespace CodeBase.Player
                 obj.OnCollision();
 
                 // Compute distance from beam origin to top of the object
-                float collisionDistance = obj.Position.y - transform.position.y - obj.RadiusY;
+                float collisionDistance = obj.Position.y - transform.position.y + (obj.RadiusY  * 0.25f );
 
                 // Keep track of the closest collision
                 if (collisionDistance < closestDistance)
@@ -209,8 +238,7 @@ namespace CodeBase.Player
         
         private bool CheckCollision(Vector2 centreA, Vector2 halfSizeA, Vector2 centreB, Vector2 halfSizeB)
         {
-            return Mathf.Abs(centreA.x - centreB.x) <= halfSizeA.x + halfSizeB.x &&
-                   Mathf.Abs(centreA.y - centreB.y) <= halfSizeA.y + halfSizeB.y;
+            return Mathf.Abs(centreA.x - centreB.x) <= halfSizeA.x + halfSizeB.x && Mathf.Abs(centreA.y - centreB.y) <= halfSizeA.y + halfSizeB.y;
         }
     }
 }

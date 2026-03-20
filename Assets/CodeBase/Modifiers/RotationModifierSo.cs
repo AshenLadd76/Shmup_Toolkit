@@ -8,10 +8,9 @@ namespace CodeBase.Modifiers
     [CreateAssetMenu(menuName = "Shmup/Modifiers/RotationModifier")]
     public class RotationModifierSo : BaseModifierSo
     {
-        [SerializeField] private float rotationSpeed = 3f; // radians per second
+        [SerializeField, Range(-5f, 5f)] private float rotationSpeed = 3f; // radians per second
          // initial offset
          
-        
 
          private PhaseAccumulator _phaseAccumulator;
 
@@ -21,12 +20,12 @@ namespace CodeBase.Modifiers
          }
 
 
-         public override void Apply(ref PatternSample sample, float deltaTime = 0f)
+         public override void Apply(ref PatternSample sample, ref float speed , float deltaTime = 0f )
        {
            if (!isEnabled) return;
            
            //use the struct in a state less fashion here; 
-           _phaseAccumulator.Accumulate(ref sample.RotationPhase,  rotationSpeed, sample.RotationMultiplier, deltaTime);
+           _phaseAccumulator.Accumulate(ref sample.RotationPhase, speed, sample.RotationMultiplier, deltaTime);
        }
     }
 }

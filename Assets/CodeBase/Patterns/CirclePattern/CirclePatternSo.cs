@@ -41,15 +41,11 @@ namespace CodeBase.Patterns.CirclePattern
         
         private void OnEnable()
         {
-            _circlePatternAlgorithm = new CirclePatternAlgorithm
-            {
-                Count = projectileCount,
-                Radius = radius,
-                Phase = phase
-            };
+           InitCircleAlgorithm();
             
             //PrecomputeCirclePattern();
         }
+        
 
         private void OnValidate()
         {
@@ -58,6 +54,16 @@ namespace CodeBase.Patterns.CirclePattern
             _circlePatternAlgorithm.Phase = phase;
             
             PrecomputeCirclePattern();
+        }
+
+        private void InitCircleAlgorithm()
+        {
+            _circlePatternAlgorithm = new CirclePatternAlgorithm
+            {
+                Count = projectileCount,
+                Radius = radius,
+                Phase = phase
+            };
         }
         
         private void PrecomputeCirclePattern()
@@ -72,7 +78,7 @@ namespace CodeBase.Patterns.CirclePattern
         }
 
 
-        public override void Execute(ref PatternSample patternSample, Action<PatternSample> callBack, float deltaTime = 0, int index = 0)
+        public override void Execute(ref PatternSample patternSample, Action<PatternSample> callBack = null, float deltaTime = 0, int index = 0)
         {
 
             for (int i = 0; i < projectileCount; i++)
