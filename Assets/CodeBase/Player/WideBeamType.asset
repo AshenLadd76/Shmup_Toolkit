@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709a36c5a470fd846814c9ef0d316057, type: 3}
+  m_Name: WideBeamType
+  m_EditorClassIdentifier: Assembly-CSharp::CodeBase.Player.PlasmaBeamTypeSo
+  <BeamName>k__BackingField: Wide Beam
+  <DefaultBeamLength>k__BackingField: 28
+  <Width>k__BackingField: 2
+  <BeamWidthOffset>k__BackingField: 0.2
+  <GrowSpeed>k__BackingField: 8
+  <ShrinkSpeed>k__BackingField: 40
+  <DamagePerFrame>k__BackingField: 20
+  <BeamMaterial>k__BackingField: {fileID: 2100000, guid: 5197fa67339fe8642aeec4cf6f811187, type: 2}
+  <BeamSprite>k__BackingField: {fileID: 21300000, guid: c8fa9f1996d4c9846a4f2125deaf3e8f, type: 3}
+  <TipSprite>k__BackingField: {fileID: 0}
+  <BaseSprite>k__BackingField: {fileID: 0}
+  <ScrollSpeed>k__BackingField: {x: 0, y: -40, z: 0}

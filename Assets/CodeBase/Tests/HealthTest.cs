@@ -6,7 +6,7 @@ namespace CodeBase.Tests
     [RequireComponent( typeof( SpriteRenderer ) )]
     public class HealthTest : MonoBehaviour
     {
-        [SerializeField] private int health = 200;
+        [SerializeField] private float health = 200;
         [SerializeField] private Color originalColor = Color.green;
         [SerializeField] private Color targetColor = Color.red;
         [SerializeField, Range(0f, 1f)] private float increment = 0.2f; // How far to move towards target each hit
@@ -36,9 +36,8 @@ namespace CodeBase.Tests
         /// </summary>
         public void OnHit()
         {
-            
             _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, targetColor, increment);
-            health--;
+            Damage(1);
 
             if (health <= 0)
             {
@@ -46,6 +45,18 @@ namespace CodeBase.Tests
             }
             
             
+        }
+
+        public void Damage(float damage)
+        {
+            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, targetColor, increment);
+            
+            health -= damage;
+            
+            if (health <= 0)
+            {
+                onDeath?.Invoke();
+            }
         }
     }
 }

@@ -151,6 +151,10 @@ namespace CodeBase.Projectile
         {
             
         }
-        
+
+        public void Damage(float damage)
+        {
+           
+        }
     }
 }

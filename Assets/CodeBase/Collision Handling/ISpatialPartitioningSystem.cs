@@ -30,5 +30,7 @@ namespace CodeBase.Collision_Handling
         public float RadiusY { get; set; }
         
         public void OnCollision();
+        
+        public void Damage(float damage);
     }
 }

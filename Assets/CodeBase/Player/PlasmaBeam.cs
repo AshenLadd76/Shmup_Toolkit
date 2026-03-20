@@ -8,6 +8,8 @@ namespace CodeBase.Player
 {
     public class PlasmaBeam : MonoBehaviour
     {
+        [SerializeField] private PlasmaBeamTypeSo plasmaBeamTypeSo;
+        
         [SerializeField] private Vector2 anchor;
 
         [SerializeField] private Vector2 targetPosition;
@@ -20,13 +22,6 @@ namespace CodeBase.Player
         
         [SerializeField] private BaseCollisionAlgorithmSo collisionAlgorithmSo;
         
-        [SerializeField] private float growSpeed = 8;
-        
-        [SerializeField] private float shrinkSpeed = 40;
-        
-        [SerializeField] private float defaultBeamLength = 30;
-        
-        
         private List<ICollisionObject> _iCollisionObjectsList = new();
         
         private bool _isBeamActive;
@@ -38,7 +33,9 @@ namespace CodeBase.Player
         private int _framesSinceLastHit = 0;
         
         private const int MaxFramesNoHit = 3; // allow a few frames before retracting
-        
+
+
+        private Vector2 _beamDirection;
         
         private void OnEnable()
         {
@@ -54,16 +51,23 @@ namespace CodeBase.Player
         
         private void Awake()
         {
+            if (plasmaBeamTypeSo == null)
+            {
+                Logger.LogError( "PlasmaBeamTypeSo is null" );
+                return;
+            }
+            
             spriteRenderer.enabled = false;
             
-            _beamWidth = spriteRenderer.bounds.size.x - .2f;
+           // _beamWidth = spriteRenderer.bounds.size.x - plasmaBeamTypeSo.BeamWidthOffset;
+           
+           _beamWidth = spriteRenderer.size.x - plasmaBeamTypeSo.BeamWidthOffset;
             
             LoadICollisionObjectsList();
         }
 
         private void Start() => SetBeamHeight( beamLength );
         
-
         private void Update()
         {
             if( Input.GetKeyDown( KeyCode.Space ) ) 
@@ -78,33 +82,7 @@ namespace CodeBase.Player
             
             SetBeamHeight(beamLength);
         }
-
-       
         
-        private void OnDrawGizmos()
-        {
-            if (!_isBeamActive) return;
-            
-            if (spriteRenderer == null) return;
-
-            Bounds bounds = spriteRenderer.bounds;
-            Vector3 center = bounds.center;
-            Vector3 size = bounds.size;
-
-            Gizmos.color =Color.green;
-
-            // Draw rectangle in XY plane
-            Vector3 topLeft = new Vector3(center.x - size.x / 2, center.y + size.y / 2, 0);
-            Vector3 topRight = new Vector3(center.x + size.x / 2, center.y + size.y / 2, 0);
-            Vector3 bottomRight = new Vector3(center.x + size.x / 2, center.y - size.y / 2, 0);
-            Vector3 bottomLeft = new Vector3(center.x - size.x / 2, center.y - size.y / 2, 0);
-
-            Gizmos.DrawLine(topLeft, topRight);
-            Gizmos.DrawLine(topRight, bottomRight);
-            Gizmos.DrawLine(bottomRight, bottomLeft);
-            Gizmos.DrawLine(bottomLeft, topLeft);
-        }
-
         
         private void AddToCollisionObjectsList(MonoBehaviour collisionObject)
         {
@@ -167,43 +145,54 @@ namespace CodeBase.Player
             }
         }
         
+        
+        //Direction agnostic collision check
         private void CheckForCollision()
         {
-            const float Half = 0.5f;
-            float closestDistance = defaultBeamLength;
-            
+            _beamDirection = transform.up.normalized;
+
+            float closestDistance = plasmaBeamTypeSo.DefaultBeamLength;
             ICollisionObject closestCollisionObject = null;
-            
-            Vector2 halfSize = new Vector2(_beamWidth * Half, beamLength * Half);
-            
-            Logger.Log( $"Beam Width: {_beamWidth}, Beam Length: {beamLength}" );
-            
-            Vector2 beamCenter = (Vector2)transform.position + new Vector2(0, beamLength * Half);
+
+            Vector3 origin = transform.position;
 
             for (var i = 0; i < _iCollisionObjectsList.Count; i++)
             {
                 var obj = _iCollisionObjectsList[i];
                 
-                Vector2 objHalfSize = new Vector2(obj.RadiusX, obj.RadiusY);
+                // Use the reusable collision method
+                bool hit = OBB2DCollision.CheckCollision(
+                    centerA: (Vector2)transform.position,
+                    halfSizeA: new Vector2(_beamWidth * 0.5f, beamLength * 0.5f),
+                    directionA: _beamDirection,
+                    centerB: obj.Position,
+                    halfSizeB: new Vector2(obj.RadiusX, obj.RadiusY)
+                );
 
-                if (!CheckCollision(beamCenter, halfSize, obj.Position, objHalfSize))
-                    continue;
+                if (!hit) continue;
+                
 
-                // Trigger collision event
-                obj.OnCollision();
+                // ✅ Apply damage (time-based)
+                obj.Damage(plasmaBeamTypeSo.DamagePerSecond * Time.deltaTime);
 
-                // Compute distance from beam origin to top of the object
-                float collisionDistance = obj.Position.y - transform.position.y + (obj.RadiusY  * 0.25f );
-
-                // Keep track of the closest collision
-                if (collisionDistance < closestDistance)
+                float forward = Vector2.Dot(obj.Position - transform.position, _beamDirection);
+                
+                // Track closest object along beam
+                if (forward < closestDistance)
                 {
-                    closestDistance = collisionDistance;
+                    closestDistance = forward;
                     closestCollisionObject = obj;
                 }
             }
 
+            FlickerPrevention(closestCollisionObject, closestDistance);
 
+            SmoothlyAdjustBeamLength();
+        }
+        
+        
+        private void FlickerPrevention(ICollisionObject closestCollisionObject, float closestDistance )
+        {
             if (closestCollisionObject != null)
             {
                 //Hit something this frame
@@ -219,26 +208,75 @@ namespace CodeBase.Player
                 if (_framesSinceLastHit <= MaxFramesNoHit)
                 {
                     //Track last object's current position
-                    float predictedDistance = _lastHitObject.Position.y - transform.position.y + _lastHitObject.RadiusY;
-                    _lastCollisionDistance = predictedDistance; 
+                    float predictedDistance = Vector2.Dot(_lastHitObject.Position - transform.position, _beamDirection);
+                    _lastCollisionDistance = predictedDistance;
                 }
                 else
                 {
                     _lastHitObject = null;
-                    _lastCollisionDistance = defaultBeamLength;
+                    _lastCollisionDistance = plasmaBeamTypeSo.DefaultBeamLength;
                 }
             }
-            
+        }
+
+        private void SmoothlyAdjustBeamLength()
+        {
             // Smoothly grow/shrink the beam
-            float speed = beamLength < _lastCollisionDistance ? growSpeed : shrinkSpeed;
+            float speed = beamLength < _lastCollisionDistance ? plasmaBeamTypeSo.GrowSpeed : plasmaBeamTypeSo.ShrinkSpeed;
             
             beamLength = Mathf.Lerp(beamLength, _lastCollisionDistance, Time.deltaTime * speed);
         }
-        
         
         private bool CheckCollision(Vector2 centreA, Vector2 halfSizeA, Vector2 centreB, Vector2 halfSizeB)
         {
             return Mathf.Abs(centreA.x - centreB.x) <= halfSizeA.x + halfSizeB.x && Mathf.Abs(centreA.y - centreB.y) <= halfSizeA.y + halfSizeB.y;
         }
+        
+        private void OnDrawGizmos()
+        {
+            if (!_isBeamActive) return;
+            
+            if (spriteRenderer == null) return;
+
+            Bounds bounds = spriteRenderer.bounds;
+            Vector3 center = bounds.center;
+            Vector3 size = bounds.size;
+
+            Gizmos.color =Color.green;
+
+            // Draw rectangle in XY plane
+            Vector3 topLeft = new Vector3(center.x - size.x / 2, center.y + size.y / 2, 0);
+            Vector3 topRight = new Vector3(center.x + size.x / 2, center.y + size.y / 2, 0);
+            Vector3 bottomRight = new Vector3(center.x + size.x / 2, center.y - size.y / 2, 0);
+            Vector3 bottomLeft = new Vector3(center.x - size.x / 2, center.y - size.y / 2, 0);
+
+            Gizmos.DrawLine(topLeft, topRight);
+            Gizmos.DrawLine(topRight, bottomRight);
+            Gizmos.DrawLine(bottomRight, bottomLeft);
+            Gizmos.DrawLine(bottomLeft, topLeft);
+        }
     }
-}
+    
+    public static class OBB2DCollision
+    {
+        // Checks if a rectangle (center, halfSize, rotation) collides with another
+        public static bool CheckCollision(Vector2 centerA, Vector2 halfSizeA, Vector2 directionA,
+            Vector2 centerB, Vector2 halfSizeB)
+        {
+            // project along A’s forward and right (perpendicular) axes
+            Vector2 forward = directionA.normalized;
+            Vector2 right = new Vector2(forward.y, -forward.x);
+
+            Vector2 toB = centerB - centerA;
+
+            float forwardDist = Vector2.Dot(toB, forward);
+            float sidewaysDist = Vector2.Dot(toB, right);
+
+            float projectedRadius = Mathf.Abs(right.x) * halfSizeB.x + Mathf.Abs(right.y) * halfSizeB.y;
+
+            return Mathf.Abs(sidewaysDist) <= (halfSizeA.x + projectedRadius)
+                   && forwardDist >= 0
+                   && forwardDist <= halfSizeA.y * 2; // beam length
+        }
+    }
+ }

@@ -48,7 +48,13 @@ namespace CodeBase.Collision_Handling
         {
             _healthTest.OnHit();
         }
-        
+
+        public void Damage(float damage)
+        {
+            _healthTest.Damage(damage);
+        }
+
+     
 
         private  void Update()
         {
