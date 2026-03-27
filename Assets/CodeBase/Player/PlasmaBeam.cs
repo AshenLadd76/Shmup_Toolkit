@@ -21,6 +21,8 @@ namespace CodeBase.Player
         [SerializeField] private List<MonoBehaviour> collisionObjects = new();
         
         [SerializeField] private BaseCollisionAlgorithmSo collisionAlgorithmSo;
+
+        [SerializeField] private Transform beamTipTransform;
         
         private List<ICollisionObject> _iCollisionObjectsList = new();
         
@@ -122,12 +124,14 @@ namespace CodeBase.Player
         private void FireBeam()
         {
             spriteRenderer.enabled = true;
+            beamTipTransform.gameObject.SetActive( true );
             _isBeamActive = true;
         }
 
         private void HideBeam()
         {
             spriteRenderer.enabled = false;
+            beamTipTransform.gameObject.SetActive( false );
             _isBeamActive = false;
         }
 
@@ -225,11 +229,11 @@ namespace CodeBase.Player
             float speed = beamLength < _lastCollisionDistance ? plasmaBeamTypeSo.GrowSpeed : plasmaBeamTypeSo.ShrinkSpeed;
             
             beamLength = Mathf.Lerp(beamLength, _lastCollisionDistance, Time.deltaTime * speed);
-        }
-        
-        private bool CheckCollision(Vector2 centreA, Vector2 halfSizeA, Vector2 centreB, Vector2 halfSizeB)
-        {
-            return Mathf.Abs(centreA.x - centreB.x) <= halfSizeA.x + halfSizeB.x && Mathf.Abs(centreA.y - centreB.y) <= halfSizeA.y + halfSizeB.y;
+            
+            var tipPosition = (Vector2)transform.position + _beamDirection * beamLength;
+            
+            beamTipTransform.position = tipPosition;
+            beamTipTransform.rotation = transform.rotation;
         }
         
         private void OnDrawGizmos()

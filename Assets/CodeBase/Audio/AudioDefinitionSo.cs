@@ -3,7 +3,7 @@
 namespace CodeBase.Audio
 {
     [CreateAssetMenu(fileName = "NewAudioDefinition", menuName = "ToolBox/AudioDefinition")]
-    public class AudioDefinitionSo : ScriptableObject
+    public class AudioDefinitionSo : ScriptableObject, IAudioDefinition
     {
         [Header("Clip")]
         [SerializeField] private AudioClip clip;
@@ -40,5 +40,22 @@ namespace CodeBase.Audio
         public bool BypassEffects => bypassEffects;
         public bool BypassListenerEffects => bypassListenerEffects;
         public bool BypassReverbZones => bypassReverbZones;
+    }
+    
+    public interface IAudioDefinition
+    {
+        AudioClip Clip { get; }
+        float Volume { get; }
+        float Pitch { get; }
+        bool Loop { get; }
+        bool PlayOnAwake { get; }
+        float SpatialBlend { get; }
+        float MinDistance { get; }
+        float MaxDistance { get; }
+        AudioRolloffMode RolloffMode { get; }
+        bool Mute { get; }
+        bool BypassEffects { get; }
+        bool BypassListenerEffects { get; }
+        bool BypassReverbZones { get; }
     }
 }

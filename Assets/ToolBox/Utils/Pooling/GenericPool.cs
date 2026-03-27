@@ -5,7 +5,13 @@ using UnityEngine.Pool;
 
 namespace ToolBox.Utils.Pooling
 {
-    public class GenericPool<T> : IDisposable where T : class
+    public interface IPool<T> : IDisposable where T : class
+    {
+        T Get();
+        void Release(T obj);
+    }
+    
+    public class GenericPool<T> : IPool<T> where T : class
     {
         private bool _isDisposed;
 
@@ -17,7 +23,7 @@ namespace ToolBox.Utils.Pooling
 
         public GenericPool(Func<T> createFunc, Action<T> onGet = null, Action<T> onRelease = null, Action<T> onDestroy = null, int preLoadCount = 10, int maxSize = 100)
         {
-            InitializePool(createFunc,  onGet,onRelease, onDestroy,preLoadCount, maxSize);
+            InitializePool(createFunc, onGet,onRelease, onDestroy,preLoadCount, maxSize);
             
             Preload(preLoadCount,  maxSize);
         }
@@ -54,7 +60,6 @@ namespace ToolBox.Utils.Pooling
             
             foreach (var obj in list)
                 _pool.Release(obj);
-            
         }
         
 
@@ -68,15 +73,14 @@ namespace ToolBox.Utils.Pooling
         public void Release(T obj)
         {
             if (_isDisposed) throw new ObjectDisposedException(nameof(GenericPool<T>));
+            
             if (obj == null) throw new ArgumentNullException(nameof(obj), "Cannot release null object to pool.");
             
-            Logger.Log( $"Releasing object : { obj } back to pool");
             _pool.Release(obj);
         }
 
         public void Dispose()
         {
-            Logger.Log( $"Disposing was called....");
             if (_isDisposed) return;
             
             _pool.Dispose();

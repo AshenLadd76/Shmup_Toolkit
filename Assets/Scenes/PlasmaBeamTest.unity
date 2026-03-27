@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092197846}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16a977781f3d887498153ee2e6fc54d2, type: 3}
   m_Name: 
@@ -1943,10 +1943,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da67e91dafd69f041b122709e9b8006e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CodeBase.AudioService
-  audioSourcePrefab: {fileID: 4417208123911676521, guid: a9677436598c59e49a6d2384b51d4af6, type: 3}
   audioList:
   - key: one
     value: {fileID: 11400000, guid: 584843dcd3cbea149b6ebedb18710669, type: 2}
+  - key: 00sfx
+    value: {fileID: 11400000, guid: c29ffa95a2b6dd240a5785b4142f2017, type: 2}
+  - key: oasfx
+    value: {fileID: 11400000, guid: 67c0d7e2ea298e04087fa12eda6c7611, type: 2}
+  - key: obsfx
+    value: {fileID: 11400000, guid: 658fdc78812848541b374220f21d2775, type: 2}
+  - key: ocsfx
+    value: {fileID: 0}
+  - key: odsfx
+    value: {fileID: 0}
+  - key: oesfx
+    value: {fileID: 0}
 --- !u!4 &1885642322
 Transform:
   m_ObjectHideFlags: 0
@@ -1974,6 +1985,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6c9fe38dd759640ba95a86c1c6fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioTest
+  sfxCode: 00sfx
+  sfxNames:
+  - oasfx
+  - obsfx
+  - ocsfx
+  - odsfx
+  - oesfx
 --- !u!1 &1929402602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2262,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1092197853}
     m_Modifications:
     - target: {fileID: 53012084051662682, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53012084051662682, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53012084051662682, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53012084051662682, guid: e9d3a00f266409443aae49f19492c540, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
       objectReference: {fileID: 0}
@@ -2295,14 +2325,42 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c8fa9f1996d4c9846a4f2125deaf3e8f, type: 3}
+    - target: {fileID: 567153604039144404, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2894077477129547703, guid: e9d3a00f266409443aae49f19492c540, type: 3}
       propertyPath: m_Name
       value: Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239282440118977657, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239282440118977657, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239282440118977657, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239282440118977657, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239282440118977657, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4674058502412727946, guid: e9d3a00f266409443aae49f19492c540, type: 3}
       propertyPath: growSpeed
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 4674058502412727946, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: beamTipTransform
+      value: 
+      objectReference: {fileID: 1390345157767571537}
     - target: {fileID: 4674058502412727946, guid: e9d3a00f266409443aae49f19492c540, type: 3}
       propertyPath: plasmaBeamTypeSo
       value: 
@@ -2331,6 +2389,14 @@ PrefabInstance:
       propertyPath: 'collisionObjects.Array.data[4]'
       value: 
       objectReference: {fileID: 352903384}
+    - target: {fileID: 8224712539497110201, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13db5ea9ab7167f449eb1d6bbfe78a1e, type: 3}
+    - target: {fileID: 8224712539497110201, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+      propertyPath: m_SortingOrder
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8456519538851878721, guid: e9d3a00f266409443aae49f19492c540, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2351,6 +2417,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 721746477}
   m_SourcePrefab: {fileID: 100100000, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+--- !u!4 &1390345157767571537 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3239282440118977657, guid: e9d3a00f266409443aae49f19492c540, type: 3}
+  m_PrefabInstance: {fileID: 1390345157767571536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

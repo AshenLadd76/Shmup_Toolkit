@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9de3a20e31b2417a93f0e4a59ac8aa5c, type: 3}
-  m_Name: AirshipSelect
+  m_Name: oasfx
   m_EditorClassIdentifier: Assembly-CSharp::CodeBase.Audio.AudioDefinitionSo
-  clip: {fileID: 8300000, guid: 2f36e6cce288d7f40bd2cdfe3625432a, type: 3}
+  clip: {fileID: 8300000, guid: 7ba785fb37f47424193b7dfc974f84de, type: 3}
   volume: 1
   pitch: 1
   loop: 0

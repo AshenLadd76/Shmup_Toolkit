@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ToolBox.Helpers;
 using ToolBox.Messaging;
 using ToolBox.Services;
 using ToolBox.Utils.Pooling;
@@ -9,92 +10,83 @@ namespace CodeBase.Audio
 {
     public class AudioService : BaseService
     {
-        [SerializeField] private AudioSource audioSourcePrefab;
-        
         [SerializeField] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> audioList;
         
-        private Dictionary<string, AudioDefinitionSo> _audioDictionary = new Dictionary<string, AudioDefinitionSo>();
+        private readonly Dictionary<string, IAudioDefinition> _audioDictionary = new();
         
-        private GenericPool<AudioSource> _audioSourcePool;
+        private SfxAudioService _sfxAudioService;
         
-        private void Start()
+        private void Awake()
         {
             InitAudioDictionary();
-            InitPool();
+            
+            _sfxAudioService = new SfxAudioService( new CoroutineRunner(this), CreateAudioPool("SfxAudioPool", 10, 50) );
         }
         
         protected override void SubscribeToService()
         {
             Logger.Log("AudioService subscribed");
-            
             MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayOneShot, PlayOneShot );
-            MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayLoop, PlayLoop);
+            MessageBus.AddListener<string, Vector3>(AudioServiceMessages.RequestPlayOneShotAtPosition, PlayOneShotAtPosition);
         }
 
         protected override void UnsubscribeFromService()
         {
             Logger.Log("AudioService unsubscribed");
-            
             MessageBus.RemoveListener<string>(AudioServiceMessages.RequestPlayOneShot, PlayOneShot );
-            MessageBus.RemoveListener<string>(AudioServiceMessages.RequestPlayLoop, PlayLoop);
+            MessageBus.RemoveListener<string, Vector3>(AudioServiceMessages.RequestPlayOneShotAtPosition, PlayOneShotAtPosition);
         }
 
-        private void PlayOneShot( string id)
+        private void PlayOneShot(string id)
         {
-            Logger.Log($"Playing one shot sound {id}");
-
-            if (_audioSourcePool == null)
+            var key = id.Trim();
+            
+            if (!_audioDictionary.TryGetValue(key, out var audioDefinition))
             {
-                Logger.Log("AudioService audio source pool is null");
+                Logger.Log($"AudioService clip not found {key}");
                 return;
             }
+            
+            _sfxAudioService.PlayOneShot(audioDefinition);
+        }
 
-            if (!_audioDictionary.ContainsKey(id))
+        private void PlayOneShotAtPosition(string id, Vector3 position)
+        {
+            var key = id.Trim();
+
+            if (!_audioDictionary.TryGetValue(key, out var audioDefinition))
             {
-                Logger.Log($"AudioService clip not found {id}");
+                Logger.Log($"AudioService clip not found {key}");
                 return;
             }
-
-            //TODO Pull audioSource from the audio source pool
-            //Assign the audio clip to it with config and the play it
-            var audioSource = _audioSourcePool.Get();
             
-            audioSource.clip = _audioDictionary[id.Trim()].Clip;
-            audioSource.Play();
-            
-            Logger.Log($"Played one shot sound {id}");
-
-
+            _sfxAudioService.PlayOneShotAtPosition(audioDefinition, position);
         }
-
-        private void PlayLoop(string id)
-        {
-            Logger.Log($"Playing loop {id}");
-        }
-
-
+        
+        
         private void InitAudioDictionary()
         {
             foreach (var audioDefinition in audioList)
-            {
-                Logger.Log($"Initializing audio definition {audioDefinition.Key}");
-                _audioDictionary.Add(audioDefinition.Key, audioDefinition.Value);
-            }
-            
-            Logger.Log($"Initialized audio definitions {_audioDictionary.Count} {_audioDictionary.Keys }" );
+                _audioDictionary[audioDefinition.Key.Trim()] = audioDefinition.Value;
         }
         
-        private void InitPool()
+        private GenericPool<AudioSource> CreateAudioPool(string poolRootName, int preloadCount, int maxPoolSize)
         {
-            if (audioSourcePrefab == null)
-            {
-                Logger.Log("No audio source prefab assigned");
-                return;
-            }
+            var poolRoot = new GameObject($"{poolRootName}");
+            poolRoot.transform.SetParent(transform);
             
-            _audioSourcePool = new GenericPool<AudioSource>(createFunc: () => {
-                    var go = Instantiate(audioSourcePrefab, transform);
-                    return go;
+            return new GenericPool<AudioSource>(createFunc: () => {
+                    
+                    var go = new GameObject("AudioSource");
+                    
+                    go.transform.SetParent(poolRoot.transform);
+                    
+                    var audioSource = go.AddComponent<AudioSource>();
+                    
+                    audioSource.playOnAwake = false;
+                    audioSource.loop = false;
+                    
+                    return audioSource;
                 },
                 onGet: source => source.gameObject.SetActive(true),
                 onRelease: source => {
@@ -102,14 +94,20 @@ namespace CodeBase.Audio
                     source.clip = null;
                     source.gameObject.SetActive(false);
                 },
-                preLoadCount: 10,
-                maxSize: 50);
+                preLoadCount: preloadCount,
+                maxSize: maxPoolSize);
         }
     }
 
     public static class AudioServiceMessages
     {
+        //Sfx Audio Service messages
         public const string RequestPlayOneShot = "RequestPlayOneShot";
-        public const string RequestPlayLoop = "RequestPlayLoop";
+        public const string RequestPlayOneShotAtPosition = "RequestPlayOneShotAtPosition";
+       
+        //Music Service messages
+        public const string RequestPlayAudioLoop = "RequestPlayAudioLoop";
+        public const string RequestPlayAudioLoopAtPosition = "RequestPlayAudioLoopAtPosition";
+        public const string RequestStopAudioLoop = "RequestStopAudioLoop";
     }
 }
