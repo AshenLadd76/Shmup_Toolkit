@@ -8,7 +8,7 @@ namespace CodeBase.Audio
 {
     public class SfxAudioService
     {
-        private readonly GenericPool<AudioSource> _audioSourcePool;
+        private readonly IPool<AudioSource> _audioSourcePool;
         
         private readonly List<AudioSource> _activeSfxAudioSources = new();
         
@@ -16,7 +16,7 @@ namespace CodeBase.Audio
         
         private readonly ICoroutineRunner _coroutineRunner;
         
-        public SfxAudioService( ICoroutineRunner coroutineRunner, GenericPool<AudioSource> audioSourcePool)
+        public SfxAudioService( ICoroutineRunner coroutineRunner, IPool<AudioSource> audioSourcePool)
         { 
             _coroutineRunner = coroutineRunner ?? throw new System.ArgumentNullException(nameof(coroutineRunner));
             _audioSourcePool = audioSourcePool ?? throw new System.ArgumentNullException(nameof(audioSourcePool));

@@ -12,15 +12,14 @@ namespace CodeBase.Audio
 
         private void Start()
         {
-            StartCoroutine(Fire());
+           // StartCoroutine(Fire());
         }
         
         // Update is called once per frame
         private void Update()
         {
-            //if (Input.GetKeyDown(KeyCode.M))
-               // MessageBus.Broadcast( AudioServiceMessages.RequestPlayOneShot, PickRandomSfx() );
-            
+            if (Input.GetKeyDown(KeyCode.M))
+               MessageBus.Broadcast( AudioServiceMessages.RequestPlayAudioLoop, sfxCode );
         }
 
 

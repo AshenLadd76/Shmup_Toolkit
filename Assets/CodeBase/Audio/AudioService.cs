@@ -10,17 +10,22 @@ namespace CodeBase.Audio
 {
     public class AudioService : BaseService
     {
-        [SerializeField] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> audioList;
+        [SerializeField, Header("Audio Sfx Clips"), Space(20)] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> audioList;
+        [SerializeField, Header("Music Clips")] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> musicClipList;
         
         private readonly Dictionary<string, IAudioDefinition> _audioDictionary = new();
+        private readonly Dictionary<string, IAudioDefinition> _musicDictionary = new();
         
         private SfxAudioService _sfxAudioService;
+        private MusicAudioService _musicAudioService;
         
         private void Awake()
         {
             InitAudioDictionary();
+            InitMusicDictionary();
             
             _sfxAudioService = new SfxAudioService( new CoroutineRunner(this), CreateAudioPool("SfxAudioPool", 10, 50) );
+            _musicAudioService = new MusicAudioService(new CoroutineRunner(this), CreateAudioPool("MusicAudioPool", 10, 50) );
         }
         
         protected override void SubscribeToService()
@@ -28,6 +33,9 @@ namespace CodeBase.Audio
             Logger.Log("AudioService subscribed");
             MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayOneShot, PlayOneShot );
             MessageBus.AddListener<string, Vector3>(AudioServiceMessages.RequestPlayOneShotAtPosition, PlayOneShotAtPosition);
+            
+            MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayAudioLoop, PlayAudioLoop);
+     
         }
 
         protected override void UnsubscribeFromService()
@@ -35,11 +43,15 @@ namespace CodeBase.Audio
             Logger.Log("AudioService unsubscribed");
             MessageBus.RemoveListener<string>(AudioServiceMessages.RequestPlayOneShot, PlayOneShot );
             MessageBus.RemoveListener<string, Vector3>(AudioServiceMessages.RequestPlayOneShotAtPosition, PlayOneShotAtPosition);
+            
+            MessageBus.RemoveListener<string>(AudioServiceMessages.RequestPlayAudioLoop, PlayAudioLoop);
         }
 
+        
+        //Audio
         private void PlayOneShot(string id)
         {
-            var key = id.Trim();
+            var key = FormatID(id);
             
             if (!_audioDictionary.TryGetValue(key, out var audioDefinition))
             {
@@ -52,7 +64,7 @@ namespace CodeBase.Audio
 
         private void PlayOneShotAtPosition(string id, Vector3 position)
         {
-            var key = id.Trim();
+            var key = FormatID(id);
 
             if (!_audioDictionary.TryGetValue(key, out var audioDefinition))
             {
@@ -62,12 +74,57 @@ namespace CodeBase.Audio
             
             _sfxAudioService.PlayOneShotAtPosition(audioDefinition, position);
         }
+        //Audio ends
+        
+        
+        //Music
+        private void PlayAudioLoop(string id)
+        {
+            var key = FormatID(id);
+            
+            if (!_musicDictionary.TryGetValue(key, out var audioDefinition))
+            {
+                Logger.Log($"AudioService clip not found {key}");
+                return;
+            }
+            
+            _musicAudioService.PlayAudioLoop(key, audioDefinition);
+        }
+
+        private void PlayAudioLoopAtPosition(string id, Vector3 position)
+        {
+            var key = FormatID(id);
+            
+            if (!_musicDictionary.TryGetValue(key, out var audioDefinition))
+            {
+                Logger.Log($"AudioService clip not found {key}");
+                return;
+            }
+            
+            _musicAudioService.PlayAudioLoop(key, audioDefinition);
+        }
+
+        private void StopAudioLoop(string id)
+        {
+            var key = FormatID(id);
+            
+            _musicAudioService.StopAudioLoop(key);
+        }
+
+
+        private string FormatID(string id) => id.Trim().ToLower();
         
         
         private void InitAudioDictionary()
         {
             foreach (var audioDefinition in audioList)
-                _audioDictionary[audioDefinition.Key.Trim()] = audioDefinition.Value;
+                _audioDictionary[audioDefinition.Key.Trim().ToLower()] = audioDefinition.Value;
+        }
+
+        private void InitMusicDictionary()
+        {
+            foreach (var audioDefinition in musicClipList)
+                _musicDictionary[audioDefinition.Key.Trim().ToLower()] = audioDefinition.Value;
         }
         
         private GenericPool<AudioSource> CreateAudioPool(string poolRootName, int preloadCount, int maxPoolSize)

@@ -1958,6 +1958,11 @@ MonoBehaviour:
     value: {fileID: 0}
   - key: oesfx
     value: {fileID: 0}
+  musicClipList:
+  - key: airshipselect
+    value: {fileID: 11400000, guid: 584843dcd3cbea149b6ebedb18710669, type: 2}
+  - key: stage1and4
+    value: {fileID: 11400000, guid: 510ca1eca51df0a498d789e9ed26feb3, type: 2}
 --- !u!4 &1885642322
 Transform:
   m_ObjectHideFlags: 0
@@ -1985,7 +1990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6c9fe38dd759640ba95a86c1c6fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioTest
-  sfxCode: 00sfx
+  sfxCode: airshipselect
   sfxNames:
   - oasfx
   - obsfx
