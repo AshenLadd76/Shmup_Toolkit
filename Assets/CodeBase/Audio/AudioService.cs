@@ -8,7 +8,7 @@ using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Audio
 {
-    public class AudioService : BaseService
+    public class AudioService : BaseService, IAudioService
     {
         [SerializeField, Header("Audio Sfx Clips"), Space(20)] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> audioList;
         [SerializeField, Header("Music Clips")] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> musicClipList;
@@ -34,7 +34,10 @@ namespace CodeBase.Audio
             MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayOneShot, PlayOneShot );
             MessageBus.AddListener<string, Vector3>(AudioServiceMessages.RequestPlayOneShotAtPosition, PlayOneShotAtPosition);
             
-            MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayAudioLoop, PlayAudioLoop);
+            MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayAudioLoop, PlayLoop);
+            MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayMusicTrack, PlayMusicTrack);
+            
+            MessageBus.AddListener<string>(AudioServiceMessages.RequestAudioCrossFade, CrossFade);
      
         }
 
@@ -44,12 +47,14 @@ namespace CodeBase.Audio
             MessageBus.RemoveListener<string>(AudioServiceMessages.RequestPlayOneShot, PlayOneShot );
             MessageBus.RemoveListener<string, Vector3>(AudioServiceMessages.RequestPlayOneShotAtPosition, PlayOneShotAtPosition);
             
-            MessageBus.RemoveListener<string>(AudioServiceMessages.RequestPlayAudioLoop, PlayAudioLoop);
+            MessageBus.RemoveListener<string>(AudioServiceMessages.RequestPlayAudioLoop, PlayLoop);
+            
+            MessageBus.RemoveListener<string>(AudioServiceMessages.RequestAudioCrossFade, CrossFade);
         }
 
         
         //Audio
-        private void PlayOneShot(string id)
+        public void PlayOneShot(string id)
         {
             var key = FormatID(id);
             
@@ -62,7 +67,7 @@ namespace CodeBase.Audio
             _sfxAudioService.PlayOneShot(audioDefinition);
         }
 
-        private void PlayOneShotAtPosition(string id, Vector3 position)
+        public void PlayOneShotAtPosition(string id, Vector3 position)
         {
             var key = FormatID(id);
 
@@ -78,7 +83,21 @@ namespace CodeBase.Audio
         
         
         //Music
-        private void PlayAudioLoop(string id)
+        public void PlayMusicTrack(string id)
+        {
+            var key = FormatID(id);
+            
+            if (!_musicDictionary.TryGetValue(key, out var audioDefinition))
+            {
+                Logger.Log($"AudioService clip not found {key}");
+                return;
+            }
+            
+            _musicAudioService.PlayMusic(key, audioDefinition);
+        }
+        
+        
+        public void PlayLoop(string id)
         {
             var key = FormatID(id);
             
@@ -91,7 +110,7 @@ namespace CodeBase.Audio
             _musicAudioService.PlayAudioLoop(key, audioDefinition);
         }
 
-        private void PlayAudioLoopAtPosition(string id, Vector3 position)
+        public void PlayLoopAtPosition(string id, Vector3 position)
         {
             var key = FormatID(id);
             
@@ -104,11 +123,24 @@ namespace CodeBase.Audio
             _musicAudioService.PlayAudioLoop(key, audioDefinition);
         }
 
-        private void StopAudioLoop(string id)
+        public void StopLoop(string id)
         {
             var key = FormatID(id);
             
             _musicAudioService.StopAudioLoop(key);
+        }
+
+        public void CrossFade(string id)
+        {
+            var key = FormatID(id);
+            
+            if (!_musicDictionary.TryGetValue(key, out var audioDefinition))
+            {
+                Logger.Log($"AudioService clip not found {key}");
+                return;
+            }
+            
+            _musicAudioService.CrossFadeAudioTrack(key, audioDefinition);
         }
 
 
@@ -166,5 +198,16 @@ namespace CodeBase.Audio
         public const string RequestPlayAudioLoop = "RequestPlayAudioLoop";
         public const string RequestPlayAudioLoopAtPosition = "RequestPlayAudioLoopAtPosition";
         public const string RequestStopAudioLoop = "RequestStopAudioLoop";
+        public const string RequestPlayMusicTrack = "RequestPlayMusicTrack";
+        public const string RequestAudioCrossFade = "RequestAudioCrossFade";
+    }
+
+    public interface IAudioService
+    {
+        public void PlayOneShot(string id);
+        public void PlayOneShotAtPosition(string id, Vector3 position);
+        public void PlayLoop(string id);
+        public void StopLoop(string id);
+        public void PlayLoopAtPosition(string id, Vector3 position);
     }
 }

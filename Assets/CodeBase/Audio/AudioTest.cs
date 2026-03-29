@@ -19,7 +19,13 @@ namespace CodeBase.Audio
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.M))
-               MessageBus.Broadcast( AudioServiceMessages.RequestPlayAudioLoop, sfxCode );
+               MessageBus.Broadcast( AudioServiceMessages.RequestPlayMusicTrack, sfxCode );
+            
+            if(Input.GetKeyDown(KeyCode.C))
+               MessageBus.Broadcast(AudioServiceMessages.RequestAudioCrossFade, "stage1and4");
+            
+            if(Input.GetKeyDown(KeyCode.R))
+                MessageBus.Broadcast(AudioServiceMessages.RequestAudioCrossFade, sfxCode);
         }
 
 

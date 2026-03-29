@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using ToolBox.Helpers;
 using ToolBox.Utils.Pooling;
 using UnityEngine;
@@ -15,11 +16,17 @@ namespace CodeBase.Audio
         private Coroutine _cleanupCoroutine;
         
         private readonly ICoroutineRunner _coroutineRunner;
+
+        private string _currentMusicTrack;
+        
+        private AudioCrossFader _audioCrossFader;
         
         public MusicAudioService(ICoroutineRunner coroutineRunner, IPool<AudioSource> audioSourcePool)
         {
             _coroutineRunner = coroutineRunner ?? throw new System.ArgumentNullException(nameof(coroutineRunner));
             _audioSourcePool = audioSourcePool ?? throw new System.ArgumentNullException(nameof(audioSourcePool));
+            
+            _audioCrossFader = new AudioCrossFader(coroutineRunner, _audioSourcePool);
         }
 
         public void PlayAudioLoop(string key, IAudioDefinition audioDefinition)
@@ -44,8 +51,36 @@ namespace CodeBase.Audio
 
         public void StopAudioLoop(string key)
         {
-           
+            
         }
+
+        
+        public void PlayMusic(string key, IAudioDefinition audioDefinition)
+        {
+            _currentMusicTrack = key;
+            PlayAudioLoop(key, audioDefinition);
+        }
+        
+        public void CrossFadeAudioTrack(string fadeInId, IAudioDefinition audioDefinition)
+        {
+            if (string.IsNullOrEmpty(_currentMusicTrack)) return;
+            
+             
+            if (!_activeAudioSources.TryGetValue(_currentMusicTrack, out var fadeOutAudioSource))
+            {
+                Logger.LogError($"AudioService clip not found {_currentMusicTrack}");
+                return;
+            }
+        
+            var fadeInAudioSource = GetAndConfigAudioSource(audioDefinition);
+            
+            _activeAudioSources[fadeInId] = fadeInAudioSource;
+            
+            _currentMusicTrack = fadeInId;
+            
+            _audioCrossFader.CrossFade( fadeOutAudioSource, fadeInAudioSource, 4f );
+        }
+
         
         private AudioSource GetAndConfigAudioSource(IAudioDefinition audioDefinition)
         {
@@ -68,6 +103,58 @@ namespace CodeBase.Audio
             audioSource.bypassListenerEffects = audioDefinition.BypassListenerEffects;
             
             return audioSource;
+        }
+    }
+
+    public class AudioCrossFader
+    {
+        private readonly ICoroutineRunner _coroutineRunner;
+        private readonly IPool<AudioSource> _audioSourcePool;
+
+        public AudioCrossFader(ICoroutineRunner coroutineRunner, IPool<AudioSource> audioSourcePool)
+        {
+            _coroutineRunner = coroutineRunner ?? throw new System.ArgumentNullException(nameof(coroutineRunner));
+            _audioSourcePool = audioSourcePool ?? throw new System.ArgumentNullException(nameof(audioSourcePool));
+        }
+
+        
+        private Coroutine _crossFadeCoroutine;
+
+        public void CrossFade(AudioSource fadeOutSource, AudioSource fadeInSource, float duration)
+        {
+            if(_crossFadeCoroutine != null) return;
+            
+            _crossFadeCoroutine = _coroutineRunner.StartCoroutine(CrossFadeCr(fadeOutSource, fadeInSource, duration));
+        }
+        
+        private IEnumerator CrossFadeCr(AudioSource fadeOutSource, AudioSource fadeInSource, float duration)
+        {
+            float elapsedTime = 0;
+
+            fadeInSource.volume = 0;
+            fadeOutSource.volume = 1;
+            
+            fadeInSource.Play();
+
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                
+                float t = Mathf.Clamp01(elapsedTime / duration);
+
+                fadeInSource.volume = t;
+                fadeOutSource.volume = 1 - t;
+                
+                yield return null;
+            }
+            
+            fadeOutSource.Stop();
+            
+            _audioSourcePool.Release(fadeOutSource);
+            
+            _crossFadeCoroutine = null;
+            
+            Logger.Log($"AudioService crossfade finished {elapsedTime}");
         }
     }
 }
