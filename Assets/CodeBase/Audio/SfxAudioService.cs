@@ -15,6 +15,9 @@ namespace CodeBase.Audio
         private Coroutine _cleanupCoroutine;
         
         private readonly ICoroutineRunner _coroutineRunner;
+
+        private const int MinDistance = 1;
+        private const int MaxDistance = 100;
         
         public SfxAudioService( ICoroutineRunner coroutineRunner, IPool<AudioSource> audioSourcePool)
         { 
@@ -38,6 +41,10 @@ namespace CodeBase.Audio
         public void PlayOneShotAtPosition(IAudioDefinition audioDefinition, Vector3 position)
         {
             if (audioDefinition.Clip == null) return; 
+            
+            audioDefinition.SpatialBlend = 1f;
+            audioDefinition.MinDistance = MinDistance;
+            audioDefinition.MaxDistance = MaxDistance;
             
             var audioSource = GetAndConfigAudioSource(audioDefinition);
             

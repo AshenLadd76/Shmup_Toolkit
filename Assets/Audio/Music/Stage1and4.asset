@@ -15,12 +15,12 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 8420e1db62317994292eed162ccdc761, type: 3}
   volume: 1
   pitch: 1
+  spatialBlend: 1
+  minDistance: 1
+  maxDistance: 100
+  rolloffMode: 1
   loop: 0
   playOnAwake: 0
-  spatialBlend: 0
-  minDistance: 1
-  maxDistance: 500
-  rolloffMode: 0
   mute: 0
   bypassEffects: 0
   bypassListenerEffects: 0

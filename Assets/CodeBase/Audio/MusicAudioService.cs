@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using ToolBox.Helpers;
+﻿using System.Collections.Generic;
 using ToolBox.Utils.Pooling;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
@@ -10,83 +8,137 @@ namespace CodeBase.Audio
     public class MusicAudioService
     {
         private readonly IPool<AudioSource> _audioSourcePool;
+        private readonly ICrossFader _audioCrossFader;
         
-        private Dictionary<string, AudioSource> _activeAudioSources = new Dictionary<string, AudioSource>();
+        private readonly Dictionary<(Object owner,string id), AudioSource> _activeAudioSources = new();
         
         private Coroutine _cleanupCoroutine;
         
-        private readonly ICoroutineRunner _coroutineRunner;
-
-        private string _currentMusicTrack;
+        private (Object owner,string id) _currentMusicTrack;
         
-        private AudioCrossFader _audioCrossFader;
+        private const int MinDistance = 1;
+        private const int MaxDistance = 100;
         
-        public MusicAudioService(ICoroutineRunner coroutineRunner, IPool<AudioSource> audioSourcePool)
+        public MusicAudioService(IPool<AudioSource> audioSourcePool, ICrossFader audioCrossFader)
         {
-            _coroutineRunner = coroutineRunner ?? throw new System.ArgumentNullException(nameof(coroutineRunner));
             _audioSourcePool = audioSourcePool ?? throw new System.ArgumentNullException(nameof(audioSourcePool));
-            
-            _audioCrossFader = new AudioCrossFader(coroutineRunner, _audioSourcePool);
+            _audioCrossFader = audioCrossFader ?? throw new System.ArgumentNullException(nameof(audioCrossFader));
         }
 
-        public void PlayAudioLoop(string key, IAudioDefinition audioDefinition)
+        public void PlayAudioLoop(Object owner, string key, IAudioDefinition audioDefinition)
         {
             if (audioDefinition?.Clip == null) return; 
             
-            var audioSource = GetAndConfigAudioSource(audioDefinition);
+            var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
-            _activeAudioSources[key] =  audioSource;
+            _activeAudioSources[(owner,key)] =  audioSource;
             
             audioSource.Play();
         }
 
-        public void PlayAudioLoopAtPosition(string key, IAudioDefinition audioDefinition, Vector3 position)
+        public void PlayAudioLoopAtPosition(Object owner, string key, IAudioDefinition audioDefinition, Vector3 position)
         {
-            PlayAudioLoop(key, audioDefinition);
+            if( audioDefinition?.Clip == null ) return;  
+            
+            var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
             Logger.Log($"AudioService playing audio loop at {position}");
             
+            audioSource.transform.position = position;
+            audioSource.spatialBlend = 1;
+            audioSource.minDistance = MinDistance;
+            audioSource.maxDistance = MaxDistance;
             
+            _activeAudioSources[(owner, key)] =  audioSource;
+            
+            audioSource.Play();
         }
 
-        public void StopAudioLoop(string key)
+        public void StopAudioLoop(Object owner, string key)
         {
+            if( owner == null || string.IsNullOrEmpty(key) ) return;
             
+            if (!_activeAudioSources.TryGetValue((owner, key), out var audioSourceToStop))
+            {
+                Logger.LogError($"AudioService clip not found {_currentMusicTrack}");
+                return;
+            }
+            
+            audioSourceToStop.volume = 0f;
+            audioSourceToStop.Stop();
+            
+            _activeAudioSources.Remove((owner, key));
         }
 
         
-        public void PlayMusic(string key, IAudioDefinition audioDefinition)
+        public void PlayMusic(Object owner, string id, IAudioDefinition audioDefinition)
         {
-            _currentMusicTrack = key;
-            PlayAudioLoop(key, audioDefinition);
+            
+            if( owner == null || string.IsNullOrEmpty(id)) return;
+            
+            string key = id.Trim().ToLower();
+            
+            if (_activeAudioSources.TryGetValue((owner, key), out var audioSourceToStop))
+            {
+                Logger.LogError($"AudioSource with owner: {owner} and key: { key } is already playing. ");
+                return;
+            }
+            
+            _currentMusicTrack = (owner, key);
+            
+            var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
+            
+            _activeAudioSources[_currentMusicTrack] =  audioSource;
+            
+            audioSource.Play();
+        }
+
+        public void StopMusic(Object owner, string key)
+        {
+            if (!_activeAudioSources.TryGetValue((owner, key), out var audioSourceToStop))
+            {
+                Logger.LogError($"AudioService clip not found {_currentMusicTrack}");
+                return;
+            }
+            
+            audioSourceToStop.volume = 0f;
+            audioSourceToStop.Stop();
+            
+            _activeAudioSources.Remove((owner, key));
         }
         
-        public void CrossFadeAudioTrack(string fadeInId, IAudioDefinition audioDefinition)
+        public void CrossFadeAudioTrack(Object owner, string fadeInId, IAudioDefinition audioDefinition)
         {
-            if (string.IsNullOrEmpty(_currentMusicTrack)) return;
+            if (_currentMusicTrack.owner == null || string.IsNullOrEmpty(_currentMusicTrack.id)) return;
+           
+           
+            var keyToAdd = (owner, fadeInId);
             
-             
             if (!_activeAudioSources.TryGetValue(_currentMusicTrack, out var fadeOutAudioSource))
             {
                 Logger.LogError($"AudioService clip not found {_currentMusicTrack}");
                 return;
             }
         
-            var fadeInAudioSource = GetAndConfigAudioSource(audioDefinition);
-            
-            _activeAudioSources[fadeInId] = fadeInAudioSource;
-            
-            _currentMusicTrack = fadeInId;
-            
-            _audioCrossFader.CrossFade( fadeOutAudioSource, fadeInAudioSource, 4f );
-        }
-
-        
-        private AudioSource GetAndConfigAudioSource(IAudioDefinition audioDefinition)
-        {
             var audioSource = _audioSourcePool.Get();
+            var fadeInAudioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, audioSource);
             
+            _activeAudioSources[keyToAdd] = fadeInAudioSource;
+            
+            _currentMusicTrack = keyToAdd;
+            
+            _audioCrossFader.CrossFade( fadeOutAudioSource, fadeInAudioSource, () => { _audioSourcePool.Release(fadeOutAudioSource);
+            }, 4f );
+        }
+    }
+
+    public static class AudioSourceConfigurator
+    {
+        public static AudioSource ConfigAudioSource(IAudioDefinition audioDefinition, AudioSource audioSource)
+        {
             audioSource.transform.localPosition = Vector3.zero;
+            
+            Logger.Log($"AudioService playing audio clip { audioDefinition.SpatialBlend } {audioDefinition.MinDistance} to {audioDefinition.MaxDistance}");
                  
             audioSource.clip = audioDefinition.Clip;
             audioSource.playOnAwake = audioDefinition.PlayOnAwake;
@@ -103,58 +155,6 @@ namespace CodeBase.Audio
             audioSource.bypassListenerEffects = audioDefinition.BypassListenerEffects;
             
             return audioSource;
-        }
-    }
-
-    public class AudioCrossFader
-    {
-        private readonly ICoroutineRunner _coroutineRunner;
-        private readonly IPool<AudioSource> _audioSourcePool;
-
-        public AudioCrossFader(ICoroutineRunner coroutineRunner, IPool<AudioSource> audioSourcePool)
-        {
-            _coroutineRunner = coroutineRunner ?? throw new System.ArgumentNullException(nameof(coroutineRunner));
-            _audioSourcePool = audioSourcePool ?? throw new System.ArgumentNullException(nameof(audioSourcePool));
-        }
-
-        
-        private Coroutine _crossFadeCoroutine;
-
-        public void CrossFade(AudioSource fadeOutSource, AudioSource fadeInSource, float duration)
-        {
-            if(_crossFadeCoroutine != null) return;
-            
-            _crossFadeCoroutine = _coroutineRunner.StartCoroutine(CrossFadeCr(fadeOutSource, fadeInSource, duration));
-        }
-        
-        private IEnumerator CrossFadeCr(AudioSource fadeOutSource, AudioSource fadeInSource, float duration)
-        {
-            float elapsedTime = 0;
-
-            fadeInSource.volume = 0;
-            fadeOutSource.volume = 1;
-            
-            fadeInSource.Play();
-
-            while (elapsedTime < duration)
-            {
-                elapsedTime += Time.deltaTime;
-                
-                float t = Mathf.Clamp01(elapsedTime / duration);
-
-                fadeInSource.volume = t;
-                fadeOutSource.volume = 1 - t;
-                
-                yield return null;
-            }
-            
-            fadeOutSource.Stop();
-            
-            _audioSourcePool.Release(fadeOutSource);
-            
-            _crossFadeCoroutine = null;
-            
-            Logger.Log($"AudioService crossfade finished {elapsedTime}");
         }
     }
 }
