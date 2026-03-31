@@ -9,8 +9,7 @@ namespace CodeBase.Audio
     public class SfxAudioService
     {
         private readonly IPool<AudioSource> _audioSourcePool;
-        
-        //private readonly List<AudioSource> _activeSfxAudioSources = new();
+   
         private readonly LinkedList<AudioSource> _activeSfxAudioSources = new();
         
         private Coroutine _cleanupCoroutine;
@@ -52,8 +51,6 @@ namespace CodeBase.Audio
             audioSource.Play();
             StartCleanUpCoroutine();
         }
-
-        
         
         private void StartCleanUpCoroutine()
         {
@@ -77,7 +74,7 @@ namespace CodeBase.Audio
                     var nextNode = node.Next;
                     
                     var audioSource = node.Value;
-
+                    
                     if (audioSource != null && !audioSource.isPlaying)
                     {
                         audioSource.clip = null;
