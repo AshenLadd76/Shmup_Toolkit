@@ -50,14 +50,15 @@ namespace CodeBase.Audio
             
             Logger.Log($"AudioService playing audio loop at {position}");
             
-            if (_activeAudioSources.TryGetValue((owner, key), out var existing))
+            if (_activeAudioSources.TryGetValue((owner, key), out var activeAudioSource))
             {
-                existing.Stop();
-                _audioSourcePool.Release(existing);
+                activeAudioSource.Stop();
+                _audioSourcePool.Release(activeAudioSource);
             }
             
             _activeAudioSources[(owner, key)] =  audioSource;
             
+            audioSource.transform.position = position;
             audioSource.Play();
         }
 

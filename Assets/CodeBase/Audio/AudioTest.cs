@@ -19,7 +19,7 @@ namespace CodeBase.Audio
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.M))
-               MessageBus.Broadcast( AudioServiceMessages.RequestPlayAudioLoop, this,"stage1and4" );
+               MessageBus.Broadcast( AudioServiceMessages.RequestPlayAudioLoopAtPosition, this,"stage1and4", new Vector3(0,-30,0) );
             
             if (Input.GetKeyDown(KeyCode.S))
                 MessageBus.Broadcast( AudioServiceMessages.RequestStopAudioLoop, this,"stage1and4" );
@@ -31,7 +31,7 @@ namespace CodeBase.Audio
                 MessageBus.Broadcast(AudioServiceMessages.RequestAudioCrossFade, this,"stage1and4");
             
             if(Input.GetKeyDown(KeyCode.P)) 
-                MessageBus.Broadcast(AudioServiceMessages.RequestPlayAudioLoopAtPosition, "stage1and4" , new Vector3(30, 0, -10));
+                MessageBus.Broadcast(AudioServiceMessages.RequestPlayOneShot, "00sfx");
         }
 
 
