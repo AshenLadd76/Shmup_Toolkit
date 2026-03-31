@@ -10,7 +10,8 @@ namespace CodeBase.Audio
     {
         private readonly IPool<AudioSource> _audioSourcePool;
         
-        private readonly List<AudioSource> _activeSfxAudioSources = new();
+        //private readonly List<AudioSource> _activeSfxAudioSources = new();
+        private readonly LinkedList<AudioSource> _activeSfxAudioSources = new();
         
         private Coroutine _cleanupCoroutine;
         
@@ -29,7 +30,7 @@ namespace CodeBase.Audio
         {
             if (audioDefinition?.Clip == null) return; 
             
-            var audioSource = GetAndConfigAudioSource(audioDefinition);
+            var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
             PlayAudioSource(audioSource);
         }
@@ -38,7 +39,7 @@ namespace CodeBase.Audio
         {
             if (audioDefinition.Clip == null) return; 
             
-            var audioSource = GetAndConfigAudioSource(audioDefinition);
+            var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
             audioSource.transform.position = position;
             
@@ -47,34 +48,11 @@ namespace CodeBase.Audio
         
         private void PlayAudioSource(AudioSource audioSource)
         {
-            _activeSfxAudioSources.Add(audioSource);
+            _activeSfxAudioSources.AddLast(audioSource);
             audioSource.Play();
             StartCleanUpCoroutine();
         }
 
-        private AudioSource GetAndConfigAudioSource(IAudioDefinition audioDefinition)
-        {
-            var audioSource = _audioSourcePool.Get();
-            
-            audioSource.transform.localPosition = Vector3.zero;
-                 
-            audioSource.clip = audioDefinition.Clip;
-            audioSource.playOnAwake = audioDefinition.PlayOnAwake;
-            audioSource.loop = audioDefinition.Loop;
-            audioSource.volume = audioDefinition.Volume;
-            audioSource.mute = audioDefinition.Mute;
-            audioSource.pitch =  audioDefinition.Pitch;
-            audioSource.spatialBlend = audioDefinition.SpatialBlend;
-            audioSource.minDistance = audioDefinition.MinDistance;
-            audioSource.maxDistance = audioDefinition.MaxDistance;
-            audioSource.rolloffMode = audioDefinition.RolloffMode;
-            audioSource.bypassEffects = audioDefinition.BypassEffects;
-            audioSource.bypassReverbZones = audioDefinition.BypassReverbZones;
-            audioSource.bypassListenerEffects = audioDefinition.BypassListenerEffects;
-            
-            return audioSource;
-        }
-       
         
         
         private void StartCleanUpCoroutine()
@@ -91,13 +69,23 @@ namespace CodeBase.Audio
             
             while (_activeSfxAudioSources.Count > 0)
             {
-                for (int x = _activeSfxAudioSources.Count - 1; x >= 0; x--)
+                
+                var node = _activeSfxAudioSources.First;
+
+                while (node != null)
                 {
-                    var activeSfxAudioSource = _activeSfxAudioSources[x];
-                    if (activeSfxAudioSource == null || _activeSfxAudioSources[x].isPlaying) continue;
+                    var nextNode = node.Next;
                     
-                    _audioSourcePool.Release(activeSfxAudioSource);
-                    _activeSfxAudioSources.RemoveAt(x);
+                    var audioSource = node.Value;
+
+                    if (audioSource != null && !audioSource.isPlaying)
+                    {
+                        audioSource.clip = null;
+                        _audioSourcePool.Release(audioSource);
+                        _activeSfxAudioSources.Remove(node);
+                    }
+                    
+                    node = nextNode;
                 }
                 
                 float delay = Mathf.Clamp(maxDelay / Mathf.Max(1, _activeSfxAudioSources.Count), minDelay, maxDelay);

@@ -5,7 +5,7 @@ using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Audio
 {
-    public class MusicAudioService
+    public class LoopingAudioService
     {
         private readonly IPool<AudioSource> _audioSourcePool;
         private readonly ICrossFader _audioCrossFader;
@@ -19,7 +19,7 @@ namespace CodeBase.Audio
         private const int MinDistance = 1;
         private const int MaxDistance = 100;
         
-        public MusicAudioService(IPool<AudioSource> audioSourcePool, ICrossFader audioCrossFader)
+        public LoopingAudioService(IPool<AudioSource> audioSourcePool, ICrossFader audioCrossFader)
         {
             _audioSourcePool = audioSourcePool ?? throw new System.ArgumentNullException(nameof(audioSourcePool));
             _audioCrossFader = audioCrossFader ?? throw new System.ArgumentNullException(nameof(audioCrossFader));

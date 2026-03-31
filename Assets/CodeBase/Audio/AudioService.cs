@@ -20,7 +20,7 @@ namespace CodeBase.Audio
         private readonly Dictionary<string, IAudioDefinition> _loopingAudioDictionary = new();
         
         private SfxAudioService _sfxAudioService;
-        private MusicAudioService _musicAudioService;
+        private LoopingAudioService _musicAudioService;
         
         private AudioPoolCreator _audioPoolCreator;
         
@@ -35,7 +35,7 @@ namespace CodeBase.Audio
             _audioPoolCreator = new AudioPoolCreator();
             
             _sfxAudioService = new SfxAudioService( new CoroutineRunner(this), _audioPoolCreator.CreateAudioPool(SfxAudioPool, audioPreloadCount, maxPoolSize, transform) );
-            _musicAudioService = new MusicAudioService(_audioPoolCreator.CreateAudioPool(MusicAudioPool, audioPreloadCount, maxPoolSize, transform), new LinearCrossFader(new CoroutineRunner(this)) );
+            _musicAudioService = new LoopingAudioService(_audioPoolCreator.CreateAudioPool(MusicAudioPool, audioPreloadCount, maxPoolSize, transform), new LinearCrossFader(new CoroutineRunner(this)) );
         }
         
         protected override void SubscribeToService()
@@ -99,7 +99,7 @@ namespace CodeBase.Audio
         
         
         //Looping Audio
-        public void PlayLoop(Object owner,string id)
+        private void PlayLoop(Object owner,string id)
         {
             if ( !TryGetDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
             
