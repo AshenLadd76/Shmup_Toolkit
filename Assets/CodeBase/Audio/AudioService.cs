@@ -12,6 +12,9 @@ namespace CodeBase.Audio
     {
         [SerializeField, Header("Audio Sfx Clips"), Space(20)] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> audioList;
         [SerializeField, Header("Music Clips")] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> musicClipList;
+
+        [SerializeField] private int audioPreloadCount = 10;
+        [SerializeField] private int maxPoolSize = 50;
         
         private readonly Dictionary<string, IAudioDefinition> _audioDictionary = new();
         private readonly Dictionary<string, IAudioDefinition> _musicDictionary = new();
@@ -24,39 +27,37 @@ namespace CodeBase.Audio
             InitAudioDictionary();
             InitMusicDictionary();
             
-            _sfxAudioService = new SfxAudioService( new CoroutineRunner(this), CreateAudioPool("SfxAudioPool", 10, 50) );
-            _musicAudioService = new MusicAudioService(CreateAudioPool("MusicAudioPool", 10, 50), new LinearCrossFader(new CoroutineRunner(this)) );
+            _sfxAudioService = new SfxAudioService( new CoroutineRunner(this), CreateAudioPool("SfxAudioPool", audioPreloadCount, maxPoolSize) );
+            _musicAudioService = new MusicAudioService(CreateAudioPool("MusicAudioPool", audioPreloadCount, maxPoolSize), new LinearCrossFader(new CoroutineRunner(this)) );
         }
         
         protected override void SubscribeToService()
         {
-            Logger.Log("AudioService subscribed");
-            
+            //One Shot audio
             MessageBus.AddListener<string>(AudioServiceMessages.RequestPlayOneShot, PlayOneShot );
             MessageBus.AddListener<string, Vector3>(AudioServiceMessages.RequestPlayOneShotAtPosition, PlayOneShotAtPosition);
             
+            //Looped Audio
             MessageBus.AddListener<Object,string>(AudioServiceMessages.RequestPlayAudioLoop, PlayLoop);
             MessageBus.AddListener<Object, string, Vector3>(AudioServiceMessages.RequestPlayAudioLoopAtPosition, PlayLoopAtPosition);
+            MessageBus.AddListener<Object, string>(AudioServiceMessages.RequestStopAudioLoop, StopAudioLoop);
             
-            MessageBus.AddListener<Object, string>(AudioServiceMessages.RequestPlayMusicTrack, PlayMusicTrack);
-            MessageBus.AddListener<Object, string>(AudioServiceMessages.RequestStopMusicTrack, StopMusicTrack);
-             
+            //Cross-fade
             MessageBus.AddListener<Object, string>(AudioServiceMessages.RequestAudioCrossFade, CrossFade);
         }
 
         protected override void UnsubscribeFromService()
         {
-            Logger.Log("AudioService unsubscribed");
-            
+            //One Shot Audio
             MessageBus.RemoveListener<string>(AudioServiceMessages.RequestPlayOneShot, PlayOneShot );
             MessageBus.RemoveListener<string, Vector3>(AudioServiceMessages.RequestPlayOneShotAtPosition, PlayOneShotAtPosition);
             
+            //Looped Audio
             MessageBus.RemoveListener<Object,string>(AudioServiceMessages.RequestPlayAudioLoop, PlayLoop);
             MessageBus.RemoveListener<Object,string, Vector3>(AudioServiceMessages.RequestPlayAudioLoopAtPosition, PlayLoopAtPosition);
+            MessageBus.RemoveListener<Object, string>(AudioServiceMessages.RequestStopAudioLoop, StopAudioLoop);
             
-            MessageBus.RemoveListener<Object, string>(AudioServiceMessages.RequestPlayMusicTrack, PlayMusicTrack);
-            MessageBus.RemoveListener<Object, string>(AudioServiceMessages.RequestStopMusicTrack, StopMusicTrack);
-            
+            //Cross-fade
             MessageBus.RemoveListener<Object,string>(AudioServiceMessages.RequestAudioCrossFade, CrossFade);
         }
 
@@ -67,8 +68,14 @@ namespace CodeBase.Audio
             var key = FormatID(id);
 
             var audioDefinition = GetAudioDefinition(key, _audioDictionary);
+
+            if (audioDefinition == null)
+            {
+                Logger.LogError($"No audio definition found for {id}");
+                return;
+            }
             
-            _sfxAudioService.PlayOneShot(audioDefinition);
+             _sfxAudioService.PlayOneShot(audioDefinition);
         }
 
         public void PlayOneShotAtPosition(string id, Vector3 position)
@@ -77,28 +84,15 @@ namespace CodeBase.Audio
 
             var audioDefinition = GetAudioDefinition(key, _audioDictionary);
             
+            if (audioDefinition == null)
+            {
+                Logger.LogError($"No audio definition found for {id}");
+                return;
+            }
             
             _sfxAudioService.PlayOneShotAtPosition(audioDefinition, position);
         }
         //Audio ends
-        
-        
-        //Music
-        public void PlayMusicTrack(Object owner, string id)
-        {
-            var key = FormatID(id);
-            
-            var audioDefinition = GetAudioDefinition(key, _musicDictionary);
-            
-            _musicAudioService.PlayMusic(owner,key,audioDefinition);
-        }
-
-        public void StopMusicTrack(Object owner, string id)
-        {
-            var key = FormatID(id);
-            
-            _musicAudioService.StopMusic(owner, key);
-        }
         
         
         public void PlayLoop(Object owner,string id)
@@ -107,7 +101,22 @@ namespace CodeBase.Audio
             
             var audioDefinition = GetAudioDefinition(key, _musicDictionary);
             
-            _musicAudioService.PlayAudioLoop(owner,key, audioDefinition);
+            if (audioDefinition == null)
+            {
+                Logger.Log($"Audio definition not found for Key: {key} ");
+                return;
+            }
+            
+            switch (audioDefinition.AudioType)
+            {
+                case AudioType.Loop:
+                    _musicAudioService.PlayAudioLoop(owner, key, audioDefinition);
+                    break;
+                
+                case AudioType.Music:
+                    _musicAudioService.PlayMusic(owner,key, audioDefinition);
+                    break;
+            }
         }
 
         public void PlayLoopAtPosition(Object owner, string id, Vector3 position)
@@ -125,11 +134,28 @@ namespace CodeBase.Audio
             _musicAudioService.PlayAudioLoopAtPosition(owner, key, audioDefinition, position);
         }
 
-        public void StopLoop(Object owner, string id)
+        public void StopAudioLoop(Object owner, string id)
         {
             var key = FormatID(id);
             
-            _musicAudioService.StopAudioLoop(owner, key);
+            var audioDefinition = GetAudioDefinition(key, _musicDictionary);
+
+            if (audioDefinition == null)
+            {
+                Logger.Log($"Audio definition not found for Key: {key} ");
+                return;
+            }
+            
+            switch (audioDefinition.AudioType)
+            {
+                case AudioType.Loop:
+                    _musicAudioService.StopAudioLoop(owner, key);
+                    break;
+                
+                case AudioType.Music:
+                    _musicAudioService.StopMusic(owner,key);
+                    break;
+            }
         }
 
         public void CrossFade(Object owner,string id)
@@ -137,6 +163,13 @@ namespace CodeBase.Audio
             var key = FormatID(id);
             
             var audioDefinition = GetAudioDefinition(key, _musicDictionary);
+            
+            if (audioDefinition == null)
+            {
+                Logger.Log($"Audio definition not found for Key: {key} ");
+                return;
+            }
+
             
             _musicAudioService.CrossFadeAudioTrack(owner, key, audioDefinition);
         }
@@ -146,7 +179,7 @@ namespace CodeBase.Audio
 
         private IAudioDefinition GetAudioDefinition(string key, Dictionary<string,IAudioDefinition> audioDictionary)
         {
-            if (_musicDictionary.TryGetValue(key, out var audioDefinition)) return audioDefinition;
+            if (audioDictionary.TryGetValue(key, out var audioDefinition)) return audioDefinition;
             
             Logger.Log($"AudioService clip not found {key}");
             
@@ -157,13 +190,13 @@ namespace CodeBase.Audio
         private void InitAudioDictionary()
         {
             foreach (var audioDefinition in audioList)
-                _audioDictionary[audioDefinition.Key.Trim().ToLower()] = audioDefinition.Value;
+                _audioDictionary[FormatID(audioDefinition.Key)] = audioDefinition.Value;
         }
 
         private void InitMusicDictionary()
         {
             foreach (var audioDefinition in musicClipList)
-                _musicDictionary[audioDefinition.Key.Trim().ToLower()] = audioDefinition.Value;
+                _musicDictionary[FormatID(audioDefinition.Key)] = audioDefinition.Value;
         }
         
         private GenericPool<AudioSource> CreateAudioPool(string poolRootName, int preloadCount, int maxPoolSize)
@@ -205,11 +238,15 @@ namespace CodeBase.Audio
         public const string RequestPlayAudioLoop = "RequestPlayAudioLoop";
         public const string RequestPlayAudioLoopAtPosition = "RequestPlayAudioLoopAtPosition";
         public const string RequestStopAudioLoop = "RequestStopAudioLoop";
-       
-        public const string RequestPlayMusicTrack = "RequestPlayMusicTrack";
-        public const string RequestStopMusicTrack = "RequestStopMusicTrack";
-        
+      
         
         public const string RequestAudioCrossFade = "RequestAudioCrossFade";
+    }
+
+    public enum AudioType
+    {
+        OneShot,
+        Music,
+        Loop,
     }
 }

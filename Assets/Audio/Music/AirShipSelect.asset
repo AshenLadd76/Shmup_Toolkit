@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AirshipSelect
   m_EditorClassIdentifier: Assembly-CSharp::CodeBase.Audio.AudioDefinitionSo
   clip: {fileID: 8300000, guid: 2f36e6cce288d7f40bd2cdfe3625432a, type: 3}
+  audioType: 1
   volume: 1
   pitch: 1
   spatialBlend: 0

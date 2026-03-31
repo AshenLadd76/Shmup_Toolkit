@@ -31,6 +31,12 @@ namespace CodeBase.Audio
             
             var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
+            if (_activeAudioSources.TryGetValue((owner, key), out var existing))
+            {
+                existing.Stop();
+                _audioSourcePool.Release(existing);
+            }
+            
             _activeAudioSources[(owner,key)] =  audioSource;
             
             audioSource.Play();
@@ -44,10 +50,11 @@ namespace CodeBase.Audio
             
             Logger.Log($"AudioService playing audio loop at {position}");
             
-            audioSource.transform.position = position;
-            audioSource.spatialBlend = 1;
-            audioSource.minDistance = MinDistance;
-            audioSource.maxDistance = MaxDistance;
+            if (_activeAudioSources.TryGetValue((owner, key), out var existing))
+            {
+                existing.Stop();
+                _audioSourcePool.Release(existing);
+            }
             
             _activeAudioSources[(owner, key)] =  audioSource;
             
@@ -68,23 +75,24 @@ namespace CodeBase.Audio
             audioSourceToStop.Stop();
             
             _activeAudioSources.Remove((owner, key));
+            
+            _audioSourcePool.Release(audioSourceToStop);
         }
 
         
         public void PlayMusic(Object owner, string id, IAudioDefinition audioDefinition)
         {
-            
             if( owner == null || string.IsNullOrEmpty(id)) return;
             
-            string key = id.Trim().ToLower();
-            
-            if (_activeAudioSources.TryGetValue((owner, key), out var audioSourceToStop))
+            if (_activeAudioSources.TryGetValue((owner, id), out var audioSourceToStop))
             {
-                Logger.LogError($"AudioSource with owner: {owner} and key: { key } is already playing. ");
+                Logger.LogError($"AudioSource with owner: {owner} and key: {id } is already playing. ");
                 return;
             }
             
-            _currentMusicTrack = (owner, key);
+            _currentMusicTrack = (owner, id);
+            
+            Logger.Log($"AudioService playing music {_currentMusicTrack}");
             
             var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
@@ -105,56 +113,37 @@ namespace CodeBase.Audio
             audioSourceToStop.Stop();
             
             _activeAudioSources.Remove((owner, key));
+            
+            _audioSourcePool.Release(audioSourceToStop);
+            
+            if (_currentMusicTrack == (owner, key))
+                _currentMusicTrack = (null, null);
         }
         
-        public void CrossFadeAudioTrack(Object owner, string fadeInId, IAudioDefinition audioDefinition)
+        public void CrossFadeAudioTrack(Object owner, string fadeInId, IAudioDefinition audioDefinition, float fadeDuration = 3f)
         {
             if (_currentMusicTrack.owner == null || string.IsNullOrEmpty(_currentMusicTrack.id)) return;
-           
-           
+            
             var keyToAdd = (owner, fadeInId);
+            var keyToRemove = _currentMusicTrack;
             
             if (!_activeAudioSources.TryGetValue(_currentMusicTrack, out var fadeOutAudioSource))
             {
                 Logger.LogError($"AudioService clip not found {_currentMusicTrack}");
                 return;
             }
-        
-            var audioSource = _audioSourcePool.Get();
-            var fadeInAudioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, audioSource);
+            
+            var fadeInAudioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
             _activeAudioSources[keyToAdd] = fadeInAudioSource;
             
             _currentMusicTrack = keyToAdd;
             
-            _audioCrossFader.CrossFade( fadeOutAudioSource, fadeInAudioSource, () => { _audioSourcePool.Release(fadeOutAudioSource);
-            }, 4f );
-        }
-    }
-
-    public static class AudioSourceConfigurator
-    {
-        public static AudioSource ConfigAudioSource(IAudioDefinition audioDefinition, AudioSource audioSource)
-        {
-            audioSource.transform.localPosition = Vector3.zero;
-            
-            Logger.Log($"AudioService playing audio clip { audioDefinition.SpatialBlend } {audioDefinition.MinDistance} to {audioDefinition.MaxDistance}");
-                 
-            audioSource.clip = audioDefinition.Clip;
-            audioSource.playOnAwake = audioDefinition.PlayOnAwake;
-            audioSource.loop = audioDefinition.Loop;
-            audioSource.volume = audioDefinition.Volume;
-            audioSource.mute = audioDefinition.Mute;
-            audioSource.pitch =  audioDefinition.Pitch;
-            audioSource.spatialBlend = audioDefinition.SpatialBlend;
-            audioSource.minDistance = audioDefinition.MinDistance;
-            audioSource.maxDistance = audioDefinition.MaxDistance;
-            audioSource.rolloffMode = audioDefinition.RolloffMode;
-            audioSource.bypassEffects = audioDefinition.BypassEffects;
-            audioSource.bypassReverbZones = audioDefinition.BypassReverbZones;
-            audioSource.bypassListenerEffects = audioDefinition.BypassListenerEffects;
-            
-            return audioSource;
+            _audioCrossFader.CrossFade( fadeOutAudioSource, fadeInAudioSource, () =>
+            {
+                _activeAudioSources.Remove(keyToRemove);
+                _audioSourcePool.Release(fadeOutAudioSource);
+            }, fadeDuration );
         }
     }
 }
