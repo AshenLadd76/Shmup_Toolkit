@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using ToolBox.Extensions;
 using ToolBox.Helpers;
 using ToolBox.Messaging;
 using ToolBox.Services;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
+using Object = UnityEngine.Object;
 
 namespace CodeBase.Audio
 {
@@ -142,28 +142,36 @@ namespace CodeBase.Audio
         {
             if ( !TryGetDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
             
+            Logger.Log( $"CrossFade {owner} {id}" );
             _musicAudioService.CrossFadeAudioTrack(owner, key, audioDefinition);
         }
         //Looping Audio Finishes
         
-        private string FormatID(string id) => id?.Trim().ToLower();
+        private string FormatID(string id) => string.IsNullOrEmpty(id) ? string.Empty : id.Trim().ToLower();
         
-        private bool TryGetDefinition(string id, Dictionary<string, IAudioDefinition> dictionary, out IAudioDefinition def, out string key)
+        private bool TryGetDefinition(string id, Dictionary<string, IAudioDefinition> dictionary, out IAudioDefinition audioDefinition, out string key)
         {
-            if (string.IsNullOrEmpty(id) || dictionary.IsNullOrEmpty())
+            audioDefinition = null;
+            key = string.Empty;
+
+            if (string.IsNullOrEmpty(id))
             {
-                Logger.LogError("Invalid audio request or dictionary not initialised");
-                def = null;
-                key = null;
+                Logger.LogError("Audio id is null or empty");
                 return false;
             }
-            
+
+            if (dictionary == null || dictionary.Count == 0)
+            {
+                Logger.LogError("Audio dictionary is not initialised or empty");
+                return false;
+            }
+
             key = FormatID(id);
 
-            if (dictionary.TryGetValue(key, out def)) return true;
-            
+            if (dictionary.TryGetValue(key, out audioDefinition)) 
+                return true;
+
             Logger.LogError($"Audio not found: {key}");
-            
             return false;
         }
     }

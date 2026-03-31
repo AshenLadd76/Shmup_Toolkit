@@ -29,6 +29,7 @@ namespace CodeBase.Audio
         {
             if (audioDefinition?.Clip == null) return; 
             
+            
             var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
             if (_activeAudioSources.TryGetValue((owner, key), out var existing))
@@ -38,6 +39,9 @@ namespace CodeBase.Audio
             }
             
             _activeAudioSources[(owner,key)] =  audioSource;
+            
+            if(audioDefinition.AudioType == AudioType.Music)
+                _currentMusicTrack = (owner, key);
             
             audioSource.Play();
         }
@@ -57,6 +61,9 @@ namespace CodeBase.Audio
             }
             
             _activeAudioSources[(owner, key)] =  audioSource;
+            
+            if(audioDefinition.AudioType == AudioType.Music)
+                _currentMusicTrack = (owner, key);
             
             audioSource.transform.position = position;
             audioSource.Play();
@@ -123,8 +130,12 @@ namespace CodeBase.Audio
         
         public void CrossFadeAudioTrack(Object owner, string fadeInId, IAudioDefinition audioDefinition, float fadeDuration = 3f)
         {
-            if (_currentMusicTrack.owner == null || string.IsNullOrEmpty(_currentMusicTrack.id)) return;
-            
+            if (_currentMusicTrack.owner == null || string.IsNullOrEmpty(_currentMusicTrack.id))
+            {
+                Logger.LogError( $"No valid audio track to cross fade out from" );
+                return;
+            }
+
             var keyToAdd = (owner, fadeInId);
             var keyToRemove = _currentMusicTrack;
             
