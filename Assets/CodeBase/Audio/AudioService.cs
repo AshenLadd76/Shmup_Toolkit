@@ -83,14 +83,14 @@ namespace CodeBase.Audio
         //One Shot Audio
         private void PlayOneShot(string id)
         {
-            if ( !TryGetDefinition(id, _oneShotAudioDictionary, out var audioDefinition, out var key) ) return;
+            if ( !TryGetAudioDefinition(id, _oneShotAudioDictionary, out var audioDefinition, out var key) ) return;
             
             _sfxAudioService.PlayOneShot(audioDefinition);
         }
 
         private void PlayOneShotAtPosition(string id, Vector3 position)
         {
-            if ( !TryGetDefinition(id, _oneShotAudioDictionary, out var audioDefinition, out var key) ) return;
+            if ( !TryGetAudioDefinition(id, _oneShotAudioDictionary, out var audioDefinition, out var key) ) return;
             
             _sfxAudioService.PlayOneShotAtPosition(audioDefinition, position);
         }
@@ -101,7 +101,7 @@ namespace CodeBase.Audio
         //Looping Audio
         private void PlayLoop(Object owner,string id)
         {
-            if ( !TryGetDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
+            if ( !TryGetAudioDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
             
             switch (audioDefinition.AudioType)
             {
@@ -117,14 +117,14 @@ namespace CodeBase.Audio
 
         private void PlayLoopAtPosition(Object owner, string id, Vector3 position)
         {
-            if ( !TryGetDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
+            if ( !TryGetAudioDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
             
             _musicAudioService.PlayAudioLoopAtPosition(owner, key, audioDefinition, position);
         }
 
         private void StopAudioLoop(Object owner, string id)
         {
-            if ( !TryGetDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
+            if ( !TryGetAudioDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
             
             switch (audioDefinition.AudioType)
             {
@@ -140,7 +140,7 @@ namespace CodeBase.Audio
 
         private void CrossFade(Object owner,string id)
         {
-            if ( !TryGetDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
+            if ( !TryGetAudioDefinition(id, _loopingAudioDictionary, out var audioDefinition, out var key) ) return;
             
             Logger.Log( $"CrossFade {owner} {id}" );
             _musicAudioService.CrossFadeAudioTrack(owner, key, audioDefinition);
@@ -149,7 +149,7 @@ namespace CodeBase.Audio
         
         private string FormatID(string id) => string.IsNullOrEmpty(id) ? string.Empty : id.Trim().ToLower();
         
-        private bool TryGetDefinition(string id, Dictionary<string, IAudioDefinition> dictionary, out IAudioDefinition audioDefinition, out string key)
+        private bool TryGetAudioDefinition(string id, Dictionary<string, IAudioDefinition> dictionary, out IAudioDefinition audioDefinition, out string key)
         {
             audioDefinition = null;
             key = string.Empty;
@@ -189,12 +189,5 @@ namespace CodeBase.Audio
       
         
         public const string RequestAudioCrossFade = "RequestAudioCrossFade";
-    }
-
-    public enum AudioType
-    {
-        OneShot,
-        Music,
-        Loop,
     }
 }
