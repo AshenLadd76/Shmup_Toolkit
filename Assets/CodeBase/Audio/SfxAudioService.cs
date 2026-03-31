@@ -31,29 +31,24 @@ namespace CodeBase.Audio
             
             var audioSource = GetAndConfigAudioSource(audioDefinition);
             
-            _activeSfxAudioSources.Add(audioSource);
-            
-            audioSource.Play();
-            
-            StartCleanUpCoroutine();
+            PlayAudioSource(audioSource);
         }
 
         public void PlayOneShotAtPosition(IAudioDefinition audioDefinition, Vector3 position)
         {
             if (audioDefinition.Clip == null) return; 
             
-            audioDefinition.SpatialBlend = 1f;
-            audioDefinition.MinDistance = MinDistance;
-            audioDefinition.MaxDistance = MaxDistance;
-            
             var audioSource = GetAndConfigAudioSource(audioDefinition);
             
             audioSource.transform.position = position;
             
+            PlayAudioSource(audioSource);
+        }
+        
+        private void PlayAudioSource(AudioSource audioSource)
+        {
             _activeSfxAudioSources.Add(audioSource);
-            
             audioSource.Play();
-            
             StartCleanUpCoroutine();
         }
 
@@ -98,11 +93,10 @@ namespace CodeBase.Audio
             {
                 for (int x = _activeSfxAudioSources.Count - 1; x >= 0; x--)
                 {
-                    if (!_activeSfxAudioSources[x].clip || _activeSfxAudioSources[x].isPlaying) continue;
+                    var activeSfxAudioSource = _activeSfxAudioSources[x];
+                    if (activeSfxAudioSource == null || _activeSfxAudioSources[x].isPlaying) continue;
                     
-                    var audioSource = _activeSfxAudioSources[x];
-                    
-                    _audioSourcePool.Release(audioSource);
+                    _audioSourcePool.Release(activeSfxAudioSource);
                     _activeSfxAudioSources.RemoveAt(x);
                 }
                 
