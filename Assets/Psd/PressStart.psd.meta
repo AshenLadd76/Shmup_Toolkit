@@ -1,0 +1,4329 @@
+fileFormatVersion: 2
+guid: 2852807ab07ee5249aa8e223bd4e1b49
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9212739198471319767
+    second: PressStart_0
+  - first:
+      213: -6097539356494858763
+    second: PressStart_1
+  - first:
+      213: 1691665131274259624
+    second: PressStart_2
+  - first:
+      213: 2520255958317522021
+    second: PressStart_3
+  - first:
+      213: 5661469459347621632
+    second: PressStart_4
+  - first:
+      213: -4603775090645899748
+    second: PressStart_5
+  - first:
+      213: 1980516208214554904
+    second: PressStart_6
+  - first:
+      213: -3911546364587791721
+    second: PressStart_7
+  - first:
+      213: 3559019610425942028
+    second: PressStart_8
+  - first:
+      213: -740061692712668907
+    second: PressStart_9
+  - first:
+      213: 412252437124319527
+    second: PressStart_10
+  - first:
+      213: 7878333944089987455
+    second: PressStart_11
+  - first:
+      213: -71523708566682091
+    second: PressStart_12
+  - first:
+      213: -5813220926733863185
+    second: PressStart_13
+  - first:
+      213: 914134334930779818
+    second: PressStart_14
+  - first:
+      213: -6599903480965243696
+    second: PressStart_15
+  - first:
+      213: -6159366692813890230
+    second: PressStart_16
+  - first:
+      213: -3773400913534842779
+    second: PressStart_17
+  - first:
+      213: 3885970333206883275
+    second: PressStart_18
+  - first:
+      213: -8230340079598541785
+    second: PressStart_19
+  - first:
+      213: 1141033654902461660
+    second: PressStart_20
+  - first:
+      213: 2677215826972167824
+    second: PressStart_21
+  - first:
+      213: 7432314170804956439
+    second: PressStart_22
+  - first:
+      213: 7272795573148747839
+    second: PressStart_23
+  - first:
+      213: -5349790506542230031
+    second: PressStart_24
+  - first:
+      213: -5640817064517013226
+    second: PressStart_25
+  - first:
+      213: 8752630749897733306
+    second: PressStart_26
+  - first:
+      213: 6102847219120311056
+    second: PressStart_27
+  - first:
+      213: -309364736070990712
+    second: PressStart_28
+  - first:
+      213: 3206945596471813417
+    second: PressStart_29
+  - first:
+      213: 3712985829097976059
+    second: PressStart_30
+  - first:
+      213: -6939878546921196527
+    second: PressStart_31
+  - first:
+      213: 3605123775964231048
+    second: PressStart_32
+  - first:
+      213: 4521822283171731030
+    second: PressStart_33
+  - first:
+      213: 3101614088380556108
+    second: PressStart_34
+  - first:
+      213: 5520016383441124437
+    second: PressStart_35
+  - first:
+      213: 5752494112012268584
+    second: PressStart_36
+  - first:
+      213: -6457298257406890427
+    second: PressStart_37
+  - first:
+      213: 8525463072297107948
+    second: PressStart_38
+  - first:
+      213: -7300733353859319889
+    second: PressStart_39
+  - first:
+      213: 5071642327098688972
+    second: PressStart_40
+  - first:
+      213: -1957666478605818051
+    second: PressStart_41
+  - first:
+      213: -7192067068406461504
+    second: PressStart_42
+  - first:
+      213: -2296044980188491614
+    second: PressStart_43
+  - first:
+      213: 2334061950432670775
+    second: PressStart_44
+  - first:
+      213: 6859651039130363557
+    second: PressStart_45
+  - first:
+      213: -8014058152829242167
+    second: PressStart_46
+  - first:
+      213: -1354890582561064408
+    second: PressStart_47
+  - first:
+      213: -6282756609480566346
+    second: PressStart_48
+  - first:
+      213: -8075602018713751729
+    second: PressStart_49
+  - first:
+      213: -6921919677062059007
+    second: PressStart_50
+  - first:
+      213: -2160193917371341180
+    second: PressStart_51
+  - first:
+      213: 7459318252506355351
+    second: PressStart_52
+  - first:
+      213: -4713601573155061838
+    second: PressStart_53
+  - first:
+      213: 5831720235379168972
+    second: PressStart_54
+  - first:
+      213: 5552134004578137708
+    second: PressStart_55
+  - first:
+      213: -978124387060334634
+    second: PressStart_56
+  - first:
+      213: 2397423564127117512
+    second: PressStart_57
+  - first:
+      213: -8174819901116860961
+    second: PressStart_58
+  - first:
+      213: -8939648631693788555
+    second: PressStart_59
+  - first:
+      213: 6473974120402754681
+    second: PressStart_60
+  - first:
+      213: 2378709694746678385
+    second: PressStart_61
+  - first:
+      213: 3147600718857405518
+    second: PressStart_62
+  - first:
+      213: -6396244523050664375
+    second: PressStart_63
+  - first:
+      213: 2027632565457505976
+    second: PressStart_64
+  - first:
+      213: -7217590875017795281
+    second: PressStart_65
+  - first:
+      213: -8862310791126145647
+    second: PressStart_66
+  - first:
+      213: 7849977694619903196
+    second: PressStart_67
+  - first:
+      213: -1087717646376850707
+    second: PressStart_68
+  - first:
+      213: 305096411200679434
+    second: PressStart_69
+  - first:
+      213: 5804795741136858091
+    second: PressStart_70
+  - first:
+      213: -7105166733222884811
+    second: PressStart_71
+  - first:
+      213: -7470412291138932667
+    second: PressStart_72
+  - first:
+      213: -5433745482370223417
+    second: PressStart_73
+  - first:
+      213: -4658902287871914350
+    second: PressStart_74
+  - first:
+      213: -6708404955845920964
+    second: PressStart_75
+  - first:
+      213: -7796708169274210475
+    second: PressStart_76
+  - first:
+      213: 4105989753294526281
+    second: PressStart_77
+  - first:
+      213: 956246373438876637
+    second: PressStart_78
+  - first:
+      213: -8295323867311450861
+    second: PressStart_79
+  - first:
+      213: -396768646092696535
+    second: PressStart_80
+  - first:
+      213: 6210012791047990017
+    second: PressStart_81
+  - first:
+      213: 3951316415784760567
+    second: PressStart_82
+  - first:
+      213: 1090849446293087362
+    second: PressStart_83
+  - first:
+      213: -2021446066533424869
+    second: PressStart_84
+  - first:
+      213: -6312648965274011477
+    second: PressStart_85
+  - first:
+      213: -6685423927005273393
+    second: PressStart_86
+  - first:
+      213: 3929795519331735625
+    second: PressStart_87
+  - first:
+      213: 8922373844376892778
+    second: PressStart_88
+  - first:
+      213: 509510801406176554
+    second: PressStart_89
+  - first:
+      213: -7381230814015599202
+    second: PressStart_90
+  - first:
+      213: 2227908557641357217
+    second: PressStart_91
+  - first:
+      213: 7434048911770489559
+    second: PressStart_92
+  - first:
+      213: 6157895337942456523
+    second: PressStart_93
+  - first:
+      213: 7168407627274882809
+    second: PressStart_94
+  - first:
+      213: 7756283473009685260
+    second: PressStart_95
+  - first:
+      213: -4859232202646927130
+    second: PressStart_96
+  - first:
+      213: 3435391546292932631
+    second: PressStart_97
+  - first:
+      213: 694170528054625095
+    second: PressStart_98
+  - first:
+      213: 2446035575652195923
+    second: PressStart_99
+  - first:
+      213: -4464507309536948727
+    second: PressStart_100
+  - first:
+      213: 6153560365607636329
+    second: PressStart_101
+  - first:
+      213: -8388590751389731376
+    second: PressStart_102
+  - first:
+      213: -2498103684783205605
+    second: PressStart_103
+  - first:
+      213: 5691508644518845170
+    second: PressStart_104
+  - first:
+      213: -9222505912914725663
+    second: PressStart_105
+  - first:
+      213: -1248174523013604249
+    second: PressStart_106
+  - first:
+      213: 6299514766357718605
+    second: PressStart_107
+  - first:
+      213: 4364880527977133093
+    second: PressStart_108
+  - first:
+      213: 406563231824508272
+    second: PressStart_109
+  - first:
+      213: -8228471270967112135
+    second: PressStart_110
+  - first:
+      213: -199686452762540125
+    second: PressStart_111
+  - first:
+      213: -7704777828425508473
+    second: PressStart_112
+  - first:
+      213: 7833612985738514318
+    second: PressStart_113
+  - first:
+      213: 654056632905804107
+    second: PressStart_114
+  - first:
+      213: 5430079719160171728
+    second: PressStart_115
+  - first:
+      213: -2055881747175118443
+    second: PressStart_116
+  - first:
+      213: -3950145331399767271
+    second: PressStart_117
+  - first:
+      213: 7668792902052943209
+    second: PressStart_118
+  - first:
+      213: 1929279567786752597
+    second: PressStart_119
+  - first:
+      213: 1757848961899431326
+    second: PressStart_120
+  - first:
+      213: 8177701364339753331
+    second: PressStart_121
+  - first:
+      213: 1948838897295810801
+    second: PressStart_122
+  - first:
+      213: 8570785841282862267
+    second: PressStart_123
+  - first:
+      213: -8670303479169272307
+    second: PressStart_124
+  - first:
+      213: 4040495445039392808
+    second: PressStart_125
+  - first:
+      213: 4300368462432760894
+    second: PressStart_126
+  - first:
+      213: 2237752447581537303
+    second: PressStart_127
+  - first:
+      213: 6245087833752114299
+    second: PressStart_128
+  - first:
+      213: 4941349515680131287
+    second: PressStart_129
+  - first:
+      213: 8182654376619992655
+    second: PressStart_130
+  - first:
+      213: 1140964863867292910
+    second: PressStart_131
+  - first:
+      213: 4317119905635096724
+    second: PressStart_132
+  - first:
+      213: 4873750181842081728
+    second: PressStart_133
+  - first:
+      213: -5507992961283421396
+    second: PressStart_134
+  - first:
+      213: -2767387944264219631
+    second: PressStart_135
+  - first:
+      213: -7784174915429332152
+    second: PressStart_136
+  - first:
+      213: 581155067649824289
+    second: PressStart_137
+  - first:
+      213: -6182777282197055085
+    second: PressStart_138
+  - first:
+      213: 523707364170376686
+    second: PressStart_139
+  - first:
+      213: 70793625251811778
+    second: PressStart_140
+  - first:
+      213: 4343077605484992526
+    second: PressStart_141
+  - first:
+      213: 8261288548621710689
+    second: PressStart_142
+  - first:
+      213: 1119008020912505320
+    second: PressStart_143
+  - first:
+      213: -7879824601160643721
+    second: PressStart_144
+  - first:
+      213: -2390761962224020286
+    second: PressStart_145
+  - first:
+      213: -2041811151731684076
+    second: PressStart_146
+  - first:
+      213: -6322209124846141186
+    second: PressStart_147
+  - first:
+      213: 7518985596700833248
+    second: PressStart_148
+  - first:
+      213: 8094794397090785574
+    second: PressStart_149
+  - first:
+      213: 8557938466354743838
+    second: PressStart_150
+  - first:
+      213: -1122965545350446860
+    second: PressStart_151
+  - first:
+      213: -7899535253490494903
+    second: PressStart_152
+  - first:
+      213: 1913355182291045749
+    second: PressStart_153
+  - first:
+      213: 3589395911536281657
+    second: PressStart_154
+  - first:
+      213: -533746261021597654
+    second: PressStart_155
+  - first:
+      213: -7704914839791571261
+    second: PressStart_156
+  - first:
+      213: 2415617407015385381
+    second: PressStart_157
+  - first:
+      213: 6986625355109136593
+    second: PressStart_158
+  - first:
+      213: 6285798260628866860
+    second: PressStart_159
+  - first:
+      213: 8629255905867737548
+    second: PressStart_160
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PressStart_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 532
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92fccca9286c52080800000000000000
+      internalID: -9212739198471319767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 537
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5f82ce240316ba0800000000000000
+      internalID: -6097539356494858763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 536
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac448c59700a7710800000000000000
+      internalID: 1691665131274259624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_3
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 534
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56cd392f07fb9f220800000000000000
+      internalID: 2520255958317522021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_4
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 532
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007432f3a74919e40800000000000000
+      internalID: 5661469459347621632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_5
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 527
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c16624862fa1c10c0800000000000000
+      internalID: -4603775090645899748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_6
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 526
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81938868ff43c7b10800000000000000
+      internalID: 1980516208214554904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_7
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 509
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a26404e4567b9c0800000000000000
+      internalID: -3911546364587791721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_8
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 512
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00661caa7d246130800000000000000
+      internalID: 3559019610425942028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_9
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 511
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511bcfdbfc5cab5f0800000000000000
+      internalID: -740061692712668907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 509
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7298598486d98b500800000000000000
+      internalID: 412252437124319527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_11
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 507
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79c26f1bf6755d60800000000000000
+      internalID: 7878333944089987455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_12
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 502
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5164dd5e095e10ff0800000000000000
+      internalID: -71523708566682091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_13
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 503
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6392ded5a435fa0800000000000000
+      internalID: -5813220926733863185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_14
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 486
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae79869558afac00800000000000000
+      internalID: 914134334930779818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_15
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 487
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dcd33970ce6864a0800000000000000
+      internalID: -6599903480965243696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_16
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 486
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d947960a8858aa0800000000000000
+      internalID: -6159366692813890230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_17
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 484
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5680f998cdf22abc0800000000000000
+      internalID: -3773400913534842779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_18
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 482
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcba086ed6dbde530800000000000000
+      internalID: 3885970333206883275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_19
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 478
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7246ed6cd45f7cd80800000000000000
+      internalID: -8230340079598541785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_20
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 480
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd41a3d4014c5df00800000000000000
+      internalID: 1141033654902461660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_21
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 463
+        width: 42
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ecab13c91672520800000000000000
+      internalID: 2677215826972167824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_22
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 462
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d6ee93c52e42760800000000000000
+      internalID: 7432314170804956439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_23
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 461
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3880957a092ee460800000000000000
+      internalID: 7272795573148747839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_24
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 459
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f51bc2f0e9b1c5b0800000000000000
+      internalID: -5349790506542230031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_25
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 457
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611708224cac7b1b0800000000000000
+      internalID: -5640817064517013226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_26
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 454
+        width: 42
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab4b0d92b47977970800000000000000
+      internalID: 8752630749897733306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_27
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 457
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b8526263ba1b450800000000000000
+      internalID: 6102847219120311056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_28
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 438
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 884c470696ae4bbf0800000000000000
+      internalID: -309364736070990712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_29
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 437
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925a4b3670c518c20800000000000000
+      internalID: 3206945596471813417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_30
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 436
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf0b17770fc278330800000000000000
+      internalID: 3712985829097976059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_31
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 434
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114786a0b3990bf90800000000000000
+      internalID: -6939878546921196527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_32
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 432
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885b9a539f8f70230800000000000000
+      internalID: 3605123775964231048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_33
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 430
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65695eda86db0ce30800000000000000
+      internalID: 4521822283171731030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_34
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 434
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c43254094952b0b20800000000000000
+      internalID: 3101614088380556108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_35
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 413
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c385987a90b9c40800000000000000
+      internalID: 5520016383441124437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_36
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 412
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8247407bae6f4df40800000000000000
+      internalID: 5752494112012268584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_37
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 411
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e638672711366a0800000000000000
+      internalID: -6457298257406890427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_38
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 409
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1caf19e77805670800000000000000
+      internalID: 8525463072297107948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_39
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 407
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa77e5312b59eaa90800000000000000
+      internalID: -7300733353859319889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_40
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 406
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc58d8663d7126640800000000000000
+      internalID: 5071642327098688972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_41
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 411
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37a20ab5b8f4d4e0800000000000000
+      internalID: -1957666478605818051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_42
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 388
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb09d24b15a03c90800000000000000
+      internalID: -7192067068406461504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_43
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 387
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0db87614fc220e0800000000000000
+      internalID: -2296044980188491614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_44
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 386
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7347b4f3af0446020800000000000000
+      internalID: 2334061950432670775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_45
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 384
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6218ea640623f50800000000000000
+      internalID: 6859651039130363557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_46
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 382
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c43a4ff19858c090800000000000000
+      internalID: -8014058152829242167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_47
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 383
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82afce49136723de0800000000000000
+      internalID: -1354890582561064408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_48
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 388
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b95ca1b62a2fc8a0800000000000000
+      internalID: -6282756609480566346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_49
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 364
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4fa32710c2bdef80800000000000000
+      internalID: -8075602018713751729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_50
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 363
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10cede44ab660ff90800000000000000
+      internalID: -6921919677062059007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_51
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 362
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4862f1dc3137502e0800000000000000
+      internalID: -2160193917371341180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_52
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 360
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7969a33fd62d48760800000000000000
+      internalID: 7459318252506355351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_53
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 358
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bfbe5bc75ce59eb0800000000000000
+      internalID: -4713601573155061838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_54
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 359
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc69b3308ae6ee050800000000000000
+      internalID: 5831720235379168972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_55
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 364
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c663f30f5742d0d40800000000000000
+      internalID: 5552134004578137708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_56
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 339
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df3f136d010d62f0800000000000000
+      internalID: -978124387060334634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_57
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 338
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c0a2fb870c554120800000000000000
+      internalID: 2397423564127117512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_58
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 337
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd5b22bac943d8e80800000000000000
+      internalID: -8174819901116860961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_59
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 335
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ab51b0fecffe380800000000000000
+      internalID: -8939648631693788555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_60
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 334
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97c9da3792d28d950800000000000000
+      internalID: 6473974120402754681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_61
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 336
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174572b4ddfd20120800000000000000
+      internalID: 2378709694746678385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_62
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 341
+        width: 50
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4482465d268eab20800000000000000
+      internalID: 3147600718857405518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_63
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 314
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ef60bbe79fb37a0800000000000000
+      internalID: -6396244523050664375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_64
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 313
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8becb1f4319932c10800000000000000
+      internalID: 2027632565457505976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_65
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 312
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29a670f657f5db90800000000000000
+      internalID: -7217590875017795281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_66
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 310
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195a0dd3a4fb20580800000000000000
+      internalID: -8862310791126145647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_67
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 311
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd42f8e4f19b0fc60800000000000000
+      internalID: 7849977694619903196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_68
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 313
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deaa8c74096a7e0f0800000000000000
+      internalID: -1087717646376850707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_69
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 318
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0eecdbc19beb3400800000000000000
+      internalID: 305096411200679434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_70
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 290
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beba920b8f6ce8050800000000000000
+      internalID: 5804795741136858091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_71
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 289
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ac35c3080656d90800000000000000
+      internalID: -7105166733222884811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_72
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 288
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 540b3f4e993c35890800000000000000
+      internalID: -7470412291138932667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_73
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 287
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c27073e5457794b0800000000000000
+      internalID: -5433745482370223417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_74
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 289
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ec3289d01485fb0800000000000000
+      internalID: -4658902287871914350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_75
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 291
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c37755d3c35f6e2a0800000000000000
+      internalID: -6708404955845920964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_76
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 295
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55746019a378cc390800000000000000
+      internalID: -7796708169274210475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_77
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 265
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94793881de76bf830800000000000000
+      internalID: 4105989753294526281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_78
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 264
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddb649e9205454d00800000000000000
+      internalID: 956246373438876637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_79
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 263
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 315d418a4e611ec80800000000000000
+      internalID: -8295323867311450861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_80
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 264
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924d1afb4056e7af0800000000000000
+      internalID: -396768646092696535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_81
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 266
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10b2c0d3bb56e2650800000000000000
+      internalID: 6210012791047990017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_82
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 268
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f4350e5855e5d630800000000000000
+      internalID: 3951316415784760567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_83
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 270
+        width: 50
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2842bb5bac9732f00800000000000000
+      internalID: 1090849446293087362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_84
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 242
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b112aa7338162f3e0800000000000000
+      internalID: -2021446066533424869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_85
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 241
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba8fa114637f468a0800000000000000
+      internalID: -6312648965274011477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_86
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 242
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc224f9fb5a9833a0800000000000000
+      internalID: -6685423927005273393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_87
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 243
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94890b13430798630800000000000000
+      internalID: 3929795519331735625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_88
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 245
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65325b1db3a2db70800000000000000
+      internalID: 8922373844376892778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_89
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 247
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2d2a07df55221700800000000000000
+      internalID: 509510801406176554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_90
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 247
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9dce6d9ea9909990800000000000000
+      internalID: -7381230814015599202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_91
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 217
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7144a770f1bee10800000000000000
+      internalID: 2227908557641357217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_92
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 218
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d295f4191c0b2760800000000000000
+      internalID: 7434048911770489559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_93
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 219
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc818161f2d357550800000000000000
+      internalID: 6157895337942456523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_94
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 220
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fe8be4d1cc4b7360800000000000000
+      internalID: 7168407627274882809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_95
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 222
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03b9f169bad3ab60800000000000000
+      internalID: 7756283473009685260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_96
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 224
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e847189e0a809cb0800000000000000
+      internalID: -4859232202646927130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_97
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 222
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7109b2de866fcaf20800000000000000
+      internalID: 3435391546292932631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_98
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 193
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743cd3ada6032a900800000000000000
+      internalID: 694170528054625095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_99
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 195
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e97ba756012f120800000000000000
+      internalID: 2446035575652195923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_100
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 196
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90e4ae58142ea02c0800000000000000
+      internalID: -4464507309536948727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_101
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 197
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d47ffac86d56550800000000000000
+      internalID: 6153560365607636329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_102
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 199
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5b941082db59b80800000000000000
+      internalID: -8388590751389731376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_103
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 201
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1317682fe3f45dd0800000000000000
+      internalID: -2498103684783205605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_104
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 197
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa5c9015fc4cfe40800000000000000
+      internalID: 5691508644518845170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_105
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 169
+        width: 42
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e437c13cb3130080800000000000000
+      internalID: -9222505912914725663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_106
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 172
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76cd41a62e79daee0800000000000000
+      internalID: -1248174523013604249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_107
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 173
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d466412cd4f5c6750800000000000000
+      internalID: 6299514766357718605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_108
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 174
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 524b81dc6bb239c30800000000000000
+      internalID: 4364880527977133093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_109
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 176
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07572a3fa1764a500800000000000000
+      internalID: 406563231824508272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_110
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 178
+        width: 42
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e8f71b9f89ecd80800000000000000
+      internalID: -8228471270967112135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_111
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 172
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a781acaa329a3df0800000000000000
+      internalID: -199686452762540125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_112
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 143
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 789546ff261231590800000000000000
+      internalID: -7704777828425508473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_113
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 147
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8fc4da918596bc60800000000000000
+      internalID: 7833612985738514318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_114
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 148
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49a653da0da31900800000000000000
+      internalID: 654056632905804107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_115
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 149
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc489a1cb48b5b40800000000000000
+      internalID: 5430079719160171728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_116
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 151
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 599ea67817a0873e0800000000000000
+      internalID: -2055881747175118443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_117
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 151
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bcfb6ffb34e29c0800000000000000
+      internalID: -3950145331399767271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_118
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 145
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96517ee63860d6a60800000000000000
+      internalID: 7668792902052943209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_119
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 119
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a395e8b8d26ca10800000000000000
+      internalID: 1929279567786752597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_120
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 124
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e950ece3152256810800000000000000
+      internalID: 1757848961899431326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_121
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 125
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371c2b440180d7170800000000000000
+      internalID: 8177701364339753331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_122
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 126
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0e7c5d6aaab0b10800000000000000
+      internalID: 1948838897295810801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_123
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 128
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbccc9b005c81f670800000000000000
+      internalID: 8570785841282862267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_124
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 126
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0638454ce4eca780800000000000000
+      internalID: -8670303479169272307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_125
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 120
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82828262339b21830800000000000000
+      internalID: 4040495445039392808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_126
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 96
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e34f89e055afdab30800000000000000
+      internalID: 4300368462432760894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_127
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 101
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714cb55bef71e0f10800000000000000
+      internalID: 2237752447581537303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_128
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 102
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7498e10c420ba650800000000000000
+      internalID: 6245087833752114299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_129
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 103
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d8a9214433339440800000000000000
+      internalID: 4941349515680131287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_130
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 105
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f46ea3e4dc0ae8170800000000000000
+      internalID: 8182654376619992655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_131
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 101
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec0304af7585df00800000000000000
+      internalID: 1140964863867292910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_132
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 95
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 498d52c5ead79eb30800000000000000
+      internalID: 4317119905635096724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_133
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 73
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c751b8d7f903a340800000000000000
+      internalID: 4873750181842081728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_134
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 78
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b8955959daf83b0800000000000000
+      internalID: -5507992961283421396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_135
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 79
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114ce62b3534899d0800000000000000
+      internalID: -2767387944264219631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_136
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 80
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b0450282e09f390800000000000000
+      internalID: -7784174915429332152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_137
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 81
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1269fa6747da01800800000000000000
+      internalID: 581155067649824289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_138
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 76
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3991a41d1dc523aa0800000000000000
+      internalID: -6182777282197055085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_139
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 71
+        width: 50
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee5a1afa215944700800000000000000
+      internalID: 523707364170376686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_140
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 50
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c11f755d628bf000800000000000000
+      internalID: 70793625251811778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_141
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 55
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0813e25216b54c30800000000000000
+      internalID: 4343077605484992526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_142
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 56
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 165799f2a2ef5a270800000000000000
+      internalID: 8261288548621710689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_143
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 57
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e18d43cdd3878f00800000000000000
+      internalID: 1119008020912505320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_144
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 56
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b8f6b364d35a290800000000000000
+      internalID: -7879824601160643721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_145
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 51
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c41f1389ae42ded0800000000000000
+      internalID: -2390761962224020286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_146
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 47
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d0a9253970aa3e0800000000000000
+      internalID: -2041811151731684076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_147
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 27
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef000d52c400348a0800000000000000
+      internalID: -6322209124846141186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_148
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 32
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e5b1aa109dc85860800000000000000
+      internalID: 7518985596700833248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_149
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 33
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6292b68bd9c765070800000000000000
+      internalID: 8094794397090785574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_150
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 33
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ac9b871b7e3c670800000000000000
+      internalID: 8557938466354743838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_151
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 31
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f0426649cc6a60f0800000000000000
+      internalID: -1122965545350446860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_152
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 26
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 942160d5a863f5290800000000000000
+      internalID: -7899535253490494903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_153
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 23
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d4c91a66a9d8a10800000000000000
+      internalID: 1913355182291045749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_154
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 4
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9380c59609810d130800000000000000
+      internalID: 3589395911536281657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_155
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 9
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a206d9f7a90c798f0800000000000000
+      internalID: -533746261021597654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_156
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 10
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce669d86c4a21590800000000000000
+      internalID: -7704914839791571261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_157
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 8
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 529f662bb3ff58120800000000000000
+      internalID: 2415617407015385381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_158
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 6
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d874066eba75f060800000000000000
+      internalID: 6986625355109136593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_159
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c274d86e634ab3750800000000000000
+      internalID: 6285798260628866860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PressStart_160
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 0
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc92031d68641c770800000000000000
+      internalID: 8629255905867737548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PressStart_0: -9212739198471319767
+      PressStart_1: -6097539356494858763
+      PressStart_10: 412252437124319527
+      PressStart_100: -4464507309536948727
+      PressStart_101: 6153560365607636329
+      PressStart_102: -8388590751389731376
+      PressStart_103: -2498103684783205605
+      PressStart_104: 5691508644518845170
+      PressStart_105: -9222505912914725663
+      PressStart_106: -1248174523013604249
+      PressStart_107: 6299514766357718605
+      PressStart_108: 4364880527977133093
+      PressStart_109: 406563231824508272
+      PressStart_11: 7878333944089987455
+      PressStart_110: -8228471270967112135
+      PressStart_111: -199686452762540125
+      PressStart_112: -7704777828425508473
+      PressStart_113: 7833612985738514318
+      PressStart_114: 654056632905804107
+      PressStart_115: 5430079719160171728
+      PressStart_116: -2055881747175118443
+      PressStart_117: -3950145331399767271
+      PressStart_118: 7668792902052943209
+      PressStart_119: 1929279567786752597
+      PressStart_12: -71523708566682091
+      PressStart_120: 1757848961899431326
+      PressStart_121: 8177701364339753331
+      PressStart_122: 1948838897295810801
+      PressStart_123: 8570785841282862267
+      PressStart_124: -8670303479169272307
+      PressStart_125: 4040495445039392808
+      PressStart_126: 4300368462432760894
+      PressStart_127: 2237752447581537303
+      PressStart_128: 6245087833752114299
+      PressStart_129: 4941349515680131287
+      PressStart_13: -5813220926733863185
+      PressStart_130: 8182654376619992655
+      PressStart_131: 1140964863867292910
+      PressStart_132: 4317119905635096724
+      PressStart_133: 4873750181842081728
+      PressStart_134: -5507992961283421396
+      PressStart_135: -2767387944264219631
+      PressStart_136: -7784174915429332152
+      PressStart_137: 581155067649824289
+      PressStart_138: -6182777282197055085
+      PressStart_139: 523707364170376686
+      PressStart_14: 914134334930779818
+      PressStart_140: 70793625251811778
+      PressStart_141: 4343077605484992526
+      PressStart_142: 8261288548621710689
+      PressStart_143: 1119008020912505320
+      PressStart_144: -7879824601160643721
+      PressStart_145: -2390761962224020286
+      PressStart_146: -2041811151731684076
+      PressStart_147: -6322209124846141186
+      PressStart_148: 7518985596700833248
+      PressStart_149: 8094794397090785574
+      PressStart_15: -6599903480965243696
+      PressStart_150: 8557938466354743838
+      PressStart_151: -1122965545350446860
+      PressStart_152: -7899535253490494903
+      PressStart_153: 1913355182291045749
+      PressStart_154: 3589395911536281657
+      PressStart_155: -533746261021597654
+      PressStart_156: -7704914839791571261
+      PressStart_157: 2415617407015385381
+      PressStart_158: 6986625355109136593
+      PressStart_159: 6285798260628866860
+      PressStart_16: -6159366692813890230
+      PressStart_160: 8629255905867737548
+      PressStart_17: -3773400913534842779
+      PressStart_18: 3885970333206883275
+      PressStart_19: -8230340079598541785
+      PressStart_2: 1691665131274259624
+      PressStart_20: 1141033654902461660
+      PressStart_21: 2677215826972167824
+      PressStart_22: 7432314170804956439
+      PressStart_23: 7272795573148747839
+      PressStart_24: -5349790506542230031
+      PressStart_25: -5640817064517013226
+      PressStart_26: 8752630749897733306
+      PressStart_27: 6102847219120311056
+      PressStart_28: -309364736070990712
+      PressStart_29: 3206945596471813417
+      PressStart_3: 2520255958317522021
+      PressStart_30: 3712985829097976059
+      PressStart_31: -6939878546921196527
+      PressStart_32: 3605123775964231048
+      PressStart_33: 4521822283171731030
+      PressStart_34: 3101614088380556108
+      PressStart_35: 5520016383441124437
+      PressStart_36: 5752494112012268584
+      PressStart_37: -6457298257406890427
+      PressStart_38: 8525463072297107948
+      PressStart_39: -7300733353859319889
+      PressStart_4: 5661469459347621632
+      PressStart_40: 5071642327098688972
+      PressStart_41: -1957666478605818051
+      PressStart_42: -7192067068406461504
+      PressStart_43: -2296044980188491614
+      PressStart_44: 2334061950432670775
+      PressStart_45: 6859651039130363557
+      PressStart_46: -8014058152829242167
+      PressStart_47: -1354890582561064408
+      PressStart_48: -6282756609480566346
+      PressStart_49: -8075602018713751729
+      PressStart_5: -4603775090645899748
+      PressStart_50: -6921919677062059007
+      PressStart_51: -2160193917371341180
+      PressStart_52: 7459318252506355351
+      PressStart_53: -4713601573155061838
+      PressStart_54: 5831720235379168972
+      PressStart_55: 5552134004578137708
+      PressStart_56: -978124387060334634
+      PressStart_57: 2397423564127117512
+      PressStart_58: -8174819901116860961
+      PressStart_59: -8939648631693788555
+      PressStart_6: 1980516208214554904
+      PressStart_60: 6473974120402754681
+      PressStart_61: 2378709694746678385
+      PressStart_62: 3147600718857405518
+      PressStart_63: -6396244523050664375
+      PressStart_64: 2027632565457505976
+      PressStart_65: -7217590875017795281
+      PressStart_66: -8862310791126145647
+      PressStart_67: 7849977694619903196
+      PressStart_68: -1087717646376850707
+      PressStart_69: 305096411200679434
+      PressStart_7: -3911546364587791721
+      PressStart_70: 5804795741136858091
+      PressStart_71: -7105166733222884811
+      PressStart_72: -7470412291138932667
+      PressStart_73: -5433745482370223417
+      PressStart_74: -4658902287871914350
+      PressStart_75: -6708404955845920964
+      PressStart_76: -7796708169274210475
+      PressStart_77: 4105989753294526281
+      PressStart_78: 956246373438876637
+      PressStart_79: -8295323867311450861
+      PressStart_8: 3559019610425942028
+      PressStart_80: -396768646092696535
+      PressStart_81: 6210012791047990017
+      PressStart_82: 3951316415784760567
+      PressStart_83: 1090849446293087362
+      PressStart_84: -2021446066533424869
+      PressStart_85: -6312648965274011477
+      PressStart_86: -6685423927005273393
+      PressStart_87: 3929795519331735625
+      PressStart_88: 8922373844376892778
+      PressStart_89: 509510801406176554
+      PressStart_9: -740061692712668907
+      PressStart_90: -7381230814015599202
+      PressStart_91: 2227908557641357217
+      PressStart_92: 7434048911770489559
+      PressStart_93: 6157895337942456523
+      PressStart_94: 7168407627274882809
+      PressStart_95: 7756283473009685260
+      PressStart_96: -4859232202646927130
+      PressStart_97: 3435391546292932631
+      PressStart_98: 694170528054625095
+      PressStart_99: 2446035575652195923
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

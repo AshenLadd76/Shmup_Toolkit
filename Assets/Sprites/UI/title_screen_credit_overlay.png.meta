@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 3e057a9f88b1ed948ae2d10b133f7f4a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7332753396275248980
+    second: title_screen_credit_overlay_0
+  - first:
+      213: 3025566280809396315
+    second: title_screen_credit_overlay_1
+  - first:
+      213: -141602459423109647
+    second: title_screen_credit_overlay_2
+  - first:
+      213: 6579192285866130918
+    second: title_screen_credit_overlay_3
+  - first:
+      213: 8164684262845699868
+    second: title_screen_credit_overlay_4
+  - first:
+      213: 6868976068490968464
+    second: title_screen_credit_overlay_5
+  - first:
+      213: 6672967881478643611
+    second: title_screen_credit_overlay_6
+  - first:
+      213: -2838206244055834889
+    second: title_screen_credit_overlay_7
+  - first:
+      213: -401775453387770320
+    second: title_screen_credit_overlay_8
+  - first:
+      213: -3790961969043922819
+    second: title_screen_credit_overlay_9
+  - first:
+      213: -1788092517992139355
+    second: title_screen_credit_overlay_10
+  - first:
+      213: 7669478310451658460
+    second: title_screen_credit_overlay_11
+  - first:
+      213: -5620185993161956331
+    second: title_screen_credit_overlay_12
+  - first:
+      213: 4438980775137612408
+    second: title_screen_credit_overlay_13
+  - first:
+      213: 1665753869576043300
+    second: title_screen_credit_overlay_14
+  - first:
+      213: -6964699937598484017
+    second: title_screen_credit_overlay_15
+  - first:
+      213: -1256378748629005824
+    second: title_screen_credit_overlay_16
+  - first:
+      213: 5601154160224249423
+    second: title_screen_credit_overlay_17
+  - first:
+      213: 6414193929201401132
+    second: title_screen_credit_overlay_18
+  - first:
+      213: 8459436661109895151
+    second: title_screen_credit_overlay_19
+  - first:
+      213: -3133625187229240273
+    second: title_screen_credit_overlay_20
+  - first:
+      213: 9136248117165101786
+    second: title_screen_credit_overlay_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 146
+        width: 138
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca0897df2a3dc3a90800000000000000
+      internalID: -7332753396275248980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_1
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 144
+        width: 89
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b583b049088fcf920800000000000000
+      internalID: 3025566280809396315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 118
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd83ca305de80ef0800000000000000
+      internalID: -141602459423109647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 120
+        width: 52
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed7a04a68cfd4b50800000000000000
+      internalID: 6579192285866130918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 120
+        width: 58
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17d3262419ce4170800000000000000
+      internalID: 8164684262845699868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_5
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 120
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09d30154751835f50800000000000000
+      internalID: 6868976068490968464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_6
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 118
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9f102deee42b9c50800000000000000
+      internalID: 6672967881478643611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 96
+        width: 71
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe91cf557aac98d0800000000000000
+      internalID: -2838206244055834889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_8
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 80
+        width: 93
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036b9559a5b9c6af0800000000000000
+      internalID: -401775453387770320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_9
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 100
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d702f1eac2cc36bc0800000000000000
+      internalID: -3790961969043922819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_10
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 80
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a57b8f145b6f27e0800000000000000
+      internalID: -1788092517992139355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_11
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 80
+        width: 87
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdeb80383e57f6a60800000000000000
+      internalID: 7669478310451658460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 5
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 514a4f1cd961102b0800000000000000
+      internalID: -5620185993161956331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_13
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 56
+        width: 46
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8729dda0f7d6a9d30800000000000000
+      internalID: 4438980775137612408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_14
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 56
+        width: 52
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42bff4f9152fd1710800000000000000
+      internalID: 1665753869576043300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_15
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 69
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1d14cae4a685f90800000000000000
+      internalID: -6964699937598484017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_16
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 56
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00a4e984f22709ee0800000000000000
+      internalID: -1256378748629005824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 110
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f462e54580c4bbd40800000000000000
+      internalID: 5601154160224249423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_18
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 32
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d348e056bc30950800000000000000
+      internalID: 6414193929201401132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_19
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 32
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef2f51c2d4f56570800000000000000
+      internalID: 8459436661109895151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_20
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 32
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f24fbffae702384d0800000000000000
+      internalID: -3133625187229240273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_screen_credit_overlay_21
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 32
+        width: 35
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad21573b1497ace70800000000000000
+      internalID: 9136248117165101786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      title_screen_credit_overlay_0: -7332753396275248980
+      title_screen_credit_overlay_1: 3025566280809396315
+      title_screen_credit_overlay_10: -1788092517992139355
+      title_screen_credit_overlay_11: 7669478310451658460
+      title_screen_credit_overlay_12: -5620185993161956331
+      title_screen_credit_overlay_13: 4438980775137612408
+      title_screen_credit_overlay_14: 1665753869576043300
+      title_screen_credit_overlay_15: -6964699937598484017
+      title_screen_credit_overlay_16: -1256378748629005824
+      title_screen_credit_overlay_17: 5601154160224249423
+      title_screen_credit_overlay_18: 6414193929201401132
+      title_screen_credit_overlay_19: 8459436661109895151
+      title_screen_credit_overlay_2: -141602459423109647
+      title_screen_credit_overlay_20: -3133625187229240273
+      title_screen_credit_overlay_21: 9136248117165101786
+      title_screen_credit_overlay_3: 6579192285866130918
+      title_screen_credit_overlay_4: 8164684262845699868
+      title_screen_credit_overlay_5: 6868976068490968464
+      title_screen_credit_overlay_6: 6672967881478643611
+      title_screen_credit_overlay_7: -2838206244055834889
+      title_screen_credit_overlay_8: -401775453387770320
+      title_screen_credit_overlay_9: -3790961969043922819
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

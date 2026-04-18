@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ToolBox.Services
 {
@@ -11,6 +12,10 @@ namespace ToolBox.Services
     public abstract class BaseService : MonoBehaviour
     {
         private bool _isSubscribed = false;
+        
+        public virtual bool ShouldCache => false;
+        
+        [SerializeField] protected UnityEvent onFinishedInitialisation;
 
         private void OnEnable()
         {

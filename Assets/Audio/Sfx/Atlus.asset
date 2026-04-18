@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de3a20e31b2417a93f0e4a59ac8aa5c, type: 3}
+  m_Name: Atlus
+  m_EditorClassIdentifier: Assembly-CSharp::CodeBase.Audio.AudioDefinitionSo
+  clip: {fileID: 8300000, guid: f9f07a19a0dcdb541baf4a47c7200ccd, type: 3}
+  audioType: 0
+  volume: 1
+  pitch: 1
+  spatialBlend: 0
+  minDistance: 1
+  maxDistance: 500
+  rolloffMode: 0
+  loop: 0
+  playOnAwake: 0
+  mute: 0
+  bypassEffects: 0
+  bypassListenerEffects: 0
+  bypassReverbZones: 0

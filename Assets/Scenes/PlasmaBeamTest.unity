@@ -828,6 +828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7d45e31087a47448af405c107f31f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onFinishedInitialisation:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &538310126
 Transform:
   m_ObjectHideFlags: 0
@@ -1436,7 +1439,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092197846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16a977781f3d887498153ee2e6fc54d2, type: 3}
   m_Name: 
@@ -1922,7 +1925,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1885642322}
-  - component: {fileID: 1885642321}
   - component: {fileID: 1885642323}
   m_Layer: 0
   m_Name: AudioService
@@ -1931,38 +1933,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1885642321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885642320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da67e91dafd69f041b122709e9b8006e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CodeBase.AudioService
-  audioList:
-  - key: one
-    value: {fileID: 11400000, guid: 584843dcd3cbea149b6ebedb18710669, type: 2}
-  - key: 00sfx
-    value: {fileID: 11400000, guid: c29ffa95a2b6dd240a5785b4142f2017, type: 2}
-  - key: oasfx
-    value: {fileID: 11400000, guid: 67c0d7e2ea298e04087fa12eda6c7611, type: 2}
-  - key: obsfx
-    value: {fileID: 11400000, guid: 658fdc78812848541b374220f21d2775, type: 2}
-  - key: ocsfx
-    value: {fileID: 0}
-  - key: odsfx
-    value: {fileID: 0}
-  - key: oesfx
-    value: {fileID: 0}
-  musicClipList:
-  - key: airshipselect
-    value: {fileID: 11400000, guid: 584843dcd3cbea149b6ebedb18710669, type: 2}
-  - key: stage1and4
-    value: {fileID: 11400000, guid: 510ca1eca51df0a498d789e9ed26feb3, type: 2}
 --- !u!4 &1885642322
 Transform:
   m_ObjectHideFlags: 0
