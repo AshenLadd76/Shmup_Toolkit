@@ -2,7 +2,6 @@
 using CodeBase.Audio;
 using ToolBox.Utils.Pooling;
 using UnityEngine;
-using AudioType = CodeBase.Audio.AudioType;
 using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Services.Audio
@@ -37,7 +36,7 @@ namespace CodeBase.Services.Audio
             
             _activeAudioSources[(owner,key)] =  audioSource;
             
-            if(audioDefinition.AudioType == AudioType.Music)
+            if(audioDefinition.AudioType == AudioCommand.Music)
                 _currentMusicTrack = (owner, key);
             
             audioSource.Play();
@@ -57,7 +56,7 @@ namespace CodeBase.Services.Audio
             
             _activeAudioSources[(owner, key)] =  audioSource;
             
-            if(audioDefinition.AudioType == AudioType.Music)
+            if(audioDefinition.AudioType == AudioCommand.Music)
                 _currentMusicTrack = (owner, key);
             
             audioSource.transform.position = position;
@@ -131,7 +130,7 @@ namespace CodeBase.Services.Audio
             
             _activeAudioSources[(owner, key)] =  audioSource;
             
-            if(audioDefinition.AudioType == AudioType.Music)
+            if(audioDefinition.AudioType == AudioCommand.Music)
                 _currentMusicTrack = (owner, key);
             
             audioSource.transform.position = position;

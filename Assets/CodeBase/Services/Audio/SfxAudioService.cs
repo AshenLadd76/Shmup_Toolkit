@@ -5,7 +5,7 @@ using ToolBox.Utils.Pooling;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
 
-namespace CodeBase.Audio
+namespace CodeBase.Services.Audio
 {
     public class SfxAudioService
     {

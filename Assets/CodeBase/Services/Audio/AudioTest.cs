@@ -1,9 +1,8 @@
 using System.Collections;
-using CodeBase.Services.Audio;
 using ToolBox.Messaging;
 using UnityEngine;
 
-namespace CodeBase.Audio
+namespace CodeBase.Services.Audio
 {
     public class AudioTest : MonoBehaviour
     {
@@ -19,20 +18,20 @@ namespace CodeBase.Audio
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.M))
                MessageBus.Broadcast( AudioServiceMessages.RequestPlayMusicAtPosition, this,"stage1and4", new Vector3(0,-30,0) );
             
-            if (Input.GetKeyDown(KeyCode.S))
-                MessageBus.Broadcast( AudioServiceMessages.RequestStopMusic, this,"stage1and4" );
+            if(UnityEngine.Input.GetKeyDown(KeyCode.C))
+                MessageBus.Broadcast(AudioServiceMessages.RequestAudio, new AudioRequest("airshipselect", AudioCommand.CrossFade, this, new Vector3(0, -20, 0)));
             
-            if(Input.GetKeyDown(KeyCode.C))
-               MessageBus.Broadcast(AudioServiceMessages.RequestAudioCrossFade, this,sfxCode);
+            if(UnityEngine.Input.GetKeyDown(KeyCode.R))
+                MessageBus.Broadcast(AudioServiceMessages.RequestAudio, new AudioRequest("stage1and4", AudioCommand.CrossFade, this, new Vector3(0, -20, 0)));
             
-            if(Input.GetKeyDown(KeyCode.R))
-                MessageBus.Broadcast(AudioServiceMessages.RequestAudioCrossFade, this,"stage1and4");
+            if(UnityEngine.Input.GetKeyDown(KeyCode.P)) 
+                MessageBus.Broadcast(AudioServiceMessages.RequestAudio, new AudioRequest("stage1and4", AudioCommand.Music, this, new Vector3(0, -20, 0)));
             
-            if(Input.GetKeyDown(KeyCode.P)) 
-                MessageBus.Broadcast(AudioServiceMessages.RequestPlayOneShot, "00sfx");
+            if (UnityEngine.Input.GetKeyDown(KeyCode.S))
+                MessageBus.Broadcast(AudioServiceMessages.RequestAudio, new AudioRequest("stage1and4", AudioCommand.StopMusic, this, new Vector3(0, -20, 0)));
         }
 
 

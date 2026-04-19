@@ -183,11 +183,11 @@ MonoBehaviour:
     value: {fileID: 11400000, guid: 658fdc78812848541b374220f21d2775, type: 2}
   - key: atlus
     value: {fileID: 11400000, guid: 88126ec23407018488150f0e279fd494, type: 2}
-  musicClipList:
   - key: airshipselect
     value: {fileID: 11400000, guid: 584843dcd3cbea149b6ebedb18710669, type: 2}
   - key: stage1and4
     value: {fileID: 11400000, guid: 510ca1eca51df0a498d789e9ed26feb3, type: 2}
+  musicClipList: []
   audioPreloadCount: 20
   maxPoolSize: 50
 --- !u!1 &4364486436901712917

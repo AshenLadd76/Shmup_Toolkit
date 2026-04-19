@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-namespace CodeBase.Audio
+namespace CodeBase.Services.Audio
 {
     [CreateAssetMenu(fileName = "NewAudioDefinition", menuName = "ToolBox/AudioDefinition")]
     public class AudioDefinitionSo : ScriptableObject, IAudioDefinition
     {
         [Header("Clip")]
         [SerializeField] private AudioClip clip;
-        [SerializeField] private AudioType audioType;
+        [SerializeField] private CodeBase.Audio.AudioType audioType;
 
         [Header("Playback Settings"), Space(20)]
         [SerializeField, Range(0f, 1f)] private float volume = 1f;
@@ -35,7 +35,7 @@ namespace CodeBase.Audio
         // Public read-only accessors
         public AudioClip Clip => clip;
         
-        public AudioType AudioType => audioType;
+        public AudioCommand AudioType => (AudioCommand)audioType;
       
         public bool Loop { get => loop; set => loop = value; }
 
@@ -58,7 +58,7 @@ namespace CodeBase.Audio
     {
         AudioClip Clip { get; }
         
-        AudioType AudioType { get; }
+        AudioCommand AudioType { get; }
 
         float Pitch { get; set; }
         bool Loop { get; set; }

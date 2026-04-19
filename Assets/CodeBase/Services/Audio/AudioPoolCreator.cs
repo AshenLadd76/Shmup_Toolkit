@@ -1,7 +1,7 @@
 ﻿using ToolBox.Utils.Pooling;
 using UnityEngine;
 
-namespace CodeBase.Audio
+namespace CodeBase.Services.Audio
 {
     public interface IAudioPoolCreator
     {
@@ -10,6 +10,8 @@ namespace CodeBase.Audio
 
     public class AudioPoolCreator : IAudioPoolCreator
     {
+        private const string PoolObjectName = "AudioSource";
+        
         public GenericPool<AudioSource> CreateAudioPool(string poolRootName, int preloadCount, int maxPoolSize, Transform parent)
         {
             var poolRoot = new GameObject($"{poolRootName}");
@@ -17,7 +19,7 @@ namespace CodeBase.Audio
             
             return new GenericPool<AudioSource>(createFunc: () => {
                     
-                    var go = new GameObject("AudioSource");
+                    var go = new GameObject(PoolObjectName);
                     
                     go.transform.SetParent(poolRoot.transform);
                     

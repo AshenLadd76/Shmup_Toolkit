@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using CodeBase.Audio;
 using ToolBox.Utils;
 
 namespace CodeBase.Services.Audio
@@ -48,12 +47,22 @@ namespace CodeBase.Services.Audio
         {
             key = string.Empty;
             audioDefinition = null;
+            
+            Logger.Log( $"Audio definition for {id}" );
 
-            if (!TryCreateKey(id, out key)) return false;
+            if (!TryCreateKey(id, out key))
+            {
+                Logger.LogError($"Audio key is not defined: {id}");
+                return false;
+            }
+            
+            Logger.Log( $"Audio definition Key: {key}" );
 
-            if (!TryGetAudioDefinition(key, dictionary, out audioDefinition)) return false;
-
-            return true;
+            if (TryGetAudioDefinition(key, dictionary, out audioDefinition)) return true;
+            
+            Logger.LogError( $"Failed to resolve audio definition for {id}" );
+            
+            return false;
         }
     }
 }
