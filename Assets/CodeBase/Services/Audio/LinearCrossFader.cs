@@ -50,9 +50,10 @@ namespace CodeBase.Audio
                 elapsedTime += Time.deltaTime;
                 
                 float t = Mathf.Clamp01(elapsedTime / duration);
-
-                fadeInSource.volume = t;
-                fadeOutSource.volume = 1 - t;
+                
+                // True equal-power crossfade (constant perceived volume)
+                fadeInSource.volume = Mathf.Sin(t * Mathf.PI * 0.5f);     // Smooth sine curve
+                fadeOutSource.volume  = Mathf.Cos(t * Mathf.PI * 0.5f);     // Complementary cosine
                 
                 yield return null;
             }

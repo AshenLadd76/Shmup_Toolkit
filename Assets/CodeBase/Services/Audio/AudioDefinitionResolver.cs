@@ -42,10 +42,10 @@ namespace CodeBase.Services.Audio
         public static bool TryResolveAudio(
             string id,
             Dictionary<string, IAudioDefinition> dictionary,
-            out string key,
+          
             out IAudioDefinition audioDefinition)
         {
-            key = string.Empty;
+            var key = string.Empty;
             audioDefinition = null;
             
             Logger.Log( $"Audio definition for {id}" );

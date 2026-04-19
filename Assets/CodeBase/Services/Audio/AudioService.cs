@@ -35,7 +35,7 @@ namespace CodeBase.Services.Audio
         {
             var id  = audioRequest.AudioKey;
             
-            if(!AudioDefinitionResolver.TryResolveAudio(id, _audioDictionary, out var key,out var audioDefinition)) return;
+            if(!AudioDefinitionResolver.TryResolveAudio(id, _audioDictionary, out var audioDefinition)) return;
             
             _audioRouter.ExecuteAudioRequest(audioRequest, audioDefinition);
         }
