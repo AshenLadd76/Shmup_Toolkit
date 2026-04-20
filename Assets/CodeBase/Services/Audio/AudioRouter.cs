@@ -54,7 +54,7 @@ namespace CodeBase.Services.Audio
 
         public void ExecuteAudioRequest(AudioRequest audioRequest, IAudioDefinition audioDefinition)
         {
-            var audioType =  audioRequest.AudioType;
+            var audioCommand =  audioRequest.AudioCommand;
 
 
             if (audioDefinition == null)
@@ -63,13 +63,13 @@ namespace CodeBase.Services.Audio
                 return;
             }
             
-            if (!_audioRouterDictionary.TryGetValue(audioType, out var audioAction))
+            if (!_audioRouterDictionary.TryGetValue(audioCommand, out var audioAction))
             {
-                Logger.LogError($"Audio request for {audioType} not found");
+                Logger.LogError($"Audio request for {audioCommand} not found");
                 return;
             }
 
-            audioAction?.Invoke(audioRequest, audioDefinition);
+            audioAction.Invoke(audioRequest, audioDefinition);
         }
     }
 }

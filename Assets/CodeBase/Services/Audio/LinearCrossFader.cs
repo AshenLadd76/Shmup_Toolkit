@@ -4,7 +4,7 @@ using ToolBox.Helpers;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
 
-namespace CodeBase.Audio
+namespace CodeBase.Services.Audio
 {
     public interface ICrossFader
     {

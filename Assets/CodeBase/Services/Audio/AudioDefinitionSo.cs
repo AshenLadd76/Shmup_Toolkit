@@ -7,7 +7,7 @@ namespace CodeBase.Services.Audio
     {
         [Header("Clip")]
         [SerializeField] private AudioClip clip;
-        [SerializeField] private CodeBase.Audio.AudioType audioType;
+        [SerializeField] private AudioCommand audioCommand;
 
         [Header("Playback Settings"), Space(20)]
         [SerializeField, Range(0f, 1f)] private float volume = 1f;
@@ -35,7 +35,7 @@ namespace CodeBase.Services.Audio
         // Public read-only accessors
         public AudioClip Clip => clip;
         
-        public AudioCommand AudioType => (AudioCommand)audioType;
+        public AudioCommand AudioCommand => audioCommand;
       
         public bool Loop { get => loop; set => loop = value; }
 
@@ -58,7 +58,7 @@ namespace CodeBase.Services.Audio
     {
         AudioClip Clip { get; }
         
-        AudioCommand AudioType { get; }
+        AudioCommand AudioCommand { get; }
 
         float Pitch { get; set; }
         bool Loop { get; set; }

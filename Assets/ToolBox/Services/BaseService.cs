@@ -19,9 +19,7 @@ namespace ToolBox.Services
         /// Optional. Invoke in subclasses when initialisation is complete.
         /// </summary>
         [SerializeField] protected UnityEvent onFinishedInitialisation;
-
-      
-
+        
         private void OnEnable()
         {
             Subscribe();
@@ -37,10 +35,7 @@ namespace ToolBox.Services
         /// <summary>
         /// Override in subclasses for initialisation logic. Always call base.Awake().
         /// </summary>
-        protected virtual void Awake()
-        {
-            
-        }
+        protected virtual void Awake() { }
 
         /// <summary>
         /// Ensures the service subscribes only once.

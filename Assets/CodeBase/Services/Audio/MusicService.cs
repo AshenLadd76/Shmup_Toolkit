@@ -21,25 +21,7 @@ namespace CodeBase.Services.Audio
             _audioCrossFader = audioCrossFader ?? throw new System.ArgumentNullException(nameof(audioCrossFader));
         }
         
-        public void PlayMusic(Object owner, string id, IAudioDefinition audioDefinition)
-        {
-            if( owner == null || string.IsNullOrEmpty(id)) return;
-            
-            
-            var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
-            
-            if (_activeAudioSources.TryGetValue((owner, id), out var activeAudioSource))
-            {
-                activeAudioSource.Stop();
-                _audioSourcePool.Release(activeAudioSource);
-            }
-            
-            _currentMusicTrack = (owner, id);
-            
-            _activeAudioSources[_currentMusicTrack] =  audioSource;
-            
-            audioSource.Play();
-        }
+        public void PlayMusic(Object owner, string id, IAudioDefinition audioDefinition) => PlayMusicAtPosition( owner, id, audioDefinition, Vector3.zero );
         
         public void PlayMusicAtPosition(Object owner, string key, IAudioDefinition audioDefinition, Vector3 position)
         {
@@ -55,7 +37,7 @@ namespace CodeBase.Services.Audio
             
             _activeAudioSources[(owner, key)] =  audioSource;
             
-            if(audioDefinition.AudioType == AudioCommand.Music)
+            if(audioDefinition.AudioCommand == AudioCommand.Music)
                 _currentMusicTrack = (owner, key);
             
             audioSource.transform.position = position;

@@ -23,19 +23,9 @@ namespace CodeBase.Services.Audio
             _audioSourcePool = audioSourcePool ?? throw new System.ArgumentNullException(nameof(audioSourcePool));
         }
         
-        public void PlayOneShot(IAudioDefinition audioDefinition)
-        {
-            if (audioDefinition?.Clip == null)
-            {
-                Logger.LogError( $"Audio definition or Audio clip is null." );
-                return;
-            }
-
-            var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
-            
-            PlayAudioSource(audioSource);
-        }
-
+        public void PlayOneShot(IAudioDefinition audioDefinition) => PlayOneShotAtPosition( audioDefinition, Vector3.zero);
+        
+        
         public void PlayOneShotAtPosition(IAudioDefinition audioDefinition, Vector3 position)
         {
             if (audioDefinition?.Clip == null)
@@ -43,9 +33,14 @@ namespace CodeBase.Services.Audio
                 Logger.LogError($"Audio definition or Audio clip is null");
                 return;
             }
-
             
             var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
+
+            if (audioSource == null)
+            {
+                Logger.LogError($"Audio source is null");
+                return;
+            }
             
             audioSource.transform.position = position;
             
@@ -73,19 +68,19 @@ namespace CodeBase.Services.Audio
             
             while (_activeSfxAudioSources.Count > 0)
             {
-
-                for (int x = _activeSfxAudioSources.Count - 1; x >= 0; x--)
+                for (var x = _activeSfxAudioSources.Count - 1; x >= 0; x--)
                 {
                     var audioSource = _activeSfxAudioSources[x];
 
                     if (audioSource != null && audioSource.isPlaying) continue;
                     
                     AudioSourceConfigurator.ResetAudioSource(audioSource);
+                    
                     _audioSourcePool.Release(audioSource);
                     _activeSfxAudioSources.RemoveAt(x);
                 }
                 
-                float delay = Mathf.Clamp(maxDelay / Mathf.Max(1, _activeSfxAudioSources.Count), minDelay, maxDelay);
+                var delay = Mathf.Clamp(maxDelay / Mathf.Max(1, _activeSfxAudioSources.Count), minDelay, maxDelay);
                 
                 yield return new WaitForSeconds(delay);
             }
