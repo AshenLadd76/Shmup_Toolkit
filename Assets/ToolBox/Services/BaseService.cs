@@ -15,7 +15,12 @@ namespace ToolBox.Services
         
         public virtual bool ShouldCache => false;
         
+        /// <summary>
+        /// Optional. Invoke in subclasses when initialisation is complete.
+        /// </summary>
         [SerializeField] protected UnityEvent onFinishedInitialisation;
+
+      
 
         private void OnEnable()
         {
@@ -29,11 +34,16 @@ namespace ToolBox.Services
             OnServiceDisabled();
         }
 
+        protected virtual void Awake()
+        {
+            
+        }
+
         /// <summary>
         /// Ensures the service subscribes only once.
         /// Calls <see cref="SubscribeToService"/> in derived classes.
         /// </summary>
-        protected virtual void Subscribe()
+        private void Subscribe()
         {
             if (_isSubscribed) return;
             SubscribeToService();
@@ -44,7 +54,7 @@ namespace ToolBox.Services
         /// Unsubscribes only if currently subscribed.
         /// Calls <see cref="UnsubscribeFromService"/> in derived classes.
         /// </summary>
-        protected virtual void Unsubscribe()
+        private void Unsubscribe()
         {
             if (!_isSubscribed) return;
             UnsubscribeFromService();

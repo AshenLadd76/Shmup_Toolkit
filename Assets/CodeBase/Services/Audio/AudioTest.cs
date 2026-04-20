@@ -31,7 +31,7 @@ namespace CodeBase.Services.Audio
                 MessageBus.Broadcast(AudioServiceMessages.RequestAudio, new AudioRequest("stage1and4", AudioCommand.Music, this, new Vector3(0, -20, 0)));
             
             if (UnityEngine.Input.GetKeyDown(KeyCode.S))
-                MessageBus.Broadcast(AudioServiceMessages.RequestAudio, new AudioRequest("stage1and4", AudioCommand.StopMusic, this, new Vector3(0, -20, 0)));
+                MessageBus.Broadcast(AudioServiceMessages.RequestAudio, new AudioRequest("stage1and4", AudioCommand.StopMusic, this));
         }
 
 

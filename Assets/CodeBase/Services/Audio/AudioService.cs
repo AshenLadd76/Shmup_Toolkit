@@ -3,6 +3,7 @@ using ToolBox.Helpers;
 using ToolBox.Messaging;
 using ToolBox.Services;
 using UnityEngine;
+using Logger = ToolBox.Utils.Logger;
 
 namespace CodeBase.Services.Audio
 {
@@ -14,8 +15,10 @@ namespace CodeBase.Services.Audio
         
         private AudioRouter _audioRouter;
         
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             InitAudioDictionary();
        
             _audioRouter = new AudioRouter(new CoroutineRunner(this), transform);
@@ -24,12 +27,27 @@ namespace CodeBase.Services.Audio
         protected override void SubscribeToService() => MessageBus.AddListener<AudioRequest>( AudioServiceMessages.RequestAudio, RequestAudio );
         
         protected override void UnsubscribeFromService() => MessageBus.RemoveListener<AudioRequest>( AudioServiceMessages.RequestAudio, RequestAudio );
-        
+
         private void InitAudioDictionary()
         {
+            _audioDictionary.Clear();
+            
             foreach (var audioDefinition in audioList)
-                _audioDictionary[AudioDefinitionResolver.FormatID(audioDefinition.Key)] = audioDefinition.Value;
+            {
+                var formattedKey = AudioDefinitionResolver.FormatID(audioDefinition.Key);
+
+                if (_audioDictionary.ContainsKey(formattedKey))
+                {
+                    Logger.LogWarning( $"Duplicate key: {formattedKey} skipped." );
+                    continue;
+                }
+
+                _audioDictionary[formattedKey] = audioDefinition.Value;
+                
+                onFinishedInitialisation?.Invoke();
+            }
         }
+    
         
         private void RequestAudio(AudioRequest audioRequest)
         {

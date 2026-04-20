@@ -66,7 +66,7 @@ namespace CodeBase.Services.Audio
         {
             if (!_activeAudioSources.TryGetValue((owner, key), out var audioSourceToStop))
             {
-                Logger.LogError($"AudioService clip not found {_currentMusicTrack}");
+                Logger.LogError($"AudioService clip not found {_currentMusicTrack} { owner } {key}");
                 return;
             }
             
