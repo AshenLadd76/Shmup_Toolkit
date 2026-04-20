@@ -30,33 +30,15 @@ namespace CodeBase.Services.Audio
                 Logger.LogError("Audio dictionary is not initialised or empty");
                 return false;
             }
-
             
-            if (dictionary.TryGetValue(key, out audioDefinition)) 
-                return true;
-
-            Logger.LogError($"Audio not found: {key}");
-            return false;
+            return dictionary.TryGetValue(key, out audioDefinition);
         }
         
-        public static bool TryResolveAudio(
-            string id,
-            Dictionary<string, IAudioDefinition> dictionary,
-          
-            out IAudioDefinition audioDefinition)
+        public static bool TryResolveAudio(string id, Dictionary<string, IAudioDefinition> dictionary, out IAudioDefinition audioDefinition)
         {
-            var key = string.Empty;
             audioDefinition = null;
             
-            Logger.Log( $"Audio definition for {id}" );
-
-            if (!TryCreateKey(id, out key))
-            {
-                Logger.LogError($"Audio key is not defined: {id}");
-                return false;
-            }
-            
-            Logger.Log( $"Audio definition Key: {key}" );
+            if (!TryCreateKey(id, out var key)) return false;
 
             if (TryGetAudioDefinition(key, dictionary, out audioDefinition)) return true;
             

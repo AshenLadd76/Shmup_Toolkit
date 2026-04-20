@@ -34,6 +34,9 @@ namespace ToolBox.Services
             OnServiceDisabled();
         }
 
+        /// <summary>
+        /// Override in subclasses for initialisation logic. Always call base.Awake().
+        /// </summary>
         protected virtual void Awake()
         {
             
