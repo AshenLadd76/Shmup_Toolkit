@@ -172,6 +172,7 @@ MonoBehaviour:
   onFinishedInitialisation:
     m_PersistentCalls:
       m_Calls: []
+  audioPoolConfigSo: {fileID: 11400000, guid: 95563c8600f8b6f4986289685d486256, type: 2}
   audioList:
   - key: one
     value: {fileID: 11400000, guid: 584843dcd3cbea149b6ebedb18710669, type: 2}
@@ -187,8 +188,6 @@ MonoBehaviour:
     value: {fileID: 11400000, guid: 584843dcd3cbea149b6ebedb18710669, type: 2}
   - key: stage1and4
     value: {fileID: 11400000, guid: 510ca1eca51df0a498d789e9ed26feb3, type: 2}
-  _audioDictionary:
-    m_Keys: []
 --- !u!1 &4364486436901712917
 GameObject:
   m_ObjectHideFlags: 0

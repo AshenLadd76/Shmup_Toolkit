@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac77a198e904fd48a8681315093f9a1, type: 3}
+  m_Name: AudioPoolConfig
+  m_EditorClassIdentifier: Assembly-CSharp::CodeBase.Services.Audio.AudioPoolConfigSo
+  sfxPreloadCount: 10
+  sfxMaxPoolSize: 50
+  loopingPreloadCount: 5
+  loopingMaxPoolSize: 20
+  musicPreloadCount: 2
+  musicMaxPoolSize: 5
+  fadeTime: 3

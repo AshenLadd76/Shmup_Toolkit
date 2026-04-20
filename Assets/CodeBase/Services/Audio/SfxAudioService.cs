@@ -49,7 +49,10 @@ namespace CodeBase.Services.Audio
         
         private void PlayAudioSource(AudioSource audioSource)
         {
+            if (audioSource == null) return;
+            
             _activeSfxAudioSources.Add(audioSource);
+            
             audioSource.Play();
             StartCleanUpCoroutine();
         }
@@ -80,6 +83,7 @@ namespace CodeBase.Services.Audio
                     _activeSfxAudioSources.RemoveAt(x);
                 }
                 
+                // Check more frequently with many active sources, less frequently with few
                 var delay = Mathf.Clamp(maxDelay / Mathf.Max(1, _activeSfxAudioSources.Count), minDelay, maxDelay);
                 
                 yield return new WaitForSeconds(delay);

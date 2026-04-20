@@ -10,9 +10,7 @@ namespace CodeBase.Services.Audio
         private readonly IPool<AudioSource> _audioSourcePool;
         
         private readonly Dictionary<(Object owner,string id), AudioSource> _activeAudioSources = new();
-        
-        private Coroutine _cleanupCoroutine;
-        
+   
         public LoopingAudioService(IPool<AudioSource> audioSourcePool)
         {
             _audioSourcePool = audioSourcePool ?? throw new System.ArgumentNullException(nameof(audioSourcePool));
@@ -24,7 +22,7 @@ namespace CodeBase.Services.Audio
         {
             if (owner == null || string.IsNullOrEmpty(key) || audioDefinition?.Clip == null)
             {
-                Logger.LogError( $"Required parameter is null or empty" );
+                Logger.LogError($"PlayAudioLoopAtPosition: owner={owner}, key='{key}', clip={audioDefinition?.Clip}");
                 return;
             }
 
@@ -48,7 +46,7 @@ namespace CodeBase.Services.Audio
             
             if (!_activeAudioSources.TryGetValue((owner, key), out var audioSourceToStop))
             {
-                Logger.LogError($"AudioService clip not found");
+                Logger.LogError($"No active AudioSource found for owner: {owner} key: {key}");
                 return;
             }
             

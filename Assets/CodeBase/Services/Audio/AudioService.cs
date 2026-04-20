@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ToolBox.Helpers;
 using ToolBox.Messaging;
 using ToolBox.Services;
+using ToolBox.Utils.Validation;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
 
@@ -9,9 +10,11 @@ namespace CodeBase.Services.Audio
 {
     public class AudioService : BaseService
     {
+        [Validate,SerializeField, Header("Audio Pool Config"), Space(20)] private AudioPoolConfigSo audioPoolConfigSo;
+        
         [SerializeField, Header("Audio Clips"), Space(20)] private List<Wormwood.Utils.KeyValuePair<string, AudioDefinitionSo>> audioList;
         
-        private  Dictionary<string, IAudioDefinition> _audioDictionary = new();
+        private readonly Dictionary<string, IAudioDefinition> _audioDictionary = new();
         
         private AudioRouter _audioRouter;
         
@@ -19,9 +22,11 @@ namespace CodeBase.Services.Audio
         {
             base.Awake();
             
+            ObjectValidator.Validate(this, this, true);
+            
             InitAudioDictionary();
-       
-            _audioRouter = new AudioRouter(new CoroutineRunner(this), transform);
+            
+            _audioRouter = new AudioRouter(audioPoolConfigSo, new CoroutineRunner(this), transform);
         }
         
         protected override void SubscribeToService() => MessageBus.AddListener<AudioRequest>( AudioServiceMessages.RequestAudio, RequestAudio );
@@ -34,6 +39,12 @@ namespace CodeBase.Services.Audio
             
             foreach (var audioDefinition in audioList)
             {
+                if (audioDefinition.Value == null)
+                {
+                    Logger.LogWarning($"AudioDefinition for key '{audioDefinition.Key}' is null, skipping.");
+                    continue;
+                }
+
                 var formattedKey = AudioDefinitionResolver.FormatID(audioDefinition.Key);
 
                 if (_audioDictionary.ContainsKey(formattedKey))

@@ -25,7 +25,11 @@ namespace CodeBase.Services.Audio
         
         public void PlayMusicAtPosition(Object owner, string key, IAudioDefinition audioDefinition, Vector3 position)
         {
-            if( audioDefinition?.Clip == null ) return;  
+            if (owner == null || string.IsNullOrEmpty(key) || audioDefinition?.Clip == null)
+            {
+                Logger.LogError($"PlayMusicAtPosition: owner={owner}, key='{key}', clip={audioDefinition?.Clip}");
+                return;
+            }
             
             var audioSource = AudioSourceConfigurator.ConfigAudioSource(audioDefinition, _audioSourcePool.Get());
             
@@ -37,8 +41,7 @@ namespace CodeBase.Services.Audio
             
             _activeAudioSources[(owner, key)] =  audioSource;
             
-            if(audioDefinition.AudioCommand == AudioCommand.Music)
-                _currentMusicTrack = (owner, key);
+            _currentMusicTrack = (owner, key);
             
             audioSource.transform.position = position;
             audioSource.Play();
@@ -48,7 +51,7 @@ namespace CodeBase.Services.Audio
         {
             if (!_activeAudioSources.TryGetValue((owner, key), out var audioSourceToStop))
             {
-                Logger.LogError($"AudioService clip not found {_currentMusicTrack} { owner } {key}");
+                Logger.LogError($"Audio source not found  owner: { owner } key: {key}");
                 return;
             }
             
@@ -58,16 +61,16 @@ namespace CodeBase.Services.Audio
             _activeAudioSources.Remove((owner, key));
             
             _audioSourcePool.Release(audioSourceToStop);
-            
+
             if (_currentMusicTrack == (owner, key))
-                _currentMusicTrack = (null, null);
+                _currentMusicTrack = default;
         }
         
         public void CrossFadeAudioTrack(Object owner, string fadeInId, IAudioDefinition audioDefinition, float fadeDuration = 3f)
         {
-            if (_currentMusicTrack.owner == null || string.IsNullOrEmpty(_currentMusicTrack.id))
+            if (_currentMusicTrack.owner == null || string.IsNullOrEmpty(_currentMusicTrack.id) || audioDefinition?.Clip == null)
             {
-                Logger.LogError( $"No valid audio track to cross fade out from" );
+                Logger.LogError($"Cross Fading Audio Track: owner={owner}, key='{_currentMusicTrack.id}', clip={audioDefinition?.Clip}");
                 return;
             }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using CodeBase.Audio;
 using ToolBox.Helpers;
 using UnityEngine;
 using Logger = ToolBox.Utils.Logger;
@@ -15,29 +14,31 @@ namespace CodeBase.Services.Audio
         private readonly LoopingAudioService _loopingAudioService;
         private readonly MusicService _musicService;
         
-        
         private const string SfxAudioPool = "SfxAudioPool";
         private const string LoopingAudioPool = "LoopingAudioPool";
         private const string MusicAudioPool = "MusicAudioPool";
         
-        private readonly int audioPreloadCount = 10;
-        private readonly int maxPoolSize = 50;
+        private readonly float _fadeDuration;
         
-        public AudioRouter(ICoroutineRunner coroutineRunner, Transform parent)
+        public AudioRouter(AudioPoolConfigSo audioPoolConfigSo, ICoroutineRunner coroutineRunner, Transform parent)
         {
+            if (audioPoolConfigSo == null) throw new ArgumentNullException(nameof(audioPoolConfigSo));
+            if (coroutineRunner == null) throw new ArgumentNullException(nameof(coroutineRunner));
+            if (parent == null) throw new ArgumentNullException(nameof(parent));
+
+            _fadeDuration = audioPoolConfigSo.FadeTime;
+
             var audioPoolCreator = new AudioPoolCreator();
             
-            _sfxAudioService = new SfxAudioService( coroutineRunner, audioPoolCreator.CreateAudioPool(SfxAudioPool, audioPreloadCount, maxPoolSize, parent));
-            _loopingAudioService = new LoopingAudioService(audioPoolCreator.CreateAudioPool(LoopingAudioPool, audioPreloadCount, maxPoolSize, parent));
-            _musicService = new MusicService(audioPoolCreator.CreateAudioPool(MusicAudioPool, audioPreloadCount, maxPoolSize, parent), new LinearCrossFader(coroutineRunner) );
+            _sfxAudioService = new SfxAudioService( coroutineRunner, audioPoolCreator.CreateAudioPool(SfxAudioPool, audioPoolConfigSo.SfxPreloadCount, audioPoolConfigSo.SfxMaxPoolSize, parent));
+            _loopingAudioService = new LoopingAudioService(audioPoolCreator.CreateAudioPool(LoopingAudioPool, audioPoolConfigSo.LoopingPreloadCount, audioPoolConfigSo.LoopingMaxPoolSize, parent));
+            _musicService = new MusicService(audioPoolCreator.CreateAudioPool(MusicAudioPool, audioPoolConfigSo.MusicPreloadCount, audioPoolConfigSo.MusicMaxPoolSize, parent), new LinearCrossFader(coroutineRunner) );
             
             InitAudioRouterDictionary();
         }
 
         private void InitAudioRouterDictionary()
         {
-            _audioRouterDictionary.Clear();
-
             _audioRouterDictionary.Add(AudioCommand.OneShot, (audioRequest, audioDefinition) => { _sfxAudioService.PlayOneShot(audioDefinition); });
             _audioRouterDictionary.Add(AudioCommand.OneShotAtPosition, (audioRequest, audioDefinition) => { _sfxAudioService.PlayOneShotAtPosition(audioDefinition, audioRequest.Position); });
             
@@ -49,14 +50,13 @@ namespace CodeBase.Services.Audio
             _audioRouterDictionary.Add(AudioCommand.MusicAtPosition, (audioRequest, audioDefinition) => { _musicService.PlayMusicAtPosition(audioRequest.Owner, audioRequest.AudioKey, audioDefinition, audioRequest.Position); });
             _audioRouterDictionary.Add(AudioCommand.StopMusic, (audioRequest, audioDefinition) => { _musicService.StopMusic(audioRequest.Owner, audioRequest.AudioKey); });
             
-            _audioRouterDictionary.Add(AudioCommand.CrossFade, (audioRequest, audioDefinition) => { _musicService.CrossFadeAudioTrack(audioRequest.Owner, audioRequest.AudioKey, audioDefinition); });
+            _audioRouterDictionary.Add(AudioCommand.CrossFade, (audioRequest, audioDefinition) => { _musicService.CrossFadeAudioTrack(audioRequest.Owner, audioRequest.AudioKey, audioDefinition, _fadeDuration); });
         }
 
         public void ExecuteAudioRequest(AudioRequest audioRequest, IAudioDefinition audioDefinition)
         {
             var audioCommand =  audioRequest.AudioCommand;
-
-
+            
             if (audioDefinition == null)
             {
                 Logger.LogError( $"Required AudioDefinition is null" );
